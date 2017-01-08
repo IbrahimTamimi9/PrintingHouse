@@ -12,7 +12,7 @@ import UIKit
 //let close = UIAlertAction(title: "Закрыть", style: UIAlertActionStyle.destructive ) {
 //    UIAlertAction in
 //    exit(0)
-//}
+//}hjk
 
 var rightBarButton: ENMBadgedBarButtonItem?
 
