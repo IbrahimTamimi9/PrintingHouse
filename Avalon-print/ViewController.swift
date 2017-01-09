@@ -16,6 +16,7 @@ import CoreData
 //}hjk
 
 var rightBarButton: ENMBadgedBarButtonItem?
+let screenSize: CGRect = UIScreen.main.bounds
 
 
 
@@ -49,7 +50,6 @@ class ViewController: UIViewController {
         let contactsIMG = UIImage(named: "emailmain") as UIImage?
         let infoIMG = UIImage(named: "infomain") as UIImage?
         
-        let screenSize: CGRect = UIScreen.main.bounds
         
         let postersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 ))
 

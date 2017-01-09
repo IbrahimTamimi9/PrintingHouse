@@ -564,7 +564,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuK-HV-iXm">
-                                <rect key="frame" x="165" y="42" width="45.5" height="24"/>
+                                <rect key="frame" x="164" y="42" width="47.5" height="24"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -673,10 +673,10 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="bucketTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="140" id="xld-EY-Fec" customClass="bucketTableViewCell" customModule="Avalon_Print" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="600" height="140"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" tableViewCell="xld-EY-Fec" id="qph-GD-Uwe">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="139"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ffff ddddd ddddd dddds" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-kB-tXt">
@@ -759,7 +759,7 @@
                                 <rect key="frame" x="0.0" y="578" width="375" height="89"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Товар на сумму: 000 грн, с  НДС 000 грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erX-tG-ucI">
-                                        <rect key="frame" x="174.5" y="1" width="193.5" height="20"/>
+                                        <rect key="frame" x="166" y="1" width="202" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="X9f-1A-VCG"/>
                                         </constraints>
@@ -1065,7 +1065,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="dVR-c5-bPf" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="dVR-c5-bPf" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -1168,7 +1168,7 @@
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iru-6P-wvX" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iru-6P-wvX" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="25" y="238" width="148.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="4rJ-AB-aeR"/>
@@ -1194,7 +1194,7 @@
                                     <action selector="widthCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="Gl3-4C-VaO"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLj-nF-AHm" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLj-nF-AHm" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="200.5" y="238" width="149.5" height="45"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
@@ -1242,7 +1242,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-Zq-5Nk">
-                                <rect key="frame" x="237" y="466" width="66" height="16"/>
+                                <rect key="frame" x="232" y="466" width="71" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="SdE-PY-R1N"/>
                                 </constraints>
@@ -1415,35 +1415,35 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB8-Jo-t11">
-                                <rect key="frame" x="326" y="399" width="23" height="16"/>
+                                <rect key="frame" x="326" y="443" width="23" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxC-yd-oTV">
-                                <rect key="frame" x="326" y="422" width="23" height="16"/>
+                                <rect key="frame" x="326" y="466" width="23" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utk-Gk-JKf">
-                                <rect key="frame" x="311" y="399" width="7" height="16"/>
+                                <rect key="frame" x="311" y="443" width="7" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnd-Lo-yJ4">
-                                <rect key="frame" x="311" y="422" width="7" height="16"/>
+                                <rect key="frame" x="311" y="466" width="7" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mH-Rr-s11" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="206" y="545" width="153" height="38"/>
+                                <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.69695669410000005" blue="0.25501000880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="JYU-OK-hW3"/>
-                                    <constraint firstAttribute="width" constant="153" id="pAC-g0-dqS"/>
+                                    <constraint firstAttribute="width" constant="162" id="pAC-g0-dqS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="15"/>
                                 <state key="normal" title="Добавить в корзину">
@@ -1460,9 +1460,9 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Тираж" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ir-tn-DIA" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="31" width="324" height="47"/>
+                                <rect key="frame" x="25" y="43" width="324" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="den-m6-Z9q"/>
+                                    <constraint firstAttribute="height" constant="45" id="den-m6-Z9q"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
@@ -1487,13 +1487,16 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-cw-kVM">
-                                <rect key="frame" x="25" y="143" width="324" height="30"/>
+                                <rect key="frame" x="25" y="153" width="324" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="9L0-YW-ixS"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lwd-S0-S1O" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="213" width="148.5" height="45"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lwd-S0-S1O" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
+                                <rect key="frame" x="25" y="238" width="148.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="oK6-rb-nha"/>
                                 </constraints>
@@ -1519,8 +1522,8 @@
                                     <action selector="widthCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="rca-fC-hyS"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uiB-Po-vLZ" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="200.5" y="213" width="149.5" height="45"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uiB-Po-vLZ" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
+                                <rect key="frame" x="200.5" y="238" width="149.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="cRx-Jf-j4I"/>
                                 </constraints>
@@ -1547,13 +1550,16 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jif-le-qCD">
-                                <rect key="frame" x="25" y="323" width="324" height="30"/>
+                                <rect key="frame" x="25" y="348" width="324" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="9A0-zr-Sf7"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cn-NT-g5e">
-                                <rect key="frame" x="271" y="399" width="32" height="16"/>
+                                <rect key="frame" x="271" y="443" width="32" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="BGI-Vy-JZT"/>
                                 </constraints>
@@ -1562,7 +1568,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-Kn-Bnm">
-                                <rect key="frame" x="237" y="422" width="66" height="16"/>
+                                <rect key="frame" x="232" y="466" width="71" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="rLl-FZ-lfn"/>
                                 </constraints>
@@ -1571,7 +1577,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BL-sj-b9s">
-                                <rect key="frame" x="173.5" y="213" width="27" height="44"/>
+                                <rect key="frame" x="173.5" y="238" width="27" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="yFO-Ij-qyv"/>
                                 </constraints>
@@ -1588,14 +1594,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0ir-tn-DIA" firstAttribute="top" secondItem="4Bi-Hj-hWb" secondAttribute="bottom" constant="27" id="0Ec-x4-qqX"/>
+                            <constraint firstItem="0ir-tn-DIA" firstAttribute="top" secondItem="4Bi-Hj-hWb" secondAttribute="bottom" constant="39" id="0Ec-x4-qqX"/>
+                            <constraint firstItem="uiB-Po-vLZ" firstAttribute="top" secondItem="4UA-cw-kVM" secondAttribute="bottom" constant="40" id="2Gd-W1-YzU"/>
                             <constraint firstItem="0ir-tn-DIA" firstAttribute="trailing" secondItem="4UA-cw-kVM" secondAttribute="trailing" id="36C-pO-CE9"/>
                             <constraint firstItem="lwd-S0-S1O" firstAttribute="leading" secondItem="Jif-le-qCD" secondAttribute="leading" id="4S6-Gc-ae5"/>
                             <constraint firstItem="mnd-Lo-yJ4" firstAttribute="baseline" secondItem="QxC-yd-oTV" secondAttribute="baseline" id="50m-PH-YxW"/>
                             <constraint firstItem="uiB-Po-vLZ" firstAttribute="leading" secondItem="5BL-sj-b9s" secondAttribute="trailing" id="5T7-IQ-2cr"/>
-                            <constraint firstItem="4cn-NT-g5e" firstAttribute="top" secondItem="Jif-le-qCD" secondAttribute="bottom" constant="46" id="6dP-eH-aHG"/>
+                            <constraint firstItem="4cn-NT-g5e" firstAttribute="top" secondItem="Jif-le-qCD" secondAttribute="bottom" constant="50" id="6dP-eH-aHG"/>
                             <constraint firstItem="5BL-sj-b9s" firstAttribute="leading" secondItem="lwd-S0-S1O" secondAttribute="trailing" id="7uo-NQ-qS7"/>
-                            <constraint firstItem="lwd-S0-S1O" firstAttribute="baseline" secondItem="5BL-sj-b9s" secondAttribute="baseline" id="9si-By-3Xl"/>
+                            <constraint firstItem="lwd-S0-S1O" firstAttribute="baseline" secondItem="5BL-sj-b9s" secondAttribute="baseline" constant="-1.5" id="9si-By-3Xl"/>
                             <constraint firstItem="4cn-NT-g5e" firstAttribute="firstBaseline" secondItem="utk-Gk-JKf" secondAttribute="firstBaseline" id="G0m-EL-LYj"/>
                             <constraint firstItem="8o6-gM-pjB" firstAttribute="top" secondItem="4Bi-Hj-hWb" secondAttribute="bottom" id="GsM-ZT-TQP"/>
                             <constraint firstItem="lwd-S0-S1O" firstAttribute="top" secondItem="4UA-cw-kVM" secondAttribute="bottom" constant="40" id="HdZ-x6-Mkl"/>
@@ -1628,7 +1635,7 @@
                             <constraint firstItem="4Bi-Hj-hWb" firstAttribute="top" secondItem="SRb-vb-XPO" secondAttribute="bottom" id="tSJ-bQ-fvn"/>
                             <constraint firstItem="lwd-S0-S1O" firstAttribute="centerY" secondItem="5BL-sj-b9s" secondAttribute="centerY" id="wYf-9L-9Ol"/>
                             <constraint firstItem="mnd-Lo-yJ4" firstAttribute="leading" secondItem="rGT-Kn-Bnm" secondAttribute="trailing" constant="8" symbolic="YES" id="x9d-EP-VfU"/>
-                            <constraint firstItem="5BL-sj-b9s" firstAttribute="baseline" secondItem="uiB-Po-vLZ" secondAttribute="baseline" id="y5E-l2-fJb"/>
+                            <constraint firstItem="5BL-sj-b9s" firstAttribute="baseline" secondItem="uiB-Po-vLZ" secondAttribute="baseline" constant="1.5" id="y5E-l2-fJb"/>
                             <constraint firstItem="lwd-S0-S1O" firstAttribute="top" secondItem="5BL-sj-b9s" secondAttribute="top" id="yau-XV-rNb"/>
                             <constraint firstItem="0ir-tn-DIA" firstAttribute="leading" secondItem="4UA-cw-kVM" secondAttribute="leading" id="z65-c4-Okx"/>
                             <constraint firstItem="rGT-Kn-Bnm" firstAttribute="top" secondItem="4cn-NT-g5e" secondAttribute="bottom" constant="7" id="zwl-Ud-lG2"/>
@@ -1636,6 +1643,11 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="betweenAmountAndMaterial" destination="mHd-h6-exl" id="LqP-hb-SzC"/>
+                        <outlet property="betweenHeightAndMaterial" destination="2Gd-W1-YzU" id="1jL-Ml-jaz"/>
+                        <outlet property="betweenPostPrintAndPrice" destination="6dP-eH-aHG" id="kBY-8g-FRS"/>
+                        <outlet property="betweenSizeAndPostPrint" destination="m4m-yw-qag" id="pKJ-Vu-9Mf"/>
+                        <outlet property="betweenWidthAndMaterial" destination="HdZ-x6-Mkl" id="5Ft-2F-Lxr"/>
                         <outlet property="stickersAddToCartButton" destination="1mH-Rr-s11" id="jos-ER-dhP"/>
                         <outlet property="stickersAmountTextField" destination="0ir-tn-DIA" id="Tag-cb-fs0"/>
                         <outlet property="stickersHeightTextField" destination="uiB-Po-vLZ" id="M3S-ea-irh"/>
@@ -1644,6 +1656,7 @@
                         <outlet property="stickersPostPrintTextField" destination="Jif-le-qCD" id="cA8-Bg-m2Z"/>
                         <outlet property="stickersPrice" destination="utk-Gk-JKf" id="uVs-82-asv"/>
                         <outlet property="stickersWidthTextField" destination="lwd-S0-S1O" id="HE4-8A-A6G"/>
+                        <outlet property="topConstraint" destination="0Ec-x4-qqX" id="Gvs-iW-dcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykh-iv-o6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1669,34 +1682,34 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLv-Nl-zwC">
-                                <rect key="frame" x="326" y="399" width="23" height="16"/>
+                                <rect key="frame" x="326" y="443" width="23" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-2a-gxN">
-                                <rect key="frame" x="326" y="422" width="23" height="16"/>
+                                <rect key="frame" x="326" y="466" width="23" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-r0-BQp">
-                                <rect key="frame" x="311" y="399" width="7" height="16"/>
+                                <rect key="frame" x="311" y="443" width="7" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMS-JP-aAy">
-                                <rect key="frame" x="311" y="422" width="7" height="16"/>
+                                <rect key="frame" x="311" y="466" width="7" height="16"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-jC-Jo5" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="206" y="545" width="153" height="38"/>
+                                <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.69695669410000005" blue="0.25501000880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="153" id="hfx-eG-Tou"/>
+                                    <constraint firstAttribute="width" constant="162" id="hfx-eG-Tou"/>
                                     <constraint firstAttribute="height" constant="38" id="lDh-ny-vf8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="15"/>
@@ -1713,9 +1726,9 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Тираж" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQ7-BL-VCt" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="31" width="324" height="47"/>
+                                <rect key="frame" x="25" y="43" width="324" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="f8a-x7-nDO"/>
+                                    <constraint firstAttribute="height" constant="45" id="f8a-x7-nDO"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
@@ -1739,13 +1752,16 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-Yy-MCE">
-                                <rect key="frame" x="25" y="143" width="324" height="30"/>
+                                <rect key="frame" x="25" y="153" width="324" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Ykg-vF-nBy"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W34-BY-16Z" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="213" width="148.5" height="45"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W34-BY-16Z" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
+                                <rect key="frame" x="25" y="238" width="148.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bHK-zT-RtM"/>
                                 </constraints>
@@ -1770,8 +1786,8 @@
                                     <action selector="widthCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="aNb-D3-GMi"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qAp-Ki-pDv" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="200.5" y="213" width="149.5" height="45"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qAp-Ki-pDv" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
+                                <rect key="frame" x="200.5" y="238" width="149.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Hfg-RM-KQs"/>
                                 </constraints>
@@ -1797,13 +1813,16 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-eL-xyv">
-                                <rect key="frame" x="25" y="323" width="324" height="30"/>
+                                <rect key="frame" x="25" y="348" width="324" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="FBZ-kf-QFs"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8m-zb-0VS">
-                                <rect key="frame" x="271" y="399" width="32" height="16"/>
+                                <rect key="frame" x="271" y="443" width="32" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="4f0-wN-mhF"/>
                                 </constraints>
@@ -1812,7 +1831,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfK-Lk-rRE">
-                                <rect key="frame" x="237" y="422" width="66" height="16"/>
+                                <rect key="frame" x="232" y="466" width="71" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="IiV-nk-1Nc"/>
                                 </constraints>
@@ -1821,7 +1840,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il3-yw-LJs">
-                                <rect key="frame" x="173.5" y="213" width="27" height="44"/>
+                                <rect key="frame" x="173.5" y="238" width="27" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="OjJ-WN-KgG"/>
                                 </constraints>
@@ -1849,13 +1868,13 @@
                             <constraint firstItem="W34-BY-16Z" firstAttribute="centerY" secondItem="Il3-yw-LJs" secondAttribute="centerY" id="9pK-mg-xRJ"/>
                             <constraint firstItem="BO8-Yy-MCE" firstAttribute="top" secondItem="lQ7-BL-VCt" secondAttribute="bottom" constant="65" id="AKZ-Z4-Hq3"/>
                             <constraint firstItem="DNC-r0-BQp" firstAttribute="leading" secondItem="SMS-JP-aAy" secondAttribute="leading" id="Csd-6O-Njg"/>
-                            <constraint firstItem="lQ7-BL-VCt" firstAttribute="top" secondItem="jk6-BC-ZFu" secondAttribute="bottom" constant="27" id="Ddp-5I-gVj"/>
+                            <constraint firstItem="lQ7-BL-VCt" firstAttribute="top" secondItem="jk6-BC-ZFu" secondAttribute="bottom" constant="39" id="Ddp-5I-gVj"/>
                             <constraint firstItem="W34-BY-16Z" firstAttribute="leading" secondItem="5NS-eL-xyv" secondAttribute="leading" id="J0K-85-usM"/>
                             <constraint firstItem="lQ7-BL-VCt" firstAttribute="leading" secondItem="BO8-Yy-MCE" secondAttribute="leading" id="JL2-w9-ZaE"/>
                             <constraint firstItem="lQ7-BL-VCt" firstAttribute="leading" secondItem="XT7-Po-5Kq" secondAttribute="leadingMargin" constant="9" id="LID-HR-l1j"/>
                             <constraint firstItem="BO8-Yy-MCE" firstAttribute="trailing" secondItem="5NS-eL-xyv" secondAttribute="trailing" id="QM2-14-vhZ"/>
                             <constraint firstItem="wEZ-nP-VOe" firstAttribute="top" secondItem="jk6-BC-ZFu" secondAttribute="bottom" id="Ral-EH-46W"/>
-                            <constraint firstItem="j8m-zb-0VS" firstAttribute="top" secondItem="5NS-eL-xyv" secondAttribute="bottom" constant="46" id="SDF-a8-AqG"/>
+                            <constraint firstItem="j8m-zb-0VS" firstAttribute="top" secondItem="5NS-eL-xyv" secondAttribute="bottom" constant="50" id="SDF-a8-AqG"/>
                             <constraint firstItem="SMS-JP-aAy" firstAttribute="leading" secondItem="WfK-Lk-rRE" secondAttribute="trailing" constant="8" symbolic="YES" id="SqQ-tA-i5Y"/>
                             <constraint firstItem="j8m-zb-0VS" firstAttribute="firstBaseline" secondItem="DNC-r0-BQp" secondAttribute="firstBaseline" id="St8-mK-DGm"/>
                             <constraint firstItem="PLv-Nl-zwC" firstAttribute="leading" secondItem="DNC-r0-BQp" secondAttribute="trailing" constant="8" symbolic="YES" id="TdJ-W2-egi"/>
@@ -1876,6 +1895,7 @@
                             <constraint firstItem="DNC-r0-BQp" firstAttribute="firstBaseline" secondItem="PLv-Nl-zwC" secondAttribute="firstBaseline" id="k6R-Zi-We0"/>
                             <constraint firstItem="5NS-eL-xyv" firstAttribute="trailing" secondItem="PLv-Nl-zwC" secondAttribute="trailing" id="nOa-Us-9sc"/>
                             <constraint firstItem="jk6-BC-ZFu" firstAttribute="leading" secondItem="XT7-Po-5Kq" secondAttribute="leading" id="rOS-HX-iPl"/>
+                            <constraint firstItem="qAp-Ki-pDv" firstAttribute="top" secondItem="BO8-Yy-MCE" secondAttribute="bottom" constant="40" id="rzK-0D-Jgk"/>
                             <constraint firstItem="SMS-JP-aAy" firstAttribute="firstBaseline" secondItem="aOk-2a-gxN" secondAttribute="firstBaseline" id="uh5-ug-ucO"/>
                             <constraint firstItem="W34-BY-16Z" firstAttribute="top" secondItem="BO8-Yy-MCE" secondAttribute="bottom" constant="40" id="vyg-uH-OAL"/>
                             <constraint firstItem="DNC-r0-BQp" firstAttribute="leading" secondItem="j8m-zb-0VS" secondAttribute="trailing" constant="8" symbolic="YES" id="x1V-OB-7fl"/>
@@ -1885,6 +1905,14 @@
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="betweenAmountAndMaterial" destination="AKZ-Z4-Hq3" id="zRr-Mf-Ptv"/>
+                        <outlet property="betweenHeightAndMaterial" destination="rzK-0D-Jgk" id="EwS-sa-I8I"/>
+                        <outlet property="betweenPostPrintAndPrice" destination="SDF-a8-AqG" id="6WY-Zc-kwa"/>
+                        <outlet property="betweenSizeAndPostPrint" destination="YJA-lZ-rO0" id="74v-aV-Ea7"/>
+                        <outlet property="betweenWidthAndMaterial" destination="vyg-uH-OAL" id="vaC-aW-Zaq"/>
+                        <outlet property="topConstraint" destination="Ddp-5I-gVj" id="b1E-iY-krM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyz-yD-hUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

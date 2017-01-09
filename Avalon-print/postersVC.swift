@@ -13,8 +13,7 @@ import CoreData
 
 class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    let screenSize: CGRect = UIScreen.main.bounds
-    
+     
     
     //CONSTRAINTS
     @IBOutlet weak var topConstraint: NSLayoutConstraint!

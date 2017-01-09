@@ -40,7 +40,7 @@ class bucketUserFillForm: UIViewController {
 //    }
     
     @IBOutlet var mainView: UIView!
-    let screenSize: CGRect = UIScreen.main.bounds
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()

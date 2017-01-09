@@ -44,7 +44,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let screenSize: CGRect = UIScreen.main.bounds
+       
         if screenSize.height < 667 {
             nameTFHeight.constant = 40
             numTFHeight.constant = 40
