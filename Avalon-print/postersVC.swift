@@ -87,7 +87,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     
     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
     
-     let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 0.6м", preferredStyle: UIAlertControllerStyle.actionSheet)
+    let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 0.6м", preferredStyle: UIAlertControllerStyle.actionSheet)
     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
     
     
@@ -437,8 +437,5 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         }
         
     }
-    
-  
-    
     
 }

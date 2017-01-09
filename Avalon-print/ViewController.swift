@@ -30,16 +30,10 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
-          self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : (UIFont(name: "Exo2-Light", size: 17))!, NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : (UIFont(name: "Exo2-Light", size: 17))!, NSForegroundColorAttributeName: UIColor.white]
        
         
-        
-        
-        
-        
 
-        
-       //removeObjectForKey("TESTKEY")
         getVariablesFromJSON()
         setUpRightBarButton()
         
@@ -50,6 +44,7 @@ class ViewController: UIViewController {
         list = savedList
         price = savedPrice
         ndsPrice = savedNDSPrice
+        rightBarButton?.badgeValue = "\(price.count)"
         
         if (list.count == 0 || savedList.count == 0 || price.count == 0 || savedPrice.count == 0 || ndsPrice.count == 0 || savedNDSPrice.count == 0)  {
             
@@ -64,9 +59,6 @@ class ViewController: UIViewController {
        
         
         
-         rightBarButton?.badgeValue = "\(price.count)"
-    
-        
         let postersIMG = UIImage(named: "bannersmain") as UIImage?
         let bannersIMG = UIImage(named: "banermain") as UIImage?
         let stickersIMG = UIImage(named: "stickersmain") as UIImage?
@@ -76,84 +68,48 @@ class ViewController: UIViewController {
         
         
         let screenSize: CGRect = UIScreen.main.bounds
-        let titleInsets = UIEdgeInsets(top: screenSize.height/4, left: 0, bottom: 0, right: 0)
-        let titleFont = UIFont(name: "Exo2-ExtraLight", size: 15)
-      
-      
         
-        let postersPageButton = UIButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 ))
-        
-        postersPageButton.backgroundColor = .clear//Color()
+        let postersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 ))
+
         postersPageButton.setBackgroundImage(postersIMG, for: UIControlState.normal)
-        
         postersPageButton.setTitle("Плакаты", for: .normal)
-        
-        
-        postersPageButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        postersPageButton.titleEdgeInsets = titleInsets
-        postersPageButton.titleLabel?.font = titleFont
-        
         postersPageButton.addTarget(self, action: #selector(openPostersPage), for: .touchUpInside)
         
-        let bannersPageButton = UIButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/20, width: screenSize.width/2.5, height: screenSize.width/2.5 ))
         
-        bannersPageButton.backgroundColor = .clear//Color()
+        let bannersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/20, width: screenSize.width/2.5, height: screenSize.width/2.5 ))
+        
         bannersPageButton.setBackgroundImage(bannersIMG, for: UIControlState.normal)
-
         bannersPageButton.setTitle("Баннеры", for: .normal)
-        bannersPageButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        bannersPageButton.titleEdgeInsets = titleInsets
-        bannersPageButton.titleLabel?.font = titleFont
-        
         bannersPageButton.addTarget(self, action: #selector(openBannersPage), for: .touchUpInside)
         
-        let stickersPageButton = UIButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5))
         
-        stickersPageButton.backgroundColor = .clear//Color()
+        let stickersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5))
+        
         stickersPageButton.setBackgroundImage(stickersIMG, for: UIControlState.normal)
-        
         stickersPageButton.setTitle("Наклейки", for: .normal)
-        stickersPageButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        stickersPageButton.titleEdgeInsets = titleInsets
-        stickersPageButton.titleLabel?.font = titleFont
-        
         stickersPageButton.addTarget(self, action: #selector(openStickersPage), for: .touchUpInside)
         
-        let canvasPageButton = UIButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5))
         
-        canvasPageButton.backgroundColor = .clear//Color()
+        let canvasPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5))
+        
         canvasPageButton.setBackgroundImage(canvasIMG, for: UIControlState.normal)
-        
         canvasPageButton.setTitle("Холсты", for: .normal)
-        canvasPageButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        canvasPageButton.titleEdgeInsets = titleInsets
-        canvasPageButton.titleLabel?.font = titleFont
-        
         canvasPageButton.addTarget(self, action: #selector(openCanvasPage), for: .touchUpInside)
         
-        let contactsPageButton = UIButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5))
         
-        contactsPageButton.backgroundColor = .clear//Color()
+        let contactsPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5))
+        
         contactsPageButton.setBackgroundImage(contactsIMG, for: UIControlState.normal)
-
         contactsPageButton.setTitle("Контакты", for: .normal)
-        contactsPageButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        contactsPageButton.titleEdgeInsets = titleInsets
-        contactsPageButton.titleLabel?.font = titleFont
-        
         contactsPageButton.addTarget(self, action: #selector(openContactsPage), for: .touchUpInside)
         
-        let informationPageButton = UIButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5))
         
-        informationPageButton.backgroundColor = .clear//Color()
+        let informationPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5))
+      
         informationPageButton.setBackgroundImage(infoIMG, for: UIControlState.normal)
-        
         informationPageButton.setTitle("Информация", for: .normal)
-        informationPageButton.setTitleColor(UIColor.black, for: UIControlState.normal)
-        informationPageButton.titleEdgeInsets = titleInsets
-        informationPageButton.titleLabel?.font = titleFont
-        
         informationPageButton.addTarget(self, action: #selector(openInformationPage), for: .touchUpInside)
+        
         
         self.view.addSubview(postersPageButton)
         self.view.addSubview(bannersPageButton)
