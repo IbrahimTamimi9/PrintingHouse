@@ -9,25 +9,18 @@
 import UIKit
 import CoreData
 
-  var list = [String]()
-  var price = [String]()
-  var ndsPrice = [String]()
-
- 
-
-
+var addedItems = [AddedItems]()
+var managedObjextContext:NSManagedObjectContext!
+let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
 
 
   var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
   var offset: CGFloat = 70
 
 
-class bucket: UIViewController, UITabBarDelegate, UITableViewDataSource, UICollisionBehaviorDelegate, NSFetchedResultsControllerDelegate {
+ class bucket: UIViewController, UITabBarDelegate, UITableViewDataSource, UICollisionBehaviorDelegate, NSFetchedResultsControllerDelegate {
     
    
-    
-    
-   //  var managedObjectContext: NSManagedObjectContext? = nvar    
     @IBOutlet var bottomViewWithButton: UIView!
     @IBOutlet var mainSumLabel: UILabel!
    
@@ -43,24 +36,33 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          mainPriceSumCounter()
-          bottomViewVisibility()
-       
         
-        
+        managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+      
+        loadData()
+        mainPriceSumCounter()
+        bottomViewVisibility()
+    
         mainView.backgroundColor = UIColor.clear
         blurEffectView.frame = mainView.bounds
         mainView.insertSubview(blurEffectView, at: 0)
         blurEffectView.layer.masksToBounds = true
         
-       
     }
     
-    
+    func loadData () {
+        do {
+            addedItems = try managedObjextContext.fetch(presentRequest)
+            self.purchaseTableView.reloadData()
+        }catch {
+            print("Could not load data from database \(error.localizedDescription)")
+        }
+    }
+
     
     func bottomViewVisibility() {
         
-        if price.count == 0 {
+        if addedItems.count == 0 {
             bottomViewWithButton.isHidden = true
     
         } else {
@@ -82,61 +84,52 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return addedItems.count
     }
     
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:bucketTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! bucketTableViewCell
         
-        cell.mainData?.text = list[indexPath.row]
-        cell.purchasePrice?.text = price[indexPath.row]
-        cell.purchaseNDSPrice?.text = ndsPrice[indexPath.row]
+        let presentItem = addedItems[indexPath.row]
+        
+        cell.mainData?.text = presentItem.list
+        cell.purchasePrice?.text = presentItem.price
+        cell.purchaseNDSPrice?.text = presentItem.ndsPrice
         mainPriceSumCounter()
     
-        return cell
+      return cell
     }
     
+   
+    
      public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+         let context:NSManagedObjectContext = managedObjextContext
         
         if editingStyle == UITableViewCellEditingStyle.delete {
             
             purchaseTableView.beginUpdates()
-            list.remove(at: indexPath.row)
-            price.remove(at: indexPath.row)
-            ndsPrice.remove(at: indexPath.row)
-            purchaseTableView.deleteRows(at: [indexPath], with: .fade)
-
             
-            bucketDefaults.removeObject(forKey: "ListStringArray")
-            bucketDefaults.removeObject(forKey: "PriceStringArray")
-            bucketDefaults.removeObject(forKey: "NdsPriceStringArray")
-            
+            context.delete(addedItems[indexPath.row] )
+            addedItems.remove(at: indexPath.row)
+            do {
+                try context.save()
+            } catch  {
+                print("error : \(error)")
+            }
           
-            
-            let keyValue = bucketDefaults.array(forKey: "ListStringArray")
-            let keyValue1 = bucketDefaults.array(forKey: "PriceStringArray")
-            let keyValue2 = bucketDefaults.array(forKey: "NdsPriceStringArray")
-            print("Key Value \(keyValue),\(keyValue1),\(keyValue2)")
-            
-            bucketDefaults.set(list, forKey: "ListStringArray")
-            bucketDefaults.set(price, forKey: "PriceStringArray")
-            bucketDefaults.set(ndsPrice, forKey: "NdsPriceStringArray")
-           
-            let keyValue3 = bucketDefaults.array(forKey: "ListStringArray")
-            let keyValue4 = bucketDefaults.array(forKey: "PriceStringArray")
-            let keyValue5 = bucketDefaults.array(forKey: "NdsPriceStringArray")
-            print("Key Value \(keyValue3),\(keyValue4),\(keyValue5)")
-        
-            
+            purchaseTableView.deleteRows(at: [indexPath], with: .fade )
             purchaseTableView.endUpdates()
             
-    
+            do {
+                try managedObjextContext.save()
+            } catch {
+                print("error : \(error)")
+            }
+            
             bottomViewVisibility()
             mainPriceSumCounter()
-            
-            //updatingRedBadgeNumber
-            rightBarButton?.badgeValue = "\(price.count)"
+            updateBadgeValue()
            
         }
     }
@@ -144,16 +137,25 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
     
     func mainPriceSumCounter () {
         
-        //MARK: PRICE SUM COUNTER!!!
-        let doubleArrayPrice = price.flatMap{ Double($0) }
-        let doubleArrayNDSPrice = ndsPrice.flatMap{ Double($0) }
-        let arraySum = doubleArrayPrice.reduce(0, +)
-        let arrayNDSSum = doubleArrayNDSPrice.reduce(0, +)
+       var totalprice = 0.0
+       var totalNDSprice = 0.0
         
-        mainSumLabel.text = "Сумма: \(arraySum) грн, с НДС: \(arrayNDSSum) грн."
-        if (price.count == 0) {
-            mainSumLabel.text = ""
-            
-       }
-    }
+        do {
+            addedItems = try managedObjextContext.fetch(presentRequest)
+        } catch {
+            print(error)
+        }
+        
+        
+        for item in addedItems {
+            totalprice += item.price!.doubleValue
+            totalNDSprice += item.ndsPrice!.doubleValue
+        }
+        
+                mainSumLabel.text = "Сумма: \(totalprice) грн, с НДС: \(totalNDSprice) грн."
+                if (addedItems.count == 0) {
+                    mainSumLabel.text = ""
+         }
+        
+     }
 }

@@ -43,42 +43,37 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
       
         
         if postersAddToCartButton.titleLabel?.text == nameButt {
-             // dismiss(animated: true, completion: nil)
             
-
             let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
             let navigationController = UINavigationController(rootViewController: destination)
             
-            
-           
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             navigationController.isNavigationBarHidden = true
             self.present(navigationController, animated: true, completion: nil)
             
-            
         } else {
-        
-        list.append("Тираж: \(postersAmountTextField.text!) шт.\nМатериал: \(postersMaterialTextField.text!)\nРазмер: \(postersWidthTextField.text!) .м. x \(postersHeightTextField.text!) м.\nПостпечатные работы: \(postersPostPrintTextField.text!)" )
-        price.append(postersPrice.text!)
-        ndsPrice.append(postersNDSPrice.text!)
+            
+          let newItem = AddedItems(context: managedObjextContext)
+            
+            newItem.list = ("Тираж: \(postersAmountTextField.text!) шт.\nМатериал: \(postersMaterialTextField.text!)\nРазмер: \(postersWidthTextField.text!) .м. x \(postersHeightTextField.text!) м.\nПостпечатные работы: \(postersPostPrintTextField.text!)" )
+            
+            newItem.price = (postersPrice.text!)
+            newItem.ndsPrice = (postersNDSPrice.text!)
+            
+            do {
+                try managedObjextContext.save()
+            }catch {
+                print("Could not save data \(error.localizedDescription)")
+            }
+            
+        updateBadgeValue()
         DisableButton()
-        rightBarButton?.badgeValue = "\(price.count)"
-       
         postersAddToCartButton.frame.size.width = 75
-            
-            bucketDefaults.removeObject(forKey: "ListStringArray")
-            bucketDefaults.removeObject(forKey: "PriceStringArray")
-            bucketDefaults.removeObject(forKey: "NdsPriceStringArray")
-            bucketDefaults.synchronize()
-            
-            bucketDefaults.set(list, forKey: "ListStringArray")
-            bucketDefaults.set(price, forKey: "PriceStringArray")
-            bucketDefaults.set(ndsPrice, forKey: "NdsPriceStringArray")
-        }
+ 
+       }
     }
-    
-    
 
+    
     
     var data = ["Выберите материал...","CityLight Premium 140g/m2","Lomond Photo Paper 140g/m2","Фотобумага глянец/мат 200g/m2"]
     var postPrintData = ["Без постпечати","Припрес глянец 1+0","Припрес мат 1+0","Припрес глянец 1+1", "Припрес мат 1+1"]
@@ -360,18 +355,11 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     
     //MARK: HELPER FUNCTIONS
     func DisableButton() {
-               // postersAddToCartButton.isUserInteractionEnabled  = false
-       // postersAddToCartButton.backgroundColor = UIColor.darkGray
-      //  postersAddToCartButton.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
-        //postersAddToCartButton.titleLabel!.text = "567"
-        postersAddToCartButton.setTitle("В корзину", for: .normal)
-       
+            postersAddToCartButton.setTitle("В корзину", for: .normal)
            }
     
    func EnableButton() {
-    //postersAddToCartButton.titleLabel?.text = "Добавить в корзину"
-     postersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
-    
+    postersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
     postersAddToCartButton.isUserInteractionEnabled = true
     postersAddToCartButton.backgroundColor = materialGreen
     postersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)

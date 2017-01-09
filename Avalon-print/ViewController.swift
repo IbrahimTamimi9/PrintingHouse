@@ -7,6 +7,7 @@
 
 
 import UIKit
+import CoreData
 
 //let closeProgram = UIAlertController(title: "Нет подключения к интернету", message: "Пожалуйта, для использования программы подключитесь к интернету", preferredStyle: UIAlertControllerStyle.alert)
 //let close = UIAlertAction(title: "Закрыть", style: UIAlertActionStyle.destructive ) {
@@ -15,7 +16,20 @@ import UIKit
 //}hjk
 
 var rightBarButton: ENMBadgedBarButtonItem?
-let bucketDefaults = UserDefaults.standard
+
+
+
+func updateBadgeValue () {
+    managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+   
+    do {
+        addedItems = try managedObjextContext.fetch(presentRequest)
+    } catch {
+        print(error)
+    }
+  rightBarButton?.badgeValue = "\(addedItems.count)"
+}
+
 
 class ViewController: UIViewController {
     
@@ -26,28 +40,7 @@ class ViewController: UIViewController {
         
         getVariablesFromJSON()
         setUpRightBarButton()
-        
-        var savedList = bucketDefaults.stringArray(forKey: "ListStringArray") ?? [String]()
-        var savedPrice = bucketDefaults.stringArray(forKey: "PriceStringArray") ?? [String]()
-        var savedNDSPrice = bucketDefaults.stringArray(forKey: "NdsPriceStringArray") ?? [String]()
-
-        list = savedList
-        price = savedPrice
-        ndsPrice = savedNDSPrice
-        rightBarButton?.badgeValue = "\(price.count)"
-        
-        if (list.count == 0 || savedList.count == 0 || price.count == 0 || savedPrice.count == 0 || ndsPrice.count == 0 || savedNDSPrice.count == 0)  {
-            
-            list.removeAll()
-            savedList.removeAll()
-            price.removeAll()
-            savedPrice.removeAll()
-            ndsPrice.removeAll()
-            savedNDSPrice.removeAll()
-            
-        }
-       
-        
+        updateBadgeValue()
         
         let postersIMG = UIImage(named: "bannersmain") as UIImage?
         let bannersIMG = UIImage(named: "banermain") as UIImage?
@@ -55,7 +48,6 @@ class ViewController: UIViewController {
         let canvasIMG = UIImage(named: "canvasmain") as UIImage?
         let contactsIMG = UIImage(named: "emailmain") as UIImage?
         let infoIMG = UIImage(named: "infomain") as UIImage?
-        
         
         let screenSize: CGRect = UIScreen.main.bounds
         
@@ -100,7 +92,6 @@ class ViewController: UIViewController {
         informationPageButton.setTitle("Информация", for: .normal)
         informationPageButton.addTarget(self, action: #selector(openInformationPage), for: .touchUpInside)
         
-        
         self.view.addSubview(postersPageButton)
         self.view.addSubview(bannersPageButton)
         self.view.addSubview(stickersPageButton)
@@ -137,7 +128,6 @@ class ViewController: UIViewController {
     }
     
     func rightButtonPressed(_ sender: UIButton) {
-               //rightBarButton?.badgeValue = "1"
         
         let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
         let navigationController = UINavigationController(rootViewController: destination)
@@ -145,18 +135,15 @@ class ViewController: UIViewController {
         navigationController.isNavigationBarHidden = true
         self.present(navigationController, animated: true, completion: nil)
 
-        
     }
 
     
     func openPostersPage(sender: UIButton!) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "postersVC") as! postersVC
                 navigationController?.pushViewController(destination, animated: true)
-            
-       
+        
         
                 //MARK: UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-        
                   postersBoolVariables.amountDidNotInputed = true
                   postersBoolVariables.amount = ""
         
@@ -167,7 +154,6 @@ class ViewController: UIViewController {
                   postersBoolVariables.postersWidhOrHeightDidNotInputed = true
                   postersBoolVariables.postersWidthSet = ""
                   postersBoolVariables.postersHeightSet = ""
-
         
                   postersBoolVariables.withoutPostPrint = true
                   postersBoolVariables.gloss1_0C = false
@@ -177,30 +163,16 @@ class ViewController: UIViewController {
         
                   postersBoolVariables.priceToLabel = "0"
                   postersBoolVariables.ndsPriceToLabel = "0"
-        
-                  
-
     }
     
     @IBAction func openLoginOrProfile(_ sender: Any) {
-        
-       
-      
-        
+  
         if (defaults.object(forKey: "loggedIn") as? Bool) == true {
-           // UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
-//            let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
-//            navigationController?.present(destination, animated: true, completion: nil)
-//            //navigationController?.pushViewController(destination, animated: true)
-            
-            
             let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
             let navigationController = UINavigationController(rootViewController: destination)
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             navigationController.isNavigationBarHidden = true
             self.present(navigationController, animated: true, completion: nil)
-
-            
             
         } else  {
             
@@ -216,9 +188,6 @@ class ViewController: UIViewController {
     func openBannersPage(sender: UIButton!) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "bannersVC") as! bannersVC
         navigationController?.pushViewController(destination, animated: true)
-        
-        
-        
     }
     
     
@@ -239,15 +208,11 @@ class ViewController: UIViewController {
         stickersBoolVariables.stickersWidthSet = ""
         stickersBoolVariables.stickersHeightSet = ""
         
-        
         stickersBoolVariables.withoutPostPrint = true
         stickersBoolVariables.coldLaminationC = false
         
         stickersBoolVariables.priceToLabel = "0"
         stickersBoolVariables.ndsPriceToLabel = "0"
-
-        
-        
 
     }
     
@@ -269,8 +234,6 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(destination, animated: true)
 
     }
-    
-    
-    
+ 
 }
 

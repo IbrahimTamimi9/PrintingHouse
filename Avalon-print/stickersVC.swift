@@ -41,9 +41,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         
         if stickersAddToCartButton.titleLabel?.text == nameButt {
-            // dismiss(animated: true, completion: nil)
-            
-            
+
             let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
             let navigationController = UINavigationController(rootViewController: destination)
             
@@ -54,24 +52,26 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             self.present(navigationController, animated: true, completion: nil)
             
         } else {
-        
-        list.append("Тираж: \(stickersAmountTextField.text!) шт.\nМатериал: \(stickersMaterialTextField.text!)\nРазмер: \(stickersWidthTextField.text!) .м. x \(stickersHeightTextField.text!) м.\nПостпечатные работы: \(stickersPostPrintTextField.text!)" )
-        price.append(stickersPrice.text!)
-        ndsPrice.append(stickersNDSPrice.text!)
-        DisableButton()
-        rightBarButton?.badgeValue = "\(price.count)"
-        
-        bucketDefaults.removeObject(forKey: "ListStringArray")
-        bucketDefaults.removeObject(forKey: "PriceStringArray")
-        bucketDefaults.removeObject(forKey: "NdsPriceStringArray")
-        bucketDefaults.synchronize()
-        
-        bucketDefaults.set(list, forKey: "ListStringArray")
-        bucketDefaults.set(price, forKey: "PriceStringArray")
-        bucketDefaults.set(ndsPrice, forKey: "NdsPriceStringArray")
-        
+            let newItem = AddedItems(context: managedObjextContext)
+            
+            newItem.list = ("Тираж: \(stickersAmountTextField.text!) шт.\nМатериал: \(stickersMaterialTextField.text!)\nРазмер: \(stickersWidthTextField.text!) .м. x \(stickersHeightTextField.text!) м.\nПостпечатные работы: \(stickersPostPrintTextField.text!)" )
+            
+            newItem.price = (stickersPrice.text!)
+            newItem.ndsPrice = (stickersNDSPrice.text!)
+            
+            do {
+                try managedObjextContext.save()
+            }catch {
+                print("Could not save data \(error.localizedDescription)")
+            }
+            
+            updateBadgeValue()
+            DisableButton()
+            stickersAddToCartButton.frame.size.width = 75
+            
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,9 +85,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         stickersMaterialTextField.text = data[0]
         stickersPostPrintTextField.text = postPrintData[0]
-        
-        // postersAmountTextField.len
-        
         
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
@@ -176,15 +173,11 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
                 stickersBoolVariables.whiteStickerC = false
                 stickersBoolVariables.transparentStickerC = false
                 stickersBoolVariables.oneWayVisionC = false
-                //  postersAddToCartButton.isEnabled = false
                 
                 stickersComputings()
                 stickersPrice.text = stickersBoolVariables.priceToLabel
                 stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
                 updatePrices()
-                
-                
-                
                 
             }
             
@@ -282,9 +275,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         stickersAddToCartButton.isUserInteractionEnabled = true
         stickersAddToCartButton.backgroundColor = materialGreen
         stickersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-        
-        
-        
+    
     }
     
     func closeKeyboard() {
@@ -310,8 +301,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
             updatePrices()
             
-            
-            
         }
     }
     
@@ -319,11 +308,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     //MARK: Touch Events
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
         closeKeyboard()
-        
-        
     }
     
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
@@ -342,9 +327,5 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             stickersAddToCartButton.backgroundColor = materialGreen
             stickersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         }
-        
     }
-
-    
-    
 }
