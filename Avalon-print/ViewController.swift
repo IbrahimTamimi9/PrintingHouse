@@ -15,9 +15,7 @@ import UIKit
 //}hjk
 
 var rightBarButton: ENMBadgedBarButtonItem?
-
- let bucketDefaults = UserDefaults.standard
-
+let bucketDefaults = UserDefaults.standard
 
 class ViewController: UIViewController {
     
@@ -26,14 +24,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "ChevronLeft")
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : (UIFont(name: "Exo2-Light", size: 17))!, NSForegroundColorAttributeName: UIColor.white]
-       
-        
-
         getVariablesFromJSON()
         setUpRightBarButton()
         

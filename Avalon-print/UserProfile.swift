@@ -14,7 +14,7 @@ class UserProfile: UIViewController {
     @IBOutlet weak var userNameTitle: UILabel!
     @IBOutlet var userName: UILabel!
     @IBOutlet var userCell: UILabel!
-   @IBOutlet var userEmail: UILabel!
+    @IBOutlet var userEmail: UILabel!
     
     @IBOutlet var logOutButton: UIButton!
     @IBAction func logOut(_ sender: Any) {
@@ -28,8 +28,6 @@ class UserProfile: UIViewController {
         defaults.set("", forKey: "emailToProfile")
         defaults.set("", forKey: "cellNumberToProfile")
 
-
-       
         
         dismiss(animated: true, completion: nil)
     
