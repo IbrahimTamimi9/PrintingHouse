@@ -14,7 +14,9 @@ import CoreData
 class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
      
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
+    @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     //CONSTRAINTS
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var betweenAmountAndMaterial: NSLayoutConstraint!
@@ -33,8 +35,31 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     @IBOutlet weak var postersNDSPrice: UILabel!
     @IBOutlet weak var postersAddToCartButton: UIButton!
     
+    @IBOutlet weak var ndsGrnLabel: UILabel!
+    @IBOutlet weak var grnLabel: UILabel!
+    @IBOutlet weak var ndsPriceLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var xLetter: UILabel!
     let nameButt =  "В корзину"
-    let materialGreen =  UIColor.init(red: 76.0/255.0, green: 175.0/255.0, blue: 80.0/255.0, alpha: 1.0)
+    let materialGreen =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
+   
+    let snowColor =  UIColor(red: 255.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0/0.5)
+    
+    
+    func applyMotionEffect (toView view: UIView, magnitude: Float ) {
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = -magnitude
+        xMotion.maximumRelativeValue = magnitude
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = -magnitude
+        yMotion.maximumRelativeValue = magnitude
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [xMotion, yMotion]
+        view.addMotionEffect(group)
+       
+    }
    
     @IBAction func AddToCart(_ sender: Any) {
         
@@ -85,12 +110,28 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        leftImageViewConstraint.constant = 0
+    }
     
 
     
     override  func viewDidLoad() {
         super.viewDidLoad()
-      
+        applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+//         applyMotionEffect(toView: postersAmountTextField, magnitude: 0)
+//         applyMotionEffect(toView: postersMaterialTextField, magnitude: 0)
+//         applyMotionEffect(toView: postersWidthTextField, magnitude: 0)
+//         applyMotionEffect(toView: postersHeightTextField, magnitude: 0)
+//         applyMotionEffect(toView: postersPrice, magnitude: 0)
+//         applyMotionEffect(toView: postersNDSPrice, magnitude: 0)
+//        applyMotionEffect(toView: postersPostPrintTextField, magnitude: 0)
+//        
+//        applyMotionEffect(toView: xLetter, magnitude: 0)
+//        applyMotionEffect(toView: priceLabel, magnitude: 0)
+//        applyMotionEffect(toView: grnLabel, magnitude: 0)
+//        applyMotionEffect(toView: ndsGrnLabel, magnitude: 0)
+//        applyMotionEffect(toView: ndsPriceLabel, magnitude: 0)
         
         
         // //MARK: iPhone 5/5c/5s/se
@@ -114,21 +155,35 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
             betweenPostPrintAndPrice.constant = 60
             
         }
-        
-    
+      //  let toolBar = UIToolbar()
+      
+//        toolBar.barStyle = UIBarStyle.blackTranslucent
+//        toolBar.tintColor = UIColor.white
+//        toolBar.sizeToFit()
+//
+//        let doneButton = UIBarButtonItem(title: "Готово", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
+//        
+//        toolBar.setItems([doneButton], animated: true)
+//        toolBar.isUserInteractionEnabled = true
         
         materialPicker.delegate = self
         materialPicker.dataSource = self
         postPrintPicker.delegate = self
         postPrintPicker.dataSource = self
+        
+       // materialPicker.backgroundColor = UIColor.white
+       // postPrintPicker.backgroundColor = UIColor.white
+    
+        
+       
         postersMaterialTextField.inputView = materialPicker
         postersPostPrintTextField.inputView = postPrintPicker
+        //postersMaterialTextField.inputAccessoryView = toolBar
+        //postersPostPrintTextField.inputAccessoryView = toolBar
        
         postersMaterialTextField.text = data[0]
         postersPostPrintTextField.text = postPrintData[0]
-        
-       // postersAmountTextField.len
-        
+    
     
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
@@ -137,10 +192,15 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         postersAddToCartButton.backgroundColor = UIColor.darkGray
         postersAddToCartButton.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
         
+        
     }
     
     
-    
+    func donePicker (sender:UIBarButtonItem)
+    {
+        // Put something here
+        closeKeyboard()
+    }
     
     
     @IBAction func amountCursorPosChanged(_ sender: Any) {
@@ -335,6 +395,8 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         materialPicker.tag = 0
         postPrintPicker.tag = 1
         
+    
+        
         
         if pickerView.tag == 0 {
            return data[row]
@@ -399,11 +461,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     //MARK: Touch Events
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
         closeKeyboard()
-        
-
     }
     
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE

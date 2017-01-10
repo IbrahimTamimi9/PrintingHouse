@@ -11,6 +11,8 @@ import UIKit
 
 class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var betweenAmountAndMaterial: NSLayoutConstraint!
@@ -39,7 +41,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     var postPrintPicker = UIPickerView()
     
     
-    let materialGreen =  UIColor.init(red: 76.0/255.0, green: 175.0/255.0, blue: 80.0/255.0, alpha: 1.0)
+    let materialGreen =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
     
     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
     
@@ -83,10 +85,28 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             
         }
     }
-    
+    func applyMotionEffect (toView view: UIView, magnitude: Float ) {
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = -magnitude
+        xMotion.maximumRelativeValue = magnitude
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = -magnitude
+        yMotion.maximumRelativeValue = magnitude
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [xMotion, yMotion]
+        view.addMotionEffect(group)
+        
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        leftImageViewConstraint.constant = 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         
        
         // //MARK: iPhone 5/5c/5s/se

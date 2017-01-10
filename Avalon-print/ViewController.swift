@@ -34,10 +34,30 @@ func updateBadgeValue () {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet var mainView: UIView!
+    
+    func applyMotionEffect (toView view: UIView, magnitude: Float ) {
+        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xMotion.minimumRelativeValue = -magnitude
+        xMotion.maximumRelativeValue = magnitude
+        
+        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yMotion.minimumRelativeValue = -magnitude
+        yMotion.maximumRelativeValue = magnitude
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [xMotion, yMotion]
+        view.addMotionEffect(group)
+        
+    }
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         
         getVariablesFromJSON()
         setUpRightBarButton()
