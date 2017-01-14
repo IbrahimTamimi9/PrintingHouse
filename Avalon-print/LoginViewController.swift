@@ -152,6 +152,36 @@ class LoginViewController: UIViewController {
 
     }
     
+    
+    @IBAction func emailFieldValidation(_ sender: Any) {
+       validation()
+    }
+    
+    @IBAction func passwordFieldValidation(_ sender: Any) {
+        validation()
+    }
+    
+    func validation () {
+        let characterSet = NSCharacterSet(charactersIn: "@")
+        let badCharacterSet = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")
+        
+        if (loginTextField.text?.characters.count)! < 5 || loginTextField.text?.rangeOfCharacter(from: characterSet as CharacterSet, options: .caseInsensitive ) == nil || loginTextField.text?.rangeOfCharacter(from: badCharacterSet as CharacterSet, options: .caseInsensitive ) != nil || (passwordTextField.text?.characters.count)! < 6 {
+            LogInButton.isEnabled = false
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.LogInButton.alpha = 0.5 })
+           
+            
+        } else {
+            LogInButton.isEnabled = true;
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.LogInButton.alpha = 1.0 })
+            }
+        
+        
+    }
+    
     func closeKeyboard() {
         self.view.endEditing(true)
         
@@ -162,6 +192,7 @@ class LoginViewController: UIViewController {
     }
 
 
+    
     /*
     // MARK: - Navigation
 

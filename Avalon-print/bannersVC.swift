@@ -18,6 +18,11 @@ class bannersVC: UIViewController {
         leftImageViewConstraint.constant = 0
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        leftImageViewConstraint.constant = -25
+    }
+
+    
     func applyMotionEffect (toView view: UIView, magnitude: Float ) {
         let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         xMotion.minimumRelativeValue = -magnitude

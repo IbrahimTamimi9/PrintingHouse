@@ -409,7 +409,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dz-SO-Ton" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dz-SO-Ton" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="63" y="503" width="249" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -474,6 +474,9 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="emailFieldValidation:" destination="m4d-8k-Ylz" eventType="editingChanged" id="X44-ao-zjD"/>
+                                </connections>
                             </textField>
                             <textField autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBz-tC-2vq">
                                 <rect key="frame" x="28" y="266" width="320" height="55"/>
@@ -507,6 +510,9 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="passwordFieldValidation:" destination="m4d-8k-Ylz" eventType="editingChanged" id="dpk-Vq-IrK"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-Eu-TiK">
                                 <rect key="frame" x="0.0" y="33" width="40" height="42"/>
@@ -564,7 +570,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuK-HV-iXm">
-                                <rect key="frame" x="165" y="42" width="45.5" height="24"/>
+                                <rect key="frame" x="164" y="42" width="47.5" height="24"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -678,7 +684,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ffff ddddd ddddd dddds" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-kB-tXt">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="1 2 3 4" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-kB-tXt">
                                                     <rect key="frame" x="8" y="6" width="367" height="92"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -754,24 +760,45 @@
                                     <outlet property="delegate" destination="cCO-xJ-YFf" id="WYc-RR-Ld7"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cNK-HV-ouC">
+                                <rect key="frame" x="7" y="30" width="40" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="ASm-r4-gar"/>
+                                    <constraint firstAttribute="width" constant="40" id="aHo-Zq-NMt"/>
+                                </constraints>
+                                <state key="normal" image="ChevronLeft"/>
+                                <connections>
+                                    <action selector="dismissBucket:" destination="cCO-xJ-YFf" eventType="touchUpInside" id="9FK-DX-kPm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apS-nU-WV8">
+                                <rect key="frame" x="147" y="39" width="81" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="0sH-ks-Iin"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cv1-oW-0Pt">
                                 <rect key="frame" x="0.0" y="578" width="375" height="89"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Товар на сумму: 000 грн, с  НДС 000 грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erX-tG-ucI">
-                                        <rect key="frame" x="174.5" y="1" width="193.5" height="20"/>
+                                        <rect key="frame" x="166" y="1" width="202" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="X9f-1A-VCG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="10"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHf-hL-VPN" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
                                         <rect key="frame" x="7" y="25" width="360" height="55"/>
-                                        <color key="backgroundColor" red="0.0" green="0.69695669410000005" blue="0.25501000880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <state key="normal" title="Оформить заказ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -794,26 +821,6 @@
                                     <constraint firstItem="LHf-hL-VPN" firstAttribute="top" secondItem="erX-tG-ucI" secondAttribute="bottom" constant="4" id="sYj-5W-a4N"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cNK-HV-ouC">
-                                <rect key="frame" x="7" y="30" width="40" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="ASm-r4-gar"/>
-                                    <constraint firstAttribute="width" constant="40" id="aHo-Zq-NMt"/>
-                                </constraints>
-                                <state key="normal" image="ChevronLeft"/>
-                                <connections>
-                                    <action selector="dismissBucket:" destination="cCO-xJ-YFf" eventType="touchUpInside" id="9FK-DX-kPm"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apS-nU-WV8">
-                                <rect key="frame" x="147" y="39" width="81" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="0sH-ks-Iin"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -860,7 +867,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQx-dN-bU1" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="7" y="605" width="360" height="55"/>
-                                <color key="backgroundColor" red="0.0" green="0.69695669410000005" blue="0.25501000880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Efl-r7-Dwz"/>
                                 </constraints>
@@ -957,11 +964,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Коментарий к заказу..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN9-aQ-WSF">
-                                <rect key="frame" x="16" y="366" width="183" height="21"/>
+                                <rect key="frame" x="16" y="367" width="198" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="183" id="AQf-vK-Kvt"/>
+                                    <constraint firstAttribute="width" constant="198" id="AQf-vK-Kvt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1209,7 +1216,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-Zq-5Nk">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="SdE-PY-R1N"/>
                                 </constraints>
@@ -1226,7 +1233,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bs-YL-ec2" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bs-YL-ec2" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1412,7 +1419,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mH-Rr-s11" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mH-Rr-s11" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1542,7 +1549,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-Kn-Bnm">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="rLl-FZ-lfn"/>
                                 </constraints>
@@ -1679,7 +1686,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-jC-Jo5" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-jC-Jo5" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
                                 <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1725,7 +1732,7 @@
                                     <action selector="amountCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="Pfb-zu-Ci0"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Выберите материал..." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-Yy-MCE">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Холст художественный" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-Yy-MCE">
                                 <rect key="frame" x="25" y="153" width="324" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ykg-vF-nBy"/>
@@ -1804,7 +1811,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfK-Lk-rRE">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="IiV-nk-1Nc"/>
                                 </constraints>

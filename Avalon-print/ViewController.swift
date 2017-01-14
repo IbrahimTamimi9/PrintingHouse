@@ -78,6 +78,7 @@ class ViewController: UIViewController {
         postersPageButton.addTarget(self, action: #selector(openPostersPage), for: .touchUpInside)
         
         
+        
         let bannersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/20, width: screenSize.width/2.5, height: screenSize.width/2.5 ))
         
         bannersPageButton.setBackgroundImage(bannersIMG, for: UIControlState.normal)

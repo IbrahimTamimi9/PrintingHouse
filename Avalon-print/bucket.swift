@@ -20,7 +20,6 @@ let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
 
  class bucket: UIViewController, UITabBarDelegate, UITableViewDataSource, UICollisionBehaviorDelegate, NSFetchedResultsControllerDelegate {
     
-   
     @IBOutlet var bottomViewWithButton: UIView!
     @IBOutlet var mainSumLabel: UILabel!
    
@@ -32,7 +31,7 @@ let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
     }
    
     
-let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.dark))
+let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,17 +57,13 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
             print("Could not load data from database \(error.localizedDescription)")
         }
     }
-
+    
     
     func bottomViewVisibility() {
         
         if addedItems.count == 0 {
-            bottomViewWithButton.isHidden = true
-    
-        } else {
-            bottomViewWithButton.isHidden = false
-        }
-        
+            viewMoveIn(view: bottomViewWithButton)
+                 }
     }
 
     
@@ -154,8 +149,28 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
         
                 mainSumLabel.text = "Сумма: \(totalprice) грн, с НДС: \(totalNDSprice) грн."
                 if (addedItems.count == 0) {
-                    mainSumLabel.text = ""
+                     UIView.animate(withDuration: 0.2, animations: { self.mainSumLabel.alpha = 0.0 })
          }
         
      }
+    
+    //ANIMATIONS
+    func viewMoveIn(view: UIView) {
+        let animation = CABasicAnimation()
+        
+        animation.keyPath = "position.y"
+        animation.fromValue  = 0
+        animation.toValue = 100
+        
+        animation.duration = 0.4
+        animation.isAdditive = true
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        view.isUserInteractionEnabled = false
+        
+        
+        view.layer.add(animation, forKey: "fade")
+    }
+
 }
+

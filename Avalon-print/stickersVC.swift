@@ -104,6 +104,11 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         leftImageViewConstraint.constant = 0
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        leftImageViewConstraint.constant = -25
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
@@ -144,11 +149,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
-        
-        stickersAddToCartButton.isUserInteractionEnabled  = false
-        stickersAddToCartButton.backgroundColor = UIColor.darkGray
-        stickersAddToCartButton.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
-    
     }
     
     
@@ -373,15 +373,16 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         stickersPrice.text = stickersBoolVariables.priceToLabel
         stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
         
+        
         if stickersPrice.text == "0" {
-            stickersAddToCartButton.isUserInteractionEnabled  = false
-            stickersAddToCartButton.backgroundColor = UIColor.darkGray
-            stickersAddToCartButton.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
-            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.stickersAddToCartButton.alpha = 0.5 })
+            stickersAddToCartButton.isEnabled  = false
         } else {
-            stickersAddToCartButton.isUserInteractionEnabled = true
-            stickersAddToCartButton.backgroundColor = materialGreen
-            stickersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+            stickersAddToCartButton.isEnabled = true
+            UIView.animate(withDuration: 0.5, animations: {
+                self.stickersAddToCartButton.alpha = 1.0 })
         }
+
     }
 }

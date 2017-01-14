@@ -49,6 +49,11 @@ class canvasVC: UIViewController {
         leftImageViewConstraint.constant = 0
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        leftImageViewConstraint.constant = -25
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
