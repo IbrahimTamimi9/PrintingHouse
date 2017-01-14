@@ -59,20 +59,6 @@ class InformationPageController: UITableViewController {
             viewController.passedValue = valueToPass
             
         }
-//        func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-//            return false;
-//        }
-        
-//        if segue.identifier == "seguePaymentAndDelivery" {
-//            if let IndexPath = tableView.indexPathForSelectedRow {
-//                var destVC = segue.destination as! informationDetail   //xz
-//                destVC.selectedRowFromInformationPage = "fdfd"
-//                //destVC.indexOfSelectedCell
-//               // destVC.textViewForLoadingContent.text = "yesss"
-           // }
-            
-       // }
-        
         
     }
     

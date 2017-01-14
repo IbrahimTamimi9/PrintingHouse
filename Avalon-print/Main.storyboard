@@ -570,7 +570,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuK-HV-iXm">
-                                <rect key="frame" x="164" y="42" width="47.5" height="24"/>
+                                <rect key="frame" x="165" y="42" width="45.5" height="24"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -618,8 +618,9 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-low-poly" translatesAutoresizingMaskIntoConstraints="NO" id="GNN-KZ-VhL">
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generalPageB" translatesAutoresizingMaskIntoConstraints="NO" id="GNN-KZ-VhL">
                                 <rect key="frame" x="-25" y="-25" width="425" height="653"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow_title" translatesAutoresizingMaskIntoConstraints="NO" id="q6E-tc-JF0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="8"/>
@@ -628,7 +629,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GNN-KZ-VhL" firstAttribute="leading" secondItem="CWw-Nf-NEN" secondAttribute="leading" constant="-25" id="2xc-zF-tak"/>
                             <constraint firstItem="WyE-Kq-Clq" firstAttribute="top" secondItem="GNN-KZ-VhL" secondAttribute="bottom" constant="-25" id="7CO-yH-odq"/>
@@ -1063,7 +1064,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-8" translatesAutoresizingMaskIntoConstraints="NO" id="kc6-eZ-rij">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postersB" translatesAutoresizingMaskIntoConstraints="NO" id="kc6-eZ-rij">
                                 <rect key="frame" x="-25" y="-25" width="425" height="653"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -1216,7 +1217,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-Zq-5Nk">
-                                <rect key="frame" x="216" y="466" width="83" height="16"/>
+                                <rect key="frame" x="222" y="466" width="77" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="SdE-PY-R1N"/>
                                 </constraints>
@@ -1342,7 +1343,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-9" translatesAutoresizingMaskIntoConstraints="NO" id="zWU-Sd-d1D">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banners" translatesAutoresizingMaskIntoConstraints="NO" id="zWU-Sd-d1D">
                                 <rect key="frame" x="-25" y="-25" width="425" height="653"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow_title" translatesAutoresizingMaskIntoConstraints="NO" id="yQj-co-PSJ">
@@ -1385,7 +1386,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-7" translatesAutoresizingMaskIntoConstraints="NO" id="FpI-zh-AgU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stickers" translatesAutoresizingMaskIntoConstraints="NO" id="FpI-zh-AgU">
                                 <rect key="frame" x="-25" y="-25" width="425" height="653"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -1549,7 +1550,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-Kn-Bnm">
-                                <rect key="frame" x="216" y="466" width="83" height="16"/>
+                                <rect key="frame" x="222" y="466" width="77" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="rLl-FZ-lfn"/>
                                 </constraints>
@@ -1653,7 +1654,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-6" translatesAutoresizingMaskIntoConstraints="NO" id="SlF-Yt-Ar1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvasB" translatesAutoresizingMaskIntoConstraints="NO" id="SlF-Yt-Ar1">
                                 <rect key="frame" x="-25" y="-21" width="425" height="649"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow_title" translatesAutoresizingMaskIntoConstraints="NO" id="jk6-BC-ZFu">
@@ -1811,7 +1812,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfK-Lk-rRE">
-                                <rect key="frame" x="216" y="466" width="83" height="16"/>
+                                <rect key="frame" x="222" y="466" width="77" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="IiV-nk-1Nc"/>
                                 </constraints>
@@ -1907,7 +1908,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-3" translatesAutoresizingMaskIntoConstraints="NO" id="UvX-qc-LWZ">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contacts" translatesAutoresizingMaskIntoConstraints="NO" id="UvX-qc-LWZ">
                                 <rect key="frame" x="-25" y="-25" width="425" height="653"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN4-Zu-YJh">
@@ -2181,14 +2182,14 @@ Life  (093) 000-18-64
     <resources>
         <image name="ChevronLeft" width="22" height="22"/>
         <image name="account" width="30" height="30"/>
-        <image name="background-3" width="800" height="1201"/>
-        <image name="background-6" width="800" height="1201"/>
-        <image name="background-7" width="800" height="1201"/>
-        <image name="background-8" width="800" height="1201"/>
-        <image name="background-9" width="800" height="1201"/>
-        <image name="home-low-poly" width="764" height="1146"/>
+        <image name="banners" width="375" height="667"/>
+        <image name="canvasB" width="375" height="667"/>
+        <image name="contacts" width="375" height="667"/>
+        <image name="generalPageB" width="375" height="667"/>
         <image name="icon-go" width="25" height="40"/>
+        <image name="postersB" width="375" height="667"/>
         <image name="shadow_title" width="960" height="21"/>
+        <image name="stickers" width="375" height="667"/>
         <image name="userImage" width="75" height="75"/>
     </resources>
 </document>
