@@ -47,6 +47,11 @@ class bucketUserFillForm: UIViewController {
         commentsTV.clipsToBounds = true
         commentsTV.layer.cornerRadius = 5
         
+        nameSurnameTF.text = (defaults.object(forKey: "nameSurnameToProfile") as? String)
+        phoneTF.text = (defaults.object(forKey: "cellNumberToProfile") as? String)
+        emailTF.text = (defaults.object(forKey: "emailToProfile") as? String)
+
+        
         if screenSize.height < 667 {
             nameTFHeight.constant = 40
             mailTFHeight.constant = 40
