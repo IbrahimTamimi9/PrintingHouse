@@ -153,22 +153,13 @@ func getVariablesFromJSON() {
                         print("overprice1",  JSONVariables.OVERPRICE1)
                         
                     }
-                    
-                    
-                    
                 }//do
-                    
                 catch {}
-                
             }//if let content
-            
         }//else
-        
     }//let task
     
     taskGeneral.resume()
-    
-    
     
     let task = URLSession.shared.dataTask(with: url!)  {( data, response, error) in
         if error != nil {
@@ -235,21 +226,13 @@ func getVariablesFromJSON() {
                         
                         print("ArtCanvas цена материала",  JSONVariables.artCanvasMaterialCost)
                         print("ArtCanvas цена печати",  JSONVariables.artCanvasCostOfPrinting)
-                    }
-                    
-                }//do
-                    
+                     }
+                 }//do
                 catch {}
-                
             }//if let content
-            
         }//else
-        
     }// let task
     
     task.resume()
-    
-    
-    
     
 }

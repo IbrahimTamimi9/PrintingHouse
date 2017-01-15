@@ -20,7 +20,6 @@ class PageStartButton: UIButton {
         self.setTitleColor(UIColor.black, for: UIControlState.normal)
         self.titleEdgeInsets = titleInsets
         self.titleLabel?.font = titleFont
-
     }
     
 }

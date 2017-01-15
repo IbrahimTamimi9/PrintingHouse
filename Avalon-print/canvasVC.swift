@@ -11,40 +11,16 @@ import UIKit
 
 class canvasVC: UIViewController {
     
-    
-    
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenAmountAndMaterial: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenWidthAndMaterial: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenHeightAndMaterial: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var betweenSizeAndPostPrint: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenPostPrintAndPrice: NSLayoutConstraint!
     
-    func applyMotionEffect (toView view: UIView, magnitude: Float ) {
-        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        xMotion.minimumRelativeValue = -magnitude
-        xMotion.maximumRelativeValue = magnitude
-        
-        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        yMotion.minimumRelativeValue = -magnitude
-        yMotion.maximumRelativeValue = magnitude
-        
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [xMotion, yMotion]
-        view.addMotionEffect(group)
-        
-    }
-
+  
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
     }

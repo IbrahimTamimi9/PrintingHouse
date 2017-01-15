@@ -14,15 +14,11 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    
+
     @IBOutlet weak var betweenAmountAndMaterial: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenWidthAndMaterial: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenHeightAndMaterial: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenSizeAndPostPrint: NSLayoutConstraint!
-    
     @IBOutlet weak var betweenPostPrintAndPrice: NSLayoutConstraint!
     
     @IBOutlet weak var stickersAmountTextField: HoshiTextField!
@@ -41,18 +37,16 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     var postPrintPicker = UIPickerView()
     
     
-    let materialGreen =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
+    let aqua =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
     
     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
     
     let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.51м", preferredStyle: UIAlertControllerStyle.actionSheet)
     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
 
-     let nameButt =  "В корзину"
+    let nameButt =  "В корзину"
     
     @IBAction func AddToCart(_ sender: Any) {
-        
-        
         
         if stickersAddToCartButton.titleLabel?.text == nameButt {
 
@@ -85,21 +79,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             
         }
     }
-    func applyMotionEffect (toView view: UIView, magnitude: Float ) {
-        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        xMotion.minimumRelativeValue = -magnitude
-        xMotion.maximumRelativeValue = magnitude
-        
-        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        yMotion.minimumRelativeValue = -magnitude
-        yMotion.maximumRelativeValue = magnitude
-        
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [xMotion, yMotion]
-        view.addMotionEffect(group)
-        
-    }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
     }
@@ -217,12 +197,8 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         materialPicker.tag = 0
         postPrintPicker.tag = 1
         
-        
-        
         if pickerView.tag == 0 {
             EnableButton()
-            
-            
             
             if row == 0 { print("didnotChosen");
                 stickersBoolVariables.materialDidnNotChosen = true
@@ -246,8 +222,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
                 stickersComputings()
                 stickersPrice.text = stickersBoolVariables.priceToLabel
                 stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
-                
-                
             }
             
             if row == 2 { print("transparent stickers");
@@ -294,8 +268,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
                 stickersPrice.text = stickersBoolVariables.priceToLabel
                 stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
             
-            
-            
             updatePrices()
             return stickersPostPrintTextField.text = postPrintData[row]
         }
@@ -329,15 +301,13 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     func EnableButton() {
         stickersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
         stickersAddToCartButton.isUserInteractionEnabled = true
-        stickersAddToCartButton.backgroundColor = materialGreen
+        stickersAddToCartButton.backgroundColor = aqua
         stickersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-    
     }
     
     func closeKeyboard() {
         self.view.endEditing(true)
-        errorsCheck()
-        
+        errorsCheck()  
     }
     
     func errorsCheck() {

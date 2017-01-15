@@ -41,30 +41,12 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var xLetter: UILabel!
     let nameButt =  "В корзину"
-    let materialGreen =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
-   
+    
+    let aqua =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
     let snowColor =  UIColor(red: 255.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0/0.5)
     
-    
-    func applyMotionEffect (toView view: UIView, magnitude: Float ) {
-        let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        xMotion.minimumRelativeValue = -magnitude
-        xMotion.maximumRelativeValue = magnitude
-        
-        let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        yMotion.minimumRelativeValue = -magnitude
-        yMotion.maximumRelativeValue = magnitude
-        
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [xMotion, yMotion]
-        view.addMotionEffect(group)
-       
-    }
    
     @IBAction func AddToCart(_ sender: Any) {
-        
-        
-      
         
         if postersAddToCartButton.titleLabel?.text == nameButt {
             
@@ -390,11 +372,8 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
    func EnableButton() {
     postersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
     postersAddToCartButton.isUserInteractionEnabled = true
-    postersAddToCartButton.backgroundColor = materialGreen
+    postersAddToCartButton.backgroundColor = aqua
     postersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-    
-    
-    
     }
     
     func closeKeyboard() {

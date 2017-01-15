@@ -43,7 +43,6 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        
         if screenSize.height < 667 {
             nameTFHeight.constant = 40
@@ -96,6 +95,46 @@ class RegistrationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func nameSurnameEditingChanged(_ sender: Any) {  validateRegistraionData() }
+    @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateRegistraionData() }
+    @IBAction func emailEditingChanged(_ sender: Any) { validateRegistraionData() }
+    @IBAction func passwordEditingChanged(_ sender: Any) { validateRegistraionData() }
+    @IBAction func repeatPassEditingChanged(_ sender: Any) { validateRegistraionData() }
+    
+    
+   func validateRegistraionData () {
+    let characterSetEmail = NSCharacterSet(charactersIn: "@")
+    let characterSetEmail1 = NSCharacterSet(charactersIn: ".")
+    let badCharacterSetEmail = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")
+    let badCharacterSetPhoneNumber = NSCharacterSet(charactersIn: "@$%.><!`~,/?|'\'';:#^&*=_+{}[]")
+
+    
+     if (nameSurname.text?.characters.count)! < 2 ||
+        (phoneNumber.text?.characters.count)! < 10 ||
+        (phoneNumber.text?.characters.count)! > 12 ||
+         phoneNumber.text?.rangeOfCharacter(from: badCharacterSetPhoneNumber as CharacterSet, options: .caseInsensitive ) != nil ||
+        (email.text?.characters.count)! < 5 ||
+         email.text?.rangeOfCharacter(from: characterSetEmail as CharacterSet, options: .caseInsensitive ) == nil ||
+         email.text?.rangeOfCharacter(from: characterSetEmail1 as CharacterSet, options: .caseInsensitive ) == nil ||
+         email.text?.rangeOfCharacter(from: badCharacterSetEmail as CharacterSet, options: .caseInsensitive ) != nil ||
+        (password.text?.characters.count)! < 6 ||
+        (password.text != repeatPassword.text) {
+        
+         registrationButton.isEnabled = false
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.registrationButton.alpha = 0.5 })
+        
+     } else {
+        registrationButton.isEnabled = true;
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.registrationButton.alpha = 1.0 })
+       }
+}
+    
     
     @IBAction func doRegistrate(_ sender: Any) {
         

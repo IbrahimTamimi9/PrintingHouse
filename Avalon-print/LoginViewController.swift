@@ -152,13 +152,8 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func emailFieldValidation(_ sender: Any) {
-       validation()
-    }
-    
-    @IBAction func passwordFieldValidation(_ sender: Any) {
-        validation()
-    }
+    @IBAction func emailFieldValidation(_ sender: Any) { validation() }
+    @IBAction func passwordFieldValidation(_ sender: Any) { validation() }
     
     func validation () {
         let characterSet = NSCharacterSet(charactersIn: "@")
