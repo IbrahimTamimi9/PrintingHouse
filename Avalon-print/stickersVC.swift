@@ -37,11 +37,10 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     var postPrintPicker = UIPickerView()
     
     
-    let aqua =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
-    
     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
     
     let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.51м", preferredStyle: UIAlertControllerStyle.actionSheet)
+    
     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
 
     let nameButt =  "В корзину"
@@ -301,7 +300,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     func EnableButton() {
         stickersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
         stickersAddToCartButton.isUserInteractionEnabled = true
-        stickersAddToCartButton.backgroundColor = aqua
         stickersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     }
     

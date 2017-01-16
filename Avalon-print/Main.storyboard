@@ -585,7 +585,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuK-HV-iXm">
-                                <rect key="frame" x="165" y="42" width="45.5" height="24"/>
+                                <rect key="frame" x="165" y="42" width="45" height="24"/>
                                 <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -710,37 +710,37 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Цена: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRZ-bH-oOv">
-                                                    <rect key="frame" x="13" y="101" width="33.5" height="13.5"/>
+                                                    <rect key="frame" x="13" y="100" width="34" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11.5"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUb-u0-tGk">
-                                                    <rect key="frame" x="47.5" y="101" width="28.5" height="13.5"/>
+                                                    <rect key="frame" x="48" y="100" width="29" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11.5"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF0-ID-kfO">
-                                                    <rect key="frame" x="81" y="101" width="21.5" height="13.5"/>
+                                                    <rect key="frame" x="82" y="100" width="22" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11.5"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIk-Qy-bTr">
-                                                    <rect key="frame" x="13" y="114.5" width="71.5" height="13.5"/>
+                                                    <rect key="frame" x="13" y="114" width="72" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11.5"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeI-zF-x4A">
-                                                    <rect key="frame" x="85.5" y="114.5" width="28.5" height="13.5"/>
+                                                    <rect key="frame" x="86" y="114" width="29" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11.5"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsN-tF-KB4">
-                                                    <rect key="frame" x="118" y="114.5" width="21.5" height="13.5"/>
+                                                    <rect key="frame" x="119" y="114" width="22" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11.5"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1156,7 +1156,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iru-6P-wvX" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="238" width="148.5" height="45"/>
+                                <rect key="frame" x="25" y="238" width="149" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="4rJ-AB-aeR"/>
                                 </constraints>
@@ -1185,7 +1185,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLj-nF-AHm" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="200.5" y="238" width="149.5" height="45"/>
+                                <rect key="frame" x="201" y="238" width="149" height="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
@@ -1241,7 +1241,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UR2-dk-sGA">
-                                <rect key="frame" x="173.5" y="238" width="27" height="44"/>
+                                <rect key="frame" x="174" y="238" width="27" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="3ji-WD-QmI"/>
                                 </constraints>
@@ -1452,7 +1452,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AddToCart:" destination="nW7-o5-byK" eventType="touchUpInside" id="Zrx-Wc-HvI"/>
                                     <action selector="AddToCart:" destination="Mlp-bK-D1K" eventType="touchUpInside" id="gmD-g7-q66"/>
                                 </connections>
                             </button>
@@ -1480,7 +1479,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="amountCursorPosChanged:" destination="Mlp-bK-D1K" eventType="editingChanged" id="Lfp-kE-kxO"/>
-                                    <action selector="amountCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="bFs-5i-w9j"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-cw-kVM">
@@ -1493,7 +1491,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lwd-S0-S1O" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="238" width="148.5" height="45"/>
+                                <rect key="frame" x="25" y="238" width="149" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="oK6-rb-nha"/>
                                 </constraints>
@@ -1516,11 +1514,10 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="widthCursorPosChanged:" destination="Mlp-bK-D1K" eventType="editingChanged" id="YgG-AB-aP7"/>
-                                    <action selector="widthCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="rca-fC-hyS"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uiB-Po-vLZ" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="200.5" y="238" width="149.5" height="45"/>
+                                <rect key="frame" x="201" y="238" width="149" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="cRx-Jf-j4I"/>
                                 </constraints>
@@ -1543,7 +1540,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="heightCursorPosChanged:" destination="Mlp-bK-D1K" eventType="editingChanged" id="6tV-Sw-34Q"/>
-                                    <action selector="heightCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="w7p-PE-6vf"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jif-le-qCD">
@@ -1552,7 +1548,7 @@
                                     <constraint firstAttribute="height" constant="45" id="9A0-zr-Sf7"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cn-NT-g5e">
@@ -1574,7 +1570,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BL-sj-b9s">
-                                <rect key="frame" x="173.5" y="238" width="27" height="45"/>
+                                <rect key="frame" x="174" y="238" width="27" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="yFO-Ij-qyv"/>
                                 </constraints>
@@ -1719,7 +1715,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AddToCart:" destination="nW7-o5-byK" eventType="touchUpInside" id="vAb-ae-Jo2"/>
+                                    <action selector="AddToCart:" destination="ZxG-tB-Tjs" eventType="touchUpInside" id="Er9-Cv-GqA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Тираж" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQ7-BL-VCt" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
@@ -1745,10 +1741,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="amountCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="Pfb-zu-Ci0"/>
+                                    <action selector="amountCursorPosChanged:" destination="ZxG-tB-Tjs" eventType="editingChanged" id="46I-qG-Dm4"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Холст художественный" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-Yy-MCE">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Холст художественный" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-Yy-MCE">
                                 <rect key="frame" x="25" y="153" width="324" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ykg-vF-nBy"/>
@@ -1757,7 +1753,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W34-BY-16Z" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="25" y="238" width="148.5" height="45"/>
+                                <rect key="frame" x="25" y="238" width="149" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bHK-zT-RtM"/>
                                 </constraints>
@@ -1779,11 +1775,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="widthCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="aNb-D3-GMi"/>
+                                    <action selector="widthCursorPosChanged:" destination="ZxG-tB-Tjs" eventType="editingChanged" id="kZq-Fy-xSM"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qAp-Ki-pDv" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
-                                <rect key="frame" x="200.5" y="238" width="149.5" height="45"/>
+                                <rect key="frame" x="201" y="238" width="149" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Hfg-RM-KQs"/>
                                 </constraints>
@@ -1805,7 +1801,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="heightCursorPosChanged:" destination="nW7-o5-byK" eventType="editingChanged" id="JCN-qe-CiF"/>
+                                    <action selector="heightCursorPosChanged:" destination="ZxG-tB-Tjs" eventType="editingChanged" id="JWB-Sw-edo"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-eL-xyv">
@@ -1814,7 +1810,7 @@
                                     <constraint firstAttribute="height" constant="45" id="FBZ-kf-QFs"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8m-zb-0VS">
@@ -1836,7 +1832,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il3-yw-LJs">
-                                <rect key="frame" x="173.5" y="238" width="27" height="44"/>
+                                <rect key="frame" x="174" y="238" width="27" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="OjJ-WN-KgG"/>
                                 </constraints>
@@ -1903,8 +1899,17 @@
                         <outlet property="betweenPostPrintAndPrice" destination="SDF-a8-AqG" id="6WY-Zc-kwa"/>
                         <outlet property="betweenSizeAndPostPrint" destination="YJA-lZ-rO0" id="74v-aV-Ea7"/>
                         <outlet property="betweenWidthAndMaterial" destination="vyg-uH-OAL" id="vaC-aW-Zaq"/>
+                        <outlet property="canvasAddToCartButton" destination="WB4-jC-Jo5" id="PfO-3G-YTo"/>
+                        <outlet property="canvasAmountTextField" destination="lQ7-BL-VCt" id="RCu-gT-nT1"/>
+                        <outlet property="canvasHeightTextField" destination="qAp-Ki-pDv" id="5kc-Yu-NLX"/>
+                        <outlet property="canvasMaterialTextField" destination="BO8-Yy-MCE" id="wkM-cc-gS9"/>
+                        <outlet property="canvasNDSPrice" destination="SMS-JP-aAy" id="PD6-fQ-gQu"/>
+                        <outlet property="canvasPostPrintTextField" destination="5NS-eL-xyv" id="Qdc-2K-BLc"/>
+                        <outlet property="canvasPrice" destination="DNC-r0-BQp" id="qgw-UB-R1x"/>
+                        <outlet property="canvasWidthTextField" destination="W34-BY-16Z" id="TxI-GC-qdu"/>
                         <outlet property="leftImageViewConstraint" destination="mY2-vx-WvA" id="nJk-uA-FiI"/>
                         <outlet property="topConstraint" destination="Ddp-5I-gVj" id="b1E-iY-krM"/>
+                        <outlet property="xLabel" destination="Il3-yw-LJs" id="yG3-jc-TdN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyz-yD-hUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
