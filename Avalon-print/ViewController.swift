@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import JTMaterialTransition
+
 
 //let closeProgram = UIAlertController(title: "Нет подключения к интернету", message: "Пожалуйта, для использования программы подключитесь к интернету", preferredStyle: UIAlertControllerStyle.alert)
 //let close = UIAlertAction(title: "Закрыть", style: UIAlertActionStyle.destructive ) {
@@ -16,6 +18,7 @@ import CoreData
 //}hjk
 
 var rightBarButton: ENMBadgedBarButtonItem?
+var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
 
 
@@ -53,16 +56,24 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet var mainView: UIView!
-   
+    let button = UIButton(type: .custom)
+    
+    let postersPageButton = PageStartButton()
+     var bucketTransition = JTMaterialTransition()
+     var profileButtonTransition = JTMaterialTransition()
     
     
+   let profileButton = UIButton(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+         self.bucketTransition = JTMaterialTransition(animatedView: self.button)
+        self.profileButtonTransition = JTMaterialTransition(animatedView: self.profileButton)
         
         getVariablesFromJSON()
         setUpRightBarButton()
+        setUpLeftBarButton()
         updateBadgeValue()
         
         let postersIMG = UIImage(named: "bannersmain") as UIImage?
@@ -73,8 +84,8 @@ class ViewController: UIViewController {
         let infoIMG = UIImage(named: "infomain") as UIImage?
         
         
-        let postersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 ))
-
+       // let postersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 ))
+        postersPageButton.frame = CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 )
         postersPageButton.setBackgroundImage(postersIMG, for: UIControlState.normal)
         postersPageButton.setTitle("Плакаты", for: .normal)
         postersPageButton.addTarget(self, action: #selector(openPostersPage), for: .touchUpInside)
@@ -133,7 +144,7 @@ class ViewController: UIViewController {
     
     func setUpRightBarButton() {
         let image = UIImage(named: "shoppingCart")
-        let button = UIButton(type: .custom)
+        
         if let knownImage = image {
             button.frame = CGRect(x: 0.0, y: 0.0, width: knownImage.size.width, height: knownImage.size.height)
         } else {
@@ -152,12 +163,76 @@ class ViewController: UIViewController {
     
     func rightButtonPressed(_ sender: UIButton) {
         
-        let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
-        let navigationController = UINavigationController(rootViewController: destination)
-        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        navigationController.isNavigationBarHidden = true
-        self.present(navigationController, animated: true, completion: nil)
+        let controller =  storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+        
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = self.bucketTransition
+        
+        self.present(controller, animated: true, completion: nil)
+        
+//        let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+//        let navigationController = UINavigationController(rootViewController: destination)
+//        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//        navigationController.isNavigationBarHidden = true
+//        self.present(navigationController, animated: true, completion: nil)
 
+    }
+    
+    
+    func setUpLeftBarButton() {
+        let image = UIImage(named: "accountv2")
+        
+        if let knownImage = image {
+            profileButton.frame = CGRect(x: 0.0, y: 0.0, width: knownImage.size.width, height: knownImage.size.height)
+        } else {
+            profileButton.frame = CGRect.zero;
+        }
+        
+        profileButton.setBackgroundImage(image, for: UIControlState())
+        //profileButton.layer.backgroundColor = UIColor.white.cgColor
+        profileButton.tintColor = UIColor.white
+       // profileButton.backgroundColor = UIColor.white
+    
+        
+        
+        profileButton.addTarget(self,
+                         action: #selector(ViewController.leftButtonPressed(_:)),
+                         for: UIControlEvents.touchUpInside)
+        
+        let newBarButton = ENMBadgedBarButtonItem(customView: profileButton, value: "0")
+        leftBarButton = newBarButton
+        navigationItem.leftBarButtonItem = leftBarButton
+    }
+
+    func leftButtonPressed(_ sender: UIButton) {
+        
+        if (defaults.object(forKey: "loggedIn") as? Bool) == true {
+            let controller =  storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
+            controller.modalPresentationStyle = .custom
+            controller.transitioningDelegate = self.profileButtonTransition
+            self.present(controller, animated: true, completion: nil)
+            
+            //            let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
+            //            let navigationController = UINavigationController(rootViewController: destination)
+            //            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            //            navigationController.isNavigationBarHidden = true
+            //  self.present(navigationController, animated: true, completion: nil)
+            
+        } else  {
+            let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            controller.modalPresentationStyle = .custom
+            controller.transitioningDelegate = self.profileButtonTransition
+            self.present(controller, animated: true, completion: nil)
+            
+            //            let destination = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            //            let navigationController = UINavigationController(rootViewController: destination)
+            //            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            //            navigationController.isNavigationBarHidden = true
+            //            self.present(navigationController, animated: true, completion: nil)
+            
+        }
+       
+        
     }
 
     
@@ -188,24 +263,36 @@ class ViewController: UIViewController {
                   postersBoolVariables.ndsPriceToLabel = "0"
     }
     
-    @IBAction func openLoginOrProfile(_ sender: Any) {
-  
-        if (defaults.object(forKey: "loggedIn") as? Bool) == true {
-            let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
-            let navigationController = UINavigationController(rootViewController: destination)
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            navigationController.isNavigationBarHidden = true
-            self.present(navigationController, animated: true, completion: nil)
-            
-        } else  {
-            
-            let destination = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            let navigationController = UINavigationController(rootViewController: destination)
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            navigationController.isNavigationBarHidden = true
-            self.present(navigationController, animated: true, completion: nil)
-        }
-    }
+//    @IBAction func openLoginOrProfile(_ sender: Any) {
+//        
+//        
+//  
+//       if (defaults.object(forKey: "loggedIn") as? Bool) == true {
+//        let controller =  storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
+//        controller.modalPresentationStyle = .custom
+//        controller.transitioningDelegate = self.transition
+//        self.present(controller, animated: true, completion: nil)
+//        
+////            let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
+////            let navigationController = UINavigationController(rootViewController: destination)
+////            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+////            navigationController.isNavigationBarHidden = true
+//          //  self.present(navigationController, animated: true, completion: nil)
+//            
+//        } else  {
+//        let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        controller.modalPresentationStyle = .custom
+//        controller.transitioningDelegate = self.transition
+//        self.present(controller, animated: true, completion: nil)
+//            
+////            let destination = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+////            let navigationController = UINavigationController(rootViewController: destination)
+////            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+////            navigationController.isNavigationBarHidden = true
+////            self.present(navigationController, animated: true, completion: nil)
+//        
+//        }
+//    }
     
     
     func openBannersPage(sender: UIButton!) {

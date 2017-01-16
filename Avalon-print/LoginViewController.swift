@@ -30,21 +30,23 @@ class LoginViewController: UIViewController {
     let incorrectLogin = UIAlertController(title: "Ошибка входа", message: "Неправильный логин или пароль", preferredStyle: UIAlertControllerStyle.alert )
     let noInternet = UIAlertController(title: "Ошибка входа", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
     
+    @IBOutlet weak var LogInButton: ButtonMockup!
    
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var LogInButton: ButtonMockup!
+   // @IBOutlet var LogInButton: TKTransitionSubmitButton!
     @IBOutlet weak var mainView: UIView!
 
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mainView.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = mainView.bounds
-        mainView.insertSubview(blurEffectView, at: 0)
+//        
+//        mainView.backgroundColor = UIColor.clear
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = mainView.bounds
+//        mainView.insertSubview(blurEffectView, at: 0)
         
         
         incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
@@ -163,7 +165,7 @@ class LoginViewController: UIViewController {
             LogInButton.isEnabled = false
             
             UIView.animate(withDuration: 0.5, animations: {
-                self.LogInButton.alpha = 0.5 })
+                self.LogInButton.alpha = 0.6})
            
             
         } else {

@@ -33,8 +33,7 @@ class UserProfile: UIViewController {
     
     }
     
-    
-  
+     
    
     @IBOutlet weak var mainView: UIView!
     override func viewDidLoad() {

@@ -69,11 +69,11 @@ class RegistrationViewController: UIViewController {
             
         }
         
-        mainView.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = mainView.bounds
-        mainView.insertSubview(blurEffectView, at: 0)
+//        mainView.backgroundColor = UIColor.clear
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = mainView.bounds
+//        mainView.insertSubview(blurEffectView, at: 0)
 
         
         noInternet.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
@@ -125,7 +125,7 @@ class RegistrationViewController: UIViewController {
          registrationButton.isEnabled = false
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.registrationButton.alpha = 0.5 })
+            self.registrationButton.alpha = 0.6 })
         
      } else {
         registrationButton.isEnabled = true;

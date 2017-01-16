@@ -42,12 +42,14 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
         mainPriceSumCounter()
         bottomViewVisibility()
     
-        mainView.backgroundColor = UIColor.clear
-        blurEffectView.frame = mainView.bounds
-        mainView.insertSubview(blurEffectView, at: 0)
-        blurEffectView.layer.masksToBounds = true
+       // mainView.backgroundColor = UIColor.clear
+       // blurEffectView.frame = mainView.bounds
+       // mainView.insertSubview(blurEffectView, at: 0)
+        //blurEffectView.layer.masksToBounds = true
         
     }
+    
+    
     
     func loadData () {
         do {

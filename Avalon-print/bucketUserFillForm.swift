@@ -69,11 +69,11 @@ class bucketUserFillForm: UIViewController {
         }
         
         
-        mainView.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = mainView.bounds
-        mainView.insertSubview(blurEffectView, at: 0)
+//        mainView.backgroundColor = UIColor.clear
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = mainView.bounds
+//        mainView.insertSubview(blurEffectView, at: 0)
 
 
         // Do any additional setup after loading the view.
