@@ -19,8 +19,7 @@ class RegistrationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
 
     }
-   
-    
+
     
     @IBOutlet var mainView: UIView!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -29,7 +28,7 @@ class RegistrationViewController: UIViewController {
     
     let invalidEmail = UIAlertController(title: "Ошибка регистрации", message: "Данный E-mail уже используется", preferredStyle: UIAlertControllerStyle.alert )
     
-     let regSuccessful = UIAlertController(title: "", message: "Регистрация прошла успешно, можете выполнить вход", preferredStyle: UIAlertControllerStyle.alert )
+    let regSuccessful = UIAlertController(title: "", message: "Регистрация прошла успешно, можете выполнить вход", preferredStyle: UIAlertControllerStyle.alert )
 
 
     @IBOutlet weak var nameSurname: UITextField!
@@ -51,7 +50,6 @@ class RegistrationViewController: UIViewController {
             passTFHeight.constant = 40
             repeatPassTFHeight.constant = 40
             
-           
             nameSurname.font = UIFont(name: "HelveticaNeue-Light", size: 14)
             phoneNumber.font = UIFont(name: "HelveticaNeue-Light", size: 14)
             email.font = UIFont(name: "HelveticaNeue-Light", size: 14)
@@ -69,13 +67,6 @@ class RegistrationViewController: UIViewController {
             
         }
         
-//        mainView.backgroundColor = UIColor.clear
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = mainView.bounds
-//        mainView.insertSubview(blurEffectView, at: 0)
-
-        
         noInternet.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
             self.activityIndicator.stopAnimating()
             UIApplication.shared.endIgnoringInteractionEvents()
@@ -92,8 +83,6 @@ class RegistrationViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }))
 
-
-        // Do any additional setup after loading the view.
     }
     
     
@@ -188,7 +177,6 @@ class RegistrationViewController: UIViewController {
                             
                         } else { print("****Some shit happened****") }
                         
-                      
                     }
                         
                     catch {}
@@ -197,8 +185,7 @@ class RegistrationViewController: UIViewController {
             }
         }//task1
         task1.resume()
-        
-        
+  
     }
 
     
@@ -220,16 +207,4 @@ class RegistrationViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeKeyboard()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

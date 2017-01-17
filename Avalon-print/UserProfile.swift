@@ -17,6 +17,8 @@ class UserProfile: UIViewController {
     @IBOutlet var userEmail: UILabel!
     
     @IBOutlet var logOutButton: UIButton!
+    @IBOutlet weak var mainView: UIView!
+    
     @IBAction func logOut(_ sender: Any) {
         
     //UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
@@ -28,30 +30,18 @@ class UserProfile: UIViewController {
         defaults.set("", forKey: "emailToProfile")
         defaults.set("", forKey: "cellNumberToProfile")
 
-        
         dismiss(animated: true, completion: nil)
     
     }
     
-     
-   
-    @IBOutlet weak var mainView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         
         userName.text = (defaults.object(forKey: "nameSurnameToProfile") as? String)
         userNameTitle.text = (defaults.object(forKey: "nameSurnameToProfile") as? String)
         userCell.text = (defaults.object(forKey: "cellNumberToProfile") as? String)
         userEmail.text = (defaults.object(forKey: "emailToProfile") as? String)
-
-        // Do any additional setup after loading the view.
-        
-        mainView.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = mainView.bounds
-        mainView.insertSubview(blurEffectView, at: 0)
 
     }
 
@@ -64,16 +54,4 @@ class UserProfile: UIViewController {
          // UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
           dismiss(animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

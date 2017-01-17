@@ -6,8 +6,6 @@
 //  Copyright © 2016 Roman Mizin. All rights reserved.
 //
 
-
-
 import UIKit
 import MapKit
 

@@ -31,10 +31,7 @@ struct JSONVariables {
     //MARK: CANVAS
     static var artCanvasMaterialCost = Double()
     static var artCanvasCostOfPrinting = Double()
-    
-
-    
-    
+    //MARK: POSTPRINT
     static var GLOSS1_0_MATERIAL = Double()
     static var GLOSS1_0_WORK = Double()
     static var MAT1_0_MATERIAL = Double()
@@ -47,13 +44,9 @@ struct JSONVariables {
     static var COLD_LAM_WORK = Double()
     
 }
-//struct internet {
-//    static var enabled = Bool()
-//}
 
 
 func getVariablesFromJSON() {
-    
     
     let url = URL(string: "http://mizin-dev.com/data.json")
     let urlGeneral = URL(string: "http://mizin-dev.com/GeneralData.json")
@@ -63,13 +56,8 @@ func getVariablesFromJSON() {
     let taskPostPrint = URLSession.shared.dataTask(with: urlPostPrint!)  {( data, response, error) in
         if error != nil {
             print("ERROR")
-            //internet.enabled = false
-                     
-        } else {
-              //internet.enabled = true
-        
-            
-            if let content = data {
+           
+        } else if let content = data {
                 do {
                     
                     let myJsonPostPrint = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
@@ -120,8 +108,6 @@ func getVariablesFromJSON() {
                 
             }//if let content
             
-        }//else
-        
     }//let task
     
     taskPostPrint.resume()

@@ -11,17 +11,9 @@ import CoreData
 import JTMaterialTransition
 
 
-//let closeProgram = UIAlertController(title: "Нет подключения к интернету", message: "Пожалуйта, для использования программы подключитесь к интернету", preferredStyle: UIAlertControllerStyle.alert)
-//let close = UIAlertAction(title: "Закрыть", style: UIAlertActionStyle.destructive ) {
-//    UIAlertAction in
-//    exit(0)
-//}hjk
-
 var rightBarButton: ENMBadgedBarButtonItem?
 var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
-
-
 
 func updateBadgeValue () {
     managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -59,17 +51,25 @@ class ViewController: UIViewController {
     let button = UIButton(type: .custom)
     
     let postersPageButton = PageStartButton()
-     var bucketTransition = JTMaterialTransition()
-     var profileButtonTransition = JTMaterialTransition()
+    let bannersPageButton = PageStartButton()
+    let stickersPageButton = PageStartButton()
+    let canvasPageButton = PageStartButton()
+    let contactsPageButton = PageStartButton()
+    let informationPageButton = PageStartButton()
     
+    var bucketTransition = JTMaterialTransition()
+    var profileButtonTransition = JTMaterialTransition()
     
-   let profileButton = UIButton(type: .custom)
+    let profileButton = UIButton(type: .custom)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+        
          self.bucketTransition = JTMaterialTransition(animatedView: self.button)
-        self.profileButtonTransition = JTMaterialTransition(animatedView: self.profileButton)
+         self.profileButtonTransition = JTMaterialTransition(animatedView: self.profileButton)
         
         getVariablesFromJSON()
         setUpRightBarButton()
@@ -84,7 +84,6 @@ class ViewController: UIViewController {
         let infoIMG = UIImage(named: "infomain") as UIImage?
         
         
-       // let postersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 ))
         postersPageButton.frame = CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 )
         postersPageButton.setBackgroundImage(postersIMG, for: UIControlState.normal)
         postersPageButton.setTitle("Плакаты", for: .normal)
@@ -92,36 +91,31 @@ class ViewController: UIViewController {
         
         
         
-        let bannersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/20, width: screenSize.width/2.5, height: screenSize.width/2.5 ))
-        
+        bannersPageButton.frame = CGRect(x: (screenSize.width/1.9), y: screenSize.height/20, width: screenSize.width/2.5, height: screenSize.width/2.5 )
         bannersPageButton.setBackgroundImage(bannersIMG, for: UIControlState.normal)
         bannersPageButton.setTitle("Баннеры", for: .normal)
         bannersPageButton.addTarget(self, action: #selector(openBannersPage), for: .touchUpInside)
         
         
-        let stickersPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5))
-        
+        stickersPageButton.frame =  CGRect(x: (screenSize.width/15), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5)
         stickersPageButton.setBackgroundImage(stickersIMG, for: UIControlState.normal)
         stickersPageButton.setTitle("Наклейки", for: .normal)
         stickersPageButton.addTarget(self, action: #selector(openStickersPage), for: .touchUpInside)
         
-        
-        let canvasPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5))
-        
+    
+        canvasPageButton.frame =  CGRect(x: (screenSize.width/1.9), y: screenSize.height/3.05, width: screenSize.width/2.5, height: screenSize.width/2.5)
         canvasPageButton.setBackgroundImage(canvasIMG, for: UIControlState.normal)
         canvasPageButton.setTitle("Холсты", for: .normal)
         canvasPageButton.addTarget(self, action: #selector(openCanvasPage), for: .touchUpInside)
         
         
-        let contactsPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/15), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5))
-        
+        contactsPageButton.frame = CGRect(x: (screenSize.width/15), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5)
         contactsPageButton.setBackgroundImage(contactsIMG, for: UIControlState.normal)
         contactsPageButton.setTitle("Контакты", for: .normal)
         contactsPageButton.addTarget(self, action: #selector(openContactsPage), for: .touchUpInside)
         
         
-        let informationPageButton = PageStartButton(frame: CGRect(x: (screenSize.width/1.9), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5))
-      
+        informationPageButton.frame =  CGRect(x: (screenSize.width/1.9), y: screenSize.height/1.65, width: screenSize.width/2.5, height: screenSize.width/2.5)
         informationPageButton.setBackgroundImage(infoIMG, for: UIControlState.normal)
         informationPageButton.setTitle("Информация", for: .normal)
         informationPageButton.addTarget(self, action: #selector(openInformationPage), for: .touchUpInside)
@@ -132,14 +126,6 @@ class ViewController: UIViewController {
         self.view.addSubview(canvasPageButton)
         self.view.addSubview(contactsPageButton)
         self.view.addSubview(informationPageButton)
-        
-//        if internet.enabled == false {
-//            closeProgram.addAction(close)
-//            self.present(closeProgram, animated: true, completion: nil)
-//        } else {
-//            print("internet works")
-//        }
-        
     }
     
     func setUpRightBarButton() {
@@ -148,13 +134,11 @@ class ViewController: UIViewController {
         if let knownImage = image {
             button.frame = CGRect(x: 0.0, y: 0.0, width: knownImage.size.width, height: knownImage.size.height)
         } else {
-            button.frame = CGRect.zero;
+            button.frame = CGRect.zero
         }
         
         button.setBackgroundImage(image, for: UIControlState())
-        button.addTarget(self,
-                         action: #selector(ViewController.rightButtonPressed(_:)),
-                         for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(ViewController.rightButtonPressed(_:)), for: UIControlEvents.touchUpInside)
         
         let newBarButton = ENMBadgedBarButtonItem(customView: button, value: "0")
         rightBarButton = newBarButton
@@ -163,19 +147,11 @@ class ViewController: UIViewController {
     
     func rightButtonPressed(_ sender: UIButton) {
         
-        let controller =  storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
-        
-        controller.modalPresentationStyle = .custom
-        controller.transitioningDelegate = self.bucketTransition
+        let controller = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+            controller.modalPresentationStyle = .custom
+            controller.transitioningDelegate = self.bucketTransition
         
         self.present(controller, animated: true, completion: nil)
-        
-//        let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
-//        let navigationController = UINavigationController(rootViewController: destination)
-//        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        navigationController.isNavigationBarHidden = true
-//        self.present(navigationController, animated: true, completion: nil)
-
     }
     
     
@@ -189,15 +165,12 @@ class ViewController: UIViewController {
         }
         
         profileButton.setBackgroundImage(image, for: UIControlState())
-        //profileButton.layer.backgroundColor = UIColor.white.cgColor
         profileButton.tintColor = UIColor.white
-       // profileButton.backgroundColor = UIColor.white
+    
     
         
         
-        profileButton.addTarget(self,
-                         action: #selector(ViewController.leftButtonPressed(_:)),
-                         for: UIControlEvents.touchUpInside)
+        profileButton.addTarget(self, action: #selector(ViewController.leftButtonPressed(_:)), for: UIControlEvents.touchUpInside)
         
         let newBarButton = ENMBadgedBarButtonItem(customView: profileButton, value: "0")
         leftBarButton = newBarButton
@@ -211,28 +184,14 @@ class ViewController: UIViewController {
             controller.modalPresentationStyle = .custom
             controller.transitioningDelegate = self.profileButtonTransition
             self.present(controller, animated: true, completion: nil)
-            
-            //            let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
-            //            let navigationController = UINavigationController(rootViewController: destination)
-            //            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            //            navigationController.isNavigationBarHidden = true
-            //  self.present(navigationController, animated: true, completion: nil)
+         
             
         } else  {
             let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             controller.modalPresentationStyle = .custom
             controller.transitioningDelegate = self.profileButtonTransition
             self.present(controller, animated: true, completion: nil)
-            
-            //            let destination = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            //            let navigationController = UINavigationController(rootViewController: destination)
-            //            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            //            navigationController.isNavigationBarHidden = true
-            //            self.present(navigationController, animated: true, completion: nil)
-            
         }
-       
-        
     }
 
     
@@ -263,38 +222,7 @@ class ViewController: UIViewController {
                   postersBoolVariables.ndsPriceToLabel = "0"
     }
     
-//    @IBAction func openLoginOrProfile(_ sender: Any) {
-//        
-//        
-//  
-//       if (defaults.object(forKey: "loggedIn") as? Bool) == true {
-//        let controller =  storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
-//        controller.modalPresentationStyle = .custom
-//        controller.transitioningDelegate = self.transition
-//        self.present(controller, animated: true, completion: nil)
-//        
-////            let destination = storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
-////            let navigationController = UINavigationController(rootViewController: destination)
-////            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-////            navigationController.isNavigationBarHidden = true
-//          //  self.present(navigationController, animated: true, completion: nil)
-//            
-//        } else  {
-//        let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//        controller.modalPresentationStyle = .custom
-//        controller.transitioningDelegate = self.transition
-//        self.present(controller, animated: true, completion: nil)
-//            
-////            let destination = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-////            let navigationController = UINavigationController(rootViewController: destination)
-////            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-////            navigationController.isNavigationBarHidden = true
-////            self.present(navigationController, animated: true, completion: nil)
-//        
-//        }
-//    }
-    
-    
+
     func openBannersPage(sender: UIButton!) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "bannersVC") as! bannersVC
         navigationController?.pushViewController(destination, animated: true)
@@ -341,8 +269,6 @@ class ViewController: UIViewController {
          canvasBoolVariables.threeH_x_fourH_C = false
          canvasBoolVariables.twoH_x_threeH_C = false
         
-        
-        
          canvasBoolVariables.canvasWidhOrHeightDidNotInputed = true
          canvasBoolVariables.canvasWidthSet = ""
          canvasBoolVariables.canvasHeightSet = ""
@@ -352,8 +278,7 @@ class ViewController: UIViewController {
         
          canvasBoolVariables.priceToLabel = "0"
          canvasBoolVariables.ndsPriceToLabel = "0"
-
-        
+  
     }
     
     

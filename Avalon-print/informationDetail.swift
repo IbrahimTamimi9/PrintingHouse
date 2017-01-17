@@ -11,15 +11,12 @@ import UIKit
 class informationDetail: UIViewController {
     
     @IBOutlet weak var textViewForLoadingContent: UITextView!
-
-     var passedValue:String! //name of cell
+    var passedValue:String! //name of cell
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationItem.title = passedValue
-        
-        
         
         if passedValue == "Оплата и доставка" {
             
@@ -56,13 +53,7 @@ class informationDetail: UIViewController {
          textViewForLoadingContent.isScrollEnabled = false
           DispatchQueue.main.async(execute: {
                     self.textViewForLoadingContent.scrollRangeToVisible(NSMakeRange(0, 0))
-                })
-        
-        
+       })
     }
-    
-   
-        
-    
 }
     

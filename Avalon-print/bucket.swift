@@ -41,12 +41,6 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
         loadData()
         mainPriceSumCounter()
         bottomViewVisibility()
-    
-       // mainView.backgroundColor = UIColor.clear
-       // blurEffectView.frame = mainView.bounds
-       // mainView.insertSubview(blurEffectView, at: 0)
-        //blurEffectView.layer.masksToBounds = true
-        
     }
     
     
@@ -65,7 +59,7 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
         
         if addedItems.count == 0 {
             viewMoveIn(view: bottomViewWithButton)
-                 }
+        }
     }
 
     

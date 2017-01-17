@@ -26,39 +26,28 @@ class LoginViewController: UIViewController {
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
- 
     let incorrectLogin = UIAlertController(title: "Ошибка входа", message: "Неправильный логин или пароль", preferredStyle: UIAlertControllerStyle.alert )
     let noInternet = UIAlertController(title: "Ошибка входа", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
     
     @IBOutlet weak var LogInButton: ButtonMockup!
-   
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-   // @IBOutlet var LogInButton: TKTransitionSubmitButton!
     @IBOutlet weak var mainView: UIView!
 
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        mainView.backgroundColor = UIColor.clear
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = mainView.bounds
-//        mainView.insertSubview(blurEffectView, at: 0)
-        
         
         incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.activityIndicator.stopAnimating()
            UIApplication.shared.endIgnoringInteractionEvents()
         }))
         
-        noInternet.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-        }))
-
+//        noInternet.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+//            self.activityIndicator.stopAnimating()
+//            UIApplication.shared.endIgnoringInteractionEvents()
+//        }))
 
     }
     
@@ -128,20 +117,12 @@ class LoginViewController: UIViewController {
                                  print("\nUSER PROFILE DATA \n",  (phpUserReturnedData["name"]  as! String), "\n", (phpUserReturnedData["email"]  as! String), "\n" , (phpUserReturnedData["phone_number"]  as! String))
                                 
                                 self.dismiss(animated: true, completion: nil)
-                                
                             }
-                            
-                            
                         } else {
-                            
                              print("Login or password are incorrect", "result", user["result"] as Any)
                              UIApplication.shared.endIgnoringInteractionEvents()
                              self.present(self.incorrectLogin, animated: true, completion: nil)
-                           
-                           
-                
                         }
-           
                     }
                
                     catch {}
@@ -174,8 +155,6 @@ class LoginViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.LogInButton.alpha = 1.0 })
             }
-        
-        
     }
     
     func closeKeyboard() {

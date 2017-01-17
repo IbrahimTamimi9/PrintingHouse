@@ -13,12 +13,12 @@ class InformationPageController: UITableViewController {
     
     var indexOfSelectedCell = Int()
     var valueToPass:String!
-    
     @IBOutlet var informationTableView: UITableView!
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()}
+        super.viewDidLoad()
+    }
     
     override func tableView(_ tableView: UITableView,  didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow!
@@ -38,7 +38,6 @@ class InformationPageController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (segue.identifier == "seguePaymentAndDelivery") {
             let viewController = segue.destination as! informationDetail
             viewController.passedValue = valueToPass
