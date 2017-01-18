@@ -119,14 +119,6 @@ struct postersBoolVariables {
             postersBoolVariables.ndsPriceToLabel = "0"
       }
         
-//        if postersBoolVariables.error == true {
-//            postersBoolVariables.priceToLabel = "0"
-//            postersBoolVariables.ndsPriceToLabel = "0"
-//            postersBoolVariables.postersWidthSet = ""
-//            postersBoolVariables.postersHeightSet = ""
-//            
-//        }
-        
         
         if( postersBoolVariables.cityC == true && postersBoolVariables.withoutPostPrint == true)  {
             print("city + without post print")

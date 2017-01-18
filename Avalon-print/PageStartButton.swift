@@ -16,7 +16,7 @@ class PageStartButton: UIButton {
           let titleInsets = UIEdgeInsets(top: screenSize.height/4, left: 0, bottom: 0, right: 0)
           let titleFont = UIFont(name: "Exo2-ExtraLight", size: 15)
         
-        self.backgroundColor = .clear//Color()
+        self.backgroundColor = .clear
         self.setTitleColor(UIColor.black, for: UIControlState.normal)
         self.titleEdgeInsets = titleInsets
         self.titleLabel?.font = titleFont

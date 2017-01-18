@@ -8,19 +8,19 @@
 
 import UIKit
 
-extension UITextField {
-    @IBInspectable var placeHolderColor: UIColor? {
-        get {
-            return self.placeHolderColor
-        }
-        set {
-            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: newValue!])
-        }
-    }
-}
+public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
 
+ extension UITextField {
+     @IBInspectable var placeHolderColor: UIColor? {
+         get {
+             return self.placeHolderColor
+         }
+         set {
+             self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: newValue!])
+         }
+     }
+ }
 
- public let defaults = UserDefaults.standard
 
 class LoginViewController: UIViewController {
     
@@ -38,17 +38,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        defaults.synchronize()
         
         incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.activityIndicator.stopAnimating()
            UIApplication.shared.endIgnoringInteractionEvents()
         }))
-        
-//        noInternet.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-//            self.activityIndicator.stopAnimating()
-//            UIApplication.shared.endIgnoringInteractionEvents()
-//        }))
-
     }
     
     
@@ -97,6 +92,7 @@ class LoginViewController: UIViewController {
                             defaults.set(self.loginTextField.text!, forKey: "login")
                             defaults.set(self.passwordTextField.text!, forKey: "password")
                             defaults.set(true, forKey: "loggedIn")
+                            defaults.synchronize()
                             
                             
                             print("\n\nSuccessfully logged in   ", "  result",  user["result"] as Any, "\n\n")
@@ -113,6 +109,7 @@ class LoginViewController: UIViewController {
                                  defaults.set((phpUserReturnedData["name"]  as! String), forKey: "nameSurnameToProfile")
                                  defaults.set((phpUserReturnedData["email"]  as! String), forKey: "emailToProfile")
                                  defaults.set((phpUserReturnedData["phone_number"]  as! String), forKey: "cellNumberToProfile")
+                                defaults.synchronize()
                                 
                                  print("\nUSER PROFILE DATA \n",  (phpUserReturnedData["name"]  as! String), "\n", (phpUserReturnedData["email"]  as! String), "\n" , (phpUserReturnedData["phone_number"]  as! String))
                                 
@@ -165,18 +162,5 @@ class LoginViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeKeyboard()
     }
-
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 

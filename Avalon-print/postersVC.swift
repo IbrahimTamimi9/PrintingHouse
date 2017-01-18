@@ -8,7 +8,6 @@
 
 
 import UIKit
-import CoreData
 
 
 class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {

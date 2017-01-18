@@ -22,6 +22,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+   //MARK: URL SCHEMES
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if url.scheme == "Avalon-print" {
+            NSLog("\(url)")
+            
+            if let navController = self.window?.rootViewController as? UINavigationController {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") //as UIViewController
+                
+                navController.present(vc, animated: true, completion: nil)
+        
+            //Could customize the controller pushed here, ex set an object and the normal stuff you'd do in perform segue
+            }
+            
+            return true //let iOS know we handled it
+        }
+        
+        if url.scheme == "Avalon-printSecond" {
+            NSLog("\(url)")
+            
+            if let navController = self.window?.rootViewController as? UINavigationController {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile") //as UIViewController
+                
+                navController.present(vc, animated: true, completion: nil)
+                
+            // Could customize the controller pushed here, ex set an object and the normal stuff you'd do in perform segue
+            }
+            
+            return true //let iOS know we handled it
+        }
+        
+        return false
+    }
+    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

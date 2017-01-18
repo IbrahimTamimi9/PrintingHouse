@@ -58,11 +58,6 @@ class bucketUserFillForm: UIViewController {
          dismiss(animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func closeKeyboard() {
         self.view.endEditing(true)

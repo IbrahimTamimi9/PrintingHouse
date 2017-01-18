@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3538AD20688A087BFC6A3DDA /* Pods_Avalon_Print.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02BFC1D204CAAFB1C68721B /* Pods_Avalon_Print.framework */; };
-		4B3008AB1E2F888E0044654E /* userProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* userProfileNavController.swift */; };
+		4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* customNavigationController.swift */; };
 		4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */; };
 		4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */; };
 		4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */; };
@@ -96,7 +96,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B3008AA1E2F888E0044654E /* userProfileNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userProfileNavController.swift; path = "Avalon-print/userProfileNavController.swift"; sourceTree = SOURCE_ROOT; };
+		4B3008AA1E2F888E0044654E /* customNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customNavigationController.swift; path = "Avalon-print/customNavigationController.swift"; sourceTree = SOURCE_ROOT; };
+		4B319D521E2FEB48005EBC5B /* Avalon-Print.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Avalon-Print.entitlements"; path = "Avalon-Print/Avalon-Print.entitlements"; sourceTree = "<group>"; };
+		4B319D531E2FEF33005EBC5B /* AvalonExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvalonExt.entitlements; sourceTree = "<group>"; };
 		4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-ExtraLight.ttf"; path = "Avalon-print/Fonts/Exo2-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Light.ttf"; path = "Avalon-print/Fonts/Exo2-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Regular.ttf"; path = "Avalon-print/Fonts/Exo2-Regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -199,23 +201,25 @@
 			isa = PBXGroup;
 			children = (
 				4B3F81BF1E22706100034E3E /* ButtonMockup.swift */,
-				4B3F81C01E22706100034E3E /* customNavigationBar.swift */,
+				4B4028A11E2397F1006E703B /* PageStartButton.swift */,
 				4B3F81C11E22706100034E3E /* ENMBadgedBarButton.h */,
 				4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */,
-				4B4028A11E2397F1006E703B /* PageStartButton.swift */,
-				4B3008AA1E2F888E0044654E /* userProfileNavController.swift */,
+				4B3008AA1E2F888E0044654E /* customNavigationController.swift */,
+				4B3F81C01E22706100034E3E /* customNavigationBar.swift */,
 			);
 			name = SupportingClasses;
 			path = CustomSlideMenu;
 			sourceTree = "<group>";
 		};
-		4B5A3D8A1E2FDF6D00E10A17 /* AvalonExt */ = {
+		4B5A3D8A1E2FDF6D00E10A17 /* AvalonTodayExtension */ = {
 			isa = PBXGroup;
 			children = (
+				4B319D531E2FEF33005EBC5B /* AvalonExt.entitlements */,
 				4B5A3D8B1E2FDF6D00E10A17 /* TodayViewController.swift */,
 				4B5A3D8D1E2FDF6D00E10A17 /* MainInterface.storyboard */,
 				4B5A3D901E2FDF6D00E10A17 /* Info.plist */,
 			);
+			name = AvalonTodayExtension;
 			path = AvalonExt;
 			sourceTree = "<group>";
 		};
@@ -311,11 +315,12 @@
 		B5EA1A1B1B7B383300E1C1C3 = {
 			isa = PBXGroup;
 			children = (
+				4B319D521E2FEB48005EBC5B /* Avalon-Print.entitlements */,
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
 				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
 				4B98B1461E217FD1003D725C /* Fonts */,
 				4B2D03B21DF78E5C00BF0B23 /* SupportingClasses */,
-				4B5A3D8A1E2FDF6D00E10A17 /* AvalonExt */,
+				4B5A3D8A1E2FDF6D00E10A17 /* AvalonTodayExtension */,
 				4B5A3D9E1E2FDF8300E10A17 /* avalonExtBridge */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
 				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
@@ -436,6 +441,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = UW7DTDNXS9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4B5A3D9C1E2FDF8300E10A17 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -447,6 +457,11 @@
 						DevelopmentTeam = UW7DTDNXS9;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -581,7 +596,7 @@
 				4B3F81941E226EE900034E3E /* postersVC.swift in Sources */,
 				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
 				4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */,
-				4B3008AB1E2F888E0044654E /* userProfileNavController.swift in Sources */,
+				4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */,
 				4B3F81B31E226FC300034E3E /* map.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
@@ -642,6 +657,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = AvalonExt/AvalonExt.entitlements;
 				DEVELOPMENT_TEAM = UW7DTDNXS9;
 				INFOPLIST_FILE = AvalonExt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -659,6 +675,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = AvalonExt/AvalonExt.entitlements;
 				DEVELOPMENT_TEAM = UW7DTDNXS9;
 				INFOPLIST_FILE = AvalonExt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -673,6 +690,7 @@
 		4B5A3DA71E2FDF8300E10A17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -700,6 +718,7 @@
 		4B5A3DA81E2FDF8300E10A17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -815,6 +834,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Avalon-Print/Avalon-Print.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UW7DTDNXS9;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
@@ -833,6 +853,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Avalon-Print/Avalon-Print.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UW7DTDNXS9;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";

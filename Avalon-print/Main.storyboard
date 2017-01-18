@@ -269,7 +269,7 @@
                                     <action selector="repeatPassEditingChanged:" destination="tnY-3S-qwP" eventType="editingChanged" id="ZDK-md-Was"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtQ-Ds-zg9" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtQ-Ds-zg9" customClass="ButtonMockup" customModule="avalonExtBridge">
                                 <rect key="frame" x="16" y="602" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -379,7 +379,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucketAndPlaceOrderBGv3" translatesAutoresizingMaskIntoConstraints="NO" id="NIY-cc-sJG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dz-SO-Ton" customClass="ButtonMockup" customModule="ButtonMockup">
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dz-SO-Ton" customClass="ButtonMockup" customModule="avalonExtBridge">
                                 <rect key="frame" x="63" y="503" width="249" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -492,7 +492,7 @@
                                     <action selector="closeLoginPage:" destination="m4d-8k-Ylz" eventType="touchUpInside" id="Osx-fz-jc5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irp-Hc-nok">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irp-Hc-nok" customClass="ButtonMockup" customModule="avalonExtBridge">
                                 <rect key="frame" x="257" y="556" width="89" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="TVN-fl-uTE"/>
@@ -506,18 +506,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="tnY-3S-qwP" kind="custom" customClass="DeckSegue" customModule="DeckTransition" id="AcE-f6-RrY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q67-jn-N1H" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q67-jn-N1H" customClass="ButtonMockup" customModule="avalonExtBridge">
                                 <rect key="frame" x="29" y="556" width="117" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RcO-pE-81U"/>
@@ -530,12 +524,6 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -627,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grA-si-H78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4544.8000000000002" y="-101.19940029985008"/>
+            <point key="canvasLocation" x="4623" y="-101"/>
         </scene>
         <!--Корзина-->
         <scene sceneID="bPW-RN-ndd">
@@ -765,7 +753,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHf-hL-VPN" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHf-hL-VPN" customClass="ButtonMockup" customModule="avalonExtBridge">
                                         <rect key="frame" x="7" y="25" width="360" height="55"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
@@ -845,7 +833,7 @@
                             <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucketAndPlaceOrderBGv3" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-9M-ln2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQx-dN-bU1" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQx-dN-bU1" customClass="ButtonMockup" customModule="avalonExtBridge">
                                 <rect key="frame" x="7" y="605" width="360" height="55"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1006,7 +994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu1-cs-n1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6853.6000000000004" y="-101.19940029985008"/>
+            <point key="canvasLocation" x="6111" y="-101"/>
         </scene>
         <!--Главная страница-->
         <scene sceneID="bC8-Oc-Zns">
@@ -1015,7 +1003,9 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="dVR-c5-bPf" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="dVR-c5-bPf" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -1033,7 +1023,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aum-fa-5PQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4687" y="-855"/>
+            <point key="canvasLocation" x="4622" y="-855"/>
         </scene>
         <!-- Плакаты-->
         <scene sceneID="df0-Cb-iZh">
@@ -1217,7 +1207,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bs-YL-ec2" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bs-YL-ec2">
                                 <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1297,7 +1287,7 @@
                         <outlet property="leftImageViewConstraint" destination="Uhd-AI-YGN" id="yUe-57-Axf"/>
                         <outlet property="ndsGrnLabel" destination="9pV-zu-Sg8" id="6wH-Gd-nZe"/>
                         <outlet property="ndsPriceLabel" destination="5HI-Zq-5Nk" id="JEF-oI-gBv"/>
-                        <outlet property="postersAddToCartButton" destination="2bs-YL-ec2" id="ahv-Ee-wSx"/>
+                        <outlet property="postersAddToCartButton" destination="2bs-YL-ec2" id="GRx-88-ZdV"/>
                         <outlet property="postersAmountTextField" destination="vQT-nt-bvz" id="Du0-BC-yG4"/>
                         <outlet property="postersHeightTextField" destination="DLj-nF-AHm" id="BPV-7I-KYT"/>
                         <outlet property="postersMaterialTextField" destination="FsM-hB-wae" id="ep4-Wy-Xul"/>
@@ -1403,7 +1393,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mH-Rr-s11" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mH-Rr-s11">
                                 <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1606,7 +1596,7 @@
                         <outlet property="betweenSizeAndPostPrint" destination="m4m-yw-qag" id="pKJ-Vu-9Mf"/>
                         <outlet property="betweenWidthAndMaterial" destination="HdZ-x6-Mkl" id="5Ft-2F-Lxr"/>
                         <outlet property="leftImageViewConstraint" destination="07M-fW-TGW" id="IAL-p0-QsO"/>
-                        <outlet property="stickersAddToCartButton" destination="1mH-Rr-s11" id="jos-ER-dhP"/>
+                        <outlet property="stickersAddToCartButton" destination="1mH-Rr-s11" id="Qt3-CR-5Sl"/>
                         <outlet property="stickersAmountTextField" destination="0ir-tn-DIA" id="Tag-cb-fs0"/>
                         <outlet property="stickersHeightTextField" destination="uiB-Po-vLZ" id="M3S-ea-irh"/>
                         <outlet property="stickersMaterialTextField" destination="4UA-cw-kVM" id="u1J-qe-1Oj"/>
@@ -1666,7 +1656,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-jC-Jo5" customClass="ButtonMockup" customModule="Avalon_Print" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-jC-Jo5">
                                 <rect key="frame" x="197" y="545" width="162" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1867,7 +1857,7 @@
                         <outlet property="betweenPostPrintAndPrice" destination="SDF-a8-AqG" id="6WY-Zc-kwa"/>
                         <outlet property="betweenSizeAndPostPrint" destination="YJA-lZ-rO0" id="74v-aV-Ea7"/>
                         <outlet property="betweenWidthAndMaterial" destination="vyg-uH-OAL" id="vaC-aW-Zaq"/>
-                        <outlet property="canvasAddToCartButton" destination="WB4-jC-Jo5" id="PfO-3G-YTo"/>
+                        <outlet property="canvasAddToCartButton" destination="WB4-jC-Jo5" id="K24-Fu-2Ac"/>
                         <outlet property="canvasAmountTextField" destination="lQ7-BL-VCt" id="RCu-gT-nT1"/>
                         <outlet property="canvasHeightTextField" destination="qAp-Ki-pDv" id="5kc-Yu-NLX"/>
                         <outlet property="canvasMaterialTextField" destination="BO8-Yy-MCE" id="wkM-cc-gS9"/>
@@ -2166,12 +2156,14 @@ Life  (093) 000-18-64
             </objects>
             <point key="canvasLocation" x="2518" y="1367"/>
         </scene>
-        <!--User Profile Nav Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="7hy-Ay-RTO">
             <objects>
-                <navigationController storyboardIdentifier="UserProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4nN-Gt-WAi" customClass="userProfileNavController" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UserProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4nN-Gt-WAi" customClass="customNavigationController" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="S2S-0I-KiH">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="S2S-0I-KiH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2190,15 +2182,18 @@ Life  (093) 000-18-64
             </objects>
             <point key="canvasLocation" x="2998" y="-855"/>
         </scene>
-        <!--User Profile Nav Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="MpH-tB-9K1">
             <objects>
-                <navigationController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="fbm-db-mZy" customClass="userProfileNavController" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="fbm-db-mZy" customClass="customNavigationController" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKl-Zb-wy2">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKl-Zb-wy2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2207,7 +2202,7 @@ Life  (093) 000-18-64
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a79-QC-46F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3847" y="-855"/>
+            <point key="canvasLocation" x="3846" y="-855"/>
         </scene>
     </scenes>
     <resources>

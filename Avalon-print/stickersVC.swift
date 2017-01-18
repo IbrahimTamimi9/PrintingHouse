@@ -8,7 +8,6 @@
 
 
 import UIKit
-import avalonExtBridge
 
 class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -29,7 +28,9 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var stickersPostPrintTextField: UITextField!
     @IBOutlet weak var stickersPrice: UILabel!
     @IBOutlet weak var stickersNDSPrice: UILabel!
-    @IBOutlet weak var stickersAddToCartButton: ButtonMockup!
+    
+    
+    @IBOutlet weak var stickersAddToCartButton: UIButton!
     
     var data = ["Выберите материал...","Пленка самокл. белая глянец/мат","Пленка самокл. прозрачная глянец/мат","Перфорированая пленка One Way Vision"]
     var postPrintData = ["Без постпечати","Холодная ламинация глянец/мат"]

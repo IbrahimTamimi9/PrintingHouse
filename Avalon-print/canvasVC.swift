@@ -8,7 +8,6 @@
 
 
 import UIKit
-import avalonExtBridge
 
 class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -20,7 +19,7 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var canvasPostPrintTextField: UITextField!
     @IBOutlet weak var canvasPrice: UILabel!
     @IBOutlet weak var canvasNDSPrice: UILabel!
-    @IBOutlet weak var canvasAddToCartButton: ButtonMockup!
+    @IBOutlet weak var canvasAddToCartButton: UIButton!
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
