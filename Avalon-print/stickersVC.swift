@@ -8,6 +8,7 @@
 
 
 import UIKit
+import avalonExtBridge
 
 class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     

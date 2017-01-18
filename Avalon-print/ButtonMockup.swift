@@ -7,7 +7,7 @@
 import UIKit
 
 @IBDesignable
-class ButtonMockup: UIButton {
+public class ButtonMockup: UIButton {
     @IBInspectable var borderColor: UIColor? = UIColor.clear {
         didSet {
             layer.borderColor = self.borderColor?.cgColor
@@ -25,7 +25,7 @@ class ButtonMockup: UIButton {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -33,7 +33,7 @@ class ButtonMockup: UIButton {
         super.init(frame: frame)
     }
     
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         self.layer.cornerRadius = self.cornerRadius
         self.layer.borderWidth = self.borderWidth
         self.layer.borderColor = self.borderColor?.cgColor

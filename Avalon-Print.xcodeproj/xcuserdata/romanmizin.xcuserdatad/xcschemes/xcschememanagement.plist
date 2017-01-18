@@ -9,9 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AvalonExt.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>avalonExtBridge.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4B5A3D861E2FDF6D00E10A17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B5A3D9C1E2FDF8300E10A17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B5EA1A231B7B383300E1C1C3</key>
 		<dict>
 			<key>primary</key>

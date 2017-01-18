@@ -8,7 +8,9 @@
 
 import UIKit
 import CoreData
+import avalonExtBridge
 import JTMaterialTransition
+
 
 
 var rightBarButton: ENMBadgedBarButtonItem?
@@ -189,10 +191,11 @@ class ViewController: UIViewController {
         
             
         } else  {
-            let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            controller.modalPresentationStyle = .custom
-            controller.transitioningDelegate = self.profileButtonTransition
-            self.present(controller, animated: true, completion: nil)
+            let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+            //as! LoginViewController
+            controller?.modalPresentationStyle = .custom
+            controller?.transitioningDelegate = self.profileButtonTransition
+            self.present(controller!, animated: true, completion: nil)
         }
     }
 

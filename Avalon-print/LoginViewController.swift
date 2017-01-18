@@ -20,7 +20,7 @@ extension UITextField {
 }
 
 
-  let defaults = UserDefaults.standard
+ public let defaults = UserDefaults.standard
 
 class LoginViewController: UIViewController {
     

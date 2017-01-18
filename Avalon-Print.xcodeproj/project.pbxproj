@@ -26,7 +26,6 @@
 		4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A41E226FC300034E3E /* ContactsPageController.swift */; };
 		4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A51E226FC300034E3E /* informationDetail.swift */; };
 		4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A61E226FC300034E3E /* InformationPageController.swift */; };
-		4B3F81B21E226FC300034E3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A71E226FC300034E3E /* LoginViewController.swift */; };
 		4B3F81B31E226FC300034E3E /* map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A81E226FC300034E3E /* map.swift */; };
 		4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */; };
 		4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AA1E226FC300034E3E /* UserProfile.swift */; };
@@ -35,16 +34,66 @@
 		4B3F81BC1E22702300034E3E /* JSONReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81B81E22702300034E3E /* JSONReading.swift */; };
 		4B3F81BD1E22702300034E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81B91E22702300034E3E /* Main.storyboard */; };
 		4B3F81BE1E22702300034E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81BA1E22702300034E3E /* Assets.xcassets */; };
-		4B3F81C31E22706100034E3E /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
 		4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C01E22706100034E3E /* customNavigationBar.swift */; };
 		4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */; };
 		4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */; };
 		4B4028A21E2397F1006E703B /* PageStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A11E2397F1006E703B /* PageStartButton.swift */; };
 		4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */; };
+		4B5A3D891E2FDF6D00E10A17 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */; };
+		4B5A3D8C1E2FDF6D00E10A17 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5A3D8B1E2FDF6D00E10A17 /* TodayViewController.swift */; };
+		4B5A3D8F1E2FDF6D00E10A17 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5A3D8D1E2FDF6D00E10A17 /* MainInterface.storyboard */; };
+		4B5A3D931E2FDF6D00E10A17 /* AvalonExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4B5A3D871E2FDF6D00E10A17 /* AvalonExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4B5A3DA11E2FDF8300E10A17 /* avalonExtBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5A3D9F1E2FDF8300E10A17 /* avalonExtBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B5A3DA41E2FDF8300E10A17 /* avalonExtBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5A3D9D1E2FDF8300E10A17 /* avalonExtBridge.framework */; };
+		4B5A3DA51E2FDF8300E10A17 /* avalonExtBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B5A3D9D1E2FDF8300E10A17 /* avalonExtBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B5A3DAA1E2FDFD900E10A17 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A71E226FC300034E3E /* LoginViewController.swift */; };
+		4B5A3DAB1E2FE02100E10A17 /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
 		4B8D1BCE1DF1FF27001A97F2 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */; };
 		4B8D1BCF1DF1FF27001A97F2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC31DF1FF27001A97F2 /* Info.plist */; };
 		4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BCA1DF1FF27001A97F2 /* TextFieldsEffects.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B5A3D911E2FDF6D00E10A17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5EA1A1C1B7B383300E1C1C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B5A3D861E2FDF6D00E10A17;
+			remoteInfo = AvalonExt;
+		};
+		4B5A3DA21E2FDF8300E10A17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5EA1A1C1B7B383300E1C1C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B5A3D9C1E2FDF8300E10A17;
+			remoteInfo = avalonExtBridge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B5A3D971E2FDF6D00E10A17 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4B5A3D931E2FDF6D00E10A17 /* AvalonExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5A3DA91E2FDF8300E10A17 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B5A3DA51E2FDF8300E10A17 /* avalonExtBridge.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B3008AA1E2F888E0044654E /* userProfileNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userProfileNavController.swift; path = "Avalon-print/userProfileNavController.swift"; sourceTree = SOURCE_ROOT; };
@@ -81,6 +130,14 @@
 		4B3F81CC1E2271D300034E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Avalon-print/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		4B4028A11E2397F1006E703B /* PageStartButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageStartButton.swift; path = "Avalon-print/PageStartButton.swift"; sourceTree = SOURCE_ROOT; };
 		4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
+		4B5A3D871E2FDF6D00E10A17 /* AvalonExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AvalonExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		4B5A3D8B1E2FDF6D00E10A17 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4B5A3D8E1E2FDF6D00E10A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4B5A3D901E2FDF6D00E10A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B5A3D9D1E2FDF8300E10A17 /* avalonExtBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = avalonExtBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5A3D9F1E2FDF8300E10A17 /* avalonExtBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = avalonExtBridge.h; sourceTree = "<group>"; };
+		4B5A3DA01E2FDF8300E10A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		4B8D1BC31DF1FF27001A97F2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8D1BC91DF1FF27001A97F2 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
@@ -93,10 +150,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B5A3D841E2FDF6D00E10A17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5A3D891E2FDF6D00E10A17 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5A3D991E2FDF8300E10A17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5EA1A211B7B383300E1C1C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5A3DA41E2FDF8300E10A17 /* avalonExtBridge.framework in Frameworks */,
 				3538AD20688A087BFC6A3DDA /* Pods_Avalon_Print.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				F02BFC1D204CAAFB1C68721B /* Pods_Avalon_Print.framework */,
+				4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +207,25 @@
 			);
 			name = SupportingClasses;
 			path = CustomSlideMenu;
+			sourceTree = "<group>";
+		};
+		4B5A3D8A1E2FDF6D00E10A17 /* AvalonExt */ = {
+			isa = PBXGroup;
+			children = (
+				4B5A3D8B1E2FDF6D00E10A17 /* TodayViewController.swift */,
+				4B5A3D8D1E2FDF6D00E10A17 /* MainInterface.storyboard */,
+				4B5A3D901E2FDF6D00E10A17 /* Info.plist */,
+			);
+			path = AvalonExt;
+			sourceTree = "<group>";
+		};
+		4B5A3D9E1E2FDF8300E10A17 /* avalonExtBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4B5A3D9F1E2FDF8300E10A17 /* avalonExtBridge.h */,
+				4B5A3DA01E2FDF8300E10A17 /* Info.plist */,
+			);
+			path = avalonExtBridge;
 			sourceTree = "<group>";
 		};
 		4B5FCE831DF0DB350080B034 /* pages */ = {
@@ -222,6 +315,8 @@
 				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
 				4B98B1461E217FD1003D725C /* Fonts */,
 				4B2D03B21DF78E5C00BF0B23 /* SupportingClasses */,
+				4B5A3D8A1E2FDF6D00E10A17 /* AvalonExt */,
+				4B5A3D9E1E2FDF8300E10A17 /* avalonExtBridge */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
 				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
 				31B3518373C45D0E0B929748 /* Pods */,
@@ -233,6 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				B5EA1A241B7B383300E1C1C3 /* Avalon-Print.app */,
+				4B5A3D871E2FDF6D00E10A17 /* AvalonExt.appex */,
+				4B5A3D9D1E2FDF8300E10A17 /* avalonExtBridge.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,7 +351,53 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4B5A3D9A1E2FDF8300E10A17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5A3DA11E2FDF8300E10A17 /* avalonExtBridge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4B5A3D861E2FDF6D00E10A17 /* AvalonExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B5A3D961E2FDF6D00E10A17 /* Build configuration list for PBXNativeTarget "AvalonExt" */;
+			buildPhases = (
+				4B5A3D831E2FDF6D00E10A17 /* Sources */,
+				4B5A3D841E2FDF6D00E10A17 /* Frameworks */,
+				4B5A3D851E2FDF6D00E10A17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AvalonExt;
+			productName = AvalonExt;
+			productReference = 4B5A3D871E2FDF6D00E10A17 /* AvalonExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4B5A3D9C1E2FDF8300E10A17 /* avalonExtBridge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B5A3DA61E2FDF8300E10A17 /* Build configuration list for PBXNativeTarget "avalonExtBridge" */;
+			buildPhases = (
+				4B5A3D981E2FDF8300E10A17 /* Sources */,
+				4B5A3D991E2FDF8300E10A17 /* Frameworks */,
+				4B5A3D9A1E2FDF8300E10A17 /* Headers */,
+				4B5A3D9B1E2FDF8300E10A17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = avalonExtBridge;
+			productName = avalonExtBridge;
+			productReference = 4B5A3D9D1E2FDF8300E10A17 /* avalonExtBridge.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		B5EA1A231B7B383300E1C1C3 /* Avalon-Print */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5EA1A361B7B383300E1C1C3 /* Build configuration list for PBXNativeTarget "Avalon-Print" */;
@@ -265,10 +408,14 @@
 				B5EA1A221B7B383300E1C1C3 /* Resources */,
 				80CEA36A2F345825F48087EA /* [CP] Embed Pods Frameworks */,
 				B5E36502405B9C91A6D20277 /* [CP] Copy Pods Resources */,
+				4B5A3D971E2FDF6D00E10A17 /* Embed App Extensions */,
+				4B5A3DA91E2FDF8300E10A17 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B5A3D921E2FDF6D00E10A17 /* PBXTargetDependency */,
+				4B5A3DA31E2FDF8300E10A17 /* PBXTargetDependency */,
 			);
 			name = "Avalon-Print";
 			productName = CustomSlideMenu;
@@ -281,9 +428,20 @@
 		B5EA1A1C1B7B383300E1C1C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Roman Mizin";
 				TargetAttributes = {
+					4B5A3D861E2FDF6D00E10A17 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UW7DTDNXS9;
+						ProvisioningStyle = Automatic;
+					};
+					4B5A3D9C1E2FDF8300E10A17 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UW7DTDNXS9;
+						ProvisioningStyle = Automatic;
+					};
 					B5EA1A231B7B383300E1C1C3 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = UW7DTDNXS9;
@@ -306,11 +464,28 @@
 			projectRoot = "";
 			targets = (
 				B5EA1A231B7B383300E1C1C3 /* Avalon-Print */,
+				4B5A3D861E2FDF6D00E10A17 /* AvalonExt */,
+				4B5A3D9C1E2FDF8300E10A17 /* avalonExtBridge */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4B5A3D851E2FDF6D00E10A17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5A3D8F1E2FDF6D00E10A17 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5A3D9B1E2FDF8300E10A17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5EA1A221B7B383300E1C1C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,6 +551,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B5A3D831E2FDF6D00E10A17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5A3D8C1E2FDF6D00E10A17 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B5A3D981E2FDF8300E10A17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B5A3DAB1E2FE02100E10A17 /* ButtonMockup.swift in Sources */,
+				4B5A3DAA1E2FDFD900E10A17 /* LoginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5EA1A201B7B383300E1C1C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -399,13 +591,11 @@
 				4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */,
 				4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */,
 				4B3F81971E226F0800034E3E /* stickersComputing.swift in Sources */,
-				4B3F81B21E226FC300034E3E /* LoginViewController.swift in Sources */,
 				4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */,
 				4B3F81BC1E22702300034E3E /* JSONReading.swift in Sources */,
 				4B3F81AC1E226FC300034E3E /* bucket.swift in Sources */,
 				4B4028A21E2397F1006E703B /* PageStartButton.swift in Sources */,
 				4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */,
-				4B3F81C31E22706100034E3E /* ButtonMockup.swift in Sources */,
 				4B3F81AD1E226FC300034E3E /* bucketTableViewCell.swift in Sources */,
 				4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */,
 				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
@@ -413,6 +603,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B5A3D921E2FDF6D00E10A17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B5A3D861E2FDF6D00E10A17 /* AvalonExt */;
+			targetProxy = 4B5A3D911E2FDF6D00E10A17 /* PBXContainerItemProxy */;
+		};
+		4B5A3DA31E2FDF8300E10A17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B5A3D9C1E2FDF8300E10A17 /* avalonExtBridge */;
+			targetProxy = 4B5A3DA21E2FDF8300E10A17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */ = {
@@ -423,9 +626,103 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		4B5A3D8D1E2FDF6D00E10A17 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B5A3D8E1E2FDF6D00E10A17 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4B5A3D941E2FDF6D00E10A17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = UW7DTDNXS9;
+				INFOPLIST_FILE = AvalonExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-print.AvalonExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4B5A3D951E2FDF6D00E10A17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = UW7DTDNXS9;
+				INFOPLIST_FILE = AvalonExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-print.AvalonExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4B5A3DA71E2FDF8300E10A17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UW7DTDNXS9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = avalonExtBridge/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mizin.avalonExtBridge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4B5A3DA81E2FDF8300E10A17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UW7DTDNXS9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = avalonExtBridge/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mizin.avalonExtBridge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		B5EA1A341B7B383300E1C1C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -521,7 +818,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UW7DTDNXS9;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-print";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -539,7 +836,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UW7DTDNXS9;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-print";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -551,6 +848,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B5A3D961E2FDF6D00E10A17 /* Build configuration list for PBXNativeTarget "AvalonExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B5A3D941E2FDF6D00E10A17 /* Debug */,
+				4B5A3D951E2FDF6D00E10A17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B5A3DA61E2FDF8300E10A17 /* Build configuration list for PBXNativeTarget "avalonExtBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B5A3DA71E2FDF8300E10A17 /* Debug */,
+				4B5A3DA81E2FDF8300E10A17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5EA1A1F1B7B383300E1C1C3 /* Build configuration list for PBXProject "Avalon-Print" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -5,7 +5,7 @@
 
 import UIKit
 import CoreData
-
+import avalonExtBridge
 
 @UIApplicationMain
 

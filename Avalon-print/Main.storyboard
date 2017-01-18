@@ -162,7 +162,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofA-Et-jnn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1330" y="-78"/>
+            <point key="canvasLocation" x="2998" y="-90"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="ghZ-h6-BO5">
@@ -362,12 +362,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6j-cT-Y5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="3847" y="614"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="xoW-dS-CdB">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m4d-8k-Ylz" customClass="LoginViewController" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="m4d-8k-Ylz" customClass="LoginViewController" customModule="avalonExtBridge" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="95m-Zw-jdf"/>
                         <viewControllerLayoutGuide type="bottom" id="ZNx-l2-UsB"/>
@@ -569,6 +569,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="4tY-dz-GZU" secondAttribute="trailing" constant="11" id="sXS-sp-pxe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5OW-w9-h1y"/>
                     <connections>
                         <outlet property="LogInButton" destination="0dz-SO-Ton" id="fhu-j5-NRP"/>
                         <outlet property="loginTextField" destination="4tY-dz-GZU" id="may-5D-DBl"/>
@@ -578,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sm7-at-3p5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2908" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="3847.1999999999998" y="-90.404797601199405"/>
         </scene>
         <!--Главная страница-->
         <scene sceneID="F3B-r2-y2G">
@@ -626,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grA-si-H78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3605.5999999999999" y="-101.19940029985008"/>
+            <point key="canvasLocation" x="4544.8000000000002" y="-101.19940029985008"/>
         </scene>
         <!--Корзина-->
         <scene sceneID="bPW-RN-ndd">
@@ -827,7 +828,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99h-Ya-poB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="-101.19940029985008"/>
+            <point key="canvasLocation" x="5375.1999999999998" y="-101.19940029985008"/>
         </scene>
         <!--Bucket User Fill Form-->
         <scene sceneID="oNK-Y4-Sio">
@@ -1005,7 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu1-cs-n1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5914.3999999999996" y="-101.19940029985008"/>
+            <point key="canvasLocation" x="6853.6000000000004" y="-101.19940029985008"/>
         </scene>
         <!--Главная страница-->
         <scene sceneID="bC8-Oc-Zns">
@@ -1032,7 +1033,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aum-fa-5PQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="-843"/>
+            <point key="canvasLocation" x="4687" y="-855"/>
         </scene>
         <!-- Плакаты-->
         <scene sceneID="df0-Cb-iZh">
@@ -2187,7 +2188,26 @@ Life  (093) 000-18-64
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlj-lZ-CsN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34.399999999999999" y="-102.09895052473765"/>
+            <point key="canvasLocation" x="2998" y="-855"/>
+        </scene>
+        <!--User Profile Nav Controller-->
+        <scene sceneID="MpH-tB-9K1">
+            <objects>
+                <navigationController storyboardIdentifier="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="fbm-db-mZy" customClass="userProfileNavController" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKl-Zb-wy2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m4d-8k-Ylz" kind="relationship" relationship="rootViewController" id="YxU-F4-Jdq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a79-QC-46F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3847" y="-855"/>
         </scene>
     </scenes>
     <resources>
