@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3538AD20688A087BFC6A3DDA /* Pods_Avalon_Print.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02BFC1D204CAAFB1C68721B /* Pods_Avalon_Print.framework */; };
+		4B3008AB1E2F888E0044654E /* userProfileNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* userProfileNavController.swift */; };
 		4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */; };
 		4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */; };
 		4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B3008AA1E2F888E0044654E /* userProfileNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userProfileNavController.swift; path = "Avalon-print/userProfileNavController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-ExtraLight.ttf"; path = "Avalon-print/Fonts/Exo2-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Light.ttf"; path = "Avalon-print/Fonts/Exo2-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Regular.ttf"; path = "Avalon-print/Fonts/Exo2-Regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -127,6 +129,7 @@
 				4B3F81C11E22706100034E3E /* ENMBadgedBarButton.h */,
 				4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */,
 				4B4028A11E2397F1006E703B /* PageStartButton.swift */,
+				4B3008AA1E2F888E0044654E /* userProfileNavController.swift */,
 			);
 			name = SupportingClasses;
 			path = CustomSlideMenu;
@@ -386,6 +389,7 @@
 				4B3F81941E226EE900034E3E /* postersVC.swift in Sources */,
 				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
 				4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */,
+				4B3008AB1E2F888E0044654E /* userProfileNavController.swift in Sources */,
 				4B3F81B31E226FC300034E3E /* map.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,

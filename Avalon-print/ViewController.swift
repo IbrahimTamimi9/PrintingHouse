@@ -177,14 +177,16 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButton
     }
 
+   
+    
     func leftButtonPressed(_ sender: UIButton) {
         
         if (defaults.object(forKey: "loggedIn") as? Bool) == true {
-            let controller =  storyboard?.instantiateViewController(withIdentifier: "UserProfile") as! UserProfile
-            controller.modalPresentationStyle = .custom
-            controller.transitioningDelegate = self.profileButtonTransition
-            self.present(controller, animated: true, completion: nil)
-         
+            let controller =  storyboard?.instantiateViewController(withIdentifier: "UserProfile")// as! UserProfile
+            controller?.modalPresentationStyle = .custom
+            controller?.transitioningDelegate = self.profileButtonTransition
+            self.present(controller!, animated: true, completion: nil)
+        
             
         } else  {
             let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

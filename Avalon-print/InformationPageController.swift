@@ -18,7 +18,29 @@ class InformationPageController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        informationTableView.backgroundView = UIImageView(image: UIImage(named: "contacts"))
+         informationTableView.backgroundView?.contentMode = .scaleAspectFill
+         informationTableView.backgroundView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let constraints = [
+            NSLayoutConstraint(item:  informationTableView.backgroundView!, attribute: .leading,  relatedBy: .equal, toItem: self.view, attribute: .leading,  multiplier: 1.0, constant: -25.0),
+            
+            NSLayoutConstraint(item: informationTableView.backgroundView!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -25.0),
+            
+            NSLayoutConstraint(item: informationTableView.backgroundView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,  multiplier: 1.0, constant: -25.0),
+            
+            NSLayoutConstraint(item: informationTableView.backgroundView!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -25.0)
+        ]
+        self.view.addConstraints(constraints)
+        
+       applyMotionEffect(toView: informationTableView.backgroundView!, magnitude: 25)
+        
+
     }
+    
+  
     
     override func tableView(_ tableView: UITableView,  didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow!
