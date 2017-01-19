@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3538AD20688A087BFC6A3DDA /* Pods_Avalon_Print.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02BFC1D204CAAFB1C68721B /* Pods_Avalon_Print.framework */; };
 		4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* customNavigationController.swift */; };
+		4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */; };
 		4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */; };
 		4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */; };
 		4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */; };
@@ -20,9 +21,9 @@
 		4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819A1E226F2D00034E3E /* canvasVC.swift */; };
 		4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819D1E226F4000034E3E /* bannersComputing.swift */; };
 		4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819E1E226F4000034E3E /* bannersVC.swift */; };
-		4B3F81AC1E226FC300034E3E /* bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A11E226FC300034E3E /* bucket.swift */; };
-		4B3F81AD1E226FC300034E3E /* bucketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A21E226FC300034E3E /* bucketTableViewCell.swift */; };
-		4B3F81AE1E226FC300034E3E /* bucketUserFillForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A31E226FC300034E3E /* bucketUserFillForm.swift */; };
+		4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */; };
+		4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */; };
+		4B3F81AE1E226FC300034E3E /* checkoutFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */; };
 		4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A41E226FC300034E3E /* ContactsPageController.swift */; };
 		4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A51E226FC300034E3E /* informationDetail.swift */; };
 		4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A61E226FC300034E3E /* InformationPageController.swift */; };
@@ -99,6 +100,7 @@
 		4B3008AA1E2F888E0044654E /* customNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customNavigationController.swift; path = "Avalon-print/customNavigationController.swift"; sourceTree = SOURCE_ROOT; };
 		4B319D521E2FEB48005EBC5B /* Avalon-Print.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Avalon-Print.entitlements"; path = "Avalon-Print/Avalon-Print.entitlements"; sourceTree = "<group>"; };
 		4B319D531E2FEF33005EBC5B /* AvalonExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvalonExt.entitlements; sourceTree = "<group>"; };
+		4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpingFunctions.swift; path = "Avalon-print/HelpingFunctions.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-ExtraLight.ttf"; path = "Avalon-print/Fonts/Exo2-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Light.ttf"; path = "Avalon-print/Fonts/Exo2-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Regular.ttf"; path = "Avalon-print/Fonts/Exo2-Regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -110,9 +112,9 @@
 		4B3F819A1E226F2D00034E3E /* canvasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = canvasVC.swift; path = "Avalon-print/canvasVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819D1E226F4000034E3E /* bannersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersComputing.swift; path = "Avalon-print/bannersComputing.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819E1E226F4000034E3E /* bannersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersVC.swift; path = "Avalon-print/bannersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A11E226FC300034E3E /* bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bucket.swift; path = "Avalon-print/bucket.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A21E226FC300034E3E /* bucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bucketTableViewCell.swift; path = "Avalon-print/bucketTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A31E226FC300034E3E /* bucketUserFillForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bucketUserFillForm.swift; path = "Avalon-print/bucketUserFillForm.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = shoppingCartVC.swift; path = "Avalon-print/shoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = shoppingCartTableViewCell.swift; path = "Avalon-print/shoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = checkoutFormVC.swift; path = "Avalon-print/checkoutFormVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A41E226FC300034E3E /* ContactsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsPageController.swift; path = "Avalon-print/ContactsPageController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A51E226FC300034E3E /* informationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = informationDetail.swift; path = "Avalon-print/informationDetail.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A61E226FC300034E3E /* InformationPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationPageController.swift; path = "Avalon-print/InformationPageController.swift"; sourceTree = SOURCE_ROOT; };
@@ -206,6 +208,7 @@
 				4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */,
 				4B3008AA1E2F888E0044654E /* customNavigationController.swift */,
 				4B3F81C01E22706100034E3E /* customNavigationBar.swift */,
+				4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */,
 			);
 			name = SupportingClasses;
 			path = CustomSlideMenu;
@@ -243,9 +246,9 @@
 				4B3F81A71E226FC300034E3E /* LoginViewController.swift */,
 				4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */,
 				4B3F81AA1E226FC300034E3E /* UserProfile.swift */,
-				4B3F81A11E226FC300034E3E /* bucket.swift */,
-				4B3F81A21E226FC300034E3E /* bucketTableViewCell.swift */,
-				4B3F81A31E226FC300034E3E /* bucketUserFillForm.swift */,
+				4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */,
+				4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */,
+				4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */,
 				4B3F81A41E226FC300034E3E /* ContactsPageController.swift */,
 				4B3F81A51E226FC300034E3E /* informationDetail.swift */,
 				4B3F81A61E226FC300034E3E /* InformationPageController.swift */,
@@ -589,7 +592,7 @@
 			files = (
 				4B3F81931E226EE900034E3E /* postersComputing.swift in Sources */,
 				4B3F81981E226F0800034E3E /* stickersVC.swift in Sources */,
-				4B3F81AE1E226FC300034E3E /* bucketUserFillForm.swift in Sources */,
+				4B3F81AE1E226FC300034E3E /* checkoutFormVC.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
 				4B8D1BCE1DF1FF27001A97F2 /* HoshiTextField.swift in Sources */,
 				4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */,
@@ -600,6 +603,7 @@
 				4B3F81B31E226FC300034E3E /* map.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
+				4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */,
 				4B3F81B61E226FC300034E3E /* ViewController.swift in Sources */,
 				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
 				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,
@@ -608,10 +612,10 @@
 				4B3F81971E226F0800034E3E /* stickersComputing.swift in Sources */,
 				4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */,
 				4B3F81BC1E22702300034E3E /* JSONReading.swift in Sources */,
-				4B3F81AC1E226FC300034E3E /* bucket.swift in Sources */,
+				4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */,
 				4B4028A21E2397F1006E703B /* PageStartButton.swift in Sources */,
 				4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */,
-				4B3F81AD1E226FC300034E3E /* bucketTableViewCell.swift in Sources */,
+				4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */,
 				4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */,
 				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
 			);

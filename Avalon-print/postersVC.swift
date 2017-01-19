@@ -49,7 +49,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         
         if postersAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
             let navigationController = UINavigationController(rootViewController: destination)
             
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext

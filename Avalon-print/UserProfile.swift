@@ -23,7 +23,7 @@ class UserProfile: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       //  defaults.synchronize()
+      
          view.backgroundColor = UIColor.white
          tableView.backgroundColor = UIColor.white
          tableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))

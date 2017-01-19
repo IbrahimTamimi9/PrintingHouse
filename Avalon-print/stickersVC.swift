@@ -51,7 +51,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         if stickersAddToCartButton.titleLabel?.text == nameButt {
 
-            let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
             let navigationController = UINavigationController(rootViewController: destination)
             
             
@@ -133,6 +133,8 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     
+    
+    
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( stickersAmountTextField.text == nil) {
             stickersBoolVariables.amountDidNotInputed = true
@@ -192,8 +194,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     
-    
-    
+        
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         materialPicker.tag = 0
         postPrintPicker.tag = 1
@@ -203,6 +204,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             
             if row == 0 { print("didnotChosen");
                 stickersBoolVariables.materialDidnNotChosen = true
+                
                 stickersBoolVariables.whiteStickerC = false
                 stickersBoolVariables.transparentStickerC = false
                 stickersBoolVariables.oneWayVisionC = false

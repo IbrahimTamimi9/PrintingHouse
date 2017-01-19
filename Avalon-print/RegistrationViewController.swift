@@ -10,20 +10,24 @@ import UIKit
 import avalonExtBridge
 
 
-class RegistrationViewController: UIViewController {
-    
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
+   
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var nameTFHeight: NSLayoutConstraint!
     @IBOutlet weak var numTFHeight: NSLayoutConstraint!
     @IBOutlet weak var mailTFHeight: NSLayoutConstraint!
     @IBOutlet weak var passTFHeight: NSLayoutConstraint!
     @IBOutlet weak var repeatPassTFHeight: NSLayoutConstraint!
-    @IBAction func closeRegistrationPage(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-
-    }
-
     
-    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var nameSurname: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var repeatPassword: UITextField!
+    
+    @IBOutlet weak var registrationButton: ButtonMockup!
+
+   
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     let noInternet = UIAlertController(title: "Ошибка регистрации", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
@@ -32,59 +36,48 @@ class RegistrationViewController: UIViewController {
     
     let regSuccessful = UIAlertController(title: "", message: "Регистрация прошла успешно, можете выполнить вход", preferredStyle: UIAlertControllerStyle.alert )
 
-
-    @IBOutlet weak var nameSurname: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var repeatPassword: UITextField!
-    
-    @IBOutlet weak var registrationButton: ButtonMockup!
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameSurname.delegate = self
+        phoneNumber.delegate = self
+        email.delegate = self
+        password.delegate = self
+        repeatPassword.delegate = self
        
+       
+        setUpUI(textfields: [nameSurname, phoneNumber, email, password, repeatPassword], constraints: [nameTFHeight, numTFHeight, mailTFHeight, passTFHeight, repeatPassTFHeight], alertControllers: [noInternet, invalidEmail, regSuccessful])
+        
+    }
+    
+    
+    func setUpUI(textfields: [UITextField], constraints: [NSLayoutConstraint], alertControllers: [UIAlertController]) {
+        
+        for AlertControllers in alertControllers {
+            AlertControllers.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+           }))
+        }
+        
         if screenSize.height < 667 {
-            nameTFHeight.constant = 40
-            numTFHeight.constant = 40
-            mailTFHeight.constant = 40
-            passTFHeight.constant = 40
-            repeatPassTFHeight.constant = 40
+            for Constraints in constraints {
+                Constraints.constant = 40
+            }
             
-            nameSurname.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            phoneNumber.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            email.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            password.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            repeatPassword.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            
+            for Textfields in textfields {
+                Textfields.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+            }
             
         }
+        
         if screenSize.height == 736 {
-            nameTFHeight.constant = 55
-            numTFHeight.constant = 55
-            mailTFHeight.constant = 55
-            passTFHeight.constant = 55
-            repeatPassTFHeight.constant = 55
+            for Constraints in constraints {
+                Constraints.constant = 55
+            }
             
         }
-        
-        noInternet.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-        }))
-        
-        invalidEmail.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-        }))
-        
-        regSuccessful.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.dismiss(animated: true, completion: nil)
-        }))
-
     }
     
     
@@ -94,6 +87,10 @@ class RegistrationViewController: UIViewController {
     @IBAction func passwordEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func repeatPassEditingChanged(_ sender: Any) { validateRegistraionData() }
     
+    @IBAction func closeRegistrationPage(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
+    }
     
    func validateRegistraionData () {
     let characterSetEmail = NSCharacterSet(charactersIn: "@")
@@ -190,16 +187,15 @@ class RegistrationViewController: UIViewController {
   
     }
 
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func undo(_ sender: Any) {
            dismiss(animated: true, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func closeKeyboard() {
         self.view.endEditing(true)

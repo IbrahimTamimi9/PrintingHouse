@@ -35,14 +35,13 @@ struct stickersBoolVariables {
 
 func stickersComputings() {
     
-    
-    
-    
     //MARK:INSIDE INITIALIZING VARS
     var price = 0; //цена
     let amount = stickersBoolVariables.amount.doubleValue //количество
+    
     let custom_wi = stickersBoolVariables.stickersWidthSet
     let custom_he = stickersBoolVariables.stickersHeightSet
+    let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
     
     var coldLam = Double() //просчет припреса
     var work_coldLam = Double()
@@ -69,14 +68,9 @@ func stickersComputings() {
     let oneWayVision_material_m2 = JSONVariables.oneWayVisionMaterialCost
     let oneWayVision_price_m2 = JSONVariables.oneWayVisionCostOfPrinting
     
-    
     //MARK: POST PRINT
     let lamination_cold =  JSONVariables.COLD_LAM_MATERIAL
     let work_lamination_cold = JSONVariables.COLD_LAM_WORK
-    
-    
-    
-    //
     
     
     
@@ -94,24 +88,7 @@ func stickersComputings() {
         print("WhiteGlossMatt + without post print")
         
         let materialSum = WhiteGlossMatt_pricem2 + WhiteGlossMatt_material_m2 //* overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
-        price = Int(currency_course * amount * materialSum * squareMeters)
-        
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        
-        
-        stickersBoolVariables.priceToLabel =  String(price)
-        stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+            price = Int(currency_course * amount * materialSum * squareMeters)
         
     }
     
@@ -120,28 +97,12 @@ func stickersComputings() {
         print("WhiteGlossMatt + cold lam chosen")
         
         let materialSum = WhiteGlossMatt_pricem2 + WhiteGlossMatt_material_m2 //* overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
-        coldLam =  (squareMeters * lamination_cold) * amount;
-        work_coldLam =  (squareMeters * work_lamination_cold) * amount;
+            coldLam =  (squareMeters * lamination_cold) * amount;
+            work_coldLam =  (squareMeters * work_lamination_cold) * amount;
         
         let prepressSum = coldLam + work_coldLam
         
-        
-        price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-        
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        stickersBoolVariables.priceToLabel =  String(price)
-        stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+            price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
         
     }
     
@@ -153,27 +114,8 @@ func stickersComputings() {
     if( stickersBoolVariables.transparentStickerC == true && stickersBoolVariables.withoutPostPrint == true)  {
         print("TransparentGlossMatt + without post print")
         
-        
-        
         let materialSum = TransparentGlossMatt_price_m2 + TransparentGlossMatt_material_m2// * overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
-        price = Int(currency_course * amount * materialSum * squareMeters)
-        
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        
-        stickersBoolVariables.priceToLabel =  String(price)
-        stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
+            price = Int(currency_course * amount * materialSum * squareMeters)
     }
     
     
@@ -182,30 +124,12 @@ func stickersComputings() {
         print("TransparentGlossMatt + cold lam chosen")
         
         let materialSum = TransparentGlossMatt_price_m2 + TransparentGlossMatt_material_m2// * overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
-        coldLam =  (squareMeters * lamination_cold) * amount;
-        work_coldLam =  (squareMeters * work_lamination_cold) * amount;
+            coldLam =  (squareMeters * lamination_cold) * amount;
+            work_coldLam =  (squareMeters * work_lamination_cold) * amount;
         
         let prepressSum = coldLam + work_coldLam
-        
-        
-        
-        price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-        
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        
-        stickersBoolVariables.priceToLabel =  String(price)
-        stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+
+            price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
         
     }
     
@@ -216,27 +140,8 @@ func stickersComputings() {
     if( stickersBoolVariables.oneWayVisionC == true && stickersBoolVariables.withoutPostPrint == true)  {
         print("oneWayVision + without post print")
         
-        
-        
         let materialSum = oneWayVision_price_m2 + oneWayVision_material_m2  * overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
-        price = Int(currency_course * amount * materialSum * squareMeters)
-        
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        
-        
-        stickersBoolVariables.priceToLabel =  String(price)
-        stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+            price = Int(currency_course * amount * materialSum * squareMeters)
         
     }
     
@@ -245,39 +150,28 @@ func stickersComputings() {
         print("oneWayVision + cold lam chosen")
         
         let materialSum = oneWayVision_price_m2 + oneWayVision_material_m2  * overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
-        coldLam =  (squareMeters * lamination_cold) * amount;
-        work_coldLam =  (squareMeters * work_lamination_cold) * amount;
+            coldLam =  (squareMeters * lamination_cold) * amount;
+            work_coldLam =  (squareMeters * work_lamination_cold) * amount;
         
         let prepressSum = coldLam + work_coldLam
         
-        
-        
-        price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-        
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        
-        stickersBoolVariables.priceToLabel =  String(price)
-        stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
+            price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
         
     }
     
     
+    //MARK: DISCOUNT
+    if(price >= 150) { price = (price - (price * 5)/100); }
+    
+    if(price >= 2000) { price = (price - (price * 7)/100); }
+    
+    if(price >= 4000) { price = (price - (price * 10)/100); }
+    
+    if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
+    
+
+    stickersBoolVariables.priceToLabel =  String(price)
+    stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+
     
 }// func computings()
-//}// class ComputingPriceForPsoters
-
-
-
-

@@ -78,6 +78,8 @@ class ViewController: UIViewController {
         setUpLeftBarButton()
         updateBadgeValue()
         
+        
+    
         let postersIMG = UIImage(named: "bannersmain") as UIImage?
         let bannersIMG = UIImage(named: "banermain") as UIImage?
         let stickersIMG = UIImage(named: "stickersmain") as UIImage?
@@ -130,6 +132,7 @@ class ViewController: UIViewController {
         self.view.addSubview(informationPageButton)
     }
     
+      
     func setUpRightBarButton() {
         let image = UIImage(named: "shoppingCart")
         
@@ -149,7 +152,7 @@ class ViewController: UIViewController {
     
     func rightButtonPressed(_ sender: UIButton) {
         
-        let controller = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+        let controller = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
             controller.modalPresentationStyle = .custom
             controller.transitioningDelegate = self.bucketTransition
         
@@ -169,9 +172,6 @@ class ViewController: UIViewController {
         profileButton.setBackgroundImage(image, for: UIControlState())
         profileButton.tintColor = UIColor.white
     
-    
-        
-        
         profileButton.addTarget(self, action: #selector(ViewController.leftButtonPressed(_:)), for: UIControlEvents.touchUpInside)
         
         let newBarButton = ENMBadgedBarButtonItem(customView: profileButton, value: "0")
@@ -204,27 +204,8 @@ class ViewController: UIViewController {
         let destination = storyboard?.instantiateViewController(withIdentifier: "postersVC") as! postersVC
                 navigationController?.pushViewController(destination, animated: true)
         
-        
-                //MARK: UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-                  postersBoolVariables.amountDidNotInputed = true
-                  postersBoolVariables.amount = ""
-        
-                  postersBoolVariables.materialDidnNotChosen = true
-                  postersBoolVariables.cityC = false
-                  postersBoolVariables.lomondC = false
-                  postersBoolVariables.photoC = false
-                  postersBoolVariables.postersWidhOrHeightDidNotInputed = true
-                  postersBoolVariables.postersWidthSet = ""
-                  postersBoolVariables.postersHeightSet = ""
-        
-                  postersBoolVariables.withoutPostPrint = true
-                  postersBoolVariables.gloss1_0C = false
-                  postersBoolVariables.matt1_0C = false
-                  postersBoolVariables.gloss1_1C = false
-                  postersBoolVariables.matt1_1C = false
-        
-                  postersBoolVariables.priceToLabel = "0"
-                  postersBoolVariables.ndsPriceToLabel = "0"
+        //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
+          reset(page: "posters")
     }
     
 
@@ -238,25 +219,9 @@ class ViewController: UIViewController {
         let destination = storyboard?.instantiateViewController(withIdentifier: "stickersVC") as! stickersVC
         navigationController?.pushViewController(destination, animated: true)
         
-        //MARK: UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-        
-        stickersBoolVariables.amountDidNotInputed = true
-        stickersBoolVariables.amount = ""
-        
-        stickersBoolVariables.materialDidnNotChosen = true
-        stickersBoolVariables.whiteStickerC = false
-        stickersBoolVariables.transparentStickerC = false
-        stickersBoolVariables.oneWayVisionC = false
-        stickersBoolVariables.stickersWidhOrHeightDidNotInputed = true
-        stickersBoolVariables.stickersWidthSet = ""
-        stickersBoolVariables.stickersHeightSet = ""
-        
-        stickersBoolVariables.withoutPostPrint = true
-        stickersBoolVariables.coldLaminationC = false
-        
-        stickersBoolVariables.priceToLabel = "0"
-        stickersBoolVariables.ndsPriceToLabel = "0"
-
+        //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
+         reset(page: "stickers")
+       
     }
     
     
@@ -264,26 +229,8 @@ class ViewController: UIViewController {
         let destination = storyboard?.instantiateViewController(withIdentifier: "canvasVC") as! canvasVC
         navigationController?.pushViewController(destination, animated: true)
         
-         canvasBoolVariables.amount = ""
-         canvasBoolVariables.amountDidNotInputed = true
-        
-         canvasBoolVariables.standartSizeDidnNotChosen = true
-         canvasBoolVariables.sixH_x_NineH_C = false
-         canvasBoolVariables.fiveH_x_sevenH_C = false
-         canvasBoolVariables.fourH_x_fiveH_C = false
-         canvasBoolVariables.threeH_x_fourH_C = false
-         canvasBoolVariables.twoH_x_threeH_C = false
-        
-         canvasBoolVariables.canvasWidhOrHeightDidNotInputed = true
-         canvasBoolVariables.canvasWidthSet = ""
-         canvasBoolVariables.canvasHeightSet = ""
-        
-         canvasBoolVariables.withoutUnderframe = true
-         canvasBoolVariables.withUnderframe = false
-        
-         canvasBoolVariables.priceToLabel = "0"
-         canvasBoolVariables.ndsPriceToLabel = "0"
-  
+        //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (canvasComputing.swift)
+        reset(page: "canvas")
     }
     
     

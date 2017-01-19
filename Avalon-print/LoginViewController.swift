@@ -22,7 +22,7 @@ public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
  }
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -39,6 +39,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         defaults.synchronize()
+        
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
         
         incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.activityIndicator.stopAnimating()
@@ -152,6 +155,12 @@ class LoginViewController: UIViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 self.LogInButton.alpha = 1.0 })
             }
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func closeKeyboard() {

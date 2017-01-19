@@ -18,8 +18,6 @@ struct canvasBoolVariables {
     static var fourH_x_fiveH_C = false
     static var threeH_x_fourH_C = false
     static var twoH_x_threeH_C = false
-
-
     
     static var canvasWidhOrHeightDidNotInputed = true
     static var canvasWidthSet = ""
@@ -30,7 +28,6 @@ struct canvasBoolVariables {
     
     static var priceToLabel = String()
     static var ndsPriceToLabel = String()
-    
 }
 
 
@@ -40,6 +37,7 @@ func canvasComputings () {
     let amount = canvasBoolVariables.amount.doubleValue //количество
     var custom_wi = canvasBoolVariables.canvasWidthSet
     var custom_he = canvasBoolVariables.canvasHeightSet
+    let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
     
     
     let currency_course = JSONVariables.USD
@@ -70,23 +68,10 @@ func canvasComputings () {
         print("artcanvas + without underframe")
         
         let materialSum = artCanvas_pricem2 + artCanvas_material_m2 * overprice1
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
-        
         price = Int(currency_course * amount * materialSum * squareMeters)
         
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        canvasBoolVariables.priceToLabel =  String(price)
-        canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
     }
+    
     
     if( canvasBoolVariables.withUnderframe == true && canvasBoolVariables.sixH_x_NineH_C == true)  {
         print("artcanvas + with underframe 600x900")
@@ -102,19 +87,8 @@ func canvasComputings () {
         
         price = Int( (currency_course * amount * materialSum * squareMeters) + (underframeWorkPrice + underframePrice) )
 
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        canvasBoolVariables.priceToLabel =  String(price)
-        canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
     }
+    
     
     if( canvasBoolVariables.withUnderframe == true && canvasBoolVariables.fiveH_x_sevenH_C == true)  {
         print("artcanvas + with underframe 500x700")
@@ -130,19 +104,8 @@ func canvasComputings () {
         
         price = Int( (currency_course * amount * materialSum * squareMeters) + (underframeWorkPrice + underframePrice) )
         
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        canvasBoolVariables.priceToLabel =  String(price)
-        canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
     }
+    
     
     if( canvasBoolVariables.withUnderframe == true && canvasBoolVariables.fourH_x_fiveH_C == true)  {
         print("artcanvas + with underframe 400x500")
@@ -158,19 +121,8 @@ func canvasComputings () {
         
         price = Int( (currency_course * amount * materialSum * squareMeters) + (underframeWorkPrice + underframePrice) )
         
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        canvasBoolVariables.priceToLabel =  String(price)
-        canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
     }
+    
     
     if( canvasBoolVariables.withUnderframe == true && canvasBoolVariables.threeH_x_fourH_C == true)  {
         print("artcanvas + with underframe 300x400")
@@ -186,20 +138,9 @@ func canvasComputings () {
         
         price = Int( (currency_course * amount * materialSum * squareMeters) + (underframeWorkPrice + underframePrice) )
         
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        canvasBoolVariables.priceToLabel =  String(price)
-        canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
     }
 
+    
     if( canvasBoolVariables.withUnderframe == true && canvasBoolVariables.twoH_x_threeH_C == true)  {
         print("artcanvas + with underframe 200x300")
         custom_wi = "0.200"
@@ -214,21 +155,19 @@ func canvasComputings () {
         
         price = Int( (currency_course * amount * materialSum * squareMeters) + (underframeWorkPrice + underframePrice) )
         
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        canvasBoolVariables.priceToLabel =  String(price)
-        canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
     }
 
 
+    //MARK: DISCOUNT
+    if(price >= 150) { price = (price - (price * 5)/100); }
     
-   
+    if(price >= 2000) { price = (price - (price * 7)/100); }
+    
+    if(price >= 4000) { price = (price - (price * 10)/100); }
+    
+    if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
+    
+    canvasBoolVariables.priceToLabel =  String(price)
+    canvasBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+    
 }

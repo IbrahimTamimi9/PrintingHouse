@@ -1,5 +1,5 @@
 //
-//  bucket.swift
+//  shoppingCartVC.swift
 //  Avalon-Print
 //
 //  Created by Roman Mizin on 12/7/16.
@@ -18,7 +18,7 @@ let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
   var offset: CGFloat = 70
 
 
- class bucket: UIViewController, UITabBarDelegate, UITableViewDataSource, UICollisionBehaviorDelegate, NSFetchedResultsControllerDelegate {
+ class shoppingCartVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UICollisionBehaviorDelegate, NSFetchedResultsControllerDelegate {
     
     @IBOutlet var bottomViewWithButton: UIView!
     @IBOutlet var mainSumLabel: UILabel!
@@ -69,18 +69,14 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+      
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addedItems.count
     }
     
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:bucketTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! bucketTableViewCell
+        let cell:shoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! shoppingCartTableViewCell
         
         let presentItem = addedItems[indexPath.row]
         

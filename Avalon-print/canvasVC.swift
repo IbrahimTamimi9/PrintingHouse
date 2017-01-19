@@ -169,7 +169,7 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         
         if canvasAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "bucket") as! bucket
+            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
             let navigationController = UINavigationController(rootViewController: destination)
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             navigationController.isNavigationBarHidden = true

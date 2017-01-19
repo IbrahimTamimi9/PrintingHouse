@@ -1,5 +1,5 @@
 //
-//  bucketTableViewCell.swift
+//  shoppingCartTableViewCell.swift
 //  Avalon-Print
 //
 //  Created by Roman Mizin on 12/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class bucketTableViewCell: UITableViewCell {
+class shoppingCartTableViewCell: UITableViewCell {
     
     @IBOutlet var mainData: UITextView!
     @IBOutlet var purchasePrice: UILabel!
