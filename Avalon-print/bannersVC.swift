@@ -9,11 +9,12 @@
 
 import UIKit
 
-class bannersVC: UIViewController {
+class bannersVC: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
@@ -26,9 +27,16 @@ class bannersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainScrollView.delegate = self
+        
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+   }
     
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x>0 || scrollView.contentOffset.x<0 {
+            scrollView.contentOffset.x = 0
+        }
     }
-    
     
 }

@@ -18,7 +18,7 @@ class InformationPageController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         informationTableView.backgroundView = UIImageView(image: UIImage(named: "contacts"))
     }
     

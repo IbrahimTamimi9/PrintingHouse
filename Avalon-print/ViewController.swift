@@ -242,6 +242,7 @@ class ViewController: UIViewController {
     
     func openInformationPage(sender: UIButton!) {
         let destination = storyboard?.instantiateViewController(withIdentifier: "InformationPageController") as! InformationPageController
+        
         navigationController?.pushViewController(destination, animated: true)
 
     }

@@ -9,5 +9,6 @@ target 'Avalon-Print' do
   # Pods for Avalon-Print
   pod 'JTMaterialTransition', '~> 2.0'
   pod 'DeckTransition'
+  
 
 end
