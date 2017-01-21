@@ -39,6 +39,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         nameSurname.delegate = self
         phoneNumber.delegate = self
@@ -194,15 +195,5 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func undo(_ sender: Any) {
            dismiss(animated: true, completion: nil)
-    }
-
-    
-    func closeKeyboard() {
-        self.view.endEditing(true)
-        
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        closeKeyboard()
-    }
+    }    
 }

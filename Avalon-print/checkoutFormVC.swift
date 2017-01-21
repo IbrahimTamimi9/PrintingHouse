@@ -10,16 +10,7 @@ import UIKit
 import avalonExtBridge
 import DeckTransition
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
+
 
 class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
 
@@ -207,16 +198,4 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
     @IBAction func dismissOrder(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
-    
-    
-    func closeKeyboard() {
-        self.view.endEditing(true)
-       // self.mainView.endEditing(true)
-        //self.mainScrollView.endEditing(true)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        closeKeyboard()
-    }
-
 }

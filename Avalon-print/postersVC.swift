@@ -104,6 +104,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     override  func viewDidLoad() {
         super.viewDidLoad()
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+        self.hideKeyboardWhenTappedAround()
         
         // //MARK: iPhone 5/5c/5s/se
         if screenSize.height == 568 {
@@ -113,7 +114,6 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
             betweenHeightAndMaterial.constant = 20
             betweenSizeAndPostPrint.constant = 50
             betweenPostPrintAndPrice.constant = 40
-            
         }
         
         //MARK: iPhone 6+/7+
@@ -144,14 +144,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         
     }
     
-    
-    func donePicker (sender:UIBarButtonItem)
-    {
-        // Put something here
-        closeKeyboard()
-    }
-    
-    
+
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( postersAmountTextField.text == nil) {
             postersBoolVariables.amountDidNotInputed = true
@@ -358,10 +351,6 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     
-   
-    
-  
-    
     
     //MARK: HELPER FUNCTIONS
     func DisableButton() {
@@ -373,12 +362,6 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     postersAddToCartButton.isUserInteractionEnabled = true
     postersAddToCartButton.backgroundColor = aqua
     postersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-    }
-    
-    func closeKeyboard() {
-        self.view.endEditing(true)
-          errorsCheck()
-        
     }
     
     func errorsCheck() {
@@ -397,17 +380,8 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
             postersWidthTextField.text = ""
             postersBoolVariables.postersWidthSet = postersWidthTextField.text!
             updatePrices()
-            
-          
 
         }
-    }
-    
-    
-    //MARK: Touch Events
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        closeKeyboard()
     }
     
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
@@ -422,8 +396,6 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
                 self.postersAddToCartButton.alpha = 0.5 })
 
             postersAddToCartButton.isEnabled  = false
-           
-          
 
         } else {
              postersAddToCartButton.isEnabled = true

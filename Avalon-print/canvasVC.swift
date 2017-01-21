@@ -60,6 +60,7 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         super.viewDidLoad()
        
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+         self.hideKeyboardWhenTappedAround()
         
         
          var standartSizeTextFieldYPos: CGFloat = 0.0
@@ -394,15 +395,6 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         canvasAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     }
 
-    
-    func closeKeyboard() {
-        self.view.endEditing(true)
-        errorsCheck()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        closeKeyboard()
-    }
     
     func updatePrices() {
         canvasComputings()
