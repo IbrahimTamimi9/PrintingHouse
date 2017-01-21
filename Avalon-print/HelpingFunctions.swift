@@ -20,6 +20,14 @@ extension UIViewController {
     }
 }
 
+func setPickerTextFieldTint(sender: [UITextField]) {
+    for textfield in sender {
+        textfield.tintColor = UIColor.clear
+    }
+}
+
+
+
 
 func reset (page: String) {
     

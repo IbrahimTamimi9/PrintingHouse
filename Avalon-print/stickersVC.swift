@@ -9,7 +9,7 @@
 
 import UIKit
 
-class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -128,10 +128,22 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         stickersMaterialTextField.text = data[0]
         stickersPostPrintTextField.text = postPrintData[0]
         
+        stickersWidthTextField.delegate = self
+        stickersHeightTextField.delegate = self
+        stickersAmountTextField.delegate = self
+        stickersMaterialTextField.delegate = self
+        stickersPostPrintTextField.delegate = self
+        
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
+        
+        setPickerTextFieldTint(sender: [stickersMaterialTextField, stickersPostPrintTextField])
     }
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
+    }
     
     
     

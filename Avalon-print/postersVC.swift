@@ -10,7 +10,7 @@
 import UIKit
 
 
-class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
      
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -106,6 +106,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         self.hideKeyboardWhenTappedAround()
         
+        
         // //MARK: iPhone 5/5c/5s/se
         if screenSize.height == 568 {
             topConstraint.constant = 30
@@ -132,6 +133,11 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
         postPrintPicker.delegate = self
         postPrintPicker.dataSource = self
         
+        postersMaterialTextField.delegate = self
+        postersPostPrintTextField.delegate = self
+        postersAmountTextField.delegate = self
+        postersWidthTextField.delegate = self
+        postersHeightTextField.delegate = self
         
         postersMaterialTextField.inputView = materialPicker
         postersPostPrintTextField.inputView = postPrintPicker
@@ -141,10 +147,18 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate 
     
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
-        
+
+        setPickerTextFieldTint(sender: [postersMaterialTextField, postersPostPrintTextField])
+    }
+    
+   
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
     }
     
 
+    
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( postersAmountTextField.text == nil) {
             postersBoolVariables.amountDidNotInputed = true

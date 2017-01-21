@@ -9,7 +9,7 @@
 
 import UIKit
 
-class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var xLabel: UILabel!
     @IBOutlet weak var canvasAmountTextField: HoshiTextField!
@@ -121,14 +121,29 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         standartSizeTextField.inputView = standartSizesPicker
         canvasPostPrintTextField.inputView = postPrintPicker
         
+        
         standartSizeTextField.text = standartSizesdata[0]
         canvasPostPrintTextField.text = postPrintData[0]
         
         oversizeAlert.addAction(okAction)
+        
+        setPickerTextFieldTint(sender: [standartSizeTextField, canvasPostPrintTextField])
+        
+        setTextFieldDelegates(sender: [canvasWidthTextField, canvasAmountTextField, canvasHeightTextField, canvasPostPrintTextField, canvasMaterialTextField, standartSizeTextField])
 
-    
-    
     }
+    
+    func setTextFieldDelegates(sender: [UITextField]) {
+        for textfield in sender {
+            textfield.delegate = self
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
+    }
+    
+    
     @IBAction func heightCursorPosChanged(_ sender: Any) {
         canvasBoolVariables.canvasWidhOrHeightDidNotInputed = false
         canvasBoolVariables.canvasHeightSet = canvasHeightTextField.text!

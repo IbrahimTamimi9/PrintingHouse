@@ -9,7 +9,7 @@
 
 import UIKit
 
-class bannersVC: UIViewController, UIScrollViewDelegate {
+class bannersVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -54,8 +54,21 @@ class bannersVC: UIViewController, UIScrollViewDelegate {
         
         mainScrollView.delegate = self
         
+        setTextFieldDelegates(sender: [bannersAmountTextField, bannersWidthTextField, bannersHeightTextField, bannersMaterialTextField, distanceBetweenLuvers, luversAmountOnOneProduct, lengthPocketsSeams])
+        
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+         setPickerTextFieldTint(sender: [bannersMaterialTextField])
    }
+    
+    func setTextFieldDelegates(sender: [UITextField]) {
+        for textfield in sender {
+            textfield.delegate = self
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
+    }
     
     
     @IBAction func AddToCart(_ sender: Any) {
