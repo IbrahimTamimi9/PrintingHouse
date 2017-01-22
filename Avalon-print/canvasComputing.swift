@@ -37,7 +37,7 @@ func canvasComputings () {
     let amount = canvasBoolVariables.amount.doubleValue //количество
     var custom_wi = canvasBoolVariables.canvasWidthSet
     var custom_he = canvasBoolVariables.canvasHeightSet
-    let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
+    let squareMeters = custom_he.convertToDemicalIfItIsNot * custom_wi.convertToDemicalIfItIsNot
     
     
     let currency_course = JSONVariables.USD

@@ -224,8 +224,8 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
     
 
     func errorsCheck() {
-        if (canvasBoolVariables.canvasWidthSet.doubleValue > 1.501 &&
-            canvasBoolVariables.canvasHeightSet.doubleValue > 1.501) {
+        if (canvasBoolVariables.canvasWidthSet.convertToDemicalIfItIsNot > 1.501 &&
+            canvasBoolVariables.canvasHeightSet.convertToDemicalIfItIsNot > 1.501) {
                 
                 self.present(oversizeAlert, animated: true, completion: nil)
                 canvasWidthTextField.text = ""

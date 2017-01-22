@@ -339,7 +339,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     func errorsCheck() {
         if  ( stickersMaterialTextField.text == data[0] ) {
             
-        } else if (stickersMaterialTextField.text == data[3] && stickersBoolVariables.stickersWidthSet.doubleValue > 1.51 && stickersBoolVariables.stickersHeightSet.doubleValue > 1.51) {
+        } else if (stickersMaterialTextField.text == data[3] && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.511 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.511) {
             
             self.present(oversizeAlertSmall, animated: true, completion: nil)
             stickersWidthTextField.text = ""
@@ -347,7 +347,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             updatePrices()
             
             
-        } else if ( (stickersMaterialTextField.text == data[1] || stickersMaterialTextField.text == data[2]) && stickersBoolVariables.stickersWidthSet.doubleValue > 1.59 && stickersBoolVariables.stickersHeightSet.doubleValue > 1.59 ) {
+        } else if ( (stickersMaterialTextField.text == data[1] || stickersMaterialTextField.text == data[2]) && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.591 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.591 ) {
             self.present(oversizeAlert, animated: true, completion: nil)
             stickersWidthTextField.text = ""
             stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!

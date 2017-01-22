@@ -412,7 +412,7 @@ class postersVC:  UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     func errorsCheck() {
         if  ( postersMaterialTextField.text == data[0] ) {
             
-        } else if (postersMaterialTextField.text == data[1] && postersBoolVariables.postersWidthSet.doubleValue > 1.59 && postersBoolVariables.postersHeightSet.doubleValue > 1.59) {
+        } else if (postersMaterialTextField.text == data[1] && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 1.591 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 1.591) {
             
             self.present(oversizeAlert, animated: true, completion: nil)
             postersWidthTextField.text = ""
@@ -420,7 +420,7 @@ class postersVC:  UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             updatePrices()
             
             
-        } else if ( (postersMaterialTextField.text == data[2] || postersMaterialTextField.text == data[3]) && postersBoolVariables.postersWidthSet.doubleValue > 0.6 && postersBoolVariables.postersHeightSet.doubleValue > 0.6 ) {
+        } else if ( (postersMaterialTextField.text == data[2] || postersMaterialTextField.text == data[3]) && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 0.61 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 0.61 ) {
             self.present(oversizeAlertSmall, animated: true, completion: nil)
             postersWidthTextField.text = ""
             postersBoolVariables.postersWidthSet = postersWidthTextField.text!

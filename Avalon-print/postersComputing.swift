@@ -54,9 +54,9 @@ struct postersBoolVariables {
         //MARK:INSIDE INITIALIZING VARS
         var price = 0; //цена
         let amount = postersBoolVariables.amount.doubleValue //количество
-        let custom_wi = postersBoolVariables.postersWidthSet
-        let custom_he = postersBoolVariables.postersHeightSet
-        let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
+        let custom_wi = postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot
+        let custom_he = postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot
+        let squareMeters = custom_he * custom_wi
         
         var prepress_gloss_1_0 = Double() //просчет припреса
         var work_prepress_gloss_1_0 = Double()

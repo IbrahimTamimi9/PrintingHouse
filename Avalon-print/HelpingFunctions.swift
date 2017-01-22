@@ -9,6 +9,25 @@
 import Foundation
 import UIKit
 
+extension String {
+    var convertToDemicalIfItIsNot: Double {
+        let converter = NumberFormatter()
+        
+        converter.decimalSeparator = ","
+        if let result = converter.number(from: self) {
+            return Double(result.floatValue)
+            
+        } else {
+            
+            converter.decimalSeparator = "."
+            if let result = converter.number(from: self) {
+                return Double(result.floatValue)
+            }
+        }
+        return 0
+    }
+}
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

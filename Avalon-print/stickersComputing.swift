@@ -39,9 +39,9 @@ func stickersComputings() {
     var price = 0; //цена
     let amount = stickersBoolVariables.amount.doubleValue //количество
     
-    let custom_wi = stickersBoolVariables.stickersWidthSet
-    let custom_he = stickersBoolVariables.stickersHeightSet
-    let squareMeters = custom_he.doubleValue * custom_wi.doubleValue
+    let custom_wi = stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot
+    let custom_he = stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot
+    let squareMeters = custom_he * custom_wi
     
     var coldLam = Double() //просчет припреса
     var work_coldLam = Double()
