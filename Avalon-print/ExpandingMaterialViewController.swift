@@ -9,23 +9,34 @@
 import UIKit
 import expanding_collection
 
+ typealias ItemInfo = (imageName: String, title: String)
+
+var items: [ItemInfo] = [("citylightPicture", "CityLight"),("lomondPicture", "Lomond"),("photoPPictue", "Photo Paper 200g"), ("transparentOracalPicture", "Пленка самокл. прозрачная"), ("whiteStickerPicture", "Пленка самокл. белая"),("onewayvisionPicture", "One Way Vision"), ("item3", "Холсты"),  ("item3", "баннеры1"), ("item3", "баннеры2"), ("item3", "баннеры3"), ("item3", "баннеры4") ]
+
+
 
 class ExpandingMaterialViewController: ExpandingViewController {
       
     @IBAction func dismissPage(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
+    
+   
+    
+    
+    
+   
    
     @IBOutlet weak var backgroundImageViewMain: UIImageView!
-    typealias ItemInfo = (imageName: String, title: String)
+   
     fileprivate var cellsIsOpen = [Bool]()
-    fileprivate let items: [ItemInfo] = [("citylightPicture", "CityLight"),("lomondPicture", "Lomond"),("photoPPictue", "Photo Paper 200g"), ("item3", "Наклейки1"), ("item3", "Наклейки2"),("item3", "Наклейки3"), ("item3", "Холсты"),  ("item3", "баннеры1"), ("item3", "баннеры2"), ("item3", "баннеры3"), ("item3", "баннеры4") ]
-    
+   
     @IBOutlet weak var pageLabel: UILabel!
     
     override func viewDidLoad() {
         itemSize = CGSize(width: 214, height: 264)
         super.viewDidLoad()
+    
         
         registerCell()
         fillCellIsOpeenArry()
@@ -92,6 +103,7 @@ class ExpandingMaterialViewController: ExpandingViewController {
         let index = (indexPath as NSIndexPath).row % items.count
         let info = items[index]
         cell.backgroundImageView.image = UIImage(named: info.imageName)
+        cell.materialName.numberOfLines = 2
         cell.materialName.text = info.title
         cell.cellIsOpen(cellsIsOpen[index], animated: false)
     }

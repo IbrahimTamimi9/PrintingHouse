@@ -10,9 +10,9 @@ import UIKit
 import avalonExtBridge
 
 
-class RegistrationViewController: UIViewController, UITextFieldDelegate {
+class RegistrationViewController: UIViewController {
    
-    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var nameTFHeight: NSLayoutConstraint!
     @IBOutlet weak var numTFHeight: NSLayoutConstraint!
     @IBOutlet weak var mailTFHeight: NSLayoutConstraint!
@@ -188,12 +188,22 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
   
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
     
     @IBAction func undo(_ sender: Any) {
            dismiss(animated: true, completion: nil)
     }    
 }
+
+
+extension RegistrationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
+
+
+

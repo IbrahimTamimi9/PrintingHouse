@@ -17,6 +17,10 @@ class MaterialsCollectionViewCell: BasePageCollectionCell {
       
     override func awakeFromNib() {
         super.awakeFromNib()
+        materialName.layer.shadowRadius = 2
+        materialName.layer.shadowOffset = CGSize(width: 0, height: 3)
+        materialName.layer.shadowOpacity = 0.5
+
               // Initialization code
     }
     

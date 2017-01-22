@@ -9,29 +9,33 @@
 import UIKit
 import CoreData
 
-var addedItems = [AddedItems]()
-var managedObjextContext:NSManagedObjectContext!
-let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
 
+  let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
+
+  var addedItems = [AddedItems]()
+
+  var managedObjextContext:NSManagedObjectContext!
 
   var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
   var offset: CGFloat = 70
 
 
- class shoppingCartVC: UIViewController, UITabBarDelegate, UITableViewDataSource, UICollisionBehaviorDelegate, NSFetchedResultsControllerDelegate {
+ class shoppingCartVC: UIViewController {
     
-    @IBOutlet var bottomViewWithButton: UIView!
-    @IBOutlet var mainSumLabel: UILabel!
+    @IBOutlet weak var bottomViewWithButton: UIView!
+    @IBOutlet weak var mainSumLabel: UILabel!
    
-    @IBOutlet var purchaseTableView: UITableView!
+    @IBOutlet weak var purchaseTableView: UITableView!
     @IBOutlet weak var mainView: UIView!
+ 
     
-    @IBAction func dismissBucket(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        mainPriceSumCounter()
+        purchaseTableView.reloadData()
+        
     }
-   
-    
-let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,10 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
     }
     
     
+    @IBAction func dismissBucket(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     func loadData () {
         do {
@@ -54,73 +62,14 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
         }
     }
     
-    
+  
+
     func bottomViewVisibility() {
         
         if addedItems.count == 0 {
             viewMoveIn(view: bottomViewWithButton)
         }
     }
-
-    
-    override func viewDidAppear(_ animated: Bool) {
-        mainPriceSumCounter()
-        purchaseTableView.reloadData()
-       
-    }
-
-      
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return addedItems.count
-    }
-    
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:shoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! shoppingCartTableViewCell
-        
-        let presentItem = addedItems[indexPath.row]
-        
-        cell.mainData?.text = presentItem.list
-        cell.purchasePrice?.text = presentItem.price
-        cell.purchaseNDSPrice?.text = presentItem.ndsPrice
-        mainPriceSumCounter()
-    
-      return cell
-    }
-    
-   
-    
-     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-         let context:NSManagedObjectContext = managedObjextContext
-        
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            
-            purchaseTableView.beginUpdates()
-            
-            context.delete(addedItems[indexPath.row] )
-            addedItems.remove(at: indexPath.row)
-            do {
-                try context.save()
-            } catch  {
-                print("error : \(error)")
-            }
-          
-            purchaseTableView.deleteRows(at: [indexPath], with: .fade )
-            purchaseTableView.endUpdates()
-            
-            do {
-                try managedObjextContext.save()
-            } catch {
-                print("error : \(error)")
-            }
-            
-            bottomViewVisibility()
-            mainPriceSumCounter()
-            updateBadgeValue()
-           
-        }
-    }
-    
     
     func mainPriceSumCounter () {
         
@@ -164,5 +113,61 @@ let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect
         view.layer.add(animation, forKey: "fade")
     }
 
+
+}
+
+
+extension shoppingCartVC: UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return addedItems.count
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:shoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! shoppingCartTableViewCell
+        
+        let presentItem = addedItems[indexPath.row]
+        
+        cell.mainData?.text = presentItem.list
+        cell.purchasePrice?.text = presentItem.price
+        cell.purchaseNDSPrice?.text = presentItem.ndsPrice
+        mainPriceSumCounter()
+        
+        return cell
+    }
+    
+    
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let context:NSManagedObjectContext = managedObjextContext
+        
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            
+            purchaseTableView.beginUpdates()
+            
+            context.delete(addedItems[indexPath.row] )
+            addedItems.remove(at: indexPath.row)
+            do {
+                try context.save()
+            } catch  {
+                print("error : \(error)")
+            }
+            
+            purchaseTableView.deleteRows(at: [indexPath], with: .fade )
+            purchaseTableView.endUpdates()
+            
+            do {
+                try managedObjextContext.save()
+            } catch {
+                print("error : \(error)")
+            }
+            
+            bottomViewVisibility()
+            mainPriceSumCounter()
+            updateBadgeValue()
+            
+        }
+    }
 }
 

@@ -46,10 +46,10 @@ func applyMotionEffect (toView view: UIView, magnitude: Float ) {
 
 
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var mainView: UIView!
     let button = UIButton(type: .custom)
     
     let postersPageButton = PageStartButton()
@@ -64,30 +64,23 @@ class ViewController: UIViewController {
     
     let profileButton = UIButton(type: .custom)
     
+    let postersIMG = UIImage(named: "bannersmain") as UIImage?
+    let bannersIMG = UIImage(named: "banermain") as UIImage?
+    let stickersIMG = UIImage(named: "stickersmain") as UIImage?
+    let canvasIMG = UIImage(named: "canvasmain") as UIImage?
+    let contactsIMG = UIImage(named: "emailmain") as UIImage?
+    let infoIMG = UIImage(named: "infomain") as UIImage?
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
-        
-         self.bucketTransition = JTMaterialTransition(animatedView: self.button)
-         self.profileButtonTransition = JTMaterialTransition(animatedView: self.profileButton)
-        
-        getVariablesFromJSON()
+       
         setUpRightBarButton()
         setUpLeftBarButton()
         updateBadgeValue()
         
-        
-    
-        let postersIMG = UIImage(named: "bannersmain") as UIImage?
-        let bannersIMG = UIImage(named: "banermain") as UIImage?
-        let stickersIMG = UIImage(named: "stickersmain") as UIImage?
-        let canvasIMG = UIImage(named: "canvasmain") as UIImage?
-        let contactsIMG = UIImage(named: "emailmain") as UIImage?
-        let infoIMG = UIImage(named: "infomain") as UIImage?
-        
-        
+
         postersPageButton.frame = CGRect(x: (screenSize.width/15), y: screenSize.height/20, width: screenSize.width/2.5 , height: screenSize.width/2.5 )
         postersPageButton.setBackgroundImage(postersIMG, for: UIControlState.normal)
         postersPageButton.setTitle("Плакаты", for: .normal)
@@ -124,12 +117,18 @@ class ViewController: UIViewController {
         informationPageButton.setTitle("Информация", for: .normal)
         informationPageButton.addTarget(self, action: #selector(openInformationPage), for: .touchUpInside)
         
+        
         self.view.addSubview(postersPageButton)
         self.view.addSubview(bannersPageButton)
         self.view.addSubview(stickersPageButton)
         self.view.addSubview(canvasPageButton)
         self.view.addSubview(contactsPageButton)
         self.view.addSubview(informationPageButton)
+        
+        self.bucketTransition = JTMaterialTransition(animatedView: self.button)
+        self.profileButtonTransition = JTMaterialTransition(animatedView: self.profileButton)
+        applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+        getVariablesFromJSON()
     }
     
       
@@ -173,7 +172,7 @@ class ViewController: UIViewController {
         profileButton.tintColor = UIColor.white
     
         profileButton.addTarget(self, action: #selector(ViewController.leftButtonPressed(_:)), for: UIControlEvents.touchUpInside)
-        
+    
         let newBarButton = ENMBadgedBarButtonItem(customView: profileButton, value: "0")
         leftBarButton = newBarButton
         navigationItem.leftBarButtonItem = leftBarButton

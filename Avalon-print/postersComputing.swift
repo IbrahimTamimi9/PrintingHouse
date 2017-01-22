@@ -11,14 +11,14 @@ import UIKit
 
 extension String {
     var doubleValue: Double {
-        return Double(self) ?? 0
+        return Double(self)!// ?? 0
     }
     
 }
 
 extension String {
     var intValue: Int {
-        return Int(self) ?? 0
+        return Int(self)!// ?? 0
     }
 }
 

@@ -13,16 +13,17 @@ class InformationPageController: UITableViewController {
     
     var indexOfSelectedCell = Int()
     var valueToPass:String!
-    @IBOutlet var informationTableView: UITableView!
+    @IBOutlet weak var informationTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-        informationTableView.backgroundView = UIImageView(image: UIImage(named: "contacts"))
+        
+          self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+          informationTableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
+          informationTableView.backgroundView?.alpha = 0.4
     }
     
-  
     
     override func tableView(_ tableView: UITableView,  didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow!

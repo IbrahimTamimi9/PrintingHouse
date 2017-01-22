@@ -12,9 +12,9 @@ import DeckTransition
 
 
 
-class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
+class checkoutFormVC: UIViewController {
 
-    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var mainScrollView: UIScrollView!
     
     @IBOutlet weak var nameSurnameTF: UITextField!
@@ -62,17 +62,6 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         
     }
     
-    func setFontsForControllers(textfield: [UITextField], textview: UITextView, label: UILabel ) {
-         if screenSize.height < 667 {
-            textview.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            label.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            
-            for textField in textfield {
-                textField.font = UIFont(name: "HelveticaNeue-Light", size: 14)
-            }
-        }
-    }
-    
     
     @IBAction func layoutDevSwitchStateChanged(_ sender: Any) {
         
@@ -84,6 +73,7 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             textfieldState(textField: layoutLinkTF, state: true)
         }
     }
+    
     
     @IBAction func deliverySwitchStateChanged(_ sender: Any) {
         
@@ -99,6 +89,35 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             
         }
     }
+    
+    
+    @IBAction func dismissOrder(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func checkOutButtonClicked(_ sender: Any) {
+        print("checkOutButton clicked")
+    }
+    
+    
+    @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateRegistraionData() }
+    @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateRegistraionData() }
+    @IBAction func emailEditingChanged(_ sender: Any) { validateRegistraionData() }
+
+    
+    
+    func setFontsForControllers(textfield: [UITextField], textview: UITextView, label: UILabel ) {
+         if screenSize.height < 667 {
+            textview.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+            label.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+            
+            for textField in textfield {
+                textField.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+            }
+        }
+    }
+    
     
     
     func textfieldState(textField: UITextField, state: Bool ) {
@@ -122,16 +141,6 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
    
     }
     
-    @IBAction func checkOutButtonClicked(_ sender: Any) {
-        print("checkOutButton clicked")
-    }
-    
-    @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateRegistraionData()
-    }
-    @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateRegistraionData()
-    }
-    @IBAction func emailEditingChanged(_ sender: Any) { validateRegistraionData()
-    }
     
     func validateRegistraionData () {
         let characterSetEmail = NSCharacterSet(charactersIn: "@")
@@ -163,11 +172,17 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
         }
     }
     
+
+}
+
+
+ extension checkoutFormVC: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.isEqual(mainScrollView) else {
             return
         }
-              
+        
         if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
             if scrollView.contentOffset.y > 0 {
                 // Normal behaviour if the `scrollView` isn't scrolled to the top
@@ -189,13 +204,17 @@ class checkoutFormVC: UIViewController, UIScrollViewDelegate, UITextFieldDelegat
             }
         }
     }
+}
+
+
+ extension checkoutFormVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
-    @IBAction func dismissOrder(_ sender: Any) {
-         dismiss(animated: true, completion: nil)
-    }
 }
+
+
+
+

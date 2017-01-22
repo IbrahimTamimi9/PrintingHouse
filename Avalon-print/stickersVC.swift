@@ -8,9 +8,12 @@
 
 
 import UIKit
+import JTMaterialTransition
 
-class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+
+class stickersVC: UIViewController {
     
+    @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -28,16 +31,16 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var stickersPostPrintTextField: UITextField!
     @IBOutlet weak var stickersPrice: UILabel!
     @IBOutlet weak var stickersNDSPrice: UILabel!
-    
-    
     @IBOutlet weak var stickersAddToCartButton: UIButton!
+    
+    var materialInfoTransition = JTMaterialTransition()
     
     var data = ["Выберите материал...","Пленка самокл. белая глянец/мат","Пленка самокл. прозрачная глянец/мат","Перфорированая пленка One Way Vision"]
     var postPrintData = ["Без постпечати","Холодная ламинация глянец/мат"]
     
     var materialPicker = UIPickerView()
-    var postPrintPicker = UIPickerView()
     
+    var postPrintPicker = UIPickerView()
     
     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
     
@@ -47,39 +50,7 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 
     let nameButt =  "В корзину"
     
-    @IBAction func AddToCart(_ sender: Any) {
-        
-        if stickersAddToCartButton.titleLabel?.text == nameButt {
-
-            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
-            let navigationController = UINavigationController(rootViewController: destination)
-            
-            
-            
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            navigationController.isNavigationBarHidden = true
-            self.present(navigationController, animated: true, completion: nil)
-            
-        } else {
-            let newItem = AddedItems(context: managedObjextContext)
-            
-            newItem.list = ("Тираж: \(stickersAmountTextField.text!) шт.\nМатериал: \(stickersMaterialTextField.text!)\nРазмер: \(stickersWidthTextField.text!) .м. x \(stickersHeightTextField.text!) м.\nПостпечатные работы: \(stickersPostPrintTextField.text!)" )
-            
-            newItem.price = (stickersPrice.text!)
-            newItem.ndsPrice = (stickersNDSPrice.text!)
-            
-            do {
-                try managedObjextContext.save()
-            }catch {
-                print("Could not save data \(error.localizedDescription)")
-            }
-            
-            updateBadgeValue()
-            DisableButton()
-            stickersAddToCartButton.frame.size.width = 75
-            
-        }
-    }
+   
     
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
@@ -117,7 +88,6 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             
         }
 
-        
         materialPicker.delegate = self
         materialPicker.dataSource = self
         postPrintPicker.delegate = self
@@ -141,14 +111,10 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         materialPicker.backgroundColor = UIColor.darkGray
         postPrintPicker.backgroundColor = UIColor.darkGray
+        
+          self.materialInfoTransition = JTMaterialTransition(animatedView: self.AboutMaterialsButton)
 
     }
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
-    }
-    
     
     
     @IBAction func amountCursorPosChanged(_ sender: Any) {
@@ -189,133 +155,49 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
-    
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    
-    // returns the # of rows in each component..
-    
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        materialPicker.tag = 0
-        postPrintPicker.tag = 1
+    @IBAction func AddToCart(_ sender: Any) {
         
-        if pickerView.tag == 0 {
-            return data.count
-        } else if pickerView.tag == 1 {
-            return postPrintData.count
-        }
-        return 1
-    }
-    
-    
-        
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        materialPicker.tag = 0
-        postPrintPicker.tag = 1
-        
-        if pickerView.tag == 0 {
-            EnableButton()
+        if stickersAddToCartButton.titleLabel?.text == nameButt {
             
-            if row == 0 { print("didnotChosen");
-                stickersBoolVariables.materialDidnNotChosen = true
-                
-                stickersBoolVariables.whiteStickerC = false
-                stickersBoolVariables.transparentStickerC = false
-                stickersBoolVariables.oneWayVisionC = false
-                
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
-                updatePrices()
-                
-            }
-            
-            if row == 1 { print("white stickers");
-                stickersBoolVariables.materialDidnNotChosen = false
-                stickersBoolVariables.whiteStickerC = true
-                stickersBoolVariables.transparentStickerC = false
-                stickersBoolVariables.oneWayVisionC = false
-                //  errorsCheck()
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
-            }
-            
-            if row == 2 { print("transparent stickers");
-                stickersBoolVariables.materialDidnNotChosen = false
-                stickersBoolVariables.whiteStickerC = false
-                stickersBoolVariables.transparentStickerC = true
-                stickersBoolVariables.oneWayVisionC = false
-                //errorsCheck()
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            if row == 3 { print("one way vision");
-                stickersBoolVariables.materialDidnNotChosen = false
-                stickersBoolVariables.whiteStickerC = false
-                stickersBoolVariables.transparentStickerC = false
-                stickersBoolVariables.oneWayVisionC = true
-                // errorsCheck()
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            updatePrices()
-            return stickersMaterialTextField.text = data[row]
+            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
+            let navigationController = UINavigationController(rootViewController: destination)
             
             
-        } else if pickerView.tag == 1 {
-             EnableButton()
             
+            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            navigationController.isNavigationBarHidden = true
+            self.present(navigationController, animated: true, completion: nil)
             
-            if row == 0 { print("without post print");
-                stickersBoolVariables.withoutPostPrint = true
-                stickersBoolVariables.coldLaminationC = false
-                
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            if row == 1 { print("cold lamination");
-                stickersBoolVariables.withoutPostPrint = false
-                stickersBoolVariables.coldLaminationC = true
-                
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            updatePrices()
-            return stickersPostPrintTextField.text = postPrintData[row]
-        }
-        
-    }
-    
-    
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-    
-        materialPicker.tag = 0
-        postPrintPicker.tag = 1
-        
-        if pickerView.tag == 0 {
-         let pickerLabel = UILabel()
-            pickerLabel.textColor = UIColor.white
-            pickerLabel.text = data[row]
-            pickerLabel.font = UIFont.systemFont(ofSize: 16)
-            pickerLabel.textAlignment = NSTextAlignment.center
-            return pickerLabel
         } else {
-            let pickerLabel = UILabel()
-            pickerLabel.textColor = UIColor.white
-            pickerLabel.text = postPrintData[row]
-            pickerLabel.font = UIFont.systemFont(ofSize: 16)
-            pickerLabel.textAlignment = NSTextAlignment.center
-            return pickerLabel
+            let newItem = AddedItems(context: managedObjextContext)
+            
+            newItem.list = ("Тираж: \(stickersAmountTextField.text!) шт.\nМатериал: \(stickersMaterialTextField.text!)\nРазмер: \(stickersWidthTextField.text!) .м. x \(stickersHeightTextField.text!) м.\nПостпечатные работы: \(stickersPostPrintTextField.text!)" )
+            
+            newItem.price = (stickersPrice.text!)
+            newItem.ndsPrice = (stickersNDSPrice.text!)
+            
+            do {
+                try managedObjextContext.save()
+            }catch {
+                print("Could not save data \(error.localizedDescription)")
+            }
+            
+            updateBadgeValue()
+            DisableButton()
+            stickersAddToCartButton.frame.size.width = 75
+            
         }
+    }
+    
+    
+    
+    @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
+        controller?.modalPresentationStyle = .custom
+        controller?.transitioningDelegate = self.materialInfoTransition
+        self.present(controller!, animated: true, completion: nil)
         
+        items = [ ("transparentOracalPicture", "Пленка самокл. прозрачная"), ("whiteStickerPicture", "Пленка самокл. белая"),("onewayvisionPicture", "One Way Vision")]
     }
     
 
@@ -382,3 +264,156 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 
     }
 }
+
+
+
+
+extension stickersVC: UIPickerViewDataSource {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    // returns the # of rows in each component..
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        materialPicker.tag = 0
+        postPrintPicker.tag = 1
+        
+        if pickerView.tag == 0 {
+            return data.count
+        } else if pickerView.tag == 1 {
+            return postPrintData.count
+        }
+        return 1
+    }
+    
+}
+
+extension stickersVC: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        materialPicker.tag = 0
+        postPrintPicker.tag = 1
+        
+        if pickerView.tag == 0 {
+            EnableButton()
+            
+            if row == 0 { print("didnotChosen");
+                stickersBoolVariables.materialDidnNotChosen = true
+                
+                stickersBoolVariables.whiteStickerC = false
+                stickersBoolVariables.transparentStickerC = false
+                stickersBoolVariables.oneWayVisionC = false
+                
+                stickersComputings()
+                stickersPrice.text = stickersBoolVariables.priceToLabel
+                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
+                updatePrices()
+                
+            }
+            
+            if row == 1 { print("white stickers");
+                stickersBoolVariables.materialDidnNotChosen = false
+                stickersBoolVariables.whiteStickerC = true
+                stickersBoolVariables.transparentStickerC = false
+                stickersBoolVariables.oneWayVisionC = false
+                //  errorsCheck()
+                stickersComputings()
+                stickersPrice.text = stickersBoolVariables.priceToLabel
+                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
+            }
+            
+            if row == 2 { print("transparent stickers");
+                stickersBoolVariables.materialDidnNotChosen = false
+                stickersBoolVariables.whiteStickerC = false
+                stickersBoolVariables.transparentStickerC = true
+                stickersBoolVariables.oneWayVisionC = false
+                //errorsCheck()
+                stickersComputings()
+                stickersPrice.text = stickersBoolVariables.priceToLabel
+                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
+            
+            if row == 3 { print("one way vision");
+                stickersBoolVariables.materialDidnNotChosen = false
+                stickersBoolVariables.whiteStickerC = false
+                stickersBoolVariables.transparentStickerC = false
+                stickersBoolVariables.oneWayVisionC = true
+                // errorsCheck()
+                stickersComputings()
+                stickersPrice.text = stickersBoolVariables.priceToLabel
+                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
+            
+            updatePrices()
+            return stickersMaterialTextField.text = data[row]
+            
+            
+        } else if pickerView.tag == 1 {
+            EnableButton()
+            
+            
+            if row == 0 { print("without post print");
+                stickersBoolVariables.withoutPostPrint = true
+                stickersBoolVariables.coldLaminationC = false
+                
+                stickersComputings()
+                stickersPrice.text = stickersBoolVariables.priceToLabel
+                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
+            
+            if row == 1 { print("cold lamination");
+                stickersBoolVariables.withoutPostPrint = false
+                stickersBoolVariables.coldLaminationC = true
+                
+                stickersComputings()
+                stickersPrice.text = stickersBoolVariables.priceToLabel
+                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
+            
+            updatePrices()
+            return stickersPostPrintTextField.text = postPrintData[row]
+        }
+        
+    }
+    
+    
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        materialPicker.tag = 0
+        postPrintPicker.tag = 1
+        
+        if pickerView.tag == 0 {
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = data[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 16)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
+        } else {
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = postPrintData[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 16)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
+        }
+        
+    }
+}
+
+extension stickersVC: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+

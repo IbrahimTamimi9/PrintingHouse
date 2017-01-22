@@ -11,10 +11,10 @@ import avalonExtBridge
 
 class UserProfile: UITableViewController {
 
-    @IBOutlet var userName: UILabel!
-    @IBOutlet var userCell: UILabel!
-    @IBOutlet var userEmail: UILabel!
-    @IBOutlet var navtitle: UINavigationItem!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userCell: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var navtitle: UINavigationItem!
     
   
     @IBAction func BackButtonClicked(_ sender: Any) {

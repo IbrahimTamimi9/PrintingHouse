@@ -8,9 +8,12 @@
 
 
 import UIKit
+import JTMaterialTransition
 
-class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+
+class canvasVC: UIViewController {
     
+    @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var xLabel: UILabel!
     @IBOutlet weak var canvasAmountTextField: HoshiTextField!
     @IBOutlet weak var canvasMaterialTextField: UITextField!
@@ -29,22 +32,28 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
     @IBOutlet weak var betweenHeightAndMaterial: NSLayoutConstraint!
     @IBOutlet weak var betweenSizeAndPostPrint: NSLayoutConstraint!
     @IBOutlet weak var betweenPostPrintAndPrice: NSLayoutConstraint!
+    
     let standartSizeTextField = UITextField()
     
+    let nameButt =  "В корзину"
+    
+    let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.50м", preferredStyle: UIAlertControllerStyle.actionSheet)
+    
+    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+
+    
     var standartSizesdata = ["Выберите размер...","600х900мм","500х700мм","400х500мм","300х400мм","200х300мм"]
+    
     var postPrintData = ["Без подрамника","С подрамником"]
     
     var standartSizesPicker = UIPickerView()
+    
     var postPrintPicker = UIPickerView()
-    let nameButt =  "В корзину"
     
-     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.50м", preferredStyle: UIAlertControllerStyle.actionSheet)
-     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-    
-  
+    var materialInfoTransition = JTMaterialTransition()
     
 
-  
+
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
     }
@@ -54,8 +63,6 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
     }
     
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -133,6 +140,8 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         
         standartSizesPicker.backgroundColor = UIColor.darkGray
         postPrintPicker.backgroundColor = UIColor.darkGray
+        
+        self.materialInfoTransition = JTMaterialTransition(animatedView: self.AboutMaterialsButton)
 
 
     }
@@ -141,10 +150,6 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         for textfield in sender {
             textfield.delegate = self
         }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
     }
     
     
@@ -221,6 +226,14 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
     }
     
     
+    @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
+        controller?.modalPresentationStyle = .custom
+        controller?.transitioningDelegate = self.materialInfoTransition
+        self.present(controller!, animated: true, completion: nil)
+        
+        items = [("item3", "Холсты")]
+    }
     
 
     func errorsCheck() {
@@ -234,6 +247,41 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         }
     }
     
+    
+    func DisableButton() {
+        canvasAddToCartButton.setTitle("В корзину", for: .normal)
+    }
+    
+    
+    func EnableButton() {
+        canvasAddToCartButton.setTitle("Добавить в корзину", for: .normal )
+        canvasAddToCartButton.isUserInteractionEnabled = true
+        canvasAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+    }
+
+    
+    func updatePrices() {
+        canvasComputings()
+        canvasPrice.text = canvasBoolVariables.priceToLabel
+        canvasNDSPrice.text = canvasBoolVariables.ndsPriceToLabel
+        
+        
+        if canvasPrice.text == "0" {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.canvasAddToCartButton.alpha = 0.5 })
+            canvasAddToCartButton.isEnabled  = false
+        } else {
+            canvasAddToCartButton.isEnabled = true
+            UIView.animate(withDuration: 0.5, animations: {
+                self.canvasAddToCartButton.alpha = 1.0 })
+        }
+        
+    }
+}
+
+
+
+extension canvasVC: UIPickerViewDataSource {
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -253,16 +301,16 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         }
         return 1
     }
-    
-    
-    
-    
+}
+
+
+extension canvasVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         standartSizesPicker.tag = 0
         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
-           EnableButton()
+            EnableButton()
             
             if row == 0 { print("didnotChosen");
                 canvasBoolVariables.standartSizeDidnNotChosen = true
@@ -324,7 +372,7 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
                 canvasPrice.text = canvasBoolVariables.priceToLabel
                 canvasNDSPrice.text = canvasBoolVariables.ndsPriceToLabel
             }
-
+            
             if row == 5 { print("200x300");
                 canvasBoolVariables.standartSizeDidnNotChosen = false
                 canvasBoolVariables.sixH_x_NineH_C = false
@@ -336,7 +384,7 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
                 canvasPrice.text = canvasBoolVariables.priceToLabel
                 canvasNDSPrice.text = canvasBoolVariables.ndsPriceToLabel
             }
-
+            
             
             updatePrices()
             return standartSizeTextField.text = standartSizesdata[row]
@@ -347,15 +395,15 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
             
             
             if row == 0 { print("without underframe");
-                  UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: 0.2, animations: {
                     self.standartSizeTextField.alpha = 0
                     self.canvasWidthTextField.alpha = 1
                     self.canvasHeightTextField.alpha = 1
                     self.xLabel.alpha = 1
-                     self.standartSizeTextField.isUserInteractionEnabled = false
-                     self.canvasWidthTextField.isUserInteractionEnabled = true
-                     self.canvasHeightTextField.isUserInteractionEnabled = true
-            })
+                    self.standartSizeTextField.isUserInteractionEnabled = false
+                    self.canvasWidthTextField.isUserInteractionEnabled = true
+                    self.canvasHeightTextField.isUserInteractionEnabled = true
+                })
                 canvasBoolVariables.withoutUnderframe = true
                 canvasBoolVariables.withUnderframe = false
                 canvasComputings()
@@ -370,10 +418,10 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
                     self.canvasWidthTextField.alpha = 0
                     self.canvasHeightTextField.alpha = 0
                     self.xLabel.alpha = 0
-                     self.standartSizeTextField.isUserInteractionEnabled = true
-                     self.canvasWidthTextField.isUserInteractionEnabled = false
-                     self.canvasHeightTextField.isUserInteractionEnabled = false
-            })
+                    self.standartSizeTextField.isUserInteractionEnabled = true
+                    self.canvasWidthTextField.isUserInteractionEnabled = false
+                    self.canvasHeightTextField.isUserInteractionEnabled = false
+                })
                 
                 canvasBoolVariables.withoutUnderframe = false
                 canvasBoolVariables.withUnderframe = true
@@ -412,33 +460,17 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         }
         
     }
-
     
-    func DisableButton() {
-        canvasAddToCartButton.setTitle("В корзину", for: .normal)
-    }
-    func EnableButton() {
-        canvasAddToCartButton.setTitle("Добавить в корзину", for: .normal )
-        canvasAddToCartButton.isUserInteractionEnabled = true
-        canvasAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-    }
+}
 
+
+extension canvasVC: UITextFieldDelegate {
     
-    func updatePrices() {
-        canvasComputings()
-        canvasPrice.text = canvasBoolVariables.priceToLabel
-        canvasNDSPrice.text = canvasBoolVariables.ndsPriceToLabel
-        
-        
-        if canvasPrice.text == "0" {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.canvasAddToCartButton.alpha = 0.5 })
-            canvasAddToCartButton.isEnabled  = false
-        } else {
-            canvasAddToCartButton.isEnabled = true
-            UIView.animate(withDuration: 0.5, animations: {
-                self.canvasAddToCartButton.alpha = 1.0 })
-        }
-        
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
     }
 }
+
+
+
+

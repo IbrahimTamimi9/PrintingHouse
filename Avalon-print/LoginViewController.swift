@@ -23,7 +23,7 @@ public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
  }
 
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -31,20 +31,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let noInternet = UIAlertController(title: "Ошибка входа", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
     
     @IBOutlet weak var LogInButton: ButtonMockup!
-    @IBOutlet var loginTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var mainView: UIView!
 
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaults.synchronize()
         
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
+            defaults.synchronize()
         
-        incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            loginTextField.delegate = self
+            passwordTextField.delegate = self
+        
+            incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.activityIndicator.stopAnimating()
            UIApplication.shared.endIgnoringInteractionEvents()
         }))
@@ -159,10 +160,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+   
     
     func closeKeyboard() {
         self.view.endEditing(true)
@@ -172,5 +170,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeKeyboard()
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 

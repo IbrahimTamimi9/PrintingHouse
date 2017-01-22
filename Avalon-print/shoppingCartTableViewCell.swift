@@ -10,7 +10,7 @@ import UIKit
 
 class shoppingCartTableViewCell: UITableViewCell {
     
-    @IBOutlet var mainData: UITextView!
-    @IBOutlet var purchasePrice: UILabel!
-    @IBOutlet var purchaseNDSPrice: UILabel!
+    @IBOutlet weak var mainData: UITextView!
+    @IBOutlet weak var purchasePrice: UILabel!
+    @IBOutlet weak var purchaseNDSPrice: UILabel!
 }
