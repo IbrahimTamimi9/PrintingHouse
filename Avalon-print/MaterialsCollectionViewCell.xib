@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="MaterialsCollectionViewCell" customModule="Avalon_Print" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="264"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="214" height="264"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgF-ab-vPg">
+                        <rect key="frame" x="0.0" y="0.0" width="214" height="264"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подробнее" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fq-9Z-0nf">
+                                <rect key="frame" x="54.5" y="231.5" width="105.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4fq-9Z-0nf" secondAttribute="bottom" constant="8.5" id="5YW-pt-5cz"/>
+                            <constraint firstAttribute="height" constant="264" id="PEm-tb-hyE"/>
+                            <constraint firstItem="4fq-9Z-0nf" firstAttribute="centerX" secondItem="AgF-ab-vPg" secondAttribute="centerX" id="ZG4-j5-Iz3"/>
+                            <constraint firstAttribute="width" constant="214" id="kAa-Qa-koj"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyl-Ht-NAS">
+                        <rect key="frame" x="-0.5" y="0.0" width="214" height="264"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucketAndPlaceOrderBGv3" translatesAutoresizingMaskIntoConstraints="NO" id="ZID-p6-wnk">
+                                <rect key="frame" x="0.0" y="0.0" width="214" height="264"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5m-AA-Akq">
+                                <rect key="frame" x="86.5" y="235" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZID-p6-wnk" firstAttribute="top" secondItem="fyl-Ht-NAS" secondAttribute="top" id="4Qr-YU-QyJ"/>
+                            <constraint firstItem="A5m-AA-Akq" firstAttribute="centerX" secondItem="ZID-p6-wnk" secondAttribute="centerX" id="6ac-4a-lHe"/>
+                            <constraint firstAttribute="bottom" secondItem="ZID-p6-wnk" secondAttribute="bottom" id="KgQ-L7-mjz"/>
+                            <constraint firstAttribute="width" constant="214" id="Mrg-b3-xq1"/>
+                            <constraint firstItem="ZID-p6-wnk" firstAttribute="leading" secondItem="fyl-Ht-NAS" secondAttribute="leading" id="Tb0-HM-XSf"/>
+                            <constraint firstItem="A5m-AA-Akq" firstAttribute="bottom" secondItem="ZID-p6-wnk" secondAttribute="bottom" constant="-8.5" id="dhr-2q-jZ2"/>
+                            <constraint firstAttribute="trailing" secondItem="ZID-p6-wnk" secondAttribute="trailing" id="iCy-Sv-EyY"/>
+                            <constraint firstAttribute="height" constant="264" id="ymI-hf-VTe"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="AgF-ab-vPg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="8DO-23-Z8K"/>
+                <constraint firstItem="fyl-Ht-NAS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JA7-Ew-ncN"/>
+                <constraint firstItem="AgF-ab-vPg" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VC5-u3-FV0"/>
+                <constraint firstItem="fyl-Ht-NAS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="uK8-xT-j4e"/>
+            </constraints>
+            <size key="customSize" width="213" height="233"/>
+            <connections>
+                <outlet property="backConstraintY" destination="VC5-u3-FV0" id="9Ch-qY-g0K"/>
+                <outlet property="backContainerView" destination="AgF-ab-vPg" id="94j-y0-Iar"/>
+                <outlet property="backgroundImageView" destination="ZID-p6-wnk" id="gm7-pP-Rri"/>
+                <outlet property="frontConstraintY" destination="uK8-xT-j4e" id="ARG-hU-QoL"/>
+                <outlet property="frontContainerView" destination="fyl-Ht-NAS" id="fqn-Pl-PUi"/>
+                <outlet property="materialName" destination="A5m-AA-Akq" id="3pE-9D-TcE"/>
+            </connections>
+            <point key="canvasLocation" x="4" y="23"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bucketAndPlaceOrderBGv3" width="375" height="667"/>
+    </resources>
+</document>

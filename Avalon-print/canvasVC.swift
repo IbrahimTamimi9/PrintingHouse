@@ -130,6 +130,10 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         setPickerTextFieldTint(sender: [standartSizeTextField, canvasPostPrintTextField])
         
         setTextFieldDelegates(sender: [canvasWidthTextField, canvasAmountTextField, canvasHeightTextField, canvasPostPrintTextField, canvasMaterialTextField, standartSizeTextField])
+        
+        standartSizesPicker.backgroundColor = UIColor.darkGray
+        postPrintPicker.backgroundColor = UIColor.darkGray
+
 
     }
     
@@ -385,21 +389,30 @@ class canvasVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, 
         
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         standartSizesPicker.tag = 0
         postPrintPicker.tag = 1
         
-        
         if pickerView.tag == 0 {
-            return standartSizesdata[row]
-            
-        } else if pickerView.tag == 1 {
-            return postPrintData[row]
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = standartSizesdata[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 17)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
+        } else {
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = postPrintData[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 17)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
         }
         
-        return ""
     }
+
     
     func DisableButton() {
         canvasAddToCartButton.setTitle("В корзину", for: .normal)

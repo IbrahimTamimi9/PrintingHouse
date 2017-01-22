@@ -1,15 +1,18 @@
 PODS:
   - DeckTransition (0.1.1)
+  - expanding-collection (1.0.4)
   - JTMaterialTransition (2.0.1)
 
 DEPENDENCIES:
   - DeckTransition
+  - expanding-collection (~> 1.0.3)
   - JTMaterialTransition (~> 2.0)
 
 SPEC CHECKSUMS:
   DeckTransition: 80bad7bb0246c333243b4ee96f8a51bdc8f8b5cb
+  expanding-collection: be78b5822d7382d3da02b52d52273f4661567a64
   JTMaterialTransition: 2350b44b404d1982a7ba755866cc65da452f4eec
 
-PODFILE CHECKSUM: a35b1b922e4185dcdd1ab70c145ca0a426422ce1
+PODFILE CHECKSUM: 4effcfd18fb29aa62e65a3bee1c3a6a43fb5b938
 
 COCOAPODS: 1.1.1

@@ -7,34 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04CCA69D594143DD40DD4326F10FE71F /* DeckTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D64C78BBE8F77AAD119E6C93748567A4 /* DeckTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DE15B7EB7E0454D6F688B784098C7C8 /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9484CB7CEFE95EE9031256F1B7C4961 /* DeckTransitioningDelegate.swift */; };
-		2E93966A35E587BDC51B275AD7DA602C /* DeckTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C6FCB33C0FFE39BF76EAC9615C35EE /* DeckTransition-dummy.m */; };
-		440D19D37D7193A9A2BF839FB613250F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
-		4AF1D4AAB02F251D57ECEC195140051A /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9402B50FA9C3FE144DCFFE23F68FC149 /* DeckPresentingAnimationController.swift */; };
-		72D534F7C6D254718F0BAEF3FC068BFD /* JTMaterialTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70A8EC1D4D403AD2FCF66C866A9CD495 /* JTMaterialTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		859A4A08BEAC10C5C920C2774547AC53 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615E23205310937144E3F47D60F801D4 /* DeckDismissingAnimationController.swift */; };
+		04CCA69D594143DD40DD4326F10FE71F /* DeckTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946EFCC30050B4E5EDD9BF830C5DCA6 /* DeckTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EFFA2648C13CEB9EABD498C9158A542 /* expanding-collection-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24BE821058CA2FA51E0EA86D4B14A342 /* expanding-collection-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		271DF716950C7E825109B2F9D29CDBEB /* SubviewsForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D0873EE474867F71809070D71B6C5 /* SubviewsForEach.swift */; };
+		2DE15B7EB7E0454D6F688B784098C7C8 /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667162DDB58257B9E6F675585600EA8 /* DeckTransitioningDelegate.swift */; };
+		2E93966A35E587BDC51B275AD7DA602C /* DeckTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02929A700D0EE78495A13A46478F2CD2 /* DeckTransition-dummy.m */; };
+		4AF1D4AAB02F251D57ECEC195140051A /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA82C2FDA25937DB78442732AD1580D /* DeckPresentingAnimationController.swift */; };
+		53CE15DF512E6053561E03D6A4DCA9BF /* Pods-Avalon-Print-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C818DF8CF099982CC50D7C7512DF1565 /* Pods-Avalon-Print-dummy.m */; };
+		5A9598EF361415BDA54B0911274F113D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		674CC21090607E49368772F1F403C232 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		6E4304604900B08956B911F72815B874 /* expanding-collection-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED581F9F2B40E350554AB4EA85FDF8A /* expanding-collection-dummy.m */; };
+		72D534F7C6D254718F0BAEF3FC068BFD /* JTMaterialTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF197809A9AEF294651762EA773F748 /* JTMaterialTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		859A4A08BEAC10C5C920C2774547AC53 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BADBF998928E960C4DC8A35FBE5315 /* DeckDismissingAnimationController.swift */; };
+		8AC7ABFB8AA174F443A5C6B41A4B2585 /* ExpandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4895A59C87C537C1ABCB064FB67875 /* ExpandingViewController.swift */; };
 		90B34B0E834FFB7FBC8B4F4AB7F8948E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		921DEEB0AD7DAFCF1AB0DA60DEBBC090 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
-		9F150C0612F0F6FD76078B7F7F621968 /* Pods-Avalon-Print-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C818DF8CF099982CC50D7C7512DF1565 /* Pods-Avalon-Print-dummy.m */; };
-		A555F684F19254B2383EFCF2FD3F8763 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C8BE7862CAA6A7D9779DEA978D507 /* DeckPresentationController.swift */; };
-		A8AF19B75609868EA5CA6FD1A70AC2D7 /* JTMaterialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E9FF62619060DB30F04E526376D13 /* JTMaterialTransition.swift */; };
-		DD65406E96149595C7F0C7E56806C26C /* JTMaterialTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7932C0A98C01B035AAA03D52ED084612 /* JTMaterialTransition-dummy.m */; };
+		9985D06E8881C411684B70F77DD90338 /* ScreenShotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95359BD60CA86B047A8B352408D14164 /* ScreenShotHelper.swift */; };
+		A555F684F19254B2383EFCF2FD3F8763 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E579EF433FB719878C314A9F917D424 /* DeckPresentationController.swift */; };
+		A8AF19B75609868EA5CA6FD1A70AC2D7 /* JTMaterialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD198B2719E06BCD3EE279F0EBDA93A6 /* JTMaterialTransition.swift */; };
+		ABAEDDA1F3D380534CA41A3CC4FB3BED /* Pods-Avalon-Print-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 495BB72C535917534398946742163020 /* Pods-Avalon-Print-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADCFA7370A4F46A8220F8AB89EC545BF /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E699A64A2FE5EE9407DDAEEB80AE /* ConstraintsHelper.swift */; };
+		B24560FD0C9DC266E01B28FCA027AF75 /* CornerAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DCD7616C35CAF0D4F144AA3CE0CF /* CornerAnimatable.swift */; };
+		C44275043D7D6566F7CC8EF8A8F0E80D /* PageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C5D6E98EC84F07E318734A43370AA /* PageCollectionView.swift */; };
+		C5A9AA761DDE2839DBCD03B849AC8A00 /* ExpandingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C7CA301DC610E69A946B75E9A7A80 /* ExpandingTableViewController.swift */; };
+		C5FD1BA590DBA19E78E60AE279D34063 /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21EAC87C37ED7BEE6F1F2D0664C8F28 /* TransitionDriver.swift */; };
+		D5725992402785759B8C281FF2A88DEC /* PageCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D92EC333BFB93C145E0D8D6237DF8 /* PageCollectionLayout.swift */; };
+		D6CDDD782E120D158BBC1C4C884B2E0B /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE5DDEE537A80526B489D2CF63845A /* ConfigurationHelper.swift */; };
+		DD65406E96149595C7F0C7E56806C26C /* JTMaterialTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 724F4FF44D30CE570D66A13AC07C0FAA /* JTMaterialTransition-dummy.m */; };
 		E044CB8E4E1CF034A024E6C1AEFF780D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
-		E544B2D3DFF442F416533B1D72DAF3E2 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A695A46313801BCA7D94A72D38558E /* DeckSegue.swift */; };
-		F6385148D7E9EFB82608A3AB9C02BE2D /* Pods-Avalon-Print-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 495BB72C535917534398946742163020 /* Pods-Avalon-Print-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8B3F026EBD403762F3A0FBAF26603A6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450F58A142AC80A5111E97926B2660F /* Utilities.swift */; };
+		E544B2D3DFF442F416533B1D72DAF3E2 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B522C6AB2B511ED87CCC51D7F74F51C /* DeckSegue.swift */; };
+		F1E4630C8E32D87D74D7DED16A124D51 /* BasePageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672AB6A4C9B7D753993A59CE1805E13B /* BasePageCollectionCell.swift */; };
+		F8B3F026EBD403762F3A0FBAF26603A6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EEBBD228F7631C7CC3F2A52F706646 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C113F0CD0FFED4F76A94FE2A6F623D34 /* PBXContainerItemProxy */ = {
+		882278F85E8EB511BD7DC17B7D512349 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C67514EA7D98658F641516ED8328206;
+			remoteInfo = "expanding-collection";
+		};
+		A79AEC643CBDB77EEB587F46B96DFB9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3CBF841E9779C97E787674C7A5E1EF1B;
 			remoteInfo = DeckTransition;
 		};
-		DF29EA3495F6E9DEECF0DA83601B4225 /* PBXContainerItemProxy */ = {
+		AFCCFB0CA8FDE8B5ADF39EA0CBDBAA78 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -44,57 +65,83 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		127A6162AB76503FA33B80F0697EA53E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		187EC45E660DDDA4DACCAF38D69932E1 /* DeckTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DeckTransition.modulemap; sourceTree = "<group>"; };
-		18A695A46313801BCA7D94A72D38558E /* DeckSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckSegue.swift; path = DeckTransition/Classes/DeckSegue.swift; sourceTree = "<group>"; };
-		2138FB22ADA1F173B8F002237AA9572F /* DeckTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DeckTransition.framework; path = DeckTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3488EBA039B68AEECFB94AB40D05100B /* DeckTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-prefix.pch"; sourceTree = "<group>"; };
+		02929A700D0EE78495A13A46478F2CD2 /* DeckTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeckTransition-dummy.m"; sourceTree = "<group>"; };
+		06A7D66121B8B27DCCE720D0FBBC66F4 /* expanding-collection.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "expanding-collection.xcconfig"; sourceTree = "<group>"; };
+		13C768A8D906A1AA5BFF7E4516C1C00E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ED581F9F2B40E350554AB4EA85FDF8A /* expanding-collection-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "expanding-collection-dummy.m"; sourceTree = "<group>"; };
+		24BE821058CA2FA51E0EA86D4B14A342 /* expanding-collection-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "expanding-collection-umbrella.h"; sourceTree = "<group>"; };
+		27BB24FCAA0DD799F8C968AFB74553FB /* JTMaterialTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTMaterialTransition.framework; path = JTMaterialTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B522C6AB2B511ED87CCC51D7F74F51C /* DeckSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckSegue.swift; path = DeckTransition/Classes/DeckSegue.swift; sourceTree = "<group>"; };
 		45BC1A9B5F60D44D0BF389F0599CAE8B /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
 		495718A1C6896D83F18AF3B5046FDBAF /* Pods-Avalon-Print-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Avalon-Print-frameworks.sh"; sourceTree = "<group>"; };
 		495BB72C535917534398946742163020 /* Pods-Avalon-Print-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Avalon-Print-umbrella.h"; sourceTree = "<group>"; };
-		5804F94F8E08B2CF5990FF8E67FB8CE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		615E23205310937144E3F47D60F801D4 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckDismissingAnimationController.swift; path = DeckTransition/Classes/DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
+		4C3C5D6E98EC84F07E318734A43370AA /* PageCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageCollectionView.swift; path = Source/ExpandingViewController/CollectionView/PageCollectionView.swift; sourceTree = "<group>"; };
+		4CA82C2FDA25937DB78442732AD1580D /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentingAnimationController.swift; path = DeckTransition/Classes/DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
+		57038BC5EF5EF737BAF4FCD207AD6FF5 /* expanding-collection-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "expanding-collection-prefix.pch"; sourceTree = "<group>"; };
+		595D0873EE474867F71809070D71B6C5 /* SubviewsForEach.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubviewsForEach.swift; path = Source/Helpers/SubviewsForEach/SubviewsForEach.swift; sourceTree = "<group>"; };
+		59B58743E61AA9ECFABF3930EE0187AE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CF197809A9AEF294651762EA773F748 /* JTMaterialTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTMaterialTransition-umbrella.h"; sourceTree = "<group>"; };
+		5DB562C573550636F936CD4C5333F654 /* expanding-collection.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "expanding-collection.modulemap"; sourceTree = "<group>"; };
 		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		66E56FE50C234E7466B8478F13AFEA2F /* DeckTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeckTransition.xcconfig; sourceTree = "<group>"; };
+		672AB6A4C9B7D753993A59CE1805E13B /* BasePageCollectionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BasePageCollectionCell.swift; path = Source/ExpandingViewController/CollectionView/Cells/BasePageCollectionCell.swift; sourceTree = "<group>"; };
 		6A71F256435A7FBE72E939A5DEF6577A /* Pods-Avalon-Print-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Avalon-Print-acknowledgements.plist"; sourceTree = "<group>"; };
+		6A9D73FA5D53D9535B174419B08494C6 /* JTMaterialTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTMaterialTransition-prefix.pch"; sourceTree = "<group>"; };
 		6C7DD1F9287F92100C0C994E8D265C99 /* Pods-Avalon-Print.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Avalon-Print.release.xcconfig"; sourceTree = "<group>"; };
-		70A8EC1D4D403AD2FCF66C866A9CD495 /* JTMaterialTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTMaterialTransition-umbrella.h"; sourceTree = "<group>"; };
-		7932C0A98C01B035AAA03D52ED084612 /* JTMaterialTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTMaterialTransition-dummy.m"; sourceTree = "<group>"; };
+		6E579EF433FB719878C314A9F917D424 /* DeckPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentationController.swift; path = DeckTransition/Classes/DeckPresentationController.swift; sourceTree = "<group>"; };
+		724F4FF44D30CE570D66A13AC07C0FAA /* JTMaterialTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTMaterialTransition-dummy.m"; sourceTree = "<group>"; };
+		7828E699A64A2FE5EE9407DDAEEB80AE /* ConstraintsHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintsHelper.swift; path = "Source/Helpers/Constraints Helpers/ConstraintsHelper.swift"; sourceTree = "<group>"; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		846D9772FE350418BB5FBE01EC2376C6 /* Pods-Avalon-Print-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Avalon-Print-acknowledgements.markdown"; sourceTree = "<group>"; };
-		886286C8C01CF4259C5915897EC1DB11 /* JTMaterialTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTMaterialTransition.framework; path = JTMaterialTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8598DA9CB71809AE870D41A9C325EA78 /* DeckTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-prefix.pch"; sourceTree = "<group>"; };
+		8946EFCC30050B4E5EDD9BF830C5DCA6 /* DeckTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93C6FCB33C0FFE39BF76EAC9615C35EE /* DeckTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeckTransition-dummy.m"; sourceTree = "<group>"; };
-		9402B50FA9C3FE144DCFFE23F68FC149 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentingAnimationController.swift; path = DeckTransition/Classes/DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
-		9450F58A142AC80A5111E97926B2660F /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = DeckTransition/Classes/Utilities.swift; sourceTree = "<group>"; };
-		94FD6CD8EC914AD45F41557C14D59E88 /* JTMaterialTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTMaterialTransition-prefix.pch"; sourceTree = "<group>"; };
-		9A04CD472A4273F1E82FD0F03A33D268 /* JTMaterialTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTMaterialTransition.modulemap; sourceTree = "<group>"; };
+		95359BD60CA86B047A8B352408D14164 /* ScreenShotHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScreenShotHelper.swift; path = Source/Helpers/ScreenShot/ScreenShotHelper.swift; sourceTree = "<group>"; };
+		9667162DDB58257B9E6F675585600EA8 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckTransitioningDelegate.swift; path = DeckTransition/Classes/DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
 		9FD03AA59652D784BAF4460975612D3B /* Pods-Avalon-Print-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Avalon-Print-resources.sh"; sourceTree = "<group>"; };
-		A55C8BE7862CAA6A7D9779DEA978D507 /* DeckPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckPresentationController.swift; path = DeckTransition/Classes/DeckPresentationController.swift; sourceTree = "<group>"; };
+		A864063D0B8D123597376880E00DDA41 /* JTMaterialTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTMaterialTransition.modulemap; sourceTree = "<group>"; };
 		AB579B7646C212BDE28AB5D930FA7152 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9CEE6C040E79F448CDEBE100DB1CB47 /* JTMaterialTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTMaterialTransition.xcconfig; sourceTree = "<group>"; };
+		B11E8E3B26E03326F35A1B2347525D95 /* Pods_Avalon_Print.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Avalon_Print.framework; path = "Pods-Avalon-Print.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5BADBF998928E960C4DC8A35FBE5315 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckDismissingAnimationController.swift; path = DeckTransition/Classes/DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
+		B761DCD7616C35CAF0D4F144AA3CE0CF /* CornerAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CornerAnimatable.swift; path = Source/Helpers/Animations/CornerAnimatable/CornerAnimatable.swift; sourceTree = "<group>"; };
+		B873F9A87DAAB1F8704885204FF02C6D /* DeckTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DeckTransition.framework; path = DeckTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21EAC87C37ED7BEE6F1F2D0664C8F28 /* TransitionDriver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionDriver.swift; path = Source/TransitionDriver/TransitionDriver.swift; sourceTree = "<group>"; };
 		C818DF8CF099982CC50D7C7512DF1565 /* Pods-Avalon-Print-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Avalon-Print-dummy.m"; sourceTree = "<group>"; };
-		C9484CB7CEFE95EE9031256F1B7C4961 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeckTransitioningDelegate.swift; path = DeckTransition/Classes/DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
-		D64C78BBE8F77AAD119E6C93748567A4 /* DeckTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeckTransition-umbrella.h"; sourceTree = "<group>"; };
-		D78BD6CC0EA183539B37A4A399F33542 /* Pods_Avalon_Print.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Avalon_Print.framework; path = "Pods-Avalon-Print.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD198B2719E06BCD3EE279F0EBDA93A6 /* JTMaterialTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTMaterialTransition.swift; path = JTMaterialTransition/JTMaterialTransition.swift; sourceTree = "<group>"; };
 		E2508B75345036DDD2E6E6C1AE377855 /* Pods-Avalon-Print.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Avalon-Print.modulemap"; sourceTree = "<group>"; };
-		EC1FDE2FF4C44283A6688E1F4F9A70B1 /* DeckTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeckTransition.xcconfig; sourceTree = "<group>"; };
-		F66E9FF62619060DB30F04E526376D13 /* JTMaterialTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTMaterialTransition.swift; path = JTMaterialTransition/JTMaterialTransition.swift; sourceTree = "<group>"; };
+		E57BF8CDAE7639BEED3D9A262D5CBA3E /* expanding_collection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = expanding_collection.framework; path = "expanding-collection.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8750640AA7ED40227FD15CBB61587F9 /* DeckTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DeckTransition.modulemap; sourceTree = "<group>"; };
+		EBC488E2E96B57DD76B052B5853FFB8F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBE5DDEE537A80526B489D2CF63845A /* ConfigurationHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigurationHelper.swift; path = Source/Helpers/ConfigurationHelper/ConfigurationHelper.swift; sourceTree = "<group>"; };
+		ED82093D6F80A3A150B3CE6A63A8D57E /* JTMaterialTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTMaterialTransition.xcconfig; sourceTree = "<group>"; };
+		EE5D92EC333BFB93C145E0D8D6237DF8 /* PageCollectionLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageCollectionLayout.swift; path = Source/ExpandingViewController/CollectionView/Layout/PageCollectionLayout.swift; sourceTree = "<group>"; };
+		F2EEBBD228F7631C7CC3F2A52F706646 /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = DeckTransition/Classes/Utilities.swift; sourceTree = "<group>"; };
+		F49C7CA301DC610E69A946B75E9A7A80 /* ExpandingTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpandingTableViewController.swift; path = Source/ExpandingTableViewController/ExpandingTableViewController.swift; sourceTree = "<group>"; };
+		FC4895A59C87C537C1ABCB064FB67875 /* ExpandingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpandingViewController.swift; path = Source/ExpandingViewController/ExpandingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		53C99B1C3E420675F22FDD67E774C606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A9598EF361415BDA54B0911274F113D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D579EA1B197C8A29E254FA7ABCD4171 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				674CC21090607E49368772F1F403C232 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB587A34CCF23F269E882A063D63352D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				90B34B0E834FFB7FBC8B4F4AB7F8948E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2928CAE66CB53854CF96F6D85D2A1D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				440D19D37D7193A9A2BF839FB613250F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,19 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		065269358DCFAF1F15B24909541C0A02 /* DeckTransition */ = {
+		1564F1809B70610163FD2F08A01C7063 /* JTMaterialTransition */ = {
 			isa = PBXGroup;
 			children = (
-				615E23205310937144E3F47D60F801D4 /* DeckDismissingAnimationController.swift */,
-				A55C8BE7862CAA6A7D9779DEA978D507 /* DeckPresentationController.swift */,
-				9402B50FA9C3FE144DCFFE23F68FC149 /* DeckPresentingAnimationController.swift */,
-				18A695A46313801BCA7D94A72D38558E /* DeckSegue.swift */,
-				C9484CB7CEFE95EE9031256F1B7C4961 /* DeckTransitioningDelegate.swift */,
-				9450F58A142AC80A5111E97926B2660F /* Utilities.swift */,
-				CE5F621591A89F6822698A1734E988E4 /* Support Files */,
+				DD198B2719E06BCD3EE279F0EBDA93A6 /* JTMaterialTransition.swift */,
+				752BFC4D2B286A617B0D97528168BC93 /* Support Files */,
 			);
-			name = DeckTransition;
-			path = DeckTransition;
+			name = JTMaterialTransition;
+			path = JTMaterialTransition;
 			sourceTree = "<group>";
 		};
 		1EAFCAED74346FD07D7EEFEE817ED2AF /* Pods-Avalon-Print */ = {
@@ -143,14 +185,28 @@
 			path = "Target Support Files/Pods-Avalon-Print";
 			sourceTree = "<group>";
 		};
-		33A190A4FED40C73C21127DB6D859CEB /* JTMaterialTransition */ = {
+		3042D3038DCD6043009386A8524E4865 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F66E9FF62619060DB30F04E526376D13 /* JTMaterialTransition.swift */,
-				55201FDAD35397A6F15A81F9394E27E7 /* Support Files */,
+				B8599EAD5FA119326AF9ED3F81B175D1 /* DeckTransition */,
+				C4B63762886D196851155C5AD184AAB1 /* expanding-collection */,
+				1564F1809B70610163FD2F08A01C7063 /* JTMaterialTransition */,
 			);
-			name = JTMaterialTransition;
-			path = JTMaterialTransition;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3FFD325302F3C837627E6DBF1CC4BA10 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E8750640AA7ED40227FD15CBB61587F9 /* DeckTransition.modulemap */,
+				66E56FE50C234E7466B8478F13AFEA2F /* DeckTransition.xcconfig */,
+				02929A700D0EE78495A13A46478F2CD2 /* DeckTransition-dummy.m */,
+				8598DA9CB71809AE870D41A9C325EA78 /* DeckTransition-prefix.pch */,
+				8946EFCC30050B4E5EDD9BF830C5DCA6 /* DeckTransition-umbrella.h */,
+				59B58743E61AA9ECFABF3930EE0187AE /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DeckTransition";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -161,27 +217,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		55201FDAD35397A6F15A81F9394E27E7 /* Support Files */ = {
+		752BFC4D2B286A617B0D97528168BC93 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5804F94F8E08B2CF5990FF8E67FB8CE7 /* Info.plist */,
-				9A04CD472A4273F1E82FD0F03A33D268 /* JTMaterialTransition.modulemap */,
-				B9CEE6C040E79F448CDEBE100DB1CB47 /* JTMaterialTransition.xcconfig */,
-				7932C0A98C01B035AAA03D52ED084612 /* JTMaterialTransition-dummy.m */,
-				94FD6CD8EC914AD45F41557C14D59E88 /* JTMaterialTransition-prefix.pch */,
-				70A8EC1D4D403AD2FCF66C866A9CD495 /* JTMaterialTransition-umbrella.h */,
+				EBC488E2E96B57DD76B052B5853FFB8F /* Info.plist */,
+				A864063D0B8D123597376880E00DDA41 /* JTMaterialTransition.modulemap */,
+				ED82093D6F80A3A150B3CE6A63A8D57E /* JTMaterialTransition.xcconfig */,
+				724F4FF44D30CE570D66A13AC07C0FAA /* JTMaterialTransition-dummy.m */,
+				6A9D73FA5D53D9535B174419B08494C6 /* JTMaterialTransition-prefix.pch */,
+				5CF197809A9AEF294651762EA773F748 /* JTMaterialTransition-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/JTMaterialTransition";
-			sourceTree = "<group>";
-		};
-		660D07D2C4B6D0A7AE7AF0449232BFC9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				065269358DCFAF1F15B24909541C0A02 /* DeckTransition */,
-				33A190A4FED40C73C21127DB6D859CEB /* JTMaterialTransition */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -189,10 +236,21 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				660D07D2C4B6D0A7AE7AF0449232BFC9 /* Pods */,
-				D35F2C18621C646054E31EA5125ACFCB /* Products */,
+				3042D3038DCD6043009386A8524E4865 /* Pods */,
+				8D114758E884A25D1E1DE9F873B1535D /* Products */,
 				976EC9D9BB687EBDDC0D08CAEF03BE9D /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		8D114758E884A25D1E1DE9F873B1535D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B873F9A87DAAB1F8704885204FF02C6D /* DeckTransition.framework */,
+				E57BF8CDAE7639BEED3D9A262D5CBA3E /* expanding_collection.framework */,
+				27BB24FCAA0DD799F8C968AFB74553FB /* JTMaterialTransition.framework */,
+				B11E8E3B26E03326F35A1B2347525D95 /* Pods_Avalon_Print.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		976EC9D9BB687EBDDC0D08CAEF03BE9D /* Targets Support Files */ = {
@@ -203,28 +261,53 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		CE5F621591A89F6822698A1734E988E4 /* Support Files */ = {
+		B4B398D1D048F021AA2BEC4B2DC5C9B8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				187EC45E660DDDA4DACCAF38D69932E1 /* DeckTransition.modulemap */,
-				EC1FDE2FF4C44283A6688E1F4F9A70B1 /* DeckTransition.xcconfig */,
-				93C6FCB33C0FFE39BF76EAC9615C35EE /* DeckTransition-dummy.m */,
-				3488EBA039B68AEECFB94AB40D05100B /* DeckTransition-prefix.pch */,
-				D64C78BBE8F77AAD119E6C93748567A4 /* DeckTransition-umbrella.h */,
-				127A6162AB76503FA33B80F0697EA53E /* Info.plist */,
+				5DB562C573550636F936CD4C5333F654 /* expanding-collection.modulemap */,
+				06A7D66121B8B27DCCE720D0FBBC66F4 /* expanding-collection.xcconfig */,
+				1ED581F9F2B40E350554AB4EA85FDF8A /* expanding-collection-dummy.m */,
+				57038BC5EF5EF737BAF4FCD207AD6FF5 /* expanding-collection-prefix.pch */,
+				24BE821058CA2FA51E0EA86D4B14A342 /* expanding-collection-umbrella.h */,
+				13C768A8D906A1AA5BFF7E4516C1C00E /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/DeckTransition";
+			path = "../Target Support Files/expanding-collection";
 			sourceTree = "<group>";
 		};
-		D35F2C18621C646054E31EA5125ACFCB /* Products */ = {
+		B8599EAD5FA119326AF9ED3F81B175D1 /* DeckTransition */ = {
 			isa = PBXGroup;
 			children = (
-				2138FB22ADA1F173B8F002237AA9572F /* DeckTransition.framework */,
-				886286C8C01CF4259C5915897EC1DB11 /* JTMaterialTransition.framework */,
-				D78BD6CC0EA183539B37A4A399F33542 /* Pods_Avalon_Print.framework */,
+				B5BADBF998928E960C4DC8A35FBE5315 /* DeckDismissingAnimationController.swift */,
+				6E579EF433FB719878C314A9F917D424 /* DeckPresentationController.swift */,
+				4CA82C2FDA25937DB78442732AD1580D /* DeckPresentingAnimationController.swift */,
+				2B522C6AB2B511ED87CCC51D7F74F51C /* DeckSegue.swift */,
+				9667162DDB58257B9E6F675585600EA8 /* DeckTransitioningDelegate.swift */,
+				F2EEBBD228F7631C7CC3F2A52F706646 /* Utilities.swift */,
+				3FFD325302F3C837627E6DBF1CC4BA10 /* Support Files */,
 			);
-			name = Products;
+			name = DeckTransition;
+			path = DeckTransition;
+			sourceTree = "<group>";
+		};
+		C4B63762886D196851155C5AD184AAB1 /* expanding-collection */ = {
+			isa = PBXGroup;
+			children = (
+				672AB6A4C9B7D753993A59CE1805E13B /* BasePageCollectionCell.swift */,
+				ECBE5DDEE537A80526B489D2CF63845A /* ConfigurationHelper.swift */,
+				7828E699A64A2FE5EE9407DDAEEB80AE /* ConstraintsHelper.swift */,
+				B761DCD7616C35CAF0D4F144AA3CE0CF /* CornerAnimatable.swift */,
+				F49C7CA301DC610E69A946B75E9A7A80 /* ExpandingTableViewController.swift */,
+				FC4895A59C87C537C1ABCB064FB67875 /* ExpandingViewController.swift */,
+				EE5D92EC333BFB93C145E0D8D6237DF8 /* PageCollectionLayout.swift */,
+				4C3C5D6E98EC84F07E318734A43370AA /* PageCollectionView.swift */,
+				95359BD60CA86B047A8B352408D14164 /* ScreenShotHelper.swift */,
+				595D0873EE474867F71809070D71B6C5 /* SubviewsForEach.swift */,
+				C21EAC87C37ED7BEE6F1F2D0664C8F28 /* TransitionDriver.swift */,
+				B4B398D1D048F021AA2BEC4B2DC5C9B8 /* Support Files */,
+			);
+			name = "expanding-collection";
+			path = "expanding-collection";
 			sourceTree = "<group>";
 		};
 		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
@@ -247,14 +330,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B9826D419B6304D2B3C8166694AB9C3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F6385148D7E9EFB82608A3AB9C02BE2D /* Pods-Avalon-Print-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		744C1B5F4D64AC36B255289D846DCF52 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,28 +338,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9AA0E32B1437FFD981AF3A3346F48117 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABAEDDA1F3D380534CA41A3CC4FB3BED /* Pods-Avalon-Print-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D111190F977E7DADC0402BA8C6EA59EE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EFFA2648C13CEB9EABD498C9158A542 /* expanding-collection-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0ADEEC358F6349CD4F5074121BAA1D4A /* Pods-Avalon-Print */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 247D7BBE21C02E8B6EA568426FCBD9CB /* Build configuration list for PBXNativeTarget "Pods-Avalon-Print" */;
-			buildPhases = (
-				B8A6B3357BB80A825B6878BA5CE78D72 /* Sources */,
-				B2928CAE66CB53854CF96F6D85D2A1D1 /* Frameworks */,
-				5B9826D419B6304D2B3C8166694AB9C3 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30C2471D31379F3581B9FC490678FA3F /* PBXTargetDependency */,
-				F0C394BA5EC1B99BE74A568C0EA59368 /* PBXTargetDependency */,
-			);
-			name = "Pods-Avalon-Print";
-			productName = "Pods-Avalon-Print";
-			productReference = D78BD6CC0EA183539B37A4A399F33542 /* Pods_Avalon_Print.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		0D6092967784175FB3AC7808A0DBB96F /* JTMaterialTransition */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49AD58983C1265AB19A2C7A155C0DF86 /* Build configuration list for PBXNativeTarget "JTMaterialTransition" */;
@@ -299,7 +371,7 @@
 			);
 			name = JTMaterialTransition;
 			productName = JTMaterialTransition;
-			productReference = 886286C8C01CF4259C5915897EC1DB11 /* JTMaterialTransition.framework */;
+			productReference = 27BB24FCAA0DD799F8C968AFB74553FB /* JTMaterialTransition.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3CBF841E9779C97E787674C7A5E1EF1B /* DeckTransition */ = {
@@ -316,7 +388,44 @@
 			);
 			name = DeckTransition;
 			productName = DeckTransition;
-			productReference = 2138FB22ADA1F173B8F002237AA9572F /* DeckTransition.framework */;
+			productReference = B873F9A87DAAB1F8704885204FF02C6D /* DeckTransition.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4C67514EA7D98658F641516ED8328206 /* expanding-collection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369CBB702DD407358D73E8BC59D0E610 /* Build configuration list for PBXNativeTarget "expanding-collection" */;
+			buildPhases = (
+				01332B021DBF2D265242295C6FF3F2BD /* Sources */,
+				6D579EA1B197C8A29E254FA7ABCD4171 /* Frameworks */,
+				D111190F977E7DADC0402BA8C6EA59EE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "expanding-collection";
+			productName = "expanding-collection";
+			productReference = E57BF8CDAE7639BEED3D9A262D5CBA3E /* expanding_collection.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		623A5F1F43D105AD8DEEC1850EA09324 /* Pods-Avalon-Print */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A069D84B81197960BBCCDA897B8B94AA /* Build configuration list for PBXNativeTarget "Pods-Avalon-Print" */;
+			buildPhases = (
+				07632B2BB47C5497BD0A45929D2459D4 /* Sources */,
+				53C99B1C3E420675F22FDD67E774C606 /* Frameworks */,
+				9AA0E32B1437FFD981AF3A3346F48117 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CECC41FFA2E88C5637160E1982D969D9 /* PBXTargetDependency */,
+				92091C09A1480E67239940B4ED3D8626 /* PBXTargetDependency */,
+				25E25FD2754028034224296B715DE8B4 /* PBXTargetDependency */,
+			);
+			name = "Pods-Avalon-Print";
+			productName = "Pods-Avalon-Print";
+			productReference = B11E8E3B26E03326F35A1B2347525D95 /* Pods_Avalon_Print.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -336,18 +445,46 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = D35F2C18621C646054E31EA5125ACFCB /* Products */;
+			productRefGroup = 8D114758E884A25D1E1DE9F873B1535D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3CBF841E9779C97E787674C7A5E1EF1B /* DeckTransition */,
+				4C67514EA7D98658F641516ED8328206 /* expanding-collection */,
 				0D6092967784175FB3AC7808A0DBB96F /* JTMaterialTransition */,
-				0ADEEC358F6349CD4F5074121BAA1D4A /* Pods-Avalon-Print */,
+				623A5F1F43D105AD8DEEC1850EA09324 /* Pods-Avalon-Print */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		01332B021DBF2D265242295C6FF3F2BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1E4630C8E32D87D74D7DED16A124D51 /* BasePageCollectionCell.swift in Sources */,
+				D6CDDD782E120D158BBC1C4C884B2E0B /* ConfigurationHelper.swift in Sources */,
+				ADCFA7370A4F46A8220F8AB89EC545BF /* ConstraintsHelper.swift in Sources */,
+				B24560FD0C9DC266E01B28FCA027AF75 /* CornerAnimatable.swift in Sources */,
+				6E4304604900B08956B911F72815B874 /* expanding-collection-dummy.m in Sources */,
+				C5A9AA761DDE2839DBCD03B849AC8A00 /* ExpandingTableViewController.swift in Sources */,
+				8AC7ABFB8AA174F443A5C6B41A4B2585 /* ExpandingViewController.swift in Sources */,
+				D5725992402785759B8C281FF2A88DEC /* PageCollectionLayout.swift in Sources */,
+				C44275043D7D6566F7CC8EF8A8F0E80D /* PageCollectionView.swift in Sources */,
+				9985D06E8881C411684B70F77DD90338 /* ScreenShotHelper.swift in Sources */,
+				271DF716950C7E825109B2F9D29CDBEB /* SubviewsForEach.swift in Sources */,
+				C5FD1BA590DBA19E78E60AE279D34063 /* TransitionDriver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07632B2BB47C5497BD0A45929D2459D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53CE15DF512E6053561E03D6A4DCA9BF /* Pods-Avalon-Print-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		157C6C68309089BFB22A51964D8A54D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,32 +508,98 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8A6B3357BB80A825B6878BA5CE78D72 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9F150C0612F0F6FD76078B7F7F621968 /* Pods-Avalon-Print-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30C2471D31379F3581B9FC490678FA3F /* PBXTargetDependency */ = {
+		25E25FD2754028034224296B715DE8B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = DeckTransition;
-			target = 3CBF841E9779C97E787674C7A5E1EF1B /* DeckTransition */;
-			targetProxy = C113F0CD0FFED4F76A94FE2A6F623D34 /* PBXContainerItemProxy */;
+			name = "expanding-collection";
+			target = 4C67514EA7D98658F641516ED8328206 /* expanding-collection */;
+			targetProxy = 882278F85E8EB511BD7DC17B7D512349 /* PBXContainerItemProxy */;
 		};
-		F0C394BA5EC1B99BE74A568C0EA59368 /* PBXTargetDependency */ = {
+		92091C09A1480E67239940B4ED3D8626 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JTMaterialTransition;
 			target = 0D6092967784175FB3AC7808A0DBB96F /* JTMaterialTransition */;
-			targetProxy = DF29EA3495F6E9DEECF0DA83601B4225 /* PBXContainerItemProxy */;
+			targetProxy = AFCCFB0CA8FDE8B5ADF39EA0CBDBAA78 /* PBXContainerItemProxy */;
+		};
+		CECC41FFA2E88C5637160E1982D969D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DeckTransition;
+			target = 3CBF841E9779C97E787674C7A5E1EF1B /* DeckTransition */;
+			targetProxy = A79AEC643CBDB77EEB587F46B96DFB9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0910B15AFB2B2F64C87F5511A257D768 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45BC1A9B5F60D44D0BF389F0599CAE8B /* Pods-Avalon-Print.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Avalon-Print/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Avalon_Print;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0D5974967CF9DC3E03F442BCE25C177A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06A7D66121B8B27DCCE720D0FBBC66F4 /* expanding-collection.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/expanding-collection/expanding-collection-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/expanding-collection/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/expanding-collection/expanding-collection.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = expanding_collection;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,7 +644,73 @@
 			};
 			name = Debug;
 		};
-		8AE9CB22E4C5F5065EE923C572AA7D9D /* Release */ = {
+		9231B96EC44B9B0372C6EE6414953798 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66E56FE50C234E7466B8478F13AFEA2F /* DeckTransition.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DeckTransition/DeckTransition-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DeckTransition/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DeckTransition/DeckTransition.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DeckTransition;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A0C25A10262031457274D8E79D710D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06A7D66121B8B27DCCE720D0FBBC66F4 /* expanding-collection.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/expanding-collection/expanding-collection-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/expanding-collection/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/expanding-collection/expanding-collection.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = expanding_collection;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A8BC8D62A7616920DF40D67C6080D25A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C7DD1F9287F92100C0C994E8D265C99 /* Pods-Avalon-Print.release.xcconfig */;
 			buildSettings = {
@@ -475,39 +744,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		9231B96EC44B9B0372C6EE6414953798 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC1FDE2FF4C44283A6688E1F4F9A70B1 /* DeckTransition.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DeckTransition/DeckTransition-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DeckTransition/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DeckTransition/DeckTransition.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DeckTransition;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -551,7 +787,7 @@
 		};
 		C61FF6E160F8E984417D6B408C6E39A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC1FDE2FF4C44283A6688E1F4F9A70B1 /* DeckTransition.xcconfig */;
+			baseConfigurationReference = 66E56FE50C234E7466B8478F13AFEA2F /* DeckTransition.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -581,45 +817,9 @@
 			};
 			name = Release;
 		};
-		DBF335F2A76D23C274B8F0A1AA6322D0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45BC1A9B5F60D44D0BF389F0599CAE8B /* Pods-Avalon-Print.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Avalon-Print/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Avalon_Print;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		DFC2D3604E1BF3CABEE55ADC4A13F15B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9CEE6C040E79F448CDEBE100DB1CB47 /* JTMaterialTransition.xcconfig */;
+			baseConfigurationReference = ED82093D6F80A3A150B3CE6A63A8D57E /* JTMaterialTransition.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -652,7 +852,7 @@
 		};
 		ED920512E59D1CE92BECE518B3A89E85 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9CEE6C040E79F448CDEBE100DB1CB47 /* JTMaterialTransition.xcconfig */;
+			baseConfigurationReference = ED82093D6F80A3A150B3CE6A63A8D57E /* JTMaterialTransition.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -685,20 +885,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		247D7BBE21C02E8B6EA568426FCBD9CB /* Build configuration list for PBXNativeTarget "Pods-Avalon-Print" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DBF335F2A76D23C274B8F0A1AA6322D0 /* Debug */,
-				8AE9CB22E4C5F5065EE923C572AA7D9D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
 				B7324857C38B065FEB1EEE3105C2367A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		369CBB702DD407358D73E8BC59D0E610 /* Build configuration list for PBXNativeTarget "expanding-collection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C25A10262031457274D8E79D710D61 /* Debug */,
+				0D5974967CF9DC3E03F442BCE25C177A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -717,6 +917,15 @@
 			buildConfigurations = (
 				9231B96EC44B9B0372C6EE6414953798 /* Debug */,
 				C61FF6E160F8E984417D6B408C6E39A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A069D84B81197960BBCCDA897B8B94AA /* Build configuration list for PBXNativeTarget "Pods-Avalon-Print" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0910B15AFB2B2F64C87F5511A257D768 /* Debug */,
+				A8BC8D62A7616920DF40D67C6080D25A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

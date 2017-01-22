@@ -8,11 +8,22 @@
 
 
 import UIKit
+import JTMaterialTransition
 
 
-class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class postersVC:  UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-     
+    @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
+        controller?.modalPresentationStyle = .custom
+        controller?.transitioningDelegate = self.materialInfoTransition
+        self.present(controller!, animated: true, completion: nil)
+
+
+    }
+
+    @IBOutlet weak var AboutMaterialsButton: UIButton!
+
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
@@ -43,6 +54,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     let aqua =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
     let snowColor =  UIColor(red: 255.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0/0.5)
+     var materialInfoTransition = JTMaterialTransition()
     
    
     @IBAction func AddToCart(_ sender: Any) {
@@ -54,7 +66,10 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
             
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             navigationController.isNavigationBarHidden = true
+            
             self.present(navigationController, animated: true, completion: nil)
+            
+            
             
         } else {
             
@@ -106,6 +121,8 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         self.hideKeyboardWhenTappedAround()
         
+         self.materialInfoTransition = JTMaterialTransition(animatedView: self.AboutMaterialsButton)
+        
         
         // //MARK: iPhone 5/5c/5s/se
         if screenSize.height == 568 {
@@ -139,7 +156,7 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         postersWidthTextField.delegate = self
         postersHeightTextField.delegate = self
         
-        postersMaterialTextField.inputView = materialPicker
+       postersMaterialTextField.inputView = materialPicker
         postersPostPrintTextField.inputView = postPrintPicker
         
         postersMaterialTextField.text = data[0]
@@ -149,8 +166,15 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         oversizeAlertSmall.addAction(okAction)
 
         setPickerTextFieldTint(sender: [postersMaterialTextField, postersPostPrintTextField])
+        
+        materialPicker.backgroundColor = UIColor.darkGray
+        postPrintPicker.backgroundColor = UIColor.darkGray
+        
+       
+       
+        
+        
     }
-    
    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -345,23 +369,30 @@ class postersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         }
        
     }
+     
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+   
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         materialPicker.tag = 0
         postPrintPicker.tag = 1
         
-    
-        
-        
         if pickerView.tag == 0 {
-           return data[row]
-            
-        } else if pickerView.tag == 1 {
-            return postPrintData[row]
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = data[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 17)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
+        } else {
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = postPrintData[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 17)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
         }
         
-      return ""
     }
     
     

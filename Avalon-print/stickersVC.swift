@@ -138,6 +138,10 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         oversizeAlertSmall.addAction(okAction)
         
         setPickerTextFieldTint(sender: [stickersMaterialTextField, stickersPostPrintTextField])
+        
+        materialPicker.backgroundColor = UIColor.darkGray
+        postPrintPicker.backgroundColor = UIColor.darkGray
+
     }
     
     
@@ -289,22 +293,30 @@ class stickersVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
+    
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    
         materialPicker.tag = 0
         postPrintPicker.tag = 1
         
-        
         if pickerView.tag == 0 {
-            return data[row]
-            
-        } else if pickerView.tag == 1 {
-            return postPrintData[row]
+         let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = data[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 16)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
+        } else {
+            let pickerLabel = UILabel()
+            pickerLabel.textColor = UIColor.white
+            pickerLabel.text = postPrintData[row]
+            pickerLabel.font = UIFont.systemFont(ofSize: 16)
+            pickerLabel.textAlignment = NSTextAlignment.center
+            return pickerLabel
         }
         
-        return ""
     }
-    
     
 
     
