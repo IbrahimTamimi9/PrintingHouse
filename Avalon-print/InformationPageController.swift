@@ -20,7 +20,7 @@ class InformationPageController: UITableViewController {
         super.viewDidLoad()
         
           self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-          informationTableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
+          informationTableView.backgroundView = UIImageView(image: UIImage(named: "third"))
           informationTableView.backgroundView?.alpha = 0.4
     }
     
