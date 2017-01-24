@@ -16,6 +16,8 @@ class map: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        
         
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
         let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(50.421741, 30.541826)

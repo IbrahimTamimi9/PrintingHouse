@@ -26,7 +26,9 @@ class ContactsPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+       
     }
     
     @IBAction func openMap(_ sender: Any) {
