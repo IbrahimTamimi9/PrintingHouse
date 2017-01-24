@@ -70,6 +70,12 @@ final class ViewController: UIViewController {
     let canvasIMG = UIImage(named: "canvasmain") as UIImage?
     let contactsIMG = UIImage(named: "emailmain") as UIImage?
     let infoIMG = UIImage(named: "infomain") as UIImage?
+  
+  typealias ItemInfo = (imageName: String, title: String)
+  
+  var items: [ItemInfo] = [("bannersmain", "Плакаты"),("banermain", "Баннеры"),("stickersmain", "Наклейки"), ("canvasmain", "Холсты"), ("emailmain", "Контакты"),("infomain", "Информация")]
+  
+
 
     
     
@@ -130,6 +136,8 @@ final class ViewController: UIViewController {
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         getVariablesFromJSON()
     }
+  
+  
     
       
     func setUpRightBarButton() {

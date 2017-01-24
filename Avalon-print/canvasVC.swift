@@ -232,7 +232,7 @@ class canvasVC: UIViewController {
         controller?.transitioningDelegate = self.materialInfoTransition
         self.present(controller!, animated: true, completion: nil)
         
-        items = [("item3", "Холсты")]
+        items = [("canvasPicture", "Холст художественный")]
     }
     
 
