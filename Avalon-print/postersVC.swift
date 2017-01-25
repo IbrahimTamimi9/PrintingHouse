@@ -201,13 +201,15 @@ import JTMaterialTransition
     }
     
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        resetTableView ()
+      
         let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
         controller?.modalPresentationStyle = .custom
         controller?.transitioningDelegate = self.materialInfoTransition
         self.present(controller!, animated: true, completion: nil)
         
         items = [("citylightPicture", "CityLight"),("lomondPicture", "Lomond"),("photoPPictue", "Photo Paper 200g")]
-        
+        gottenSignal.postersSignal = true
     }
 
     

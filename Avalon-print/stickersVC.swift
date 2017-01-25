@@ -192,12 +192,15 @@ class stickersVC: UIViewController {
     
     
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        resetTableView ()
+      
         let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
         controller?.modalPresentationStyle = .custom
         controller?.transitioningDelegate = self.materialInfoTransition
         self.present(controller!, animated: true, completion: nil)
         
         items = [ ("transparentOracalPicture", "Пленка самокл. прозрачная"), ("whiteStickerPicture", "Пленка самокл. белая"),("onewayvisionPicture", "One Way Vision")]
+      gottenSignal.stickersSignal = true
     }
     
 

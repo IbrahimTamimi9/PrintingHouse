@@ -9,6 +9,13 @@
 import UIKit
 import expanding_collection
 
+struct gottenSignal {
+ static  var postersSignal = false
+ static  var stickersSignal = false
+  static var canvasSignal = false
+  static var bannersSignal = false
+}
+
  typealias ItemInfo = (imageName: String, title: String)
 
 var items: [ItemInfo] = [("citylightPicture", "CityLight"),("lomondPicture", "Lomond"),("photoPPictue", "Photo Paper 200g"), ("transparentOracalPicture", "Пленка самокл. прозрачная"), ("whiteStickerPicture", "Пленка самокл. белая"),("onewayvisionPicture", "One Way Vision"), ("item3", "Холсты"),  ("item3", "баннеры1"), ("item3", "баннеры2"), ("item3", "баннеры3"), ("item3", "баннеры4") ]
@@ -87,10 +94,13 @@ class ExpandingMaterialViewController: ExpandingViewController {
         let open = sender.direction == .up ? true : false
         cell.cellIsOpen(open)
         cellsIsOpen[(indexPath as NSIndexPath).row] = cell.isOpened
+        fillTableView(indexPath: indexPath)
+     
+
         }
     
-    
-    
+ 
+  
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pageLabel.text = "\(currentIndex+1)/\(items.count)"
     }
@@ -106,7 +116,8 @@ class ExpandingMaterialViewController: ExpandingViewController {
         cell.materialName.numberOfLines = 2
         cell.materialName.text = info.title
         cell.cellIsOpen(cellsIsOpen[index], animated: false)
-    }
+      
+      }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? MaterialsCollectionViewCell
@@ -116,11 +127,19 @@ class ExpandingMaterialViewController: ExpandingViewController {
             cell.cellIsOpen(true)
         } else {
             pushToViewController(getViewController())
+         
+
             
             
         }
+     
     }
-    
+  
+
+  
+  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        fillTableView(indexPath: indexPath)
+  }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }

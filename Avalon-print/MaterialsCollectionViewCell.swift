@@ -20,9 +20,5 @@ class MaterialsCollectionViewCell: BasePageCollectionCell {
         materialName.layer.shadowRadius = 2
         materialName.layer.shadowOffset = CGSize(width: 0, height: 3)
         materialName.layer.shadowOpacity = 0.5
-
-              // Initialization code
     }
-    
-
 }

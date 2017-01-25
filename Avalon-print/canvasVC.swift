@@ -227,12 +227,15 @@ class canvasVC: UIViewController {
     
     
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        resetTableView ()
+      
         let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
         controller?.modalPresentationStyle = .custom
         controller?.transitioningDelegate = self.materialInfoTransition
         self.present(controller!, animated: true, completion: nil)
         
         items = [("canvasPicture", "Холст художественный")]
+      gottenSignal.canvasSignal = true
     }
     
 

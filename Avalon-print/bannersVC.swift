@@ -87,14 +87,16 @@ class bannersVC: UIViewController {
     
     
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
+        resetTableView ()
+      
         let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
         controller?.modalPresentationStyle = .custom
         controller?.transitioningDelegate = self.materialInfoTransition
         self.present(controller!, animated: true, completion: nil)
         
-        
-        items = [("item3", "баннеры1"), ("item3", "баннеры2"), ("item3", "баннеры3"), ("item3", "баннеры4")]
-        
+      
+        items = [("bannerLaminPicture", "Баннер ламинированный"), ("bannerLitoyPicture", "Баннер литой"), ("backlitPicture", "Backlit"), ("meshPicture", "Mesh")]
+        gottenSignal.bannersSignal = true
     }
 
 }
