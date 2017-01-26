@@ -56,6 +56,41 @@
 		<string>Exo2-Regular.ttf</string>
 		<string>Exo2-ExtraLight.ttf</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Sposters</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Плакаты</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.mizin.Avalon-print.posters</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Sstickers</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Наклейки</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.mizin.Avalon-print.stickers</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Sbanners</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Баннеры</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.mizin.Avalon-print.banners</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Scanvas</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Холсты</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.mizin.Avalon-print.canvas</string>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

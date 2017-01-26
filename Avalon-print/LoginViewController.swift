@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+ 
 public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
 
  extension UITextField {

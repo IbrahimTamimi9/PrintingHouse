@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+ 
 
 
 class HomeVCCell: UICollectionViewCell {

@@ -10,7 +10,7 @@
 import UIKit
 import JTMaterialTransition
 
-
+ 
 class canvasVC: UIViewController {
     
     @IBOutlet weak var AboutMaterialsButton: UIButton!
@@ -65,6 +65,7 @@ class canvasVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
        
          applyMotionEffect(toView: backgroundImageView, magnitude: 25)
          self.hideKeyboardWhenTappedAround()

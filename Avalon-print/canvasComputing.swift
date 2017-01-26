@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+
+
 struct canvasBoolVariables {
     static var amount = ""
     static var amountDidNotInputed = true

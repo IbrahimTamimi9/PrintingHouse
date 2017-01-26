@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-
+ 
 
 //MARK: SHOWS IF ELEMENTS IN postersMaterialVC.swift, postersPostPrintVC.swift, postersAmountAndSizeVC CHECKED OR NOT
 struct stickersBoolVariables {

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-
+ 
   let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
 
   var addedItems = [AddedItems]()

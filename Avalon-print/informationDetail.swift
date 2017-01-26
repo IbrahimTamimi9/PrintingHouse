@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+ 
 class informationDetail: UIViewController {
     
     @IBOutlet weak var textViewForLoadingContent: UITextView!

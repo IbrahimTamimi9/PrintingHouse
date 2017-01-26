@@ -8,9 +8,12 @@
 
 
 import UIKit
+
 import JTMaterialTransition
 
+
  class postersVC:  UIViewController {
+
 
     @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -68,6 +71,7 @@ import JTMaterialTransition
     
     override  func viewDidLoad() {
         super.viewDidLoad()
+            managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
             applyMotionEffect(toView: backgroundImageView, magnitude: 25)
             self.hideKeyboardWhenTappedAround()

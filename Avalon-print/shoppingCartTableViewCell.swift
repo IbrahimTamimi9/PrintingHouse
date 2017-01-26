@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+ 
 class shoppingCartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainData: UITextView!

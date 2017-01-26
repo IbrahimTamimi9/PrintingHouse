@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import avalonExtBridge
+
 
 
 class RegistrationViewController: UIViewController {

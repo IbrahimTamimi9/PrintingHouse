@@ -8,7 +8,7 @@
 
 
 import UIKit
-import JTMaterialTransition
+import JTMaterialTransition 
 
 class bannersVC: UIViewController {
     
@@ -45,6 +45,7 @@ class bannersVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+            managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
             self.hideKeyboardWhenTappedAround()
         

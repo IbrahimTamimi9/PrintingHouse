@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+ 
 class InformationPageController: UITableViewController {
     
     var indexOfSelectedCell = Int()

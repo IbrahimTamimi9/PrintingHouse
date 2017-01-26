@@ -10,7 +10,7 @@
 import UIKit
 import JTMaterialTransition
 
-
+ 
 class stickersVC: UIViewController {
     
     @IBOutlet weak var AboutMaterialsButton: UIButton!
@@ -63,7 +63,8 @@ class stickersVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+        managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         
        
         // //MARK: iPhone 5/5c/5s/se

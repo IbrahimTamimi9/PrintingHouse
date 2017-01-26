@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import avalonExtBridge
 
 class customNavigationController: UINavigationController {
 
