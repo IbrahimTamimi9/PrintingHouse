@@ -22,7 +22,7 @@ var items: [ItemInfo] = [("citylightPicture", "CityLight"),("lomondPicture", "Lo
 
 
 
-class ExpandingMaterialViewController: ExpandingViewController {
+class ExpandingMaterialViewController: ExpandingViewController , UIViewControllerPreviewingDelegate {
       
     @IBAction func dismissPage(_ sender: Any) {
          dismiss(animated: true, completion: nil)
@@ -43,13 +43,41 @@ class ExpandingMaterialViewController: ExpandingViewController {
     override func viewDidLoad() {
         itemSize = CGSize(width: 214, height: 264)
         super.viewDidLoad()
-    
+      
         
         registerCell()
         fillCellIsOpeenArry()
         addGestureToView(collectionView!)
+      
+      
+      
+      if traitCollection.forceTouchCapability == .available {
+        registerForPreviewing(with: self, sourceView: collectionView!)
+      }
     }
+  
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    guard let indexPath = collectionView?.indexPathForItem(at: location),
+      let cell = collectionView?.cellForItem(at: indexPath) else { return nil }
+    previewingContext.sourceRect = cell.frame
     
+    
+    let sb = UIStoryboard(name: "Main", bundle: nil)
+    let overlay = sb.instantiateViewController(withIdentifier: "ExpandingMaterialTableViewController") as! ExpandingMaterialTableViewController
+    
+    return overlay
+  }
+  
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+       pushToViewController(getViewController())
+
+  }
+  
+  
+  
+  
+  
+  
     fileprivate func registerCell() {
         let nib = UINib(nibName: String(describing: MaterialsCollectionViewCell.self), bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: String(describing: MaterialsCollectionViewCell.self))

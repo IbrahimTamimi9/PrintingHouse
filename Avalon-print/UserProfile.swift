@@ -34,6 +34,38 @@ class UserProfile: UITableViewController {
          userEmail.text = (defaults.object(forKey: "emailToProfile") as? String)
 
     }
+  
+  func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 100.0
+  }
+  func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    
+    let footerView = UIView(frame:CGRect(x: 0,y: 0,width: 320,height: 40))
+    footerView.backgroundColor = UIColor.blue
+    
+    let loginButton = UIButton(type: .custom)
+    loginButton.setTitle("Выход", for: .normal)
+    loginButton.addTarget(self, action: #selector(UserProfile.loginAction), for: .touchUpInside)
+    loginButton.setTitleColor(UIColor.white, for: .normal)
+    loginButton.backgroundColor = UIColor.darkGray
+    loginButton.frame = CGRect(x: 0, y: 0, width: 130, height: 30)
+    
+    footerView.addSubview(loginButton)
+    
+    return footerView
+  }
+  
+  func loginAction()
+  {
+    defaults.set("", forKey: "login")
+    defaults.set("", forKey: "password")
+    defaults.set(false, forKey: "loggedIn")
+    
+    defaults.set("", forKey: "nameSurnameToProfile")
+    defaults.set("", forKey: "emailToProfile")
+    defaults.set("", forKey: "cellNumberToProfile")
+    
+    dismiss(animated: true, completion: nil)  }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
