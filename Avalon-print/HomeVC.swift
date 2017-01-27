@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 import JTMaterialTransition
 
-
-
 var rightBarButton: ENMBadgedBarButtonItem?
 var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
@@ -78,6 +76,8 @@ func applyMotionEffect (toView view: UIView, magnitude: Float ) {
         updateBadgeValue()
         registerCell()
         getVariablesFromJSON()
+      
+    
   }
   
    fileprivate func registerCell() {

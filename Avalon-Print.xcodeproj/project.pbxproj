@@ -34,7 +34,7 @@
 		4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AA1E226FC300034E3E /* UserProfile.swift */; };
 		4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AB1E226FC300034E3E /* HomeVC.swift */; };
 		4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81B71E22702300034E3E /* AppDelegate.swift */; };
-		4B3F81BC1E22702300034E3E /* JSONReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81B81E22702300034E3E /* JSONReading.swift */; };
+		4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */; };
 		4B3F81BD1E22702300034E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81B91E22702300034E3E /* Main.storyboard */; };
 		4B3F81BE1E22702300034E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81BA1E22702300034E3E /* Assets.xcassets */; };
 		4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C01E22706100034E3E /* customNavigationBar.swift */; };
@@ -50,6 +50,7 @@
 		4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */; };
 		4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
 		4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A71E226FC300034E3E /* LoginViewController.swift */; };
+		4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,7 +104,7 @@
 		4B3F81AA1E226FC300034E3E /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "Avalon-print/UserProfile.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81AB1E226FC300034E3E /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = "Avalon-print/HomeVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81B71E22702300034E3E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Avalon-print/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81B81E22702300034E3E /* JSONReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONReading.swift; path = "Avalon-print/JSONReading.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseCalculationsDataRetrieving.swift; path = "Avalon-print/FirebaseCalculationsDataRetrieving.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81B91E22702300034E3E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Avalon-print/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		4B3F81BA1E22702300034E3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Avalon-print/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		4B3F81BF1E22706100034E3E /* ButtonMockup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonMockup.swift; path = "Avalon-print/ButtonMockup.swift"; sourceTree = SOURCE_ROOT; };
@@ -121,6 +122,7 @@
 		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6F309E9E061423185210A69E /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
 		7295E3F733109FC0F904C5E2 /* Pods-Avalon-Print.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.release.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.release.xcconfig"; sourceTree = "<group>"; };
 		B5EA1A241B7B383300E1C1C3 /* Avalon-Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avalon-Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +160,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4B2D03B21DF78E5C00BF0B23 /* SupportingClasses */ = {
+		4B2D03B21DF78E5C00BF0B23 /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				4B3F81BF1E22706100034E3E /* ButtonMockup.swift */,
@@ -168,7 +170,7 @@
 				4B3F81C01E22706100034E3E /* customNavigationBar.swift */,
 				4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */,
 			);
-			name = SupportingClasses;
+			name = Support;
 			path = CustomSlideMenu;
 			sourceTree = "<group>";
 		};
@@ -189,6 +191,7 @@
 				4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */,
 				4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */,
 				4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */,
+				4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */,
 			);
 			name = pages;
 			sourceTree = "<group>";
@@ -296,7 +299,7 @@
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
 				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
 				4B98B1461E217FD1003D725C /* Fonts */,
-				4B2D03B21DF78E5C00BF0B23 /* SupportingClasses */,
+				4B2D03B21DF78E5C00BF0B23 /* Support */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
 				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
 				31B3518373C45D0E0B929748 /* Pods */,
@@ -317,7 +320,7 @@
 			children = (
 				4B5FCE831DF0DB350080B034 /* pages */,
 				4B3F81B71E22702300034E3E /* AppDelegate.swift */,
-				4B3F81B81E22702300034E3E /* JSONReading.swift */,
+				4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */,
 				4B3F81B91E22702300034E3E /* Main.storyboard */,
 				4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */,
 				B5EA1A331B7B383300E1C1C3 /* Info.plist */,
@@ -405,6 +408,7 @@
 				4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */,
 				4B3F81BD1E22702300034E3E /* Main.storyboard in Resources */,
 				4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */,
+				4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */,
 				4B3F81BE1E22702300034E3E /* Assets.xcassets in Resources */,
 				4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */,
 			);
@@ -492,7 +496,7 @@
 				4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */,
 				4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */,
 				4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */,
-				4B3F81BC1E22702300034E3E /* JSONReading.swift in Sources */,
+				4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */,
 				4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */,
 				4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */,
 				4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */,

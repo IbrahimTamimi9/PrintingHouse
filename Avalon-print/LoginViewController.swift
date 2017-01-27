@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
             defaults.synchronize()
-        
             loginTextField.delegate = self
             passwordTextField.delegate = self
         

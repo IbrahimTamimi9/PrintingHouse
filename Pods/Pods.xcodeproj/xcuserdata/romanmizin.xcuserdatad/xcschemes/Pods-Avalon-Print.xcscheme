@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "623A5F1F43D105AD8DEEC1850EA09324"
+               BlueprintIdentifier = "3B446189C2D08A8C7626A0BD8343C8F6"
                BuildableName = "Pods_Avalon_Print.framework"
                BlueprintName = "Pods-Avalon-Print"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "623A5F1F43D105AD8DEEC1850EA09324"
+            BlueprintIdentifier = "3B446189C2D08A8C7626A0BD8343C8F6"
             BuildableName = "Pods_Avalon_Print.framework"
             BlueprintName = "Pods-Avalon-Print"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -19,7 +19,7 @@ extension String {
 
 extension String {
     var intValue: Int {
-        return Int(self)!// ?? 0
+        return Int(self) ?? 0
     }
 }
 
