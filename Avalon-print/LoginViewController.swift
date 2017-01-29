@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
  
-public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
+//public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
 
  extension UITextField {
      @IBInspectable var placeHolderColor: UIColor? {
@@ -25,10 +26,10 @@ public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
 
 class LoginViewController: UIViewController {
     
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+   // var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
-    let incorrectLogin = UIAlertController(title: "Ошибка входа", message: "Неправильный логин или пароль", preferredStyle: UIAlertControllerStyle.alert )
-    let noInternet = UIAlertController(title: "Ошибка входа", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
+   // let incorrectLogin = UIAlertController(title: "Ошибка входа", message: "Неправильный логин или пароль", preferredStyle: UIAlertControllerStyle.alert )
+    //let noInternet = UIAlertController(title: "Ошибка входа", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
     
     @IBOutlet weak var LogInButton: ButtonMockup!
     @IBOutlet weak var loginTextField: UITextField!
@@ -39,100 +40,93 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-            defaults.synchronize()
+      
             loginTextField.delegate = self
             passwordTextField.delegate = self
-        
-            incorrectLogin.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-            self.activityIndicator.stopAnimating()
-           UIApplication.shared.endIgnoringInteractionEvents()
-        }))
     }
-    
-    
+  
+  
+  var messageFrame = UIView()
+  var activityIndicator = UIActivityIndicatorView()
+  var strLabel = UILabel()
+  
+  func progressBarDisplayer(msg:String, _ indicator:Bool ) {
+    print(msg)
+    strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
+    strLabel.text = msg
+    strLabel.font = UIFont.systemFont(ofSize: 13)
+    strLabel.textColor = UIColor.white
+    messageFrame = UIView(frame: CGRect(x: (screenSize.width - strLabel.frame.width)/2 ,
+                                        y: (screenSize.height - strLabel.frame.height)/2  , width: 180, height: 50))
+    messageFrame.layer.cornerRadius = 15
+    messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+    if indicator {
+      activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+      activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+      activityIndicator.startAnimating()
+      messageFrame.addSubview(activityIndicator)
+    }
+    messageFrame.addSubview(strLabel)
+    view.addSubview(messageFrame)
+  }
+  
+  
     @IBAction func closeLoginPage(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
  
     @IBAction func onLogInButtonClicked(_ sender: Any) {
+       progressBarDisplayer(msg: "Выполняется вход...", true)
+       view.isUserInteractionEnabled = false
+      
+      FIRAuth.auth()?.signIn(withEmail: loginTextField.text!, password: passwordTextField.text!) {
+        (user, error) in
+       
+        if error != nil  {
+          //Tells the user that there is an error and then gets firebase to tell them the error
+          let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+          
+          let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+          alertController.addAction(defaultAction)
+          
+          DispatchQueue.main.async {
+            self.messageFrame.removeFromSuperview()
+            self.view.isUserInteractionEnabled = true
+          }
+          
+          self.present(alertController, animated: true, completion: nil)
+        }
         
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
         
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-     
-        var request = URLRequest(url: URL(string: "http://mizin-dev.com/login_api.php")!)
-        request.httpMethod = "POST"
-        let postString = "email=\(loginTextField.text!)&password=\(passwordTextField.text!)"
-        request.httpBody = postString.data(using: .utf8)
-        
-        let task1 = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("ERROR")
-                //internet.enabled = false
-                 UIApplication.shared.endIgnoringInteractionEvents()
-                self.present(self.noInternet, animated: true, completion: nil)
-               
-                
-            } else {
-                if let content = data {
-                    do {
-                        
-                        let user = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        
-                        let phpAnswer = user["result"] as! String
-                        let successfull = "OK"
-                        if (phpAnswer == successfull) {
-                              UIApplication.shared.endIgnoringInteractionEvents()
-                            
-                            //MARK: HERE WILL BE SAVING USER EMAIL AND PASS TO 
-                            //USERDEFAULTS FOR KEPPING LOGGED IN
-                            
-                            defaults.set(self.loginTextField.text!, forKey: "login")
-                            defaults.set(self.passwordTextField.text!, forKey: "password")
-                            defaults.set(true, forKey: "loggedIn")
-                            defaults.synchronize()
-                            
-                            
-                            print("\n\nSuccessfully logged in   ", "  result",  user["result"] as Any, "\n\n")
-                           
-                            
-                            if let phpUserReturnedData = user["user"] as? NSDictionary {
-                                
-                               
-                                print("\nPHP RESPOND ABOUT USER DATA\nUser: ",  phpUserReturnedData["name"] as! String)
-                                print("E-mail: ",  phpUserReturnedData["email"] as! String)
-                                print("Password: ",  phpUserReturnedData["password"] as! String)
-                                print("Cell Number: ",  phpUserReturnedData["phone_number"] as! String)
-                                
-                                 defaults.set((phpUserReturnedData["name"]  as! String), forKey: "nameSurnameToProfile")
-                                 defaults.set((phpUserReturnedData["email"]  as! String), forKey: "emailToProfile")
-                                 defaults.set((phpUserReturnedData["phone_number"]  as! String), forKey: "cellNumberToProfile")
-                                defaults.synchronize()
-                                
-                                 print("\nUSER PROFILE DATA \n",  (phpUserReturnedData["name"]  as! String), "\n", (phpUserReturnedData["email"]  as! String), "\n" , (phpUserReturnedData["phone_number"]  as! String))
-                                
-                                self.dismiss(animated: true, completion: nil)
-                            }
-                        } else {
-                             print("Login or password are incorrect", "result", user["result"] as Any)
-                             UIApplication.shared.endIgnoringInteractionEvents()
-                             self.present(self.incorrectLogin, animated: true, completion: nil)
-                        }
-                    }
-               
-                    catch {}
-   
-                }//if let content
+        if let user = FIRAuth.auth()?.currentUser {
+          if !user.isEmailVerified{
+            let alertVC = UIAlertController(title: "Error", message: "Sorry. Your email address has not yet been verified. Do you want us to send another verification email to \(self.loginTextField.text!).", preferredStyle: .alert)
+            let alertActionOkay = UIAlertAction(title: "Send", style: .default) {
+              (_) in
+              user.sendEmailVerification(completion: nil)
             }
-        }//task1
-        task1.resume()
-
+            let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            
+            alertVC.addAction(alertActionOkay)
+            alertVC.addAction(alertActionCancel)
+            DispatchQueue.main.async {
+              self.messageFrame.removeFromSuperview()
+              self.view.isUserInteractionEnabled = true
+            }
+            self.present(alertVC, animated: true, completion: nil)
+          } else {
+            
+            print ("Email verified. Signing in...")
+            DispatchQueue.main.async {
+              self.messageFrame.removeFromSuperview()
+              self.view.isUserInteractionEnabled = true
+            }
+            self.dismiss(animated: true, completion: nil)
+          }
+        }
+      }
+      
     }
     
     

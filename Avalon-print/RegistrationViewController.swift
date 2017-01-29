@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import  FirebaseAuth
+import FirebaseDatabase
 
 
 
@@ -28,16 +30,9 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var registrationButton: ButtonMockup!
 
    
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+  
     
-    let noInternet = UIAlertController(title: "Ошибка регистрации", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
-    
-    let invalidEmail = UIAlertController(title: "Ошибка регистрации", message: "Данный E-mail уже используется", preferredStyle: UIAlertControllerStyle.alert )
-    
-    let regSuccessful = UIAlertController(title: "", message: "Регистрация прошла успешно, можете выполнить вход", preferredStyle: UIAlertControllerStyle.alert )
-
- 
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
@@ -48,20 +43,14 @@ class RegistrationViewController: UIViewController {
         repeatPassword.delegate = self
        
        
-        setUpUI(textfields: [nameSurname, phoneNumber, email, password, repeatPassword], constraints: [nameTFHeight, numTFHeight, mailTFHeight, passTFHeight, repeatPassTFHeight], alertControllers: [noInternet, invalidEmail, regSuccessful])
+        setUpUI(textfields: [nameSurname, phoneNumber, email, password, repeatPassword], constraints: [nameTFHeight, numTFHeight, mailTFHeight, passTFHeight, repeatPassTFHeight])
         
     }
     
     
-    func setUpUI(textfields: [UITextField], constraints: [NSLayoutConstraint], alertControllers: [UIAlertController]) {
+    func setUpUI(textfields: [UITextField], constraints: [NSLayoutConstraint]) {
         
-        for AlertControllers in alertControllers {
-            AlertControllers.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
-                self.activityIndicator.stopAnimating()
-                UIApplication.shared.endIgnoringInteractionEvents()
-           }))
-        }
-        
+      
         if screenSize.height < 667 {
             for Constraints in constraints {
                 Constraints.constant = 40
@@ -117,75 +106,87 @@ class RegistrationViewController: UIViewController {
             self.registrationButton.alpha = 0.6 })
         
      } else {
-        registrationButton.isEnabled = true;
+        registrationButton.isEnabled = true
         
         UIView.animate(withDuration: 0.5, animations: {
             self.registrationButton.alpha = 1.0 })
        }
 }
+ 
+  var messageFrame = UIView()
+  var activityIndicator = UIActivityIndicatorView()
+  var strLabel = UILabel()
+  
+  func progressBarDisplayer(msg:String, _ indicator:Bool ) {
+    print(msg)
+    strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 250, height: 50))
+    strLabel.text = msg
+    strLabel.font = UIFont.systemFont(ofSize: 13)
+    strLabel.textColor = UIColor.white
+    messageFrame = UIView(frame: CGRect(x: (screenSize.width - strLabel.frame.width)/2 ,
+                                        y: (screenSize.height - strLabel.frame.height)/2  , width: 250, height: 50))
+    messageFrame.layer.cornerRadius = 15
     
+    messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+    if indicator {
+      activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+      activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+      activityIndicator.startAnimating()
+      messageFrame.addSubview(activityIndicator)
+    }
+    messageFrame.addSubview(strLabel)
+    view.addSubview(messageFrame)
+  }
+  
+  
     
     @IBAction func doRegistrate(_ sender: Any) {
-        
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
-        
-        var request = URLRequest(url: URL(string: "http://mizin-dev.com/registration_api.php")!)
-        request.httpMethod = "POST"
-        let postString = "name=\(nameSurname.text!)&email=\(email.text!)&password=\(password.text!)&phone_number=\(phoneNumber.text!)"
-        
-        request.httpBody = postString.data(using: .utf8)
-        
-        let task1 = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("ERROR")
-               
-                UIApplication.shared.endIgnoringInteractionEvents()
-                self.present(self.noInternet, animated: true, completion: nil)
-                
-                
-            } else {
-                if let content = data {
-                    do {
-                        
-                        let user = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        
-                        let phpAnswer = user["result"] as! String
-                        let successfull = "OK"
-                        let emailAlreadyUsed = "EMAIL_ALREADY_USED"
-                        
-                        if (phpAnswer == emailAlreadyUsed) {
-                            
-                            print("EmailAlreadyUsed", "result", user["result"] as Any)
-                            UIApplication.shared.endIgnoringInteractionEvents()
-                            self.present(self.invalidEmail, animated: true, completion: nil)
-                            
-                        } else
-                    
-                        if (phpAnswer == successfull) {
-                            UIApplication.shared.endIgnoringInteractionEvents()
-                            self.present(self.regSuccessful, animated: true, completion: nil)
+      
+       progressBarDisplayer(msg: "Выполняется регистрация...", true)
+       view.isUserInteractionEnabled = false
+      
+      FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { authData, error  in
+        if error == nil {
+          let userData = ["nameSurname": self.nameSurname.text!,
+                          "PhoneNumber": self.phoneNumber.text!,
+                          "userOrders": ""]
+          let ref = FIRDatabase.database().reference()
+          ref.child("users").child(authData!.uid).setValue(userData)
+          print("Successfuly registered")
+          
+          FIRAuth.auth()?.currentUser!.sendEmailVerification(completion: { (error) in
+          })
+          
+          
+          let alert = UIAlertController(title: "Account Created", message: "Please verify your email by confirming the sent link.", preferredStyle: UIAlertControllerStyle.alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+           
+            self.dismiss(animated: true, completion: nil)
 
-                            
-                            print("\n\nSuccessfully  registered   ", "  result",  user["result"] as Any, "\n\n")
-                            
-                        } else { print("****Some shit happened****") }
-                        
-                    }
-                        
-                    catch {}
-                    
-                } else { print("****Something went wrong****") }//if let content
-            }
-        }//task1
-        task1.resume()
-  
+          } )
+          DispatchQueue.main.async {
+            self.messageFrame.removeFromSuperview()
+             self.view.isUserInteractionEnabled = true
+          }
+          
+          self.present(alert, animated: true, completion: nil)
+          
+          
+        } else {
+          let alert = UIAlertController(title: "User exists.", message: "Please use another email or sign in.", preferredStyle: UIAlertControllerStyle.alert)
+          alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+          
+          DispatchQueue.main.async {
+            self.messageFrame.removeFromSuperview()
+             self.view.isUserInteractionEnabled = true
+          }
+          
+          self.present(alert, animated: true, completion: nil)
+
+        }
+      })
+      
     }
 
     
@@ -202,8 +203,5 @@ extension RegistrationViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
 
 

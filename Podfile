@@ -12,5 +12,6 @@ target 'Avalon-Print' do
   pod 'expanding-collection', '~> 1.0.3'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
  
 end

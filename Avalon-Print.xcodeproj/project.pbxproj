@@ -41,6 +41,7 @@
 		4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */; };
 		4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */; };
 		4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */; };
+		4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B894DF31E3E3137008D694D /* PasswordResetVC.swift */; };
 		4B8D1BCE1DF1FF27001A97F2 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */; };
 		4B8D1BCF1DF1FF27001A97F2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC31DF1FF27001A97F2 /* Info.plist */; };
 		4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BCA1DF1FF27001A97F2 /* TextFieldsEffects.swift */; };
@@ -51,6 +52,7 @@
 		4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
 		4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A71E226FC300034E3E /* LoginViewController.swift */; };
 		4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */; };
+		4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +116,7 @@
 		4B3F81CC1E2271D300034E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Avalon-print/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
 		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		4B894DF31E3E3137008D694D /* PasswordResetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetVC.swift; path = "Avalon-print/PasswordResetVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		4B8D1BC31DF1FF27001A97F2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8D1BC91DF1FF27001A97F2 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateUserProfile.swift; path = "Avalon-print/UpdateUserProfile.swift"; sourceTree = SOURCE_ROOT; };
 		6F309E9E061423185210A69E /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
 		7295E3F733109FC0F904C5E2 /* Pods-Avalon-Print.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.release.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.release.xcconfig"; sourceTree = "<group>"; };
 		B5EA1A241B7B383300E1C1C3 /* Avalon-Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avalon-Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,12 +189,9 @@
 				4B8F69301E37C9B400F0C91D /* information */,
 				4BB42CB01E37E014008CA109 /* contacts */,
 				4B8F692F1E37C96300F0C91D /* home */,
-				4B3F81A71E226FC300034E3E /* LoginViewController.swift */,
-				4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */,
-				4B3F81AA1E226FC300034E3E /* UserProfile.swift */,
-				4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */,
-				4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */,
-				4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */,
+				4B894DF51E3E3145008D694D /* authentication */,
+				4BFFD84D1E3E383D00710282 /* userProfile */,
+				4BFFD84E1E3E385100710282 /* shoppingCart */,
 				4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */,
 			);
 			name = pages;
@@ -221,6 +222,16 @@
 				4B3F819E1E226F4000034E3E /* bannersVC.swift */,
 			);
 			name = banners;
+			sourceTree = "<group>";
+		};
+		4B894DF51E3E3145008D694D /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				4B3F81A71E226FC300034E3E /* LoginViewController.swift */,
+				4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */,
+				4B894DF31E3E3137008D694D /* PasswordResetVC.swift */,
+			);
+			name = authentication;
 			sourceTree = "<group>";
 		};
 		4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */ = {
@@ -291,6 +302,25 @@
 				4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */,
 			);
 			name = MaterialInfoVC;
+			sourceTree = "<group>";
+		};
+		4BFFD84D1E3E383D00710282 /* userProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4B3F81AA1E226FC300034E3E /* UserProfile.swift */,
+				4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */,
+			);
+			name = userProfile;
+			sourceTree = "<group>";
+		};
+		4BFFD84E1E3E385100710282 /* shoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+				4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */,
+				4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */,
+				4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */,
+			);
+			name = shoppingCart;
 			sourceTree = "<group>";
 		};
 		B5EA1A1B1B7B383300E1C1C3 = {
@@ -480,11 +510,13 @@
 				4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */,
 				4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */,
 				4B3F81B31E226FC300034E3E /* map.swift in Sources */,
+				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
 				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
 				4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */,
+				4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */,
 				4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */,
 				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
 				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,

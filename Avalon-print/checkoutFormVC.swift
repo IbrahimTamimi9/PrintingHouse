@@ -8,6 +8,8 @@
 
 import UIKit
 import DeckTransition
+import FirebaseDatabase
+import FirebaseAuth
 
 
 
@@ -35,7 +37,6 @@ class checkoutFormVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         commentsTV.clipsToBounds = true
         commentsTV.layer.cornerRadius = 5
         
@@ -48,17 +49,12 @@ class checkoutFormVC: UIViewController {
         deliveryTime.delegate = self
         
         self.hideKeyboardWhenTappedAround()
-        
-        
-        nameSurnameTF.text = (defaults.object(forKey: "nameSurnameToProfile") as? String)
-        phoneTF.text = (defaults.object(forKey: "cellNumberToProfile") as? String)
-        emailTF.text = (defaults.object(forKey: "emailToProfile") as? String)
 
         setFontsForControllers(textfield: [nameSurnameTF,phoneTF, emailTF, layoutLinkTF, deliveryAdress, deliveryTime], textview: commentsTV, label: commentsLabel)
         
-        
+        localyRetrieveUserData()
         validateRegistraionData()
-        
+      
     }
     
     
@@ -104,8 +100,38 @@ class checkoutFormVC: UIViewController {
     @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func emailEditingChanged(_ sender: Any) { validateRegistraionData() }
 
+  
+  fileprivate func localyRetrieveUserData () {
+     if FIRAuth.auth()?.currentUser != nil && FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+    var ref: FIRDatabaseReference!
+    ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
     
+    ref.observeSingleEvent(of: .value, with: { snapshot in
+      
+      if !snapshot.exists() { return }
+      
+      let mainUserData = snapshot.value as? NSDictionary
+      
+      if let userNameSurname = mainUserData?["nameSurname"] as? String  {
+        self.nameSurnameTF.text = userNameSurname
+     
+      }
+      
+      
+      if let userPhoneNumber = mainUserData?["PhoneNumber"] as? String  {
+        self.phoneTF.text = userPhoneNumber
+      }
+    })
     
+      emailTF.text = FIRAuth.auth()!.currentUser!.email!
+     } else {
+       nameSurnameTF.text = ""
+       phoneTF.text = ""
+       emailTF.text = ""
+    }
+  }
+  
+  
     func setFontsForControllers(textfield: [UITextField], textview: UITextView, label: UILabel ) {
          if screenSize.height < 667 {
             textview.font = UIFont(name: "HelveticaNeue-Light", size: 14)

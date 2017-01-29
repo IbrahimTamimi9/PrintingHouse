@@ -9,37 +9,39 @@
 import UIKit
 import CoreData
 import JTMaterialTransition
+import FirebaseAuth
+import FirebaseDatabase
 
 var rightBarButton: ENMBadgedBarButtonItem?
 var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
 
-func updateBadgeValue () {
-    managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+ public func updateBadgeValue () {
+     managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
    
-    do {
-        addedItems = try managedObjextContext.fetch(presentRequest)
-    } catch {
-        print(error)
-    }
-  rightBarButton?.badgeValue = "\(addedItems.count)"
-}
+     do {
+         addedItems = try managedObjextContext.fetch(presentRequest)
+     } catch {
+         print(error)
+     }
+   rightBarButton?.badgeValue = "\(addedItems.count)"
+ }
 
 
-func applyMotionEffect (toView view: UIView, magnitude: Float ) {
-    let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-    xMotion.minimumRelativeValue = -magnitude
-    xMotion.maximumRelativeValue = magnitude
+ public func applyMotionEffect (toView view: UIView, magnitude: Float ) {
+     let xMotion = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+     xMotion.minimumRelativeValue = -magnitude
+     xMotion.maximumRelativeValue = magnitude
     
-    let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-    yMotion.minimumRelativeValue = -magnitude
-    yMotion.maximumRelativeValue = magnitude
+     let yMotion = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+     yMotion.minimumRelativeValue = -magnitude
+     yMotion.maximumRelativeValue = magnitude
     
-    let group = UIMotionEffectGroup()
-    group.motionEffects = [xMotion, yMotion]
-    view.addMotionEffect(group)
+     let group = UIMotionEffectGroup()
+     group.motionEffects = [xMotion, yMotion]
+     view.addMotionEffect(group)
     
-}
+ }
 
 
 
@@ -65,20 +67,19 @@ func applyMotionEffect (toView view: UIView, magnitude: Float ) {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        bucketTransition = JTMaterialTransition(animatedView: button)
+        profileButtonTransition = JTMaterialTransition(animatedView: profileButton)
       
-       bucketTransition = JTMaterialTransition(animatedView: button)
-       profileButtonTransition = JTMaterialTransition(animatedView: profileButton)
-      
-       applyMotionEffect(toView: backgroundImageView, magnitude: 25)
+        applyMotionEffect(toView: backgroundImageView, magnitude: 25)
       
         setUpRightBarButton()
         setUpLeftBarButton()
         updateBadgeValue()
         registerCell()
         getVariablesFromJSON()
-      
-    
   }
+
   
    fileprivate func registerCell() {
     
@@ -126,8 +127,8 @@ func applyMotionEffect (toView view: UIView, magnitude: Float ) {
             controller.transitioningDelegate = self.bucketTransition
         
         self.present(controller, animated: true, completion: nil)
-    }
-    
+       }
+  
     
   fileprivate  func setUpLeftBarButton() {
         let image = UIImage(named: "accountv2")
@@ -151,21 +152,28 @@ func applyMotionEffect (toView view: UIView, magnitude: Float ) {
    
     
      func leftButtonPressed(_ sender: UIButton) {
+     
+      
+      FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+        if FIRAuth.auth()?.currentUser != nil && FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+          // User is signed in.
+          
+          let controller =  self.storyboard?.instantiateViewController(withIdentifier: "UserProfile")
+          controller?.modalPresentationStyle = .custom
+          controller?.transitioningDelegate = self.profileButtonTransition
+          self.present(controller!, animated: true, completion: nil)
         
-        if (defaults.object(forKey: "loggedIn") as? Bool) == true {
-            let controller =  storyboard?.instantiateViewController(withIdentifier: "UserProfile")// as! UserProfile
-                controller?.modalPresentationStyle = .custom
-                controller?.transitioningDelegate = self.profileButtonTransition
-                self.present(controller!, animated: true, completion: nil)
-        
-            
-        } else  {
-            let controller =  storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
-                controller?.modalPresentationStyle = .custom
-                controller?.transitioningDelegate = self.profileButtonTransition
-                self.present(controller!, animated: true, completion: nil)
+        } else {
+          
+          // No user is signed in.
+          let controller =  self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+          controller?.modalPresentationStyle = .custom
+          controller?.transitioningDelegate = self.profileButtonTransition
+          self.present(controller!, animated: true, completion: nil)
         }
-     }
+      }
+      
+      }
   }
 
 
