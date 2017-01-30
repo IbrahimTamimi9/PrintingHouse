@@ -93,7 +93,8 @@ class UserProfile: UITableViewController {
       override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
         if indexPath.row == 1 {
-          
+          let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersTableVC") as! MyOrdersTableVC
+          navigationController?.pushViewController(destination, animated: true)
         }
   
         if indexPath.row == 3 {

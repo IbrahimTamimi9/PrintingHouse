@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         
         
         if let user = FIRAuth.auth()?.currentUser {
-          if !user.isEmailVerified{
+          if !user.isEmailVerified {
             let alertVC = UIAlertController(title: "Error", message: "Sorry. Your email address has not yet been verified. Do you want us to send another verification email to \(self.loginTextField.text!).", preferredStyle: .alert)
             let alertActionOkay = UIAlertAction(title: "Send", style: .default) {
               (_) in

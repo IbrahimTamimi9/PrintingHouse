@@ -20,6 +20,10 @@ import CoreData
 
   var offset: CGFloat = 70
 
+  var totalprice = 0.0
+
+  var totalNDSprice = 0.0
+
 
  class shoppingCartVC: UIViewController {
     
@@ -72,9 +76,12 @@ import CoreData
     }
     
     func mainPriceSumCounter () {
-        
-       var totalprice = 0.0
-       var totalNDSprice = 0.0
+      
+       totalprice = 0.0
+      
+       totalNDSprice = 0.0
+
+      
         
         do {
             addedItems = try managedObjextContext.fetch(presentRequest)

@@ -51,6 +51,8 @@
 		4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */; };
 		4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
 		4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A71E226FC300034E3E /* LoginViewController.swift */; };
+		4BC8241D1E3F8582004B6DCE /* MyOrdersTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */; };
+		4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */; };
 		4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */; };
 		4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +127,8 @@
 		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersTableVC.swift; path = "Avalon-print/MyOrdersTableVC.swift"; sourceTree = SOURCE_ROOT; };
+		4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersDetailTableVC.swift; path = "Avalon-print/MyOrdersDetailTableVC.swift"; sourceTree = SOURCE_ROOT; };
 		4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateUserProfile.swift; path = "Avalon-print/UpdateUserProfile.swift"; sourceTree = SOURCE_ROOT; };
 		6F309E9E061423185210A69E /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 			children = (
 				4B3F81AA1E226FC300034E3E /* UserProfile.swift */,
 				4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */,
+				4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */,
+				4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */,
 			);
 			name = userProfile;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
 				4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */,
 				4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */,
+				4BC8241D1E3F8582004B6DCE /* MyOrdersTableVC.swift in Sources */,
 				4B3F81B31E226FC300034E3E /* map.swift in Sources */,
 				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
 				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
@@ -523,6 +530,7 @@
 				4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */,
 				4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */,
 				4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */,
+				4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */,
 				4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */,
 				4B3F81971E226F0800034E3E /* stickersComputing.swift in Sources */,
 				4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */,

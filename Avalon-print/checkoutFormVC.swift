@@ -11,7 +11,7 @@ import DeckTransition
 import FirebaseDatabase
 import FirebaseAuth
 
-
+var orderToFirebaseArray = [AddedItems]()
 
 class checkoutFormVC: UIViewController {
 
@@ -33,10 +33,12 @@ class checkoutFormVC: UIViewController {
     @IBOutlet weak var checkOutButton: ButtonMockup!
     @IBOutlet weak var attachLayoutButton: UIButton!
     
-    
+     var ordersCount = Int()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
         commentsTV.clipsToBounds = true
         commentsTV.layer.cornerRadius = 5
         
@@ -54,6 +56,17 @@ class checkoutFormVC: UIViewController {
         
         localyRetrieveUserData()
         validateRegistraionData()
+      
+      let countOfO = FIRDatabase.database().reference().child("orders")
+      
+      //print("Starting observing");
+      countOfO.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+        // print("Got snapshot");
+        print(snapshot.childrenCount)
+        self.ordersCount = Int(snapshot.childrenCount)
+        print(self.ordersCount)
+      })
+
       
     }
     
@@ -93,6 +106,101 @@ class checkoutFormVC: UIViewController {
     
     @IBAction func checkOutButtonClicked(_ sender: Any) {
         print("checkOutButton clicked")
+      let date = Date()
+      let calendar = Calendar.current
+      
+     // let hour = calendar.component(.hour, from: date)
+      //let minutes = calendar.component(.minute, from: date)
+      //let seconds = calendar.component(.second, from: date)
+      //let nanoSeconds = calendar.component(.nanosecond, from: date)
+      let day = calendar.component(.day, from: date)
+      let month = calendar.component(.month, from: date)
+      let year = calendar.component(.year, from: date)
+     
+      var monthString = String()
+      
+      if month == 1 { monthString = "января" }
+      if month == 2 { monthString = "февраля" }
+      if month == 3 { monthString = "марта" }
+      if month == 4 { monthString = "апреля" }
+      if month == 5 { monthString = "мая" }
+      if month == 6 { monthString = "июня" }
+      if month == 7 { monthString = "июля" }
+      if month == 8 { monthString = "августа" }
+      if month == 9 { monthString = "сентября" }
+      if month == 10 { monthString = "октября" }
+      if month == 11 { monthString = "ноября" }
+      if month == 12 { monthString = "декабря" }
+      
+      
+      //order info ==============
+      var orderInfoBlock: FIRDatabaseReference!
+     // let uuid = UUID().uuidString
+     // print(uuid)
+      
+   
+/*let ref = FIRDatabase.database().reference().child("orders")
+ 
+ //print("Starting observing");
+ ref.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+// print("Got snapshot");
+ print(snapshot.childrenCount)
+ ordersCount.count = snapshot.childrenCount
+ })
+ 
+ print("Returning count");
+ return rooms.count*/
+      
+      orderInfoBlock =
+      FIRDatabase.database().reference().child("orders").child("Заказ № \(ordersCount + 1)")
+     
+      
+      let orderInfoLabel = "orderInfo"
+      
+      let orderInfoContent: NSDictionary = [
+                                "orderStatus": "Новый заказ",
+                                "dateOfPlacement": ("\(day) \(monthString) \(year)"),
+                                "fullPrice": totalprice,
+                                "fullNDSPrice": totalNDSprice,
+                                "comments": commentsTV.text!,
+                                "layout": "тут будет инфа про макет",
+                                "deliveryAdress": deliveryAdress.text!]
+      
+      
+          let orderInfo = orderInfoBlock.child(orderInfoLabel) 
+      
+             orderInfo.setValue(orderInfoContent)
+      
+      
+              //user info to order info
+                  let userInfoToOrderInfoLabel = "userInfo"
+      
+                  let userInfoToOrderInfoContent: NSDictionary = [ "userEmail": emailTF.text!,
+                                                                   "userName": nameSurnameTF.text!,
+                                                                   "userPhone": phoneTF.text!,
+                                                                   "userUniqueID": FIRAuth.auth()?.currentUser?.uid as Any ]
+      
+                let userInfoToOrderInfo = orderInfoBlock.child(userInfoToOrderInfoLabel)
+      
+                    userInfoToOrderInfo.setValue(userInfoToOrderInfoContent)
+      
+      
+      //workss===
+
+      for i in(0..<addedItems.count) {
+        let exactOrderID = "work\(i)"
+        let works = addedItems[i]
+        
+        let contentOfWork: NSDictionary = ["mainData": works.list!,
+                                           "price": works.price!,
+                                           "ndsprice": works.ndsPrice!]
+        let exactOrder = orderInfoBlock.child(exactOrderID)
+        exactOrder.setValue(contentOfWork)
+      }
+      
+      
+      
+    
     }
     
     
@@ -203,9 +311,48 @@ class checkoutFormVC: UIViewController {
 
 }
 
+func localyRetrieveUserData () {
+  
+  var ref: FIRDatabaseReference!
+  ref = FIRDatabase.database().reference().child("orders")//..child((FIRAuth.auth()?.currentUser?.uid)!)
+  
+  
+  let name = "order1"
+  //var data: NSData = NSData()
+  
+  //let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+  
+  let user: NSDictionary = ["order1": name]
+  
+  
+ 
+  
+  
+  //add firebase child node
+  let profile = ref.child(name) //child(byAppendingPath: name)
+  
+  // Write data to Firebase
+  profile.setValue(user)
+  
+  
+  //=========
+  
+  
+   ref = FIRDatabase.database().reference().child("orders").child("order1")
+  
+  let exactOrderID = "work1"
+  
+  let contentOfWork: NSDictionary = ["amount": "11", "material": "citylight", "size": "100x100", "postPrint": "without", "price": "1000", "ndsprice": "1200"]
+  let exactOrder = ref.child(exactOrderID)//child(byAppendingPath: exactOrderID)
+   exactOrder.setValue(contentOfWork)
+  
+  
+  
+}
+
 
  extension checkoutFormVC: UIScrollViewDelegate {
-    
+  
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.isEqual(mainScrollView) else {
             return
