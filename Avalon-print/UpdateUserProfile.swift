@@ -12,11 +12,7 @@ import FirebaseDatabase
 
 class UpdateUserProfile: UIViewController {
   
-  struct errorsIndicatior {
-    static var nameSuccessfulyChanged = false
-    static var phoneSuccessfulyChanged = false
-    static var emailSuccessfulyChanged = false
-  }
+
 
   @IBOutlet weak var nameSurname: UITextField!
   @IBOutlet weak var email: UITextField!
@@ -24,26 +20,30 @@ class UpdateUserProfile: UIViewController {
   @IBOutlet weak var password: UITextField!
   @IBOutlet weak var saveButton: ButtonMockup!
   
+  var emailChanged = false
+  var phoneChanged = false
+  var nameChanged = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        localyRetrieveUserData()
-        hideKeyboardWhenTappedAround()
+      localyRetrieveUserData()
+      hideKeyboardWhenTappedAround()
     }
   
   
-  @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateData () }
-  @IBAction func emailEditingChanged(_ sender: Any) { validateData () }
-  @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateData () }
+  @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateData ()
+   nameChanged = true}
+  @IBAction func emailEditingChanged(_ sender: Any) { validateData ()
+   emailChanged = true}
+  @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateData ()
+   phoneChanged = true}
   @IBAction func passwordEditingChanged(_ sender: Any) { validateData () }
 
-  
   
   var messageFrame = UIView()
   var activityIndicator = UIActivityIndicatorView()
   var strLabel = UILabel()
-  
+
   func progressBarDisplayer(msg:String, _ indicator:Bool ) {
     print(msg)
     strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
@@ -69,47 +69,26 @@ class UpdateUserProfile: UIViewController {
     progressBarDisplayer(msg: "Выполнение...", true)
     view.isUserInteractionEnabled = false
 
-    FIRAuth.auth()?.currentUser?.updateEmail(email.text!) { (error) in
-      // ...
-    //  print(error?.localizedDescription)
+    if emailChanged == true {
+    print("email!!!!!")
+       self.performAlert()
       
-      if error != nil  {
-         errorsIndicatior.emailSuccessfulyChanged = false
-        //Tells the user that there is an error and then gets firebase to tell them the error
-        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        DispatchQueue.main.async {
-          self.messageFrame.removeFromSuperview()
-          self.view.isUserInteractionEnabled = true
-        }
-
-        self.present(alertController, animated: true, completion: nil)
-      } else {
-      errorsIndicatior.emailSuccessfulyChanged = true
-      }
-
-    }
-    
+       }
    
     
     let userRef = FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid)
    
-    
+    if nameChanged == true {
+    print("nam!!!!e")
     if let newName = nameSurname!.text {
       
-      userRef.updateChildValues(["nameSurname" : newName, "PhoneNumber" : newName ], withCompletionBlock: {(error, reference)   in
+      userRef.updateChildValues(["nameSurname" : newName ], withCompletionBlock: {(error, reference)   in
         
         if error == nil{
-         // print(reference)
-        errorsIndicatior.nameSuccessfulyChanged = true
-          
+             self.performAlert()
 
         } else {
           
-          errorsIndicatior.nameSuccessfulyChanged = false
           //Tells the user that there is an error and then gets firebase to tell them the error
           let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
           
@@ -126,16 +105,19 @@ class UpdateUserProfile: UIViewController {
       })
     }
     
+    }
     
+    if phoneChanged == true {
+    print("phone!!!")
     if  let newPhone = phoneNumber!.text {
       userRef.updateChildValues(["PhoneNumber" : newPhone ], withCompletionBlock: {(error, reference)   in
         
         if error == nil{
-         // print(reference)
-        errorsIndicatior.phoneSuccessfulyChanged = true
-        }else{
+          self.performAlert()
+          
+          } else {
           //Tells the user that there is an error and then gets firebase to tell them the error
-          errorsIndicatior.phoneSuccessfulyChanged = false
+         
           let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
           
           let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -150,29 +132,67 @@ class UpdateUserProfile: UIViewController {
         }
       })
     }
+    }
+  
+  }
+  
+  func performAlert () {
     
-    
-    if errorsIndicatior.nameSuccessfulyChanged == true || errorsIndicatior.phoneSuccessfulyChanged == true ||  errorsIndicatior.emailSuccessfulyChanged == true {
-      let alert = UIAlertController(title: "Success", message: "Ваши данные были успешно изменены, выполните повторный вход, чтобы изменения вступили в силу, так-же если вы изменили E-mail, вам будет выслано письмо для подтверждения", preferredStyle: UIAlertControllerStyle.alert)
+    if emailChanged == true && (phoneChanged == true || emailChanged == true) {
+      FIRAuth.auth()?.currentUser?.updateEmail(email.text!) { (error) in
+        
+        if error != nil  {
+          
+          //Tells the user that there is an error and then gets firebase to tell them the error
+          let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+          
+          let defaultAction = UIAlertAction(title: "OK", style: .cancel) {
+            UIAlertAction in
+            self.emailChanged = false
+            self.phoneChanged = false
+            self.nameChanged = false
+            self.dismiss(animated: true, completion: nil)
+          }
+
+          alertController.addAction(defaultAction)
+          
+          DispatchQueue.main.async {
+            self.messageFrame.removeFromSuperview()
+            self.view.isUserInteractionEnabled = true
+          }
+          
+          self.present(alertController, animated: true, completion: nil)
+        } else {
+          self.alertOfSuccess()
+        }
+      }
+
+    } else {
+       alertOfSuccess()
+    }
+   
+  }
+  
+  func alertOfSuccess () {
+        let alert = UIAlertController(title: "Выполнено", message: "Ваши данные были успешно изменены, выполните повторный вход, чтобы изменения вступили в силу, так-же если вы изменили E-mail, вам будет выслано письмо для подтверждения", preferredStyle: UIAlertControllerStyle.alert)
       alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
         UIAlertAction in
-        
+         self.emailChanged = false
+        self.phoneChanged = false
+        self.nameChanged = false
         self.dismiss(animated: true, completion: nil)
       } )
       
       DispatchQueue.main.async {
         self.messageFrame.removeFromSuperview()
         self.view.isUserInteractionEnabled = true
+        
       }
-
+      
       self.present(alert, animated: true, completion: nil)
-
-    }
-  
-  
+      
+    
   }
-  
-  
   func validateData () {
     let characterSetEmail = NSCharacterSet(charactersIn: "@")
     let characterSetEmail1 = NSCharacterSet(charactersIn: ".")
@@ -223,9 +243,12 @@ class UpdateUserProfile: UIViewController {
       if let userPhoneNumber = mainUserData?["PhoneNumber"] as? String  {
         self.phoneNumber.text = userPhoneNumber
       }
+      
+      self.email.text = FIRAuth.auth()!.currentUser!.email!
+      
     })
     
-    email.text = FIRAuth.auth()!.currentUser!.email!
+    
        
     
   }

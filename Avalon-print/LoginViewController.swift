@@ -8,9 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
- 
-//public let defaults = UserDefaults(suiteName: "group.mizin.Avalon-print")!
 
  extension UITextField {
      @IBInspectable var placeHolderColor: UIColor? {
@@ -25,12 +24,7 @@ import FirebaseAuth
 
 
 class LoginViewController: UIViewController {
-    
-   // var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-
-   // let incorrectLogin = UIAlertController(title: "Ошибка входа", message: "Неправильный логин или пароль", preferredStyle: UIAlertControllerStyle.alert )
-    //let noInternet = UIAlertController(title: "Ошибка входа", message: "Нету подключения к интернету", preferredStyle: UIAlertControllerStyle.alert )
-    
+  
     @IBOutlet weak var LogInButton: ButtonMockup!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -40,7 +34,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
             loginTextField.delegate = self
             passwordTextField.delegate = self
     }
@@ -128,8 +121,8 @@ class LoginViewController: UIViewController {
       }
       
     }
-    
-    
+
+  
     @IBAction func emailFieldValidation(_ sender: Any) { validation() }
     @IBAction func passwordFieldValidation(_ sender: Any) { validation() }
     

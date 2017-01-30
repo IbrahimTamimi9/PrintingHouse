@@ -121,9 +121,12 @@ class checkoutFormVC: UIViewController {
       if let userPhoneNumber = mainUserData?["PhoneNumber"] as? String  {
         self.phoneTF.text = userPhoneNumber
       }
+      
+       self.emailTF.text = FIRAuth.auth()!.currentUser!.email!
+      
     })
     
-      emailTF.text = FIRAuth.auth()!.currentUser!.email!
+     
      } else {
        nameSurnameTF.text = ""
        phoneTF.text = ""
