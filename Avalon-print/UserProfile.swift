@@ -57,6 +57,16 @@ class UserProfile: UITableViewController {
     return 44
   }
   
+//  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 200))
+//    headerView.backgroundColor = UIColor.black
+//    return headerView
+//  }
+//  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//    let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
+//    footerView.backgroundColor = UIColor.black
+//    return footerView
+//  }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
