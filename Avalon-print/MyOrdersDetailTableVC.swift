@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseDatabase
-//test for calendar
 class MyOrdersDetailTableVC: UITableViewController {
 
   
