@@ -16,11 +16,9 @@ class MyOrdersDetailTableVC: UITableViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      // tableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
-      
       
       var worksRef: FIRDatabaseReference!
-          worksRef =  FIRDatabase.database().reference().child("orders").child(selectedOrderNumber).child("works")
+          worksRef = FIRDatabase.database().reference().child("orders").child(selectedOrderNumber).child("works")
       
       worksRef.observe(.childAdded, with: { (snapshot) in
         
@@ -30,10 +28,12 @@ class MyOrdersDetailTableVC: UITableViewController {
         let ndsprice = allWorks?["ndsprice"]  as? String ?? ""
         
         self.works.append("\(mainData)\nЦена:\(price)\nЦена с НДС: \(ndsprice)")
+      
         self.tableView.insertRows(at: [IndexPath(row: self.works.count-1, section: 1)], with: UITableViewRowAnimation.automatic)
-
+        
       })
-  }
+   
+     }
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,6 +72,7 @@ class MyOrdersDetailTableVC: UITableViewController {
       
       cell.textLabel?.numberOfLines = 10
       cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
+     
       
       if indexPath.section == 0 {
         

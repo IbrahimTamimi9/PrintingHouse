@@ -65,7 +65,7 @@ struct postersBoolVariables {
         var work_prepress_mat_1_0 = Double()
         
         var prepress_gloss_1_1 = Double() //просчет припреса
-        var work_prepress_gloss_1_1 = Double();
+        var work_prepress_gloss_1_1 = Double()
         
         var prepress_mat_1_1 = Double() //просчет припреса
         var work_prepress_mat_1_1 = Double()
@@ -118,6 +118,8 @@ struct postersBoolVariables {
             
             let materialSum = city_pricem2 + city_material_m2 * overprice1
                 price = Int(currency_course * amount * materialSum * squareMeters)
+          
+        
 
         }
 
@@ -182,7 +184,7 @@ struct postersBoolVariables {
         if( postersBoolVariables.lomondC == true && postersBoolVariables.withoutPostPrint == true)  {
             print("lomond + without post print")
             
-            let materialSum = lomond_price_m2 + lomond_material_m2 * overprice1
+            let materialSum = lomond_price_m2 + lomond_material_m2// * overprice1
                 price = Int(currency_course * amount * materialSum * squareMeters)
             
         }

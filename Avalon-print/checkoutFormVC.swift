@@ -33,7 +33,7 @@ class checkoutFormVC: UIViewController {
     @IBOutlet weak var checkOutButton: ButtonMockup!
     @IBOutlet weak var attachLayoutButton: UIButton!
     
-     var ordersCount = Int()
+    var ordersCount = Int()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +59,8 @@ class checkoutFormVC: UIViewController {
       
       let countOfO = FIRDatabase.database().reference().child("orders")
       
-      //print("Starting observing");
       countOfO.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
-        // print("Got snapshot");
+       
         print(snapshot.childrenCount)
         self.ordersCount = Int(snapshot.childrenCount)
         print(self.ordersCount)
@@ -110,6 +109,7 @@ class checkoutFormVC: UIViewController {
   
   func progressBarDisplayer(msg:String, _ indicator:Bool ) {
     print(msg)
+    
     strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
     strLabel.text = msg
     strLabel.font = UIFont.systemFont(ofSize: 13)
@@ -118,29 +118,28 @@ class checkoutFormVC: UIViewController {
                                         y: (screenSize.height - strLabel.frame.height)/2  , width: 180, height: 50))
     messageFrame.layer.cornerRadius = 15
     messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+    
     if indicator {
       activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
       activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
       activityIndicator.startAnimating()
       messageFrame.addSubview(activityIndicator)
     }
+    
     messageFrame.addSubview(strLabel)
     view.addSubview(messageFrame)
   }
 
     
     @IBAction func checkOutButtonClicked(_ sender: Any) {
-        print("checkOutButton clicked")
+      
        progressBarDisplayer(msg: "Отправка заказа...", true)
+      
        view.isUserInteractionEnabled = false
       
       let date = Date()
       let calendar = Calendar.current
-      
-     // let hour = calendar.component(.hour, from: date)
-      //let minutes = calendar.component(.minute, from: date)
-      //let seconds = calendar.component(.second, from: date)
-      //let nanoSeconds = calendar.component(.nanosecond, from: date)
+   
       let day = calendar.component(.day, from: date)
       let month = calendar.component(.month, from: date)
       let year = calendar.component(.year, from: date)
@@ -160,30 +159,20 @@ class checkoutFormVC: UIViewController {
       if month == 11 { monthString = "ноября" }
       if month == 12 { monthString = "декабря" }
       
-      
+     
       //order info ==============
       var orderInfoBlock: FIRDatabaseReference!
-     // let uuid = UUID().uuidString
-     // print(uuid)
-      
-   
-/*let ref = FIRDatabase.database().reference().child("orders")
- 
- //print("Starting observing");
- ref.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
-// print("Got snapshot");
- print(snapshot.childrenCount)
- ordersCount.count = snapshot.childrenCount
- })
- 
- print("Returning count");
- return rooms.count*/
+  
       
       orderInfoBlock =
       FIRDatabase.database().reference().child("orders").child("Заказ № \(ordersCount + 1)")
      
       
       let orderInfoLabel = "orderInfo"
+      let createdAtLabel = "createdAt"
+      let createdAtValue = "\(date)"
+      let createdAt = orderInfoBlock.child(createdAtLabel)
+      createdAt.setValue(createdAtValue)
       
       let orderInfoContent: NSDictionary = [
                                 "orderStatus": "Новый заказ",
@@ -197,7 +186,7 @@ class checkoutFormVC: UIViewController {
       
           let orderInfo = orderInfoBlock.child(orderInfoLabel) 
       
-             orderInfo.setValue(orderInfoContent)
+           orderInfo.setValue(orderInfoContent)
       
       
               //user info to order info
@@ -233,13 +222,12 @@ class checkoutFormVC: UIViewController {
       }
       
       
-      
-      
-      DispatchQueue.main.async {
-        self.messageFrame.removeFromSuperview()
-        self.view.isUserInteractionEnabled = true
-      }
-      self.dismiss(animated: true, completion: nil)
+    
+        DispatchQueue.main.async {
+          self.messageFrame.removeFromSuperview()
+          self.view.isUserInteractionEnabled = true
+        }
+      // self.dismiss(animated: true, completion: nil)
     }
   
   
@@ -348,45 +336,6 @@ class checkoutFormVC: UIViewController {
     }
     
 
-}
-
-func localyRetrieveUserData () {
-  
-  var ref: FIRDatabaseReference!
-  ref = FIRDatabase.database().reference().child("orders")//..child((FIRAuth.auth()?.currentUser?.uid)!)
-  
-  
-  let name = "order1"
-  //var data: NSData = NSData()
-  
-  //let base64String = data.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
-  
-  let user: NSDictionary = ["order1": name]
-  
-  
- 
-  
-  
-  //add firebase child node
-  let profile = ref.child(name) //child(byAppendingPath: name)
-  
-  // Write data to Firebase
-  profile.setValue(user)
-  
-  
-  //=========
-  
-  
-   ref = FIRDatabase.database().reference().child("orders").child("order1")
-  
-  let exactOrderID = "work1"
-  
-  let contentOfWork: NSDictionary = ["amount": "11", "material": "citylight", "size": "100x100", "postPrint": "without", "price": "1000", "ndsprice": "1200"]
-  let exactOrder = ref.child(exactOrderID)//child(byAppendingPath: exactOrderID)
-   exactOrder.setValue(contentOfWork)
-  
-  
-  
 }
 
 

@@ -10,10 +10,10 @@ import UIKit
 import  FirebaseAuth
 import FirebaseDatabase
 
+
 class UpdateUserProfile: UIViewController {
+
   
-
-
   @IBOutlet weak var nameSurname: UITextField!
   @IBOutlet weak var email: UITextField!
   @IBOutlet weak var phoneNumber: UITextField!
@@ -26,18 +26,16 @@ class UpdateUserProfile: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
       localyRetrieveUserData()
       hideKeyboardWhenTappedAround()
     }
   
   
-  @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateData ()
-   nameChanged = true}
-  @IBAction func emailEditingChanged(_ sender: Any) { validateData ()
-   emailChanged = true}
-  @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateData ()
-   phoneChanged = true}
-  @IBAction func passwordEditingChanged(_ sender: Any) { validateData () }
+  @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateData (); nameChanged = true }
+  @IBAction func emailEditingChanged(_ sender: Any) { validateData (); emailChanged = true }
+  @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateData (); phoneChanged = true }
+  @IBAction func passwordEditingChanged(_ sender: Any) { validateData (); }
 
   
   var messageFrame = UIView()
@@ -46,6 +44,7 @@ class UpdateUserProfile: UIViewController {
 
   func progressBarDisplayer(msg:String, _ indicator:Bool ) {
     print(msg)
+    
     strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
     strLabel.text = msg
     strLabel.font = UIFont.systemFont(ofSize: 13)
@@ -60,17 +59,19 @@ class UpdateUserProfile: UIViewController {
       activityIndicator.startAnimating()
       messageFrame.addSubview(activityIndicator)
     }
+    
     messageFrame.addSubview(strLabel)
     view.addSubview(messageFrame)
   }
   
   
   @IBAction func saveButtonDidTap(_ sender: Any) {
+    
     progressBarDisplayer(msg: "Выполнение...", true)
     view.isUserInteractionEnabled = false
 
     if emailChanged == true {
-    print("email!!!!!")
+       print("email!!!!!")
        self.performAlert()
       
        }
@@ -79,6 +80,7 @@ class UpdateUserProfile: UIViewController {
     let userRef = FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid)
    
     if nameChanged == true {
+      
     print("nam!!!!e")
     if let newName = nameSurname!.text {
       
@@ -116,8 +118,8 @@ class UpdateUserProfile: UIViewController {
           self.performAlert()
           
           } else {
+          
           //Tells the user that there is an error and then gets firebase to tell them the error
-         
           let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
           
           let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -128,13 +130,17 @@ class UpdateUserProfile: UIViewController {
             self.view.isUserInteractionEnabled = true
           }
 
-          self.present(alertController, animated: true, completion: nil)
-        }
-      })
+            self.present(alertController, animated: true, completion: nil)
+         }
+        
+       })
+      
+      }
+      
     }
-    }
-  
+    
   }
+  
   
   func performAlert () {
     
@@ -173,11 +179,13 @@ class UpdateUserProfile: UIViewController {
    
   }
   
+  
   func alertOfSuccess () {
+    
         let alert = UIAlertController(title: "Выполнено", message: "Ваши данные были успешно изменены, выполните повторный вход, чтобы изменения вступили в силу, так-же если вы изменили E-mail, вам будет выслано письмо для подтверждения", preferredStyle: UIAlertControllerStyle.alert)
-      alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-        UIAlertAction in
-         self.emailChanged = false
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { UIAlertAction in
+        
+        self.emailChanged = false
         self.phoneChanged = false
         self.nameChanged = false
         self.dismiss(animated: true, completion: nil)
@@ -190,10 +198,11 @@ class UpdateUserProfile: UIViewController {
       }
       
       self.present(alert, animated: true, completion: nil)
-      
-    
   }
+  
+  
   func validateData () {
+    
     let characterSetEmail = NSCharacterSet(charactersIn: "@")
     let characterSetEmail1 = NSCharacterSet(charactersIn: ".")
     let badCharacterSetEmail = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")
@@ -201,13 +210,14 @@ class UpdateUserProfile: UIViewController {
     
     
     if (nameSurname.text?.characters.count)! < 2 ||
-      (phoneNumber.text?.characters.count)! < 10 ||
-      (phoneNumber.text?.characters.count)! > 12 ||
-      phoneNumber.text?.rangeOfCharacter(from: badCharacterSetPhoneNumber as CharacterSet, options: .caseInsensitive ) != nil ||
-      (email.text?.characters.count)! < 5 ||
-      email.text?.rangeOfCharacter(from: characterSetEmail as CharacterSet, options: .caseInsensitive ) == nil ||
-      email.text?.rangeOfCharacter(from: characterSetEmail1 as CharacterSet, options: .caseInsensitive ) == nil ||
-      email.text?.rangeOfCharacter(from: badCharacterSetEmail as CharacterSet, options: .caseInsensitive ) != nil  {
+       (phoneNumber.text?.characters.count)! < 10 ||
+       (phoneNumber.text?.characters.count)! > 12 ||
+        phoneNumber.text?.rangeOfCharacter(from: badCharacterSetPhoneNumber as CharacterSet, options: .caseInsensitive ) != nil ||
+      
+       (email.text?.characters.count)! < 5 ||
+        email.text?.rangeOfCharacter(from: characterSetEmail as CharacterSet, options: .caseInsensitive ) == nil ||
+        email.text?.rangeOfCharacter(from: characterSetEmail1 as CharacterSet, options: .caseInsensitive ) == nil ||
+        email.text?.rangeOfCharacter(from: badCharacterSetEmail as CharacterSet, options: .caseInsensitive ) != nil  {
       
       saveButton.isEnabled = false
       
@@ -226,9 +236,9 @@ class UpdateUserProfile: UIViewController {
   func localyRetrieveUserData () {
     
     var ref: FIRDatabaseReference!
-    ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
+        ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
     
-    ref.observeSingleEvent(of: .value, with: { snapshot in
+        ref.observeSingleEvent(of: .value, with: { snapshot in
       
       if !snapshot.exists() { return }
       
@@ -247,11 +257,7 @@ class UpdateUserProfile: UIViewController {
       self.email.text = FIRAuth.auth()!.currentUser!.email!
       
     })
-    
-    
-       
-    
+  
   }
-
 
 }

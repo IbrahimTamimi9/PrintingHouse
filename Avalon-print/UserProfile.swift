@@ -11,16 +11,14 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-
-
-
 class UserProfile: UITableViewController {
-
-    @IBOutlet weak var navtitle: UINavigationItem!
   
+  
+    @IBOutlet weak var navtitle: UINavigationItem!
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
          navtitle.title = "Профиль"
       
          view.backgroundColor = UIColor.white
@@ -41,78 +39,82 @@ class UserProfile: UITableViewController {
   }
   
   
-  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 7
+    
+    return 6
+  }
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let headerView = UIView()
+        headerView.backgroundColor = UIColor.white
+  
+    return headerView
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 130
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.row == 0 {
-      return 20
-    }
-    if indexPath.row == 3 {
-      return 130
-    }
-    
-    return 44
+       return 44
   }
   
-//  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 200))
-//    headerView.backgroundColor = UIColor.black
-//    return headerView
-//  }
-//  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//    let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
-//    footerView.backgroundColor = UIColor.black
-//    return footerView
-//  }
-  
+
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.numberOfLines = 6
     cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
     
-   
+    if indexPath.row == 0 {
+      cell.isHidden = true
+    }
     
     if indexPath.row == 1 {
        cell.textLabel?.text = "Мои заказы"
     }
     
-    if indexPath.row == 3 {
-     localyRetrieveUserData(cell: cell)
-      //cell.textLabel?.text = ("\(name!)\n\n\(phone!)\n\n\(email!)")
+    if indexPath.row == 2 {
+      cell.textLabel?.text = "Редактировать профиль"
     }
    
-    if indexPath.row == 6 {
-      cell.textLabel?.textColor = UIColor.red
-      cell.textLabel?.text = "Выйти"
-      cell.accessoryType = .none
+    if indexPath.row == 3 {
+      cell.textLabel?.text = "Обратная связь"
     }
     
-    if indexPath.row != 1 && indexPath.row != 3 && indexPath.row != 6 {
-      cell.isHidden = true
-    }
-    
+      if indexPath.row == 4 {
+        cell.textLabel?.text = "Уведомления"
+      }
+      
+      if indexPath.row == 5 {
+        cell.textLabel?.textColor = UIColor.red
+        cell.textLabel?.text = "Выйти"
+        cell.accessoryType = .none
+      }
     
     
     return cell
   }
   
+  
       override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
+        
         if indexPath.row == 1 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersTableVC") as! MyOrdersTableVC
           navigationController?.pushViewController(destination, animated: true)
         }
   
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "UpdateUserProfile") as! UpdateUserProfile
           navigationController?.pushViewController(destination, animated: true)
         }
+          if indexPath.row == 3 { }
+          
+          if indexPath.row == 4 { }
+          
   
-          if indexPath.row == 6 {
+          if indexPath.row == 5 {
   
             let firebaseAuth = FIRAuth.auth()
             do {
@@ -121,34 +123,6 @@ class UserProfile: UITableViewController {
             } catch let signOutError as NSError {
               print ("Error signing out: %@", signOutError)
             }
-  
-          }
-      }
-  
-  func localyRetrieveUserData (cell: UITableViewCell) {
-    
-    var ref: FIRDatabaseReference!
-    ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
-    
-    ref.observeSingleEvent(of: .value, with: { snapshot in
-      
-      if !snapshot.exists() { return }
-      
-      let mainUserData = snapshot.value as? NSDictionary
-      
-       let userNameSurname = mainUserData?["nameSurname"] as? String
-        //self.nameSurname.text = userNameSurname
-      
-       let userPhoneNumber = mainUserData?["PhoneNumber"] as? String
-        //self.phoneNumber.text = userPhoneNumber
-    let userEmail = FIRAuth.auth()!.currentUser!.email!
-      
-      cell.textLabel?.text = ("\(userNameSurname!)\n\n\(userPhoneNumber!)\n\n\(userEmail)")
-      
-    })
-    
-   
-    
-    
-  }
+        }
+    }
 }

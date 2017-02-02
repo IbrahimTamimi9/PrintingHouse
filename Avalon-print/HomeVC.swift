@@ -78,6 +78,7 @@ let screenSize: CGRect = UIScreen.main.bounds
         updateBadgeValue()
         registerCell()
         getVariablesFromJSON()
+     
   }
 
   

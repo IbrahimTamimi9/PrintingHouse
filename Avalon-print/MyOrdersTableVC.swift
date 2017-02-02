@@ -28,21 +28,24 @@ class MyOrdersTableVC: UITableViewController {
 
       
        var commentsRef: FIRDatabaseReference!
-           commentsRef =  FIRDatabase.database().reference().child("orders")
+           commentsRef = FIRDatabase.database().reference().child("orders")
+     
+     
+       let sortedRef = commentsRef.queryOrdered(byChild: "createdAt")
       
-      commentsRef.observe(.childAdded, with: { (snapshot) -> Void in
+      
+       sortedRef.queryLimited(toLast: 9999999).observe(.childAdded, with: { (snapshot) -> Void in
         
         let allOrders = snapshot.value as? NSDictionary
         
         let userInfo = allOrders?["userInfo"] as? NSDictionary
         let uniqueIDofCustomer = userInfo?["userUniqueID"]  as? String ?? ""
-        
         let orderInfo = allOrders?["orderInfo"] as? NSDictionary
         let dateOfPlacement = orderInfo?["dateOfPlacement"]  as? String ?? ""
         let orderStatus = orderInfo?["orderStatus"] as? String ?? ""
         let fullPrice = orderInfo?["fullPrice"]  as? Double ?? 0.0
       //let fullNDSPrice = orderInfo?["fullNDSPrice"]  as? Double ?? 0.0
-        
+       
         
         if FIRAuth.auth()?.currentUser?.uid == uniqueIDofCustomer {
           
@@ -51,10 +54,12 @@ class MyOrdersTableVC: UITableViewController {
           self.orderKeys.append(keys)
 
           self.ordersHistoryArray.append("\nДата поступления заказа: \(dateOfPlacement)\n\nСтатус заказа: \(orderStatus)\n\nИтого к оплате: \(fullPrice) грн.")
+          
           self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
-       
+         
           }
       })
+    
   }
 
   
@@ -81,7 +86,7 @@ class MyOrdersTableVC: UITableViewController {
             cell.textLabel?.numberOfLines = 1
             cell.detailTextLabel?.numberOfLines = 6
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-      
+     
       cell.textLabel?.text = "\(orderKeys[indexPath.row])"
       
       cell.detailTextLabel?.text = ordersHistoryArray[indexPath.row]
@@ -91,6 +96,8 @@ class MyOrdersTableVC: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let cell:UITableViewCell? = tableView.cellForRow(at: indexPath)
+    
+    
     
     if cell?.textLabel?.text == orderKeys[indexPath.row] {
       print("!!!EQUALS")
