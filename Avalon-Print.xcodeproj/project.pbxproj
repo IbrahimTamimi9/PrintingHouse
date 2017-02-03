@@ -40,6 +40,17 @@
 		4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C01E22706100034E3E /* customNavigationBar.swift */; };
 		4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */; };
 		4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */; };
+		4B3FE8671E44B59200852A2A /* InitialImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8661E44B59200852A2A /* InitialImageView.swift */; };
+		4B3FE89A1E44F34D00852A2A /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8911E44F34D00852A2A /* ARSInfiniteLoader.swift */; };
+		4B3FE89B1E44F34D00852A2A /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8921E44F34D00852A2A /* ARSLineProgress.swift */; };
+		4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8931E44F34D00852A2A /* ARSLineProgressConstants.swift */; };
+		4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8941E44F34D00852A2A /* ARSLineProgressCustomization.swift */; };
+		4B3FE89E1E44F34D00852A2A /* ARSLineProgressExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8951E44F34D00852A2A /* ARSLineProgressExtensions.swift */; };
+		4B3FE89F1E44F34D00852A2A /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8961E44F34D00852A2A /* ARSLineProgressProtocols.swift */; };
+		4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8971E44F34D00852A2A /* ARSLineProgressTypeAliases.swift */; };
+		4B3FE8A11E44F34D00852A2A /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8981E44F34D00852A2A /* ARSProgressLoader.swift */; };
+		4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8991E44F34D00852A2A /* ARSStatus.swift */; };
+		4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */; };
 		4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */; };
 		4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B894DF31E3E3137008D694D /* PasswordResetVC.swift */; };
 		4B8D1BCE1DF1FF27001A97F2 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */; };
@@ -116,6 +127,17 @@
 		4B3F81C11E22706100034E3E /* ENMBadgedBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENMBadgedBarButton.h; path = "Avalon-print/ENMBadgedBarButton.h"; sourceTree = SOURCE_ROOT; };
 		4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ENMBadgedBarButtonItem.swift; path = "Avalon-print/ENMBadgedBarButtonItem.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81CC1E2271D300034E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Avalon-print/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
+		4B3FE8661E44B59200852A2A /* InitialImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialImageView.swift; path = "Avalon-print/InitialImageView.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8911E44F34D00852A2A /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSInfiniteLoader.swift; path = "Avalon-print/progressIndicator/ARSInfiniteLoader.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8921E44F34D00852A2A /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgress.swift; path = "Avalon-print/progressIndicator/ARSLineProgress.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8931E44F34D00852A2A /* ARSLineProgressConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressConstants.swift; path = "Avalon-print/progressIndicator/ARSLineProgressConstants.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8941E44F34D00852A2A /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressCustomization.swift; path = "Avalon-print/progressIndicator/ARSLineProgressCustomization.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8951E44F34D00852A2A /* ARSLineProgressExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressExtensions.swift; path = "Avalon-print/progressIndicator/ARSLineProgressExtensions.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8961E44F34D00852A2A /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressProtocols.swift; path = "Avalon-print/progressIndicator/ARSLineProgressProtocols.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8971E44F34D00852A2A /* ARSLineProgressTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressTypeAliases.swift; path = "Avalon-print/progressIndicator/ARSLineProgressTypeAliases.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8981E44F34D00852A2A /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSProgressLoader.swift; path = "Avalon-print/progressIndicator/ARSProgressLoader.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8991E44F34D00852A2A /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSStatus.swift; path = "Avalon-print/progressIndicator/ARSStatus.swift"; sourceTree = SOURCE_ROOT; };
+		4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressHelpers.swift; path = "Avalon-print/progressIndicator/ARSLineProgressHelpers.swift"; sourceTree = SOURCE_ROOT; };
 		4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
 		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4B894DF31E3E3137008D694D /* PasswordResetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetVC.swift; path = "Avalon-print/PasswordResetVC.swift"; sourceTree = SOURCE_ROOT; };
@@ -171,15 +193,34 @@
 		4B2D03B21DF78E5C00BF0B23 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				4B3FE86C1E44E57000852A2A /* progressLoader */,
 				4B3F81BF1E22706100034E3E /* ButtonMockup.swift */,
 				4B3F81C11E22706100034E3E /* ENMBadgedBarButton.h */,
 				4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */,
 				4B3008AA1E2F888E0044654E /* customNavigationController.swift */,
 				4B3F81C01E22706100034E3E /* customNavigationBar.swift */,
 				4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */,
+				4B3FE8661E44B59200852A2A /* InitialImageView.swift */,
 			);
 			name = Support;
 			path = CustomSlideMenu;
+			sourceTree = "<group>";
+		};
+		4B3FE86C1E44E57000852A2A /* progressLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */,
+				4B3FE8911E44F34D00852A2A /* ARSInfiniteLoader.swift */,
+				4B3FE8921E44F34D00852A2A /* ARSLineProgress.swift */,
+				4B3FE8931E44F34D00852A2A /* ARSLineProgressConstants.swift */,
+				4B3FE8941E44F34D00852A2A /* ARSLineProgressCustomization.swift */,
+				4B3FE8951E44F34D00852A2A /* ARSLineProgressExtensions.swift */,
+				4B3FE8961E44F34D00852A2A /* ARSLineProgressProtocols.swift */,
+				4B3FE8971E44F34D00852A2A /* ARSLineProgressTypeAliases.swift */,
+				4B3FE8981E44F34D00852A2A /* ARSProgressLoader.swift */,
+				4B3FE8991E44F34D00852A2A /* ARSStatus.swift */,
+			);
+			name = progressLoader;
 			sourceTree = "<group>";
 		};
 		4B5FCE831DF0DB350080B034 /* pages */ = {
@@ -505,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3FE8A11E44F34D00852A2A /* ARSProgressLoader.swift in Sources */,
 				4B3F81931E226EE900034E3E /* postersComputing.swift in Sources */,
 				4B3F81981E226F0800034E3E /* stickersVC.swift in Sources */,
 				4B3F81AE1E226FC300034E3E /* checkoutFormVC.swift in Sources */,
@@ -520,28 +562,38 @@
 				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
 				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
+				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */,
+				4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
+				4B3FE89A1E44F34D00852A2A /* ARSInfiniteLoader.swift in Sources */,
 				4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */,
 				4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */,
 				4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */,
 				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
 				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,
+				4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */,
+				4B3FE89F1E44F34D00852A2A /* ARSLineProgressProtocols.swift in Sources */,
 				4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */,
+				4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */,
 				4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */,
 				4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */,
 				4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */,
+				4B3FE89B1E44F34D00852A2A /* ARSLineProgress.swift in Sources */,
 				4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */,
 				4B3F81971E226F0800034E3E /* stickersComputing.swift in Sources */,
 				4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */,
 				4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */,
 				4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */,
+				4B3FE89E1E44F34D00852A2A /* ARSLineProgressExtensions.swift in Sources */,
+				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
 				4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */,
 				4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */,
 				4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */,
 				4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */,
 				4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */,
 				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
+				4B3FE8671E44B59200852A2A /* InitialImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

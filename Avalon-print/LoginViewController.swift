@@ -34,44 +34,21 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
             loginTextField.delegate = self
             passwordTextField.delegate = self
     }
   
-  
-  var messageFrame = UIView()
-  var activityIndicator = UIActivityIndicatorView()
-  var strLabel = UILabel()
-  
-  func progressBarDisplayer(msg:String, _ indicator:Bool ) {
-    print(msg)
-    strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
-    strLabel.text = msg
-    strLabel.font = UIFont.systemFont(ofSize: 13)
-    strLabel.textColor = UIColor.white
-    messageFrame = UIView(frame: CGRect(x: (screenSize.width - strLabel.frame.width)/2 ,
-                                        y: (screenSize.height - strLabel.frame.height)/2  , width: 180, height: 50))
-    messageFrame.layer.cornerRadius = 15
-    messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
-    if indicator {
-      activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-      activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-      activityIndicator.startAnimating()
-      messageFrame.addSubview(activityIndicator)
-    }
-    messageFrame.addSubview(strLabel)
-    view.addSubview(messageFrame)
-  }
-  
-  
+
     @IBAction func closeLoginPage(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
  
     @IBAction func onLogInButtonClicked(_ sender: Any) {
-       progressBarDisplayer(msg: "Выполняется вход...", true)
+       ARSLineProgress.show()
        view.isUserInteractionEnabled = false
+      
       
       FIRAuth.auth()?.signIn(withEmail: loginTextField.text!, password: passwordTextField.text!) {
         (user, error) in
@@ -83,10 +60,10 @@ class LoginViewController: UIViewController {
           let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
           alertController.addAction(defaultAction)
           
-          DispatchQueue.main.async {
-            self.messageFrame.removeFromSuperview()
-            self.view.isUserInteractionEnabled = true
-          }
+        
+          ARSLineProgress.hide()
+          self.view.isUserInteractionEnabled = true
+        
           
           self.present(alertController, animated: true, completion: nil)
         }
@@ -103,23 +80,24 @@ class LoginViewController: UIViewController {
             
             alertVC.addAction(alertActionOkay)
             alertVC.addAction(alertActionCancel)
-            DispatchQueue.main.async {
-              self.messageFrame.removeFromSuperview()
+            
+            
+              ARSLineProgress.hide()
               self.view.isUserInteractionEnabled = true
-            }
+            
+            
             self.present(alertVC, animated: true, completion: nil)
           } else {
             
             print ("Email verified. Signing in...")
-            DispatchQueue.main.async {
-              self.messageFrame.removeFromSuperview()
+            
+              ARSLineProgress.showSuccess()
               self.view.isUserInteractionEnabled = true
-            }
-            self.dismiss(animated: true, completion: nil)
+              self.dismiss(animated: true, completion: nil)
+            
           }
         }
       }
-      
     }
 
   
@@ -145,18 +123,17 @@ class LoginViewController: UIViewController {
             }
     }
     
-    
-   
-    
+  
     func closeKeyboard() {
         self.view.endEditing(true)
-        
     }
-    
+  
+  
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeKeyboard()
     }
 }
+
 
 extension LoginViewController: UITextFieldDelegate {
     

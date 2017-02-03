@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import  FirebaseAuth
+import FirebaseAuth
 import FirebaseDatabase
 
 
@@ -23,12 +23,23 @@ class UpdateUserProfile: UIViewController {
   var emailChanged = false
   var phoneChanged = false
   var nameChanged = false
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
+      nameSurname.delegate = self
+      email.delegate = self
+      phoneNumber.delegate = self
+      
+      email.alpha = 0
+      nameSurname.alpha = 0
+      phoneNumber.alpha = 0
+      saveButton.alpha = 0
+      
       localyRetrieveUserData()
       hideKeyboardWhenTappedAround()
+      
     }
   
   
@@ -38,36 +49,10 @@ class UpdateUserProfile: UIViewController {
   @IBAction func passwordEditingChanged(_ sender: Any) { validateData (); }
 
   
-  var messageFrame = UIView()
-  var activityIndicator = UIActivityIndicatorView()
-  var strLabel = UILabel()
-
-  func progressBarDisplayer(msg:String, _ indicator:Bool ) {
-    print(msg)
-    
-    strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
-    strLabel.text = msg
-    strLabel.font = UIFont.systemFont(ofSize: 13)
-    strLabel.textColor = UIColor.white
-    messageFrame = UIView(frame: CGRect(x: (screenSize.width - strLabel.frame.width)/2 ,
-                                        y: (screenSize.height - strLabel.frame.height)/2  , width: 180, height: 50))
-    messageFrame.layer.cornerRadius = 15
-    messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
-    if indicator {
-      activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-      activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-      activityIndicator.startAnimating()
-      messageFrame.addSubview(activityIndicator)
-    }
-    
-    messageFrame.addSubview(strLabel)
-    view.addSubview(messageFrame)
-  }
-  
   
   @IBAction func saveButtonDidTap(_ sender: Any) {
     
-    progressBarDisplayer(msg: "Выполнение...", true)
+    ARSLineProgress.show()
     view.isUserInteractionEnabled = false
 
     if emailChanged == true {
@@ -96,11 +81,10 @@ class UpdateUserProfile: UIViewController {
           
           let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
           alertController.addAction(defaultAction)
-          
-          DispatchQueue.main.async {
-            self.messageFrame.removeFromSuperview()
+        
+            ARSLineProgress.showFail()
             self.view.isUserInteractionEnabled = true
-          }
+          
           
           self.present(alertController, animated: true, completion: nil)
         }
@@ -124,11 +108,9 @@ class UpdateUserProfile: UIViewController {
           
           let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
           alertController.addAction(defaultAction)
-          
-          DispatchQueue.main.async {
-            self.messageFrame.removeFromSuperview()
+
+            ARSLineProgress.showFail()
             self.view.isUserInteractionEnabled = true
-          }
 
             self.present(alertController, animated: true, completion: nil)
          }
@@ -162,10 +144,9 @@ class UpdateUserProfile: UIViewController {
 
           alertController.addAction(defaultAction)
           
-          DispatchQueue.main.async {
-            self.messageFrame.removeFromSuperview()
-            self.view.isUserInteractionEnabled = true
-          }
+          ARSLineProgress.showFail()
+          self.view.isUserInteractionEnabled = true
+        
           
           self.present(alertController, animated: true, completion: nil)
         } else {
@@ -191,11 +172,9 @@ class UpdateUserProfile: UIViewController {
         self.dismiss(animated: true, completion: nil)
       } )
       
-      DispatchQueue.main.async {
-        self.messageFrame.removeFromSuperview()
+    
+        ARSLineProgress.hide()
         self.view.isUserInteractionEnabled = true
-        
-      }
       
       self.present(alert, animated: true, completion: nil)
   }
@@ -234,7 +213,7 @@ class UpdateUserProfile: UIViewController {
   
   
   func localyRetrieveUserData () {
-    
+    ARSLineProgress.show()
     var ref: FIRDatabaseReference!
         ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
     
@@ -255,9 +234,26 @@ class UpdateUserProfile: UIViewController {
       }
       
       self.email.text = FIRAuth.auth()!.currentUser!.email!
-      
+          
+          ARSLineProgress.hide()
+          UIView.animate(withDuration: 0.2, animations: {
+            self.email.alpha = 1
+            self.nameSurname.alpha = 1
+            self.phoneNumber.alpha = 1
+            self.saveButton.alpha = 1
+          })
+
     })
   
   }
 
+}
+
+
+extension UpdateUserProfile: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
 }

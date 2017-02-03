@@ -33,6 +33,7 @@ class MyOrdersTableVC: UITableViewController {
      
        let sortedRef = commentsRef.queryOrdered(byChild: "createdAt")
       
+       ARSLineProgress.show()
       
        sortedRef.queryLimited(toLast: 9999999).observe(.childAdded, with: { (snapshot) -> Void in
         
@@ -58,6 +59,7 @@ class MyOrdersTableVC: UITableViewController {
           self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
          
           }
+        ARSLineProgress.hide()
       })
     
   }

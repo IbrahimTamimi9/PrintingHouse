@@ -16,6 +16,7 @@ var rightBarButton: ENMBadgedBarButtonItem?
 var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
 
+
  public func updateBadgeValue () {
      managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
    
@@ -44,9 +45,8 @@ let screenSize: CGRect = UIScreen.main.bounds
  }
 
 
-
  class HomeVC: UIViewController {
-    
+  
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
   
@@ -67,7 +67,7 @@ let screenSize: CGRect = UIScreen.main.bounds
  
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+      
         bucketTransition = JTMaterialTransition(animatedView: button)
         profileButtonTransition = JTMaterialTransition(animatedView: profileButton)
       
@@ -102,8 +102,7 @@ let screenSize: CGRect = UIScreen.main.bounds
   }
   
   
-    
-      
+  
    fileprivate func setUpRightBarButton() {
         let image = UIImage(named: "shoppingCart")
         
@@ -154,7 +153,6 @@ let screenSize: CGRect = UIScreen.main.bounds
     
      func leftButtonPressed(_ sender: UIButton) {
      
-      
       FIRAuth.auth()?.addStateDidChangeListener { auth, user in
         if FIRAuth.auth()?.currentUser != nil && FIRAuth.auth()?.currentUser?.isEmailVerified == true {
           // User is signed in.
@@ -162,6 +160,7 @@ let screenSize: CGRect = UIScreen.main.bounds
           let controller =  self.storyboard?.instantiateViewController(withIdentifier: "UserProfile")
           controller?.modalPresentationStyle = .custom
           controller?.transitioningDelegate = self.profileButtonTransition
+          
           self.present(controller!, animated: true, completion: nil)
         
         } else {

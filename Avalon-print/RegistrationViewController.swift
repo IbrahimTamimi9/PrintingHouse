@@ -29,9 +29,7 @@ class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var registrationButton: ButtonMockup!
 
-   
   
-    
       override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -76,12 +74,14 @@ class RegistrationViewController: UIViewController {
     @IBAction func emailEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func passwordEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func repeatPassEditingChanged(_ sender: Any) { validateRegistraionData() }
-    
+  
+  
     @IBAction func closeRegistrationPage(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
     }
-    
+  
+  
    func validateRegistraionData () {
     let characterSetEmail = NSCharacterSet(charactersIn: "@")
     let characterSetEmail1 = NSCharacterSet(charactersIn: ".")
@@ -111,38 +111,12 @@ class RegistrationViewController: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.registrationButton.alpha = 1.0 })
        }
-}
- 
-  var messageFrame = UIView()
-  var activityIndicator = UIActivityIndicatorView()
-  var strLabel = UILabel()
-  
-  func progressBarDisplayer(msg:String, _ indicator:Bool ) {
-    print(msg)
-    strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 250, height: 50))
-    strLabel.text = msg
-    strLabel.font = UIFont.systemFont(ofSize: 13)
-    strLabel.textColor = UIColor.white
-    messageFrame = UIView(frame: CGRect(x: (screenSize.width - strLabel.frame.width)/2 ,
-                                        y: (screenSize.height - strLabel.frame.height)/2  , width: 250, height: 50))
-    messageFrame.layer.cornerRadius = 15
-    
-    messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
-    if indicator {
-      activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-      activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-      activityIndicator.startAnimating()
-      messageFrame.addSubview(activityIndicator)
     }
-    messageFrame.addSubview(strLabel)
-    view.addSubview(messageFrame)
-  }
-  
-  
-    
+ 
+
     @IBAction func doRegistrate(_ sender: Any) {
       
-       progressBarDisplayer(msg: "Выполняется регистрация...", true)
+       ARSLineProgress.show()
        view.isUserInteractionEnabled = false
       
       FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { authData, error  in
@@ -158,29 +132,28 @@ class RegistrationViewController: UIViewController {
           })
           
           
-          let alert = UIAlertController(title: "Account Created", message: "Please verify your email by confirming the sent link.", preferredStyle: UIAlertControllerStyle.alert)
+          let alert = UIAlertController(title: "Регистрация прошла успешно", message: "Вам было выслано письмо для подтверждения вашего e-mail.", preferredStyle: UIAlertControllerStyle.alert)
           alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
            
             self.dismiss(animated: true, completion: nil)
 
           } )
-          DispatchQueue.main.async {
-            self.messageFrame.removeFromSuperview()
+          
+             ARSLineProgress.hide()
              self.view.isUserInteractionEnabled = true
-          }
+        
           
           self.present(alert, animated: true, completion: nil)
           
           
         } else {
-          let alert = UIAlertController(title: "User exists.", message: "Please use another email or sign in.", preferredStyle: UIAlertControllerStyle.alert)
+          let alert = UIAlertController(title: "Пользователь с таким e-mail уже существует", message: "Пожалуйста, используйте другой e-mail, или выполните вход.", preferredStyle: UIAlertControllerStyle.alert)
           alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
           
-          DispatchQueue.main.async {
-            self.messageFrame.removeFromSuperview()
-             self.view.isUserInteractionEnabled = true
-          }
+          ARSLineProgress.hide()
+          self.view.isUserInteractionEnabled = true
+        
           
           self.present(alert, animated: true, completion: nil)
 

@@ -20,9 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
       
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        
+      
         return true
     }
+  
+
 
    //MARK: URL SCHEMES
 //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

@@ -101,41 +101,9 @@ class checkoutFormVC: UIViewController {
     @IBAction func dismissOrder(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-  
-  
-  var messageFrame = UIView()
-  var activityIndicator = UIActivityIndicatorView()
-  var strLabel = UILabel()
-  
-  func progressBarDisplayer(msg:String, _ indicator:Bool ) {
-    print(msg)
-    
-    strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
-    strLabel.text = msg
-    strLabel.font = UIFont.systemFont(ofSize: 13)
-    strLabel.textColor = UIColor.white
-    messageFrame = UIView(frame: CGRect(x: (screenSize.width - strLabel.frame.width)/2 ,
-                                        y: (screenSize.height - strLabel.frame.height)/2  , width: 180, height: 50))
-    messageFrame.layer.cornerRadius = 15
-    messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
-    
-    if indicator {
-      activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-      activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-      activityIndicator.startAnimating()
-      messageFrame.addSubview(activityIndicator)
-    }
-    
-    messageFrame.addSubview(strLabel)
-    view.addSubview(messageFrame)
-  }
 
     
     @IBAction func checkOutButtonClicked(_ sender: Any) {
-      
-       progressBarDisplayer(msg: "Отправка заказа...", true)
-      
-       view.isUserInteractionEnabled = false
       
       let date = Date()
       let calendar = Calendar.current
@@ -223,11 +191,6 @@ class checkoutFormVC: UIViewController {
       
       
     
-        DispatchQueue.main.async {
-          self.messageFrame.removeFromSuperview()
-          self.view.isUserInteractionEnabled = true
-        }
-      // self.dismiss(animated: true, completion: nil)
     }
   
   
