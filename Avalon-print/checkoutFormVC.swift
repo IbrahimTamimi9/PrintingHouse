@@ -55,7 +55,7 @@ class checkoutFormVC: UIViewController {
         setFontsForControllers(textfield: [nameSurnameTF,phoneTF, emailTF, layoutLinkTF, deliveryAdress, deliveryTime], textview: commentsTV, label: commentsLabel)
         
         localyRetrieveUserData()
-        validateRegistraionData()
+      
       
       let countOfO = FIRDatabase.database().reference().child("orders")
       
@@ -64,8 +64,9 @@ class checkoutFormVC: UIViewController {
         print(snapshot.childrenCount)
         self.ordersCount = Int(snapshot.childrenCount)
         print(self.ordersCount)
+      
       })
-
+      
       
     }
     
@@ -104,7 +105,7 @@ class checkoutFormVC: UIViewController {
 
     
     @IBAction func checkOutButtonClicked(_ sender: Any) {
-      
+      ARSLineProgress.show()
       let date = Date()
       let calendar = Calendar.current
    
@@ -142,14 +143,30 @@ class checkoutFormVC: UIViewController {
       let createdAt = orderInfoBlock.child(createdAtLabel)
       createdAt.setValue(createdAtValue)
       
+      var deliveryFinal = ""
+      var layoutFinal = ""
+      
+      if deliverySwitch.isOn == true {
+        deliveryFinal = deliveryAdress.text!
+      } else {
+       deliveryFinal =  "Без доставки"
+      }
+      
+      if layoutDevSwitch.isOn == true {
+        layoutFinal = "Разработка макета в вашей дизайн студии"
+      } else {
+        layoutFinal = layoutLinkTF.text!
+      }
+      
+      
       let orderInfoContent: NSDictionary = [
                                 "orderStatus": "Новый заказ",
                                 "dateOfPlacement": ("\(day) \(monthString) \(year)"),
                                 "fullPrice": totalprice,
                                 "fullNDSPrice": totalNDSprice,
                                 "comments": commentsTV.text!,
-                                "layout": "тут будет инфа про макет",
-                                "deliveryAdress": deliveryAdress.text!]
+                                "layout": layoutFinal,
+                                "deliveryAdress": deliveryFinal ]
       
       
           let orderInfo = orderInfoBlock.child(orderInfoLabel) 
@@ -189,7 +206,7 @@ class checkoutFormVC: UIViewController {
         exactOrder.setValue(contentOfWork)
       }
       
-      
+      ARSLineProgress.showSuccess()
     
     }
   
@@ -197,10 +214,11 @@ class checkoutFormVC: UIViewController {
     @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func emailEditingChanged(_ sender: Any) { validateRegistraionData() }
-
+    
   
   fileprivate func localyRetrieveUserData () {
      if FIRAuth.auth()?.currentUser != nil && FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+      
     var ref: FIRDatabaseReference!
     ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
     
@@ -221,11 +239,12 @@ class checkoutFormVC: UIViewController {
       }
       
        self.emailTF.text = FIRAuth.auth()!.currentUser!.email!
-      
+       self.validateRegistraionData()
     })
     
      
      } else {
+      
        nameSurnameTF.text = ""
        phoneTF.text = ""
        emailTF.text = ""

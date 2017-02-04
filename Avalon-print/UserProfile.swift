@@ -49,7 +49,7 @@ class UserProfile: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    return 6
+    return 7
   }
   
   
@@ -57,13 +57,13 @@ class UserProfile: UITableViewController {
    
     headerView.backgroundColor = UIColor.white
     
-    let yPositionLabel = (130 - 20)/2
-    let yPositionImage = (headerView.frame.height + 50)/2
+    let yPositionLabel = (96 - 10)/2
+    let yPositionImage = (headerView.frame.height + 35)/2
 
     
-    initialImageView.frame =  CGRect(x: 10, y: yPositionImage, width: 80, height: 80)
+    initialImageView.frame =  CGRect(x: 10, y: yPositionImage, width: 65, height: 65)
     nameLabel.frame =  CGRect(x: Int(initialImageView.frame.width + 20), y: yPositionLabel, width: 200, height: 20)
-    nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+    nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
 
     headerView.addSubview(initialImageView)
     headerView.addSubview(nameLabel)
@@ -73,12 +73,12 @@ class UserProfile: UITableViewController {
   
   
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 130
+    return 96
   }
   
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 44
+       return 46
   }
   
 
@@ -86,29 +86,37 @@ class UserProfile: UITableViewController {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.numberOfLines = 6
-    cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
+    cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
     
     if indexPath.row == 0 {
-      cell.isHidden = true
+      //cell.isHidden = true
+      cell.textLabel?.text = "Установить фотографию профиля"
+      cell.accessoryType = .none
+      cell.textLabel?.textColor = UIColor.blue
+      cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
     }
     
     if indexPath.row == 1 {
-       cell.textLabel?.text = "Мои заказы"
+      cell.isHidden = true
     }
     
     if indexPath.row == 2 {
+       cell.textLabel?.text = "Мои заказы"
+    }
+    
+    if indexPath.row == 3 {
       cell.textLabel?.text = "Редактировать профиль"
     }
    
-    if indexPath.row == 3 {
+    if indexPath.row == 4 {
       cell.textLabel?.text = "Обратная связь"
     }
     
-    if indexPath.row == 4 {
+    if indexPath.row == 5 {
       cell.textLabel?.text = "Уведомления"
     }
       
-    if indexPath.row == 5 {
+    if indexPath.row == 6 {
       cell.textLabel?.textColor = UIColor.red
       cell.textLabel?.text = "Выйти"
       cell.accessoryType = .none
@@ -173,21 +181,21 @@ class UserProfile: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
         
-        if indexPath.row == 1 {
+        if indexPath.row == 2 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersTableVC") as! MyOrdersTableVC
           navigationController?.pushViewController(destination, animated: true)
         }
   
-        if indexPath.row == 2 {
+        if indexPath.row == 3 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "UpdateUserProfile") as! UpdateUserProfile
           navigationController?.pushViewController(destination, animated: true)
         }
-          if indexPath.row == 3 { }
-          
           if indexPath.row == 4 { }
           
+          if indexPath.row == 5 { }
+          
   
-          if indexPath.row == 5 {
+          if indexPath.row == 6 {
   
             let firebaseAuth = FIRAuth.auth()
             do {

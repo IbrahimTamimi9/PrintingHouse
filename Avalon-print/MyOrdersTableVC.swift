@@ -35,7 +35,7 @@ class MyOrdersTableVC: UITableViewController {
       
        ARSLineProgress.show()
       
-       sortedRef.queryLimited(toLast: 9999999).observe(.childAdded, with: { (snapshot) -> Void in
+       sortedRef.queryLimited(toFirst: 9999999).observe(.childAdded, with: { (snapshot) -> Void in
         
         let allOrders = snapshot.value as? NSDictionary
         
@@ -53,8 +53,10 @@ class MyOrdersTableVC: UITableViewController {
           let keys = snapshot.key
           
           self.orderKeys.append(keys)
+         
 
           self.ordersHistoryArray.append("\nДата поступления заказа: \(dateOfPlacement)\n\nСтатус заказа: \(orderStatus)\n\nИтого к оплате: \(fullPrice) грн.")
+         
           
           self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
          

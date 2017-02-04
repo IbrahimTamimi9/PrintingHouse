@@ -80,6 +80,7 @@ class ARSBlurredBackgroundRect {
 	
 }
 
+
 class ARSSimpleBackgroundRect {
 	
 	var view: UIView
