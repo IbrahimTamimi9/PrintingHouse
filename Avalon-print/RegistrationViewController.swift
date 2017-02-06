@@ -122,8 +122,8 @@ class RegistrationViewController: UIViewController {
       FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { authData, error  in
         if error == nil {
           let userData = ["nameSurname": self.nameSurname.text!,
-                          "PhoneNumber": self.phoneNumber.text!,
-                          "userOrders": ""]
+                          "PhoneNumber": self.phoneNumber.text! ]
+          
           let ref = FIRDatabase.database().reference()
           ref.child("users").child(authData!.uid).setValue(userData)
           print("Successfuly registered")

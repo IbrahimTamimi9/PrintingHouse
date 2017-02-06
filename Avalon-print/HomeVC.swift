@@ -67,6 +67,13 @@ let screenSize: CGRect = UIScreen.main.bounds
  
     override func viewDidLoad() {
         super.viewDidLoad()
+//      let firebaseAuth = FIRAuth.auth()
+//      do {
+//        try firebaseAuth?.signOut()
+//        dismiss(animated: true, completion: nil)
+//      } catch let signOutError as NSError {
+//        print ("Error signing out: %@", signOutError)
+//      }
       
         bucketTransition = JTMaterialTransition(animatedView: button)
         profileButtonTransition = JTMaterialTransition(animatedView: profileButton)

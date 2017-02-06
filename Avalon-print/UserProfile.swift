@@ -21,11 +21,12 @@ class UserProfile: UITableViewController {
   
    var nameToImage = ""
   
+  
   @IBOutlet weak var navtitle: UINavigationItem!
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+    
          navtitle.title = "Профиль"
       
          view.backgroundColor = UIColor.white
@@ -33,8 +34,9 @@ class UserProfile: UITableViewController {
          tableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
          navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
          navigationItem.backBarButtonItem?.tintColor = UIColor.white
-      
   }
+  
+  
   
   
   @IBAction func BackButtonClicked(_ sender: Any) {
@@ -49,7 +51,7 @@ class UserProfile: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    return 7
+    return 6
   }
   
   
@@ -57,8 +59,8 @@ class UserProfile: UITableViewController {
    
     headerView.backgroundColor = UIColor.white
     
-    let yPositionLabel = (96 - 10)/2
-    let yPositionImage = (headerView.frame.height + 35)/2
+    let yPositionLabel = (96 - 15)/2
+    let yPositionImage = (headerView.frame.height + 30)/2
 
     
     initialImageView.frame =  CGRect(x: 10, y: yPositionImage, width: 65, height: 65)
@@ -88,35 +90,35 @@ class UserProfile: UITableViewController {
     cell.textLabel?.numberOfLines = 6
     cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
     
-    if indexPath.row == 0 {
-      //cell.isHidden = true
-      cell.textLabel?.text = "Установить фотографию профиля"
-      cell.accessoryType = .none
-      cell.textLabel?.textColor = UIColor.blue
-      cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
-    }
+//    if indexPath.row == 0 {
+//      //cell.isHidden = true
+//      cell.textLabel?.text = "Установить фотографию профиля"
+//      cell.accessoryType = .none
+//      cell.textLabel?.textColor = UIColor.blue
+//      cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+//    }
     
-    if indexPath.row == 1 {
+    if indexPath.row == 0 {
       cell.isHidden = true
     }
     
-    if indexPath.row == 2 {
+    if indexPath.row == 1 {
        cell.textLabel?.text = "Мои заказы"
     }
     
-    if indexPath.row == 3 {
+    if indexPath.row == 2 {
       cell.textLabel?.text = "Редактировать профиль"
     }
    
-    if indexPath.row == 4 {
+    if indexPath.row == 3 {
       cell.textLabel?.text = "Обратная связь"
     }
     
-    if indexPath.row == 5 {
+    if indexPath.row == 4 {
       cell.textLabel?.text = "Уведомления"
     }
       
-    if indexPath.row == 6 {
+    if indexPath.row == 5 {
       cell.textLabel?.textColor = UIColor.red
       cell.textLabel?.text = "Выйти"
       cell.accessoryType = .none
@@ -158,6 +160,7 @@ class UserProfile: UITableViewController {
     if !snapshot.exists() { return }
     
     let mainUserData = snapshot.value as? NSDictionary
+  
     
     if let userNameSurname = mainUserData?["nameSurname"] as? String  {
       self.initialImageView.setImageWithName(name: userNameSurname, randomColor: true)
@@ -167,35 +170,32 @@ class UserProfile: UITableViewController {
       UIView.animate(withDuration: 0.1, animations: {
         self.headerView.alpha = 1
         cell.alpha = 1
-        
-        ARSLineProgress.hide()
-      })
-      
-      
-    }
-  })
-  
+        ARSLineProgress.hide() })
+     }
+   })
   }
   
+ 
   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
+      
         
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersTableVC") as! MyOrdersTableVC
           navigationController?.pushViewController(destination, animated: true)
         }
   
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "UpdateUserProfile") as! UpdateUserProfile
           navigationController?.pushViewController(destination, animated: true)
         }
+          if indexPath.row == 3 { }
+          
           if indexPath.row == 4 { }
           
-          if indexPath.row == 5 { }
-          
   
-          if indexPath.row == 6 {
+          if indexPath.row == 5 {
   
             let firebaseAuth = FIRAuth.auth()
             do {

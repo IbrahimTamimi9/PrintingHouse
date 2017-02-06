@@ -20,23 +20,21 @@ class MyOrdersTableVC: UITableViewController {
   var ordersHistoryArray = [String]()
   var orderKeys = [String]()
   
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+      
      navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
      tableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
-
+      
       
        var commentsRef: FIRDatabaseReference!
            commentsRef = FIRDatabase.database().reference().child("orders")
      
-     
        let sortedRef = commentsRef.queryOrdered(byChild: "createdAt")
       
-       ARSLineProgress.show()
-      
        sortedRef.queryLimited(toFirst: 9999999).observe(.childAdded, with: { (snapshot) -> Void in
-        
+      
         let allOrders = snapshot.value as? NSDictionary
         
         let userInfo = allOrders?["userInfo"] as? NSDictionary
@@ -53,17 +51,15 @@ class MyOrdersTableVC: UITableViewController {
           let keys = snapshot.key
           
           self.orderKeys.append(keys)
-         
-
+        
           self.ordersHistoryArray.append("\nДата поступления заказа: \(dateOfPlacement)\n\nСтатус заказа: \(orderStatus)\n\nИтого к оплате: \(fullPrice) грн.")
          
-          
           self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
-         
+          
           }
-        ARSLineProgress.hide()
+       
       })
-    
+      
   }
 
   
