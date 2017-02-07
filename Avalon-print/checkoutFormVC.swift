@@ -24,7 +24,6 @@ class checkoutFormVC: UIViewController {
     @IBOutlet weak var layoutLinkTF: UITextField!
     @IBOutlet weak var commentsTV: UITextView!
     @IBOutlet weak var deliveryAdress: UITextField!
-    @IBOutlet weak var deliveryTime: UITextField!
     
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var layoutDevSwitch: UISwitch!
@@ -48,11 +47,10 @@ class checkoutFormVC: UIViewController {
         phoneTF.delegate = self
         layoutLinkTF.delegate = self
         deliveryAdress.delegate = self
-        deliveryTime.delegate = self
         
         self.hideKeyboardWhenTappedAround()
 
-        setFontsForControllers(textfield: [nameSurnameTF,phoneTF, emailTF, layoutLinkTF, deliveryAdress, deliveryTime], textview: commentsTV, label: commentsLabel)
+        setFontsForControllers(textfield: [nameSurnameTF,phoneTF, emailTF, layoutLinkTF, deliveryAdress], textview: commentsTV, label: commentsLabel)
         
         localyRetrieveUserData()
       
@@ -88,13 +86,11 @@ class checkoutFormVC: UIViewController {
         if deliverySwitch.isOn == true {
             
             textfieldState(textField: deliveryAdress, state: true)
-            textfieldState(textField: deliveryTime, state: true)
+          
             
         } else {
             
             textfieldState(textField: deliveryAdress, state: false)
-            textfieldState(textField: deliveryTime, state: false)
-            
         }
     }
     
@@ -207,6 +203,20 @@ class checkoutFormVC: UIViewController {
       }
       
       ARSLineProgress.showSuccess()
+      
+      
+      let alert = UIAlertController(title: "Ваш заказ успешно отправлен", message: "Наш менеджер свяжется с вами в ближайшее время, спасибо за доверие.", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { UIAlertAction in
+        
+        self.dismiss(animated: true, completion: nil)
+      })
+      
+      ARSLineProgress.hide()
+      
+      self.view.isUserInteractionEnabled = true
+      
+      self.present(alert, animated: true, completion: nil)
+
     
     }
   
