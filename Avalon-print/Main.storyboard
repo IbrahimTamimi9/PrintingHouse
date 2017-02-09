@@ -921,14 +921,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="1 2 3 4" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-kB-tXt">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="1 2 3 4 5 6 7 8" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnL-kB-tXt">
                                                     <rect key="frame" x="8" y="6" width="367" height="92"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="92" id="CSM-hT-Y6n"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10.600000381469727"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Цена: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRZ-bH-oOv">
@@ -1809,7 +1809,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Общая длинна кармана шва (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-CK-z7e">
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Общая длинна кармана шва (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-CK-z7e">
                                         <rect key="frame" x="23" y="496" width="327" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Kfp-bj-XQb"/>
@@ -1822,8 +1822,11 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="lengthPocketsSeamsCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="pu3-CY-2OS"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Расстояние между люверсами (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-7p-Mpx">
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Расстояние между люверсами (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-7p-Mpx">
                                         <rect key="frame" x="23" y="339" width="324" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="7mo-tJ-dAL"/>
@@ -1836,8 +1839,11 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="distanceBetweenLuversCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="Xis-d4-z2F"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Количество люверсов в одном изделии (шт)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-FT-qh3">
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Количество люверсов в одном изделии (шт)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-FT-qh3">
                                         <rect key="frame" x="23" y="392" width="324" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="r4E-2C-F9x"/>
@@ -1850,6 +1856,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="luversAmountOnOneProductCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="jIS-bW-iUX"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOi-Pg-h0Z">
                                         <rect key="frame" x="188" y="673" width="162" height="38"/>

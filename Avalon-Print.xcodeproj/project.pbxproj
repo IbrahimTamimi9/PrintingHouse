@@ -53,9 +53,8 @@
 		4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */; };
 		4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */; };
 		4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B894DF31E3E3137008D694D /* PasswordResetVC.swift */; };
-		4B8D1BCE1DF1FF27001A97F2 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */; };
-		4B8D1BCF1DF1FF27001A97F2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D1BC31DF1FF27001A97F2 /* Info.plist */; };
-		4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D1BCA1DF1FF27001A97F2 /* TextFieldsEffects.swift */; };
+		4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */; };
+		4B9E4DBB1E4B517A00FB1591 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */; };
 		4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */; };
 		4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */; };
 		4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */; };
@@ -141,10 +140,9 @@
 		4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
 		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4B894DF31E3E3137008D694D /* PasswordResetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetVC.swift; path = "Avalon-print/PasswordResetVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
-		4B8D1BC31DF1FF27001A97F2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B8D1BC91DF1FF27001A97F2 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
-		4B8D1BCA1DF1FF27001A97F2 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
+		4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = "Avalon-print/textfieldEffects/HoshiTextField.swift"; sourceTree = SOURCE_ROOT; };
+		4B9E4DB81E4B517A00FB1591 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldEffects.h; path = "Avalon-print/textfieldEffects/TextFieldEffects.h"; sourceTree = SOURCE_ROOT; };
+		4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = "Avalon-print/textfieldEffects/TextFieldsEffects.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVCCell.swift; path = "Avalon-print/HomeVCCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -193,6 +191,7 @@
 		4B2D03B21DF78E5C00BF0B23 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
 				4B3FE86C1E44E57000852A2A /* progressLoader */,
 				4B3F81BF1E22706100034E3E /* ButtonMockup.swift */,
 				4B3F81C11E22706100034E3E /* ENMBadgedBarButton.h */,
@@ -282,12 +281,12 @@
 		4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
-				4B8D1BC21DF1FF27001A97F2 /* HoshiTextField.swift */,
-				4B8D1BC31DF1FF27001A97F2 /* Info.plist */,
-				4B8D1BC91DF1FF27001A97F2 /* TextFieldEffects.h */,
-				4B8D1BCA1DF1FF27001A97F2 /* TextFieldsEffects.swift */,
+				4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */,
+				4B9E4DB81E4B517A00FB1591 /* TextFieldEffects.h */,
+				4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */,
 			);
 			name = TextFieldEffects;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4B8D1C191DF2F2C7001A97F2 /* posters */ = {
@@ -378,7 +377,6 @@
 				4B98B1461E217FD1003D725C /* Fonts */,
 				4B2D03B21DF78E5C00BF0B23 /* Support */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
-				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
 				31B3518373C45D0E0B929748 /* Pods */,
 				2E2B9315D2A9134FFCED2CEF /* Frameworks */,
 			);
@@ -480,7 +478,6 @@
 				4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */,
 				4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */,
 				4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */,
-				4B8D1BCF1DF1FF27001A97F2 /* Info.plist in Resources */,
 				4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */,
 				4B3F81BD1E22702300034E3E /* Main.storyboard in Resources */,
 				4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */,
@@ -550,7 +547,6 @@
 				4B3F81981E226F0800034E3E /* stickersVC.swift in Sources */,
 				4B3F81AE1E226FC300034E3E /* checkoutFormVC.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
-				4B8D1BCE1DF1FF27001A97F2 /* HoshiTextField.swift in Sources */,
 				4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */,
 				4B3F81941E226EE900034E3E /* postersVC.swift in Sources */,
 				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
@@ -562,6 +558,7 @@
 				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
+				4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */,
 				4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
@@ -588,10 +585,10 @@
 				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
 				4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */,
 				4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */,
-				4B8D1BD51DF1FF27001A97F2 /* TextFieldsEffects.swift in Sources */,
 				4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */,
 				4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */,
 				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
+				4B9E4DBB1E4B517A00FB1591 /* TextFieldsEffects.swift in Sources */,
 				4B3FE8671E44B59200852A2A /* InitialImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,7 +739,7 @@
 				B5EA1A351B7B383300E1C1C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		B5EA1A361B7B383300E1C1C3 /* Build configuration list for PBXNativeTarget "Avalon-Print" */ = {
 			isa = XCConfigurationList;
@@ -751,7 +748,7 @@
 				B5EA1A381B7B383300E1C1C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

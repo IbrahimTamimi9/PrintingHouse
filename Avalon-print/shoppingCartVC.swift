@@ -32,9 +32,8 @@ import CoreData
    
     @IBOutlet weak var purchaseTableView: UITableView!
     @IBOutlet weak var mainView: UIView!
- 
-    
-    
+  
+
     override func viewDidAppear(_ animated: Bool) {
         mainPriceSumCounter()
         purchaseTableView.reloadData()
@@ -124,12 +123,15 @@ import CoreData
 }
 
 
+
 extension shoppingCartVC: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addedItems.count
     }
-    
+  
+  
+  
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:shoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! shoppingCartTableViewCell
@@ -139,6 +141,11 @@ extension shoppingCartVC: UITableViewDataSource {
         cell.mainData?.text = presentItem.list
         cell.purchasePrice?.text = presentItem.price
         cell.purchaseNDSPrice?.text = presentItem.ndsPrice
+      
+    
+      
+    
+      
         mainPriceSumCounter()
         
         return cell
