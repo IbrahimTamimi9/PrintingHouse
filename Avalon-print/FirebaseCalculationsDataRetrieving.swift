@@ -31,6 +31,19 @@ struct JSONVariables {
     //MARK: CANVAS
     static var artCanvasMaterialCost = Double()
     static var artCanvasCostOfPrinting = Double()
+    //MARK: BANNERS
+    static var laminatedBannerMaterialCost = Double()
+    static var laminatedBannerCostOfPrinting = Double()
+  
+    static var castBannerMaterialCost = Double()
+    static var castBannerCostOfPrinting = Double()
+  
+    static var backlitBannerMaterialCost = Double()
+    static var backlitBannerCostOfPrinting = Double()
+  
+    static var meshBannerMaterialCost = Double()
+    static var meshBannerCostOfPrinting = Double()
+  
     //MARK: POSTPRINT
     static var GLOSS1_0_MATERIAL = Double()
     static var GLOSS1_0_WORK = Double()
@@ -80,6 +93,11 @@ func getVariablesFromJSON () {
     let oneWayVisionBlock = MaterialsDataBlock?["StickerOneWayVision"] as? NSDictionary
     let artCanvasBlock = MaterialsDataBlock?["ArtCanvas"] as? NSDictionary
     
+    let laminatedBannerBlock = MaterialsDataBlock?["LaminatedBanner"] as? NSDictionary
+    let castBannerBlock = MaterialsDataBlock?["MoltenBanner"] as? NSDictionary
+    let backlitBannerBlock = MaterialsDataBlock?["BacklitBanner"] as? NSDictionary
+    let meshBannerBlock = MaterialsDataBlock?["MeshBanner"] as? NSDictionary
+    
     
     JSONVariables.cityMaterialCost = (citylightBlock?["material_Cost"] as? String ?? "").doubleValue
     JSONVariables.cityCostOfPrinting = (citylightBlock?["cost_of_Printing"] as? String ?? "").doubleValue
@@ -101,6 +119,18 @@ func getVariablesFromJSON () {
 
     JSONVariables.artCanvasMaterialCost = (artCanvasBlock?["material_Cost"] as? String ?? "").doubleValue
     JSONVariables.artCanvasCostOfPrinting = (artCanvasBlock?["cost_of_Printing"] as? String ?? "").doubleValue
+    
+    JSONVariables.laminatedBannerMaterialCost = (laminatedBannerBlock?["material_Cost"] as? String ?? "").doubleValue
+    JSONVariables.laminatedBannerCostOfPrinting = (laminatedBannerBlock?["cost_of_Printing"] as? String ?? "").doubleValue
+    
+    JSONVariables.castBannerMaterialCost = (castBannerBlock?["material_Cost"] as? String ?? "").doubleValue
+    JSONVariables.castBannerCostOfPrinting = (castBannerBlock?["cost_of_Printing"] as? String ?? "").doubleValue
+    
+    JSONVariables.backlitBannerMaterialCost = (backlitBannerBlock?["material_Cost"] as? String ?? "").doubleValue
+    JSONVariables.backlitBannerCostOfPrinting = (backlitBannerBlock?["cost_of_Printing"] as? String ?? "").doubleValue
+    
+    JSONVariables.meshBannerMaterialCost = (meshBannerBlock?["material_Cost"] as? String ?? "").doubleValue
+    JSONVariables.meshBannerCostOfPrinting = (meshBannerBlock?["cost_of_Printing"] as? String ?? "").doubleValue
 
   }) { (error) in
     print(error.localizedDescription)
