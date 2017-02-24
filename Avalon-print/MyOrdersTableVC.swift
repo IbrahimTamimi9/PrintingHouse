@@ -27,6 +27,7 @@ class MyOrdersTableVC: UITableViewController {
      navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
      tableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
       
+     checkInternetConnectionForFutureActivityIndicatorBehavior()
       
        var commentsRef: FIRDatabaseReference!
            commentsRef = FIRDatabase.database().reference().child("orders")
@@ -57,7 +58,7 @@ class MyOrdersTableVC: UITableViewController {
           self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
           
           }
-       
+       ARSLineProgress.hide()
       })
       
   }
@@ -112,6 +113,19 @@ class MyOrdersTableVC: UITableViewController {
  
     let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersDetailTableVC") as! MyOrdersDetailTableVC
         navigationController?.pushViewController(destination, animated: true)
+    
+  }
+  
+  
+  func checkInternetConnectionForFutureActivityIndicatorBehavior () {
+    
+    if  currentReachabilityStatus != .notReachable {
+      //connected
+      ARSLineProgress.show()
+    } else {
+      //not connected
+      
+    }
     
   }
   

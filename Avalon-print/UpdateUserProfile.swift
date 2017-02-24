@@ -156,10 +156,23 @@ class UpdateUserProfile: UIViewController {
     }
   }
   
+  func checkInternetConnectionForFutureActivityIndicatorBehavior () {
+    
+    if  currentReachabilityStatus != .notReachable {
+      //connected
+      ARSLineProgress.show()
+    } else {
+      //not connected
+      
+    }
+    
+  }
+
   
   func localyRetrieveUserData () {
-    
-    ARSLineProgress.show()
+  
+  //  ARSLineProgress.show()
+    checkInternetConnectionForFutureActivityIndicatorBehavior ()
     
     var ref: FIRDatabaseReference!
         ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)

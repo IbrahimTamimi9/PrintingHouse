@@ -129,6 +129,26 @@ class UserProfile: UITableViewController {
   }
   
   
+  func checkInternetConnectionForFutureActivityIndicatorBehavior () {
+    
+    if  currentReachabilityStatus != .notReachable {
+      //connected
+      ARSLineProgress.show()
+    } else {
+      //not connected
+      let alertController = UIAlertController(title: "Ошибка подключения к интернету", message: "Пожалуйста, подключитесь к интернету.", preferredStyle: .alert)
+      
+      let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+      
+      alertController.addAction(defaultAction)
+      
+      self.present(alertController, animated: true, completion: nil)
+      
+    }
+    
+  }
+  
+  
  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
  
   
@@ -146,8 +166,7 @@ class UserProfile: UITableViewController {
     self.headerView.alpha = 0
     cell.alpha = 0
     
-     ARSLineProgress.show()
-    
+    checkInternetConnectionForFutureActivityIndicatorBehavior()
     
   }
   
