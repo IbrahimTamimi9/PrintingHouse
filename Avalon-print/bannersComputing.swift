@@ -23,7 +23,7 @@ struct bannersBoolVariables {
   static var bannersWidthSet = ""
   static var bannersHeightSet = ""
   
-  static var distanceBetweenLuversSet = ""
+ // static var distanceBetweenLuversSet = ""
   static var luversAmountOnOneproductSet = ""
   static var lengthPocketsSeams = ""
   
@@ -70,6 +70,11 @@ func bannersComputings () {
   let meshBannerPriceM2 = JSONVariables.meshBannerCostOfPrinting
   
 //MARK: POST PRINT
+  
+  
+  
+  
+  
 
 }
 

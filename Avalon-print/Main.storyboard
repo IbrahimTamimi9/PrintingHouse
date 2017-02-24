@@ -1686,14 +1686,14 @@
                         <viewControllerLayoutGuide type="bottom" id="mSM-xM-Lzh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sxI-H9-Wrc">
-                        <rect key="frame" x="0.0" y="64" width="375" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="681"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banners" translatesAutoresizingMaskIntoConstraints="NO" id="zWU-Sd-d1D">
-                                <rect key="frame" x="-25" y="-25" width="425" height="786"/>
+                                <rect key="frame" x="-25" y="-25" width="425" height="731"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="kCS-AX-kLb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="681"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Тираж" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0h9-Ak-XfQ" customClass="HoshiTextField" customModule="Avalon_Print" customModuleProvider="target">
                                         <rect key="frame" x="23" y="31" width="324" height="45"/>
@@ -1791,146 +1791,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EqE-hN-cvm">
-                                        <rect key="frame" x="298" y="457" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="pocketsSeamsSetUpSwitchStateChanged:" destination="OJB-LI-2yD" eventType="valueChanged" id="bjz-St-VhU"/>
-                                        </connections>
-                                    </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Установка люверсов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOa-JS-b5O">
                                         <rect key="frame" x="23" y="310" width="148" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проварка карманов швов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqK-59-E8x">
-                                        <rect key="frame" x="23" y="465" width="267" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Общая длинна кармана шва (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-CK-z7e">
-                                        <rect key="frame" x="23" y="496" width="327" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="Kfp-bj-XQb"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="lengthPocketsSeamsCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="pu3-CY-2OS"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Расстояние между люверсами (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-7p-Mpx">
-                                        <rect key="frame" x="23" y="339" width="324" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="7mo-tJ-dAL"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="distanceBetweenLuversCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="Xis-d4-z2F"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Количество люверсов в одном изделии (шт)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-FT-qh3">
-                                        <rect key="frame" x="23" y="392" width="324" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="r4E-2C-F9x"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="luversAmountOnOneProductCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="jIS-bW-iUX"/>
-                                        </connections>
-                                    </textField>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOi-Pg-h0Z">
-                                        <rect key="frame" x="188" y="673" width="162" height="38"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="3Wq-YU-CFP"/>
-                                            <constraint firstAttribute="width" constant="162" id="yT2-eX-uv7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="15"/>
-                                        <state key="normal" title="Добавить в корзину">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="AddToCart:" destination="OJB-LI-2yD" eventType="touchUpInside" id="Alc-Aa-xhG"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVY-Rg-Y7I">
-                                        <rect key="frame" x="324" y="575" width="26" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="nzH-vy-Z8a"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5O-0k-ujh">
-                                        <rect key="frame" x="324" y="599" width="26" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="I1B-vR-du4"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiK-Gr-mfj">
-                                        <rect key="frame" x="308" y="575" width="8" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="xDt-JY-WFE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d10-7v-OUX">
-                                        <rect key="frame" x="308" y="599" width="8" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="EOq-TY-Lvt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIw-wp-ZCd">
-                                        <rect key="frame" x="263" y="575" width="37" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="Vg8-gb-Ixi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEs-4k-Fgg">
-                                        <rect key="frame" x="223" y="599" width="77" height="16"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="Nmj-uc-0ze"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1952,22 +1815,140 @@
                                             <action selector="openInfoAboutMaterials:" destination="OJB-LI-2yD" eventType="touchUpInside" id="1jz-72-SrM"/>
                                         </connections>
                                     </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EqE-hN-cvm">
+                                        <rect key="frame" x="299" y="406" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="pocketsSeamsSetUpSwitchStateChanged:" destination="OJB-LI-2yD" eventType="valueChanged" id="bjz-St-VhU"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проварка карманов швов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqK-59-E8x">
+                                        <rect key="frame" x="24" y="414" width="267" height="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Общая длинна кармана шва (м)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-CK-z7e">
+                                        <rect key="frame" x="24" y="445" width="327" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Kfp-bj-XQb"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="lengthPocketsSeamsCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="pu3-CY-2OS"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Количество люверсов в одном изделии (шт)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-FT-qh3">
+                                        <rect key="frame" x="24" y="341" width="324" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="r4E-2C-F9x"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="luversAmountOnOneProductCursorPosChanged:" destination="OJB-LI-2yD" eventType="editingChanged" id="jIS-bW-iUX"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOi-Pg-h0Z">
+                                        <rect key="frame" x="189" y="622" width="162" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="3Wq-YU-CFP"/>
+                                            <constraint firstAttribute="width" constant="162" id="yT2-eX-uv7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="15"/>
+                                        <state key="normal" title="Добавить в корзину">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="AddToCart:" destination="OJB-LI-2yD" eventType="touchUpInside" id="Alc-Aa-xhG"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVY-Rg-Y7I">
+                                        <rect key="frame" x="325" y="524" width="26" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="nzH-vy-Z8a"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="грн." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5O-0k-ujh">
+                                        <rect key="frame" x="325" y="548" width="26" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="I1B-vR-du4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiK-Gr-mfj">
+                                        <rect key="frame" x="309" y="524" width="8" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="xDt-JY-WFE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d10-7v-OUX">
+                                        <rect key="frame" x="309" y="548" width="8" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="EOq-TY-Lvt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIw-wp-ZCd">
+                                        <rect key="frame" x="264" y="524" width="37" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="Vg8-gb-Ixi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEs-4k-Fgg">
+                                        <rect key="frame" x="224" y="548" width="77" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="Nmj-uc-0ze"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="wOi-Pg-h0Z" firstAttribute="trailing" secondItem="c5O-0k-ujh" secondAttribute="trailing" id="0aM-Cj-a7q"/>
                                     <constraint firstItem="xDv-Is-p3N" firstAttribute="leading" secondItem="ZuN-xM-b3C" secondAttribute="trailing" id="2Kb-pM-A4q"/>
                                     <constraint firstItem="M8U-oJ-i4V" firstAttribute="trailing" secondItem="xDv-Is-p3N" secondAttribute="trailing" constant="2" id="2aM-bM-ciA"/>
+                                    <constraint firstItem="n2y-FT-qh3" firstAttribute="centerX" secondItem="ZuN-xM-b3C" secondAttribute="centerX" id="33h-Ll-Abq"/>
                                     <constraint firstItem="WXW-CK-z7e" firstAttribute="trailing" secondItem="WVY-Rg-Y7I" secondAttribute="trailing" id="3Ea-R5-mab"/>
                                     <constraint firstItem="EqE-hN-cvm" firstAttribute="top" secondItem="n2y-FT-qh3" secondAttribute="bottom" constant="20" id="6IL-y2-E5g"/>
                                     <constraint firstItem="ZuN-xM-b3C" firstAttribute="leading" secondItem="vAA-SR-xuq" secondAttribute="trailing" id="6Ki-ZL-IMV"/>
                                     <constraint firstItem="0h9-Ak-XfQ" firstAttribute="top" secondItem="kCS-AX-kLb" secondAttribute="top" constant="31" id="6Ww-Hy-7hx"/>
-                                    <constraint firstItem="JHa-7p-Mpx" firstAttribute="top" secondItem="kOa-JS-b5O" secondAttribute="bottom" constant="11" id="8Tx-Hd-PoQ"/>
-                                    <constraint firstItem="JHa-7p-Mpx" firstAttribute="leading" secondItem="n2y-FT-qh3" secondAttribute="leading" id="9uZ-cZ-KU1"/>
-                                    <constraint firstItem="JHa-7p-Mpx" firstAttribute="top" secondItem="76A-zx-mNz" secondAttribute="bottom" constant="6" id="AMq-iM-a3o"/>
                                     <constraint firstItem="n2y-FT-qh3" firstAttribute="trailing" secondItem="EqE-hN-cvm" secondAttribute="trailing" id="BOr-eM-OFc"/>
+                                    <constraint firstItem="n2y-FT-qh3" firstAttribute="top" secondItem="76A-zx-mNz" secondAttribute="bottom" constant="8" symbolic="YES" id="Bww-Mm-eNi"/>
                                     <constraint firstItem="0h9-Ak-XfQ" firstAttribute="leading" secondItem="M8U-oJ-i4V" secondAttribute="leading" id="Cqi-h0-MUV"/>
                                     <constraint firstItem="wOi-Pg-h0Z" firstAttribute="top" secondItem="c5O-0k-ujh" secondAttribute="bottom" constant="58" id="Cuu-2J-fG9"/>
-                                    <constraint firstItem="kOa-JS-b5O" firstAttribute="leading" secondItem="JHa-7p-Mpx" secondAttribute="leading" id="GZc-2b-FQK"/>
                                     <constraint firstItem="0h9-Ak-XfQ" firstAttribute="centerX" secondItem="kCS-AX-kLb" secondAttribute="centerX" constant="-2.5" id="Gt5-2d-wIw"/>
                                     <constraint firstItem="XiK-Gr-mfj" firstAttribute="baseline" secondItem="WVY-Rg-Y7I" secondAttribute="baseline" id="H9O-12-WhW"/>
                                     <constraint firstItem="XEs-4k-Fgg" firstAttribute="top" secondItem="RIw-wp-ZCd" secondAttribute="bottom" constant="8" id="Klm-JO-9HJ"/>
@@ -1979,31 +1960,29 @@
                                     <constraint firstItem="c5O-0k-ujh" firstAttribute="baseline" secondItem="d10-7v-OUX" secondAttribute="baseline" id="QTp-oc-btl"/>
                                     <constraint firstItem="XiK-Gr-mfj" firstAttribute="leading" secondItem="RIw-wp-ZCd" secondAttribute="trailing" constant="8" id="SV0-DL-ybi"/>
                                     <constraint firstItem="ZuN-xM-b3C" firstAttribute="centerX" secondItem="kCS-AX-kLb" secondAttribute="centerX" constant="-2" id="UOL-8s-UAR"/>
-                                    <constraint firstItem="JHa-7p-Mpx" firstAttribute="leading" secondItem="M8U-oJ-i4V" secondAttribute="leading" id="Unt-ei-9GA"/>
                                     <constraint firstItem="c5O-0k-ujh" firstAttribute="leading" secondItem="WVY-Rg-Y7I" secondAttribute="leading" id="XsJ-ux-ARv"/>
                                     <constraint firstItem="d10-7v-OUX" firstAttribute="leading" secondItem="XEs-4k-Fgg" secondAttribute="trailing" constant="8" id="YG9-B8-xuK"/>
-                                    <constraint firstItem="n2y-FT-qh3" firstAttribute="top" secondItem="JHa-7p-Mpx" secondAttribute="bottom" constant="8" id="ZS4-aj-OjU"/>
-                                    <constraint firstItem="JHa-7p-Mpx" firstAttribute="trailing" secondItem="n2y-FT-qh3" secondAttribute="trailing" id="c0N-fa-IQw"/>
-                                    <constraint firstAttribute="trailing" secondItem="wOi-Pg-h0Z" secondAttribute="trailing" constant="26" id="ciP-7u-WL2"/>
+                                    <constraint firstAttribute="trailing" secondItem="wOi-Pg-h0Z" secondAttribute="trailing" constant="24" id="ciP-7u-WL2"/>
                                     <constraint firstItem="XEs-4k-Fgg" firstAttribute="baseline" secondItem="d10-7v-OUX" secondAttribute="baseline" id="csx-2I-o9M"/>
                                     <constraint firstItem="0h9-Ak-XfQ" firstAttribute="leading" secondItem="kCS-AX-kLb" secondAttribute="leading" constant="23" id="eKz-d2-My2"/>
                                     <constraint firstItem="M8U-oJ-i4V" firstAttribute="leading" secondItem="vAA-SR-xuq" secondAttribute="leading" id="ewJ-cI-h4r"/>
-                                    <constraint firstItem="76A-zx-mNz" firstAttribute="trailing" secondItem="JHa-7p-Mpx" secondAttribute="trailing" constant="-2" id="f2o-PK-2SK"/>
                                     <constraint firstItem="SDD-73-lLn" firstAttribute="leading" secondItem="M8U-oJ-i4V" secondAttribute="trailing" constant="-45" id="gbz-cy-GCt"/>
+                                    <constraint firstItem="n2y-FT-qh3" firstAttribute="leading" secondItem="kOa-JS-b5O" secondAttribute="leading" constant="1" id="hzS-1R-5Io"/>
                                     <constraint firstItem="vAA-SR-xuq" firstAttribute="top" secondItem="M8U-oJ-i4V" secondAttribute="bottom" constant="40" id="i3p-bV-Ksg"/>
                                     <constraint firstItem="n2y-FT-qh3" firstAttribute="leading" secondItem="MqK-59-E8x" secondAttribute="leading" id="jMI-S2-BZG"/>
                                     <constraint firstItem="WVY-Rg-Y7I" firstAttribute="leading" secondItem="XiK-Gr-mfj" secondAttribute="trailing" constant="8" id="jYi-qn-U4r"/>
                                     <constraint firstItem="XiK-Gr-mfj" firstAttribute="leading" secondItem="d10-7v-OUX" secondAttribute="leading" id="kN7-Wu-TKV"/>
                                     <constraint firstItem="WXW-CK-z7e" firstAttribute="leading" secondItem="n2y-FT-qh3" secondAttribute="leading" id="l4C-hT-le0"/>
                                     <constraint firstItem="RIw-wp-ZCd" firstAttribute="top" secondItem="WXW-CK-z7e" secondAttribute="bottom" constant="34" id="myE-7B-hXe"/>
+                                    <constraint firstItem="n2y-FT-qh3" firstAttribute="top" secondItem="kOa-JS-b5O" secondAttribute="bottom" constant="13" id="o3P-Qr-c8r"/>
                                     <constraint firstItem="M8U-oJ-i4V" firstAttribute="top" secondItem="SDD-73-lLn" secondAttribute="bottom" constant="-42" id="oWO-XD-bus"/>
                                     <constraint firstItem="vAA-SR-xuq" firstAttribute="leading" secondItem="kOa-JS-b5O" secondAttribute="leading" id="p1q-8R-mpf"/>
                                     <constraint firstItem="WXW-CK-z7e" firstAttribute="top" secondItem="MqK-59-E8x" secondAttribute="bottom" constant="13" id="s4b-pH-gST"/>
                                     <constraint firstItem="M8U-oJ-i4V" firstAttribute="top" secondItem="0h9-Ak-XfQ" secondAttribute="bottom" constant="65" id="sQk-c8-N2R"/>
-                                    <constraint firstAttribute="bottom" secondItem="wOi-Pg-h0Z" secondAttribute="bottom" constant="25" id="tmU-P4-sfR"/>
+                                    <constraint firstAttribute="bottom" secondItem="wOi-Pg-h0Z" secondAttribute="bottom" constant="20" id="tmU-P4-sfR"/>
                                     <constraint firstItem="EqE-hN-cvm" firstAttribute="leading" secondItem="MqK-59-E8x" secondAttribute="trailing" constant="8" id="txt-RA-dL8"/>
-                                    <constraint firstItem="JHa-7p-Mpx" firstAttribute="trailing" secondItem="M8U-oJ-i4V" secondAttribute="trailing" id="wF7-Bl-gCX"/>
                                     <constraint firstItem="XiK-Gr-mfj" firstAttribute="baseline" secondItem="RIw-wp-ZCd" secondAttribute="baseline" id="yLF-LI-FUV"/>
+                                    <constraint firstItem="76A-zx-mNz" firstAttribute="trailing" secondItem="xDv-Is-p3N" secondAttribute="trailing" id="yjV-XV-che"/>
                                     <constraint firstItem="MqK-59-E8x" firstAttribute="leading" secondItem="WXW-CK-z7e" secondAttribute="leading" id="yzx-wt-C8h"/>
                                     <constraint firstItem="EqE-hN-cvm" firstAttribute="trailing" secondItem="WXW-CK-z7e" secondAttribute="trailing" constant="-3" id="zUM-EX-xLd"/>
                                 </constraints>
@@ -2032,7 +2011,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="800"/>
+                    <size key="freeformSize" width="375" height="745"/>
                     <connections>
                         <outlet property="AboutMaterialsButton" destination="SDD-73-lLn" id="aR3-dj-tay"/>
                         <outlet property="backgroundImageView" destination="zWU-Sd-d1D" id="rGW-FY-czL"/>
@@ -2043,7 +2022,6 @@
                         <outlet property="bannersNDSPrice" destination="d10-7v-OUX" id="yub-tH-HkW"/>
                         <outlet property="bannersPrice" destination="XiK-Gr-mfj" id="dT8-Ci-Ajj"/>
                         <outlet property="bannersWidthTextField" destination="vAA-SR-xuq" id="yY7-J6-xii"/>
-                        <outlet property="distanceBetweenLuvers" destination="JHa-7p-Mpx" id="GIh-C2-1O6"/>
                         <outlet property="leftImageViewConstraint" destination="UIV-I7-KHk" id="2rr-wh-xv8"/>
                         <outlet property="lengthPocketsSeams" destination="WXW-CK-z7e" id="ci0-rH-xMc"/>
                         <outlet property="luversAmountOnOneProduct" destination="n2y-FT-qh3" id="2yf-Er-aX0"/>

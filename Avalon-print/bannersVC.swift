@@ -10,6 +10,7 @@
 import UIKit
 import JTMaterialTransition 
 
+
 class bannersVC: UIViewController {
     
     
@@ -24,7 +25,6 @@ class bannersVC: UIViewController {
     @IBOutlet weak var bannersHeightTextField: HoshiTextField!
     @IBOutlet weak var luversSetUpSwitch: UISwitch!
     @IBOutlet weak var pocketsSeamsSetUpSwitch: UISwitch!
-    @IBOutlet weak var distanceBetweenLuvers: UITextField!
     @IBOutlet weak var luversAmountOnOneProduct: UITextField!
     @IBOutlet weak var lengthPocketsSeams: UITextField!
     @IBOutlet weak var bannersPrice: UILabel!
@@ -64,7 +64,7 @@ class bannersVC: UIViewController {
         
             mainScrollView.delegate = self
         
-            setTextFieldDelegates(sender: [bannersAmountTextField, bannersWidthTextField, bannersHeightTextField, bannersMaterialTextField, distanceBetweenLuvers, luversAmountOnOneProduct, lengthPocketsSeams])
+            setTextFieldDelegates(sender: [bannersAmountTextField, bannersWidthTextField, bannersHeightTextField, bannersMaterialTextField, luversAmountOnOneProduct, lengthPocketsSeams])
         
             applyMotionEffect(toView: backgroundImageView, magnitude: 25)
             setPickerTextFieldTint(sender: [bannersMaterialTextField])
@@ -82,7 +82,6 @@ class bannersVC: UIViewController {
             bannersAmountTextField.delegate = self
             luversAmountOnOneProduct.delegate = self
             lengthPocketsSeams.delegate = self
-            distanceBetweenLuvers.delegate = self
       
       oversizeAlert.addAction(okAction)
       
@@ -119,7 +118,7 @@ class bannersVC: UIViewController {
        
         
         if luversSetUpSwitch.isOn == true {
-          setupLuversCoreData = "Расстояние между люверсами (м): \(distanceBetweenLuvers.text!) \nКоличество люверсов в одном изделии (шт): \(luversAmountOnOneProduct.text!) "
+          setupLuversCoreData = "Количество люверсов в одном изделии (шт): \(luversAmountOnOneProduct.text!) "
           
         } else {
           
@@ -200,15 +199,6 @@ class bannersVC: UIViewController {
     }
 
  
-  @IBAction func distanceBetweenLuversCursorPosChanged(_ sender: Any) {
-    
-     bannersBoolVariables.distanceBetweenLuversSet = distanceBetweenLuvers.text!
-     updatePrices()
-    
-    if bannersAddToCartButton.titleLabel?.text == nameButt {
-      EnableButton()
-    }
-  }
   
   
   @IBAction func luversAmountOnOneProductCursorPosChanged(_ sender: Any) {
@@ -241,13 +231,11 @@ class bannersVC: UIViewController {
 
       if luversSetUpSwitch.isOn == true {
         
-        textfieldState(textField: distanceBetweenLuvers, state: true)
         textfieldState(textField: luversAmountOnOneProduct, state: true)
         
         
       } else {
         
-        textfieldState(textField: distanceBetweenLuvers, state: false)
         textfieldState(textField: luversAmountOnOneProduct, state: false)
         
       }
@@ -306,7 +294,7 @@ class bannersVC: UIViewController {
     bannersNDSPrice.text = bannersBoolVariables.ndsPriceToLabel
     
    
-    if bannersPrice.text == "0" || ( luversSetUpSwitch.isOn == true && (distanceBetweenLuvers.text == "" || luversAmountOnOneProduct.text == "" ) ||
+    if bannersPrice.text == "0" || ( luversSetUpSwitch.isOn == true && (luversAmountOnOneProduct.text == "" ) ||
       (pocketsSeamsSetUpSwitch.isOn == true && (lengthPocketsSeams.text == ""))) {
       
       UIView.animate(withDuration: 0.5, animations: {
