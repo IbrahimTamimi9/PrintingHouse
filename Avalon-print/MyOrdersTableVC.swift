@@ -20,10 +20,11 @@ class MyOrdersTableVC: UITableViewController {
   var ordersHistoryArray = [String]()
   var orderKeys = [String]()
   
+ // var createdAtStr = [String]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+  
      navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
      tableView.backgroundView = UIImageView(image: UIImage(named: "bucketAndPlaceOrderBGv3"))
       
@@ -41,11 +42,13 @@ class MyOrdersTableVC: UITableViewController {
         let userInfo = allOrders?["userInfo"] as? NSDictionary
         let uniqueIDofCustomer = userInfo?["userUniqueID"]  as? String ?? ""
         let orderInfo = allOrders?["orderInfo"] as? NSDictionary
-        let dateOfPlacement = orderInfo?["dateOfPlacement"]  as? String ?? ""
+        let dateOfPlacement = orderInfo?["dateOfPlacement"] as? String ?? ""
         let orderStatus = orderInfo?["orderStatus"] as? String ?? ""
         let fullPrice = orderInfo?["fullPrice"]  as? Double ?? 0.0
-      //let fullNDSPrice = orderInfo?["fullNDSPrice"]  as? Double ?? 0.0
-       
+        
+       //let createdAt = allOrders?["createdAt"] as? String ?? ""
+        //self.createdAtStr.append(createdAt)
+        //self.createdAtStr.reverse()
         
         if FIRAuth.auth()?.currentUser?.uid == uniqueIDofCustomer {
           
@@ -54,15 +57,18 @@ class MyOrdersTableVC: UITableViewController {
           self.orderKeys.append(keys)
         
           self.ordersHistoryArray.append("\nДата поступления заказа: \(dateOfPlacement)\n\nСтатус заказа: \(orderStatus)\n\nИтого к оплате: \(fullPrice) грн.")
-         
-          self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
+          
+          self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count - 1, section: 0)], with: UITableViewRowAnimation.automatic)
           
           }
+        
+       
        ARSLineProgress.hide()
       })
       
   }
 
+  
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 150.0
@@ -91,7 +97,9 @@ class MyOrdersTableVC: UITableViewController {
       cell.textLabel?.text = "\(orderKeys[indexPath.row])"
       
       cell.detailTextLabel?.text = ordersHistoryArray[indexPath.row]
-
+      
+      
+    
         return cell
     }
   

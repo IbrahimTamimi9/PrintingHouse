@@ -39,11 +39,9 @@ class bannersVC: UIViewController {
   
   let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 3.00м", preferredStyle: UIAlertControllerStyle.actionSheet)
   
-  
   let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
   
   let nameButt =  "В корзину"
-
   
   
     override func viewWillDisappear(_ animated: Bool) {
@@ -224,7 +222,7 @@ class bannersVC: UIViewController {
   
   
   @IBAction func luversSetUpSwitchStateChanged(_ sender: Any) {
-         updatePrices()
+    
       if bannersAddToCartButton.titleLabel?.text == nameButt {
          EnableButton()
       }
@@ -232,19 +230,24 @@ class bannersVC: UIViewController {
       if luversSetUpSwitch.isOn == true {
         
         textfieldState(textField: luversAmountOnOneProduct, state: true)
-        
+        bannersBoolVariables.luversSetUpSwitchIsOn = true
+       // updatePrices()
         
       } else {
         
         textfieldState(textField: luversAmountOnOneProduct, state: false)
-        
+        bannersBoolVariables.luversSetUpSwitchIsOn = false
+       // updatePrices()
       }
-      
+       //updatePrices()
+   // bannersComputings()
+     updatePrices()
+
     }
   
   
     @IBAction func pocketsSeamsSetUpSwitchStateChanged(_ sender: Any) {
-         updatePrices()
+      // updatePrices()
       if bannersAddToCartButton.titleLabel?.text == nameButt {
          EnableButton()
       }
@@ -252,13 +255,19 @@ class bannersVC: UIViewController {
       if pocketsSeamsSetUpSwitch.isOn == true {
         
         textfieldState(textField: lengthPocketsSeams, state: true)
+        bannersBoolVariables.pocketSeamsSwitchIsOn = true
+        
+       // bannersComputings()
         
       } else {
         
         textfieldState(textField: lengthPocketsSeams, state: false)
-        
+        bannersBoolVariables.pocketSeamsSwitchIsOn = false
+        // updatePrices()
+       
       }
-      
+     //  bannersComputings()
+       updatePrices()
     }
   
     

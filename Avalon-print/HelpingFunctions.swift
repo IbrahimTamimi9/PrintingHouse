@@ -193,9 +193,31 @@ func reset (page: String) {
         canvasBoolVariables.priceToLabel = "0"
         canvasBoolVariables.ndsPriceToLabel = "0"
     }
+  
+  if page == "banners" {
+    
+     bannersBoolVariables.amount = ""
+     bannersBoolVariables.amountDidNotInputed = true
+     bannersBoolVariables.materialDidnNotChosen = true
+    
+     bannersBoolVariables.laminatedBannerC = false
+     bannersBoolVariables.castBannerC = false
+     bannersBoolVariables.backlitC = false
+     bannersBoolVariables.meshC = false
+    
+    bannersBoolVariables.bannersWidhOrHeightDidNotInputed = true
+    bannersBoolVariables.bannersWidthSet = ""
+    bannersBoolVariables.bannersHeightSet = ""
+    bannersBoolVariables.luversAmountOnOneproductSet = ""
+    bannersBoolVariables.lengthPocketsSeams = ""
+    bannersBoolVariables.priceToLabel = "0"
+    bannersBoolVariables.ndsPriceToLabel = "0"
+    bannersBoolVariables.luversSetUpSwitchIsOn = false
+    bannersBoolVariables.pocketSeamsSwitchIsOn = false
+    
+  }
     
 }
-
 
 
 

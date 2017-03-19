@@ -45,41 +45,74 @@ struct postersBoolVariables {
     
    static var priceToLabel = String()
    static var ndsPriceToLabel = String()
-    
+  
+  static func resetMaterials() {
+      postersBoolVariables.materialDidnNotChosen = true
+      postersBoolVariables.cityC = false
+      postersBoolVariables.lomondC = false
+      postersBoolVariables.photoC = false
+
+  }
+  
+  static func resetPostprint() {
+    postersBoolVariables.withoutPostPrint = false
+    postersBoolVariables.gloss1_0C = false
+    postersBoolVariables.matt1_0C = false
+    postersBoolVariables.gloss1_1C = false
+    postersBoolVariables.matt1_1C = false
+  }
+  
 }
 
-   
+func getPosterPrice (materialPrice: Double , materialPrintPrice: Double, prepress: Double,  workPrepress: Double)  {
+  
+  var price = 0; //цена
+  let amount = postersBoolVariables.amount.doubleValue //количество
+  let custom_wi = postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot
+  let custom_he = postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot
+  let squareMeters = custom_he * custom_wi
+  
+  let currency_course = JSONVariables.USD
+  let NDS = JSONVariables.NDS
+  let overprice1 = JSONVariables.OVERPRICE1
+  let maxPercentOfDiscount = 19
+
+  
+  let materialPriceM2 = materialPrice
+  let materialPrintPriceM2 = materialPrintPrice
+  
+  ////MARK: POST PRINT
+  let prepressPrice =  prepress
+  let workPrepressPrice = workPrepress
+  
+  var prepressMaterial = Double() //просчет припреса
+  var prepressWork = Double()
+  
+  
+  
+      prepressMaterial = (squareMeters * prepressPrice) * amount
+      prepressWork = (squareMeters * workPrepressPrice) * amount
+  
+  let materialSum = materialPrintPriceM2 + materialPriceM2 * overprice1
+  let prepressSum = prepressMaterial + prepressWork
+  
+      price = Int(currency_course * ( (prepressSum) + amount * materialSum * squareMeters))
+  
+  
+  //MARK: DISCOUNT
+  if(price >= 150)  { price = (price - (price * 5)/100); }
+  if(price >= 2000) { price = (price - (price * 7)/100); }
+  if(price >= 4000) { price = (price - (price * 10)/100); }
+  if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
+  
+    postersBoolVariables.priceToLabel =  String(price)
+    postersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
+  
+}
+
 
     func computings() {
-        
-        //MARK:INSIDE INITIALIZING VARS
-        var price = 0; //цена
-        let amount = postersBoolVariables.amount.doubleValue //количество
-        let custom_wi = postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot
-        let custom_he = postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot
-        let squareMeters = custom_he * custom_wi
-        
-        var prepress_gloss_1_0 = Double() //просчет припреса
-        var work_prepress_gloss_1_0 = Double()
-        var prepress_mat_1_0 = Double() //просчет припреса
-        var work_prepress_mat_1_0 = Double()
-        
-        var prepress_gloss_1_1 = Double() //просчет припреса
-        var work_prepress_gloss_1_1 = Double()
-        
-        var prepress_mat_1_1 = Double() //просчет припреса
-        var work_prepress_mat_1_1 = Double()
-        
-        let maxPercentOfDiscount = 19
-        
-        //MARK: INITIALIZING FROM JSON
-        //MARK: GENERAL
-        let currency_course = JSONVariables.USD
-        let NDS = JSONVariables.NDS
-        let overprice1 = JSONVariables.OVERPRICE1
-        //double ovp_2 = 1.4;
-        
-        
+      
         //MARK: MATERIALS
         let city_material_m2 = JSONVariables.cityMaterialCost // 0.46
         let city_pricem2 =   JSONVariables.cityCostOfPrinting //3.7
@@ -102,8 +135,7 @@ struct postersBoolVariables {
         let mat_1_1 = JSONVariables.MAT1_1_MATERIAL //0.28
         let work_mat_1_1 = JSONVariables.MAT1_1_WORK //0.7
         
-  
-        
+      
          //MARK: CITY MATERIAL, VARIANTS START
         if( postersBoolVariables.materialDidnNotChosen == true || postersBoolVariables.amountDidNotInputed == true ||
             postersBoolVariables.postersWidhOrHeightDidNotInputed == true )  {
@@ -111,71 +143,46 @@ struct postersBoolVariables {
             postersBoolVariables.priceToLabel = "0"
             postersBoolVariables.ndsPriceToLabel = "0"
         }
-        
+    
+      
         
         if( postersBoolVariables.cityC == true && postersBoolVariables.withoutPostPrint == true)  {
             print("city + without post print")
-            
-            let materialSum = city_pricem2 + city_material_m2 * overprice1
-                price = Int(currency_course * amount * materialSum * squareMeters)
           
-        
+            getPosterPrice (materialPrice: city_material_m2, materialPrintPrice: city_pricem2, prepress: 0.0, workPrepress: 0.0)
 
         }
-
+  
         
         if( postersBoolVariables.cityC == true && postersBoolVariables.gloss1_0C == true)  {
             print("city + gloss1_0 chosen")
-            
-            let materialSum = city_pricem2 + city_material_m2 * overprice1
-                prepress_gloss_1_0 =  (squareMeters * gloss_1_0) * amount;
-                work_prepress_gloss_1_0 =  (squareMeters * work_gloss_1_0) * amount;
-            
-            let prepressSum = prepress_gloss_1_0 + work_prepress_gloss_1_0
-    
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+          
+            getPosterPrice(materialPrice: city_material_m2, materialPrintPrice: city_pricem2, prepress: gloss_1_0, workPrepress: work_gloss_1_0)
    
         }
-        
+      
         
         if ( postersBoolVariables.cityC == true && postersBoolVariables.matt1_0C == true) {
-            print("city + matt1_0 chosen")
-            
-            let materialSum = city_pricem2 + city_material_m2 * overprice1
-                prepress_mat_1_0 =  (squareMeters * mat_1_0) * amount;
-                work_prepress_mat_1_0 =  (squareMeters * work_mat_1_0) * amount;
-            
-            let prepressSum =  prepress_mat_1_0 + work_prepress_mat_1_0
-        
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+             print("city + matt1_0 chosen")
+          
+             getPosterPrice(materialPrice: city_material_m2, materialPrintPrice: city_pricem2, prepress: mat_1_0, workPrepress: work_mat_1_0)
             
          }
         
         
-        if (postersBoolVariables.cityC == true && postersBoolVariables.gloss1_1C == true) {
-            print("city + gloss1_1 chosen")
-            
-            let materialSum = city_pricem2 + city_material_m2 * overprice1
-                prepress_gloss_1_1 =  (squareMeters * gloss_1_1) * amount;
-                work_prepress_gloss_1_1 =  (squareMeters * work_gloss_1_1) * amount;
-            
-            let prepressSum = prepress_gloss_1_1 + work_prepress_gloss_1_1
-            
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+        if ( postersBoolVariables.cityC == true && postersBoolVariables.gloss1_1C == true) {
+             print("city + gloss1_1 chosen")
+          
+             getPosterPrice(materialPrice: city_material_m2, materialPrintPrice: city_pricem2, prepress: gloss_1_1, workPrepress: work_gloss_1_1)
             
         }
         
        
         if ( postersBoolVariables.cityC == true && postersBoolVariables.matt1_1C == true) {
-            print("city + matt1_1 chosen")
-            let materialSum = city_pricem2 + city_material_m2 * overprice1
-                prepress_mat_1_1 =  (squareMeters * mat_1_1) * amount;
-                work_prepress_mat_1_1 =  (squareMeters * work_mat_1_1) * amount;
-            
-            let prepressSum =  prepress_mat_1_1 + work_prepress_mat_1_1
-            
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-            
+             print("city + matt1_1 chosen")
+          
+             getPosterPrice(materialPrice: city_material_m2, materialPrintPrice: city_pricem2, prepress: mat_1_1, workPrepress: work_mat_1_1)
+          
         }
 
         
@@ -183,65 +190,40 @@ struct postersBoolVariables {
         
         if( postersBoolVariables.lomondC == true && postersBoolVariables.withoutPostPrint == true)  {
             print("lomond + without post print")
-            
-            let materialSum = lomond_price_m2 + lomond_material_m2// * overprice1
-                price = Int(currency_course * amount * materialSum * squareMeters)
+          
+            getPosterPrice(materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2, prepress: 0.0, workPrepress: 0.0)
             
         }
         
 
         if( postersBoolVariables.lomondC == true && postersBoolVariables.gloss1_0C == true)  {
             print("lomond + gloss1_0 chosen")
-            
-            let materialSum = lomond_price_m2 + lomond_material_m2// * overprice1
-                prepress_gloss_1_0 =  (squareMeters * gloss_1_0) * amount;
-                work_prepress_gloss_1_0 =  (squareMeters * work_gloss_1_0) * amount;
-            
-            let prepressSum = prepress_gloss_1_0 + work_prepress_gloss_1_0
-            
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+          
+            getPosterPrice(materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2, prepress: gloss_1_0, workPrepress: work_gloss_1_0)
         
         }
         
         
         if ( postersBoolVariables.lomondC == true && postersBoolVariables.matt1_0C == true) {
-            print("lomond + matt1_0 chosen")
-            
-            let materialSum = lomond_price_m2 + lomond_material_m2// * overprice1
-                prepress_mat_1_0 =  (squareMeters * mat_1_0) * amount;
-                work_prepress_mat_1_0 =  (squareMeters * work_mat_1_0) * amount;
-            
-            let prepressSum =  prepress_mat_1_0 + work_prepress_mat_1_0
-    
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-            
+             print("lomond + matt1_0 chosen")
+          
+             getPosterPrice(materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2, prepress: mat_1_0, workPrepress: work_mat_1_0)
+          
         }
         
         
-        if (postersBoolVariables.lomondC == true && postersBoolVariables.gloss1_1C == true) {
-            print("lomond + gloss1_1 chosen")
-            
-            let materialSum = lomond_price_m2 + lomond_material_m2// * overprice1
-                prepress_gloss_1_1 =  (squareMeters * gloss_1_1) * amount;
-                work_prepress_gloss_1_1 =  (squareMeters * work_gloss_1_1) * amount;
-            
-            let prepressSum = prepress_gloss_1_1 + work_prepress_gloss_1_1
-        
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+        if ( postersBoolVariables.lomondC == true && postersBoolVariables.gloss1_1C == true) {
+             print("lomond + gloss1_1 chosen")
+          
+             getPosterPrice(materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2, prepress: gloss_1_1, workPrepress: work_gloss_1_1)
         
         }
         
         
         if ( postersBoolVariables.lomondC == true && postersBoolVariables.matt1_1C == true) {
-            print("lomond + matt1_1 chosen")
-            
-            let materialSum = lomond_price_m2 + lomond_material_m2// * overprice1
-                prepress_mat_1_1 =  (squareMeters * mat_1_1) * amount;
-                work_prepress_mat_1_1 =  (squareMeters * work_mat_1_1) * amount;
-            
-            let prepressSum =  prepress_mat_1_1 + work_prepress_mat_1_1
-    
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+             print("lomond + matt1_1 chosen")
+          
+             getPosterPrice(materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2, prepress: mat_1_1, workPrepress: work_mat_1_1)
         
         }
         
@@ -250,79 +232,42 @@ struct postersBoolVariables {
         
         if( postersBoolVariables.photoC == true && postersBoolVariables.withoutPostPrint == true)  {
             print("photo paper 200gr/m2 + without post print")
-            
-            let materialSum = fotoPaper_price_m2 + fotoPaper_material_m2// * overprice1
-                price = Int(currency_course * amount * materialSum * squareMeters)
+          
+            getPosterPrice(materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2, prepress: 0.0, workPrepress: 0.0)
             
         }
 
         
         if( postersBoolVariables.photoC == true && postersBoolVariables.gloss1_0C == true)  {
             print("photo paper 200gr/m2 + gloss1_0 chosen")
-            
-            let materialSum = fotoPaper_price_m2 + fotoPaper_material_m2// * overprice1
-                prepress_gloss_1_0 =  (squareMeters * gloss_1_0) * amount;
-                work_prepress_gloss_1_0 =  (squareMeters * work_gloss_1_0) * amount;
-            
-            let prepressSum = prepress_gloss_1_0 + work_prepress_gloss_1_0
-        
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-            
+          
+            getPosterPrice(materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2, prepress: gloss_1_0, workPrepress: work_gloss_1_0)
+          
         }
         
         
         if ( postersBoolVariables.photoC == true && postersBoolVariables.matt1_0C == true) {
-            print("photo paper 200gr/m2 + matt1_0 chosen")
-            
-            let materialSum = fotoPaper_price_m2 + fotoPaper_material_m2// * overprice1
-                prepress_mat_1_0 =  (squareMeters * mat_1_0) * amount;
-                work_prepress_mat_1_0 =  (squareMeters * work_mat_1_0) * amount;
-            
-            let prepressSum =  prepress_mat_1_0 + work_prepress_mat_1_0
-    
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+             print("photo paper 200gr/m2 + matt1_0 chosen")
+          
+             getPosterPrice(materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2, prepress: mat_1_0, workPrepress: work_mat_1_0)
 
         }
         
         
-        if (postersBoolVariables.photoC == true && postersBoolVariables.gloss1_1C == true) {
-            print("photo paper 200gr/m2 + gloss1_1 chosen")
-            
-            let materialSum = fotoPaper_price_m2 + fotoPaper_material_m2// * overprice1
-                prepress_gloss_1_1 =  (squareMeters * gloss_1_1) * amount;
-                work_prepress_gloss_1_1 =  (squareMeters * work_gloss_1_1) * amount;
-            
-            let prepressSum = prepress_gloss_1_1 + work_prepress_gloss_1_1
-            
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
+        if ( postersBoolVariables.photoC == true && postersBoolVariables.gloss1_1C == true) {
+             print("photo paper 200gr/m2 + gloss1_1 chosen")
+          
+             getPosterPrice(materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2, prepress: gloss_1_1, workPrepress: work_gloss_1_1)
             
         }
         
         
         if ( postersBoolVariables.photoC == true && postersBoolVariables.matt1_1C == true) {
-            print("photo paper 200gr/m2 + matt1_1 chosen")
-            
-            let materialSum = fotoPaper_price_m2 + fotoPaper_material_m2// * overprice1
-                prepress_mat_1_1 =  (squareMeters * mat_1_1) * amount;
-                work_prepress_mat_1_1 =  (squareMeters * work_mat_1_1) * amount;
-            
-            let prepressSum =  prepress_mat_1_1 + work_prepress_mat_1_1
-        
-                price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-            
+             print("photo paper 200gr/m2 + matt1_1 chosen")
+          
+             getPosterPrice(materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2, prepress: mat_1_1, workPrepress: work_mat_1_1)
+          
         }
         
-        //MARK: DISCOUNT
-        if(price >= 150) { price = (price - (price * 5)/100); }
-        
-        if(price >= 2000) { price = (price - (price * 7)/100); }
-        
-        if(price >= 4000) { price = (price - (price * 10)/100); }
-        
-        if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-        
-        
-        postersBoolVariables.priceToLabel =  String(price)
-        postersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-        
+      
     }// func computings()

@@ -132,7 +132,7 @@ extension NSObject: Utilities{
 //        print ("Error signing out: %@", signOutError)
 //      }
       
-    checkInternetConnection()
+        checkInternetConnection()
    //   print("INEEEEEEEEEEEEEEEET", currentReachabilityStatus != .notReachable) //true connected
       
         bucketTransition = JTMaterialTransition(animatedView: button)
@@ -145,7 +145,8 @@ extension NSObject: Utilities{
         updateBadgeValue()
         registerCell()
         getVariablesFromJSON()
-     
+      
+  
   }
   
   func checkInternetConnection () {
@@ -320,20 +321,23 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
               let destination = storyboard?.instantiateViewController(withIdentifier: "bannersVC") as! bannersVC
                   navigationController?.pushViewController(destination, animated: true)
       
+             //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
+               reset(page: "banners")
+      
     }
     if indexPath.row == 2 {
       let destination = storyboard?.instantiateViewController(withIdentifier: "stickersVC") as! stickersVC
           navigationController?.pushViewController(destination, animated: true)
       
               //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-               reset(page: "stickers")
+                reset(page: "stickers")
     }
     if indexPath.row == 3 {
       let destination = storyboard?.instantiateViewController(withIdentifier: "canvasVC") as! canvasVC
           navigationController?.pushViewController(destination, animated: true)
       
               //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (canvasComputing.swift)
-              reset(page: "canvas")
+                reset(page: "canvas")
     }
     if indexPath.row == 4 {
       let destination = storyboard?.instantiateViewController(withIdentifier: "ContactsPageController") as! ContactsPageController

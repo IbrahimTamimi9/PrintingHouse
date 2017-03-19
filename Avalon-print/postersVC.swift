@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+import Firebase
 import JTMaterialTransition
 
 
@@ -42,13 +42,12 @@ import JTMaterialTransition
     @IBOutlet weak var xLetter: UILabel!
     let nameButt =  "В корзину"
     
-    //let aqua =  UIColor.init(red: 0.0/255.0, green: 140.0/255.0, blue: 255.0/255.0, alpha: 0.75)
-   // let snowColor =  UIColor(red: 255.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0/0.5)
     var materialInfoTransition = JTMaterialTransition()
     
 
     
     var data = ["Выберите материал...","CityLight Premium 140g/m2","Lomond Photo Paper 140g/m2","Фотобумага глянец/мат 200g/m2"]
+ 
     var postPrintData = ["Без постпечати","Припрес глянец 1+0","Припрес мат 1+0","Припрес глянец 1+1", "Припрес мат 1+1"]
     var materialPicker = UIPickerView()
     var postPrintPicker = UIPickerView()
@@ -66,11 +65,11 @@ import JTMaterialTransition
     override func viewDidAppear(_ animated: Bool) {
          leftImageViewConstraint.constant = -25
     }
-    
-
-    
+  
+  
     override  func viewDidLoad() {
         super.viewDidLoad()
+      
             managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
             applyMotionEffect(toView: backgroundImageView, magnitude: 25)
@@ -123,7 +122,7 @@ import JTMaterialTransition
         
         materialPicker.backgroundColor = UIColor.darkGray
         postPrintPicker.backgroundColor = UIColor.darkGray
-  
+      
     }
    
     
@@ -227,7 +226,8 @@ import JTMaterialTransition
     postersAddToCartButton.isUserInteractionEnabled = true
     postersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
     }
-    
+  
+  
     func errorsCheck() {
         if  ( postersMaterialTextField.text == data[0] ) {
             
@@ -330,124 +330,57 @@ extension postersVC: UIPickerViewDelegate {
         
     }
     
-    
-    
+  
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        materialPicker.tag = 0
-        postPrintPicker.tag = 1
+         materialPicker.tag = 0
+         postPrintPicker.tag = 1
 
         
         if pickerView.tag == 0 {
-            EnableButton()
-            
-            if row == 0 { print("didnotChosen")
-                postersBoolVariables.materialDidnNotChosen = true
-                postersBoolVariables.cityC = false
-                postersBoolVariables.lomondC = false
-                postersBoolVariables.photoC = false
-                //  postersAddToCartButton.isEnabled = false
-                
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel
-                updatePrices()
-            }
-            
-            
-            if row == 1 { print("city")
-                postersBoolVariables.materialDidnNotChosen = false
-                postersBoolVariables.cityC = true
-                postersBoolVariables.lomondC = false
-                postersBoolVariables.photoC = false
-                //  errorsCheck()
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel
-            }
-            
-            
-            if row == 2 { print("lomond")
-                postersBoolVariables.materialDidnNotChosen = false
-                postersBoolVariables.cityC = false
-                postersBoolVariables.lomondC = true
-                postersBoolVariables.photoC = false
-                //errorsCheck()
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-            if row == 3 { print("photo")
-                postersBoolVariables.materialDidnNotChosen = false
-                postersBoolVariables.cityC = false
-                postersBoolVariables.lomondC = false
-                postersBoolVariables.photoC = true
-                // errorsCheck()
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-            updatePrices()
-            return postersMaterialTextField.text = data[row]
+          
+               EnableButton()
+               postersBoolVariables.resetMaterials()
+          
+          switch row {
+          case 0:
+            postersBoolVariables.materialDidnNotChosen = true
+          case 1:
+            postersBoolVariables.cityC = true
+          case 2:
+            postersBoolVariables.lomondC = true
+          case 3:
+             postersBoolVariables.photoC = true
+          default: break
+          }
+ 
+          
+               updatePrices()
+        return postersMaterialTextField.text = data[row]
             
             
         } else if pickerView.tag == 1 {
-            EnableButton()
-            
-            if row == 0 { print("without post print");
-                postersBoolVariables.withoutPostPrint = true
-                postersBoolVariables.gloss1_0C = false
-                postersBoolVariables.matt1_0C = false
-                postersBoolVariables.gloss1_1C = false
-                postersBoolVariables.matt1_1C = false
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-            if row == 1 { print("gloss1_0");
-                postersBoolVariables.withoutPostPrint = false
-                postersBoolVariables.gloss1_0C = true
-                postersBoolVariables.matt1_0C = false
-                postersBoolVariables.gloss1_1C = false
-                postersBoolVariables.matt1_1C = false
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-            if row == 2 { print("mat1_0");
-                postersBoolVariables.withoutPostPrint = false
-                postersBoolVariables.gloss1_0C = false
-                postersBoolVariables.matt1_0C = true
-                postersBoolVariables.gloss1_1C = false
-                postersBoolVariables.matt1_1C = false
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-            if row == 3 { print("gloss1_1");
-                postersBoolVariables.withoutPostPrint = false
-                postersBoolVariables.gloss1_0C = false
-                postersBoolVariables.matt1_0C = false
-                postersBoolVariables.gloss1_1C = true
-                postersBoolVariables.matt1_1C = false
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-            if row == 4 { print("mat1_1");
-                postersBoolVariables.withoutPostPrint = false
-                postersBoolVariables.gloss1_0C = false
-                postersBoolVariables.matt1_0C = false
-                postersBoolVariables.gloss1_1C = false
-                postersBoolVariables.matt1_1C = true
-                computings()
-                postersPrice.text = postersBoolVariables.priceToLabel
-                postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel}
-            
-  
-            updatePrices()
-            return postersPostPrintTextField.text = postPrintData[row]
-        }
-        
-    }
+          
+               EnableButton()
+               postersBoolVariables.resetPostprint()
+          
+          switch row {
+          case 0:
+            postersBoolVariables.withoutPostPrint = true
+          case 1:
+            postersBoolVariables.gloss1_0C = true
+          case 2:
+             postersBoolVariables.matt1_0C = true
+          case 3:
+             postersBoolVariables.gloss1_1C = true
+          case 4:
+            postersBoolVariables.matt1_1C = true
+          default: break
+          }
 
+
+               updatePrices()
+        return postersPostPrintTextField.text = postPrintData[row]
+          
+        }
+    }
 }
