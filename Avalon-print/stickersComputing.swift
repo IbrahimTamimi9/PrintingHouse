@@ -30,34 +30,27 @@ struct stickersBoolVariables {
     
     static var priceToLabel = String()
     static var ndsPriceToLabel = String()
+  
+  
+  static func resetMaterials() {
+    stickersBoolVariables.materialDidnNotChosen = true
+    stickersBoolVariables.whiteStickerC = false
+    stickersBoolVariables.transparentStickerC = false
+    stickersBoolVariables.oneWayVisionC = false
     
+  }
+  
+  static func resetPostprint() {
+    stickersBoolVariables.withoutPostPrint = false
+    stickersBoolVariables.coldLaminationC = false
+    
+  }
+  
 }
 
 func stickersComputings() {
-    
-    //MARK:INSIDE INITIALIZING VARS
-    var price = 0; //цена
-    let amount = stickersBoolVariables.amount.doubleValue //количество
-    
-    let custom_wi = stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot
-    let custom_he = stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot
-    let squareMeters = custom_he * custom_wi
-    
-    var coldLam = Double() //просчет припреса
-    var work_coldLam = Double()
-    
-    let maxPercentOfDiscount = 19
-    //
-    
-    
-    //MARK: INITIALIZING FROM JSON
-    //MARK: GENERAL
-    let currency_course = JSONVariables.USD
-    let NDS = JSONVariables.NDS
-    let overprice1 = JSONVariables.OVERPRICE1
-    //double ovp_2 = 1.4;
-    
-    
+ 
+  
     //MARK: MATERIALS
     let WhiteGlossMatt_material_m2 = JSONVariables.oracalWhiteGlossMattMaterialCost// cityMaterialCost // 0.46
     let WhiteGlossMatt_pricem2 =   JSONVariables.oracalWhiteGlossMattCostOfPrinting
@@ -71,8 +64,8 @@ func stickersComputings() {
     //MARK: POST PRINT
     let lamination_cold =  JSONVariables.COLD_LAM_MATERIAL
     let work_lamination_cold = JSONVariables.COLD_LAM_WORK
-    
-    
+    let materialTitle = "stickers"
+  
     
     //MARK: CITY MATERIAL, VARIANTS START
     if( stickersBoolVariables.materialDidnNotChosen == true || stickersBoolVariables.amountDidNotInputed == true ||
@@ -81,97 +74,57 @@ func stickersComputings() {
         stickersBoolVariables.priceToLabel = "0"
         stickersBoolVariables.ndsPriceToLabel = "0"
     }
-    
-    
+  
     
     if( stickersBoolVariables.whiteStickerC == true && stickersBoolVariables.withoutPostPrint == true)  {
         print("WhiteGlossMatt + without post print")
-        
-        let materialSum = WhiteGlossMatt_pricem2 + WhiteGlossMatt_material_m2 //* overprice1
-            price = Int(currency_course * amount * materialSum * squareMeters)
-        
+      
+      getPosterStickerPrice(title: materialTitle, materialPrice: WhiteGlossMatt_material_m2, materialPrintPrice: WhiteGlossMatt_pricem2,
+                            prepress: 0.0, workPrepress: 0.0)
     }
     
     
     if( stickersBoolVariables.whiteStickerC == true && stickersBoolVariables.coldLaminationC == true)  {
         print("WhiteGlossMatt + cold lam chosen")
-        
-        let materialSum = WhiteGlossMatt_pricem2 + WhiteGlossMatt_material_m2 //* overprice1
-            coldLam =  (squareMeters * lamination_cold) * amount;
-            work_coldLam =  (squareMeters * work_lamination_cold) * amount;
-        
-        let prepressSum = coldLam + work_coldLam
-        
-            price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-        
+      
+      getPosterStickerPrice(title: materialTitle, materialPrice: WhiteGlossMatt_material_m2, materialPrintPrice: WhiteGlossMatt_pricem2,
+                            prepress: lamination_cold, workPrepress: work_lamination_cold)
     }
-    
     
     
     //MARK: LOMOND MATERIAL, VARIANTS START
     
-    
     if( stickersBoolVariables.transparentStickerC == true && stickersBoolVariables.withoutPostPrint == true)  {
         print("TransparentGlossMatt + without post print")
-        
-        let materialSum = TransparentGlossMatt_price_m2 + TransparentGlossMatt_material_m2// * overprice1
-            price = Int(currency_course * amount * materialSum * squareMeters)
+      
+       getPosterStickerPrice(title: materialTitle, materialPrice: TransparentGlossMatt_material_m2, materialPrintPrice: TransparentGlossMatt_price_m2,
+                             prepress: 0.0, workPrepress: 0.0)
     }
-    
-    
+  
     
     if( stickersBoolVariables.transparentStickerC == true && stickersBoolVariables.coldLaminationC == true)  {
         print("TransparentGlossMatt + cold lam chosen")
-        
-        let materialSum = TransparentGlossMatt_price_m2 + TransparentGlossMatt_material_m2// * overprice1
-            coldLam =  (squareMeters * lamination_cold) * amount;
-            work_coldLam =  (squareMeters * work_lamination_cold) * amount;
-        
-        let prepressSum = coldLam + work_coldLam
-
-            price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-        
+      
+      getPosterStickerPrice(title: materialTitle, materialPrice: TransparentGlossMatt_material_m2, materialPrintPrice: TransparentGlossMatt_price_m2,
+                            prepress: lamination_cold, workPrepress: work_lamination_cold)
     }
     
     
     //MARK: photo paper 200gr/m2 MATERIAL, VARIANTS START
-    
-    
+  
     if( stickersBoolVariables.oneWayVisionC == true && stickersBoolVariables.withoutPostPrint == true)  {
         print("oneWayVision + without post print")
-        
-        let materialSum = oneWayVision_price_m2 + oneWayVision_material_m2  * overprice1
-            price = Int(currency_course * amount * materialSum * squareMeters)
-        
+      
+      getPosterStickerPrice(title: materialTitle, materialPrice: oneWayVision_material_m2, materialPrintPrice: oneWayVision_price_m2,
+                            prepress: 0.0, workPrepress: 0.0)
     }
     
     
     if( stickersBoolVariables.oneWayVisionC == true && stickersBoolVariables.coldLaminationC == true)  {
         print("oneWayVision + cold lam chosen")
-        
-        let materialSum = oneWayVision_price_m2 + oneWayVision_material_m2  * overprice1
-            coldLam =  (squareMeters * lamination_cold) * amount;
-            work_coldLam =  (squareMeters * work_lamination_cold) * amount;
-        
-        let prepressSum = coldLam + work_coldLam
-        
-            price = Int(currency_course * (prepressSum + amount * materialSum * squareMeters))
-        
+      
+      getPosterStickerPrice(title: materialTitle, materialPrice: oneWayVision_material_m2, materialPrintPrice: oneWayVision_price_m2,
+                            prepress: lamination_cold, workPrepress: work_lamination_cold)
     }
-    
-    
-    //MARK: DISCOUNT
-    if(price >= 150) { price = (price - (price * 5)/100); }
-    
-    if(price >= 2000) { price = (price - (price * 7)/100); }
-    
-    if(price >= 4000) { price = (price - (price * 10)/100); }
-    
-    if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
-    
-
-    stickersBoolVariables.priceToLabel =  String(price)
-    stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
-
-    
+  
 }// func computings()

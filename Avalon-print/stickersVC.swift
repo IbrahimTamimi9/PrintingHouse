@@ -270,8 +270,6 @@ class stickersVC: UIViewController {
 }
 
 
-
-
 extension stickersVC: UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -294,95 +292,55 @@ extension stickersVC: UIPickerViewDataSource {
     
 }
 
+
 extension stickersVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        materialPicker.tag = 0
-        postPrintPicker.tag = 1
+         materialPicker.tag = 0
+         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
-            EnableButton()
-            
-            if row == 0 { print("didnotChosen");
-                stickersBoolVariables.materialDidnNotChosen = true
-                
-                stickersBoolVariables.whiteStickerC = false
-                stickersBoolVariables.transparentStickerC = false
-                stickersBoolVariables.oneWayVisionC = false
-                
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
-                updatePrices()
-                
-            }
-            
-            if row == 1 { print("white stickers");
-                stickersBoolVariables.materialDidnNotChosen = false
-                stickersBoolVariables.whiteStickerC = true
-                stickersBoolVariables.transparentStickerC = false
-                stickersBoolVariables.oneWayVisionC = false
-                //  errorsCheck()
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
-            }
-            
-            if row == 2 { print("transparent stickers");
-                stickersBoolVariables.materialDidnNotChosen = false
-                stickersBoolVariables.whiteStickerC = false
-                stickersBoolVariables.transparentStickerC = true
-                stickersBoolVariables.oneWayVisionC = false
-                //errorsCheck()
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            if row == 3 { print("one way vision");
-                stickersBoolVariables.materialDidnNotChosen = false
-                stickersBoolVariables.whiteStickerC = false
-                stickersBoolVariables.transparentStickerC = false
-                stickersBoolVariables.oneWayVisionC = true
-                // errorsCheck()
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            updatePrices()
-            return stickersMaterialTextField.text = data[row]
+          
+             EnableButton()
+             stickersBoolVariables.resetMaterials()
+          
+      switch row {
+          case 0:
+             stickersBoolVariables.materialDidnNotChosen = true
+          case 1:
+             stickersBoolVariables.whiteStickerC = true
+          case 2:
+             stickersBoolVariables.transparentStickerC = true
+          case 3:
+             stickersBoolVariables.oneWayVisionC = true
+          default: break
+          }
+    
+             updatePrices()
+      return stickersMaterialTextField.text = data[row]
             
             
         } else if pickerView.tag == 1 {
-            EnableButton()
-            
-            
-            if row == 0 { print("without post print");
-                stickersBoolVariables.withoutPostPrint = true
-                stickersBoolVariables.coldLaminationC = false
-                
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            if row == 1 { print("cold lamination");
-                stickersBoolVariables.withoutPostPrint = false
-                stickersBoolVariables.coldLaminationC = true
-                
-                stickersComputings()
-                stickersPrice.text = stickersBoolVariables.priceToLabel
-                stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel}
-            
-            updatePrices()
-            return stickersPostPrintTextField.text = postPrintData[row]
-        }
-        
+          
+             EnableButton()
+             stickersBoolVariables.resetPostprint()
+          
+      switch row {
+          case 0:
+             stickersBoolVariables.withoutPostPrint = true
+          case 1:
+             stickersBoolVariables.coldLaminationC = true
+          default: break
+          }
+          
+             updatePrices()
+      return stickersPostPrintTextField.text = postPrintData[row]
     }
+  }
     
-    
-    
+  
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
-        materialPicker.tag = 0
-        postPrintPicker.tag = 1
+         materialPicker.tag = 0
+         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
             let pickerLabel = UILabel()
@@ -403,21 +361,13 @@ extension stickersVC: UIPickerViewDelegate {
     }
 }
 
+
 extension stickersVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
     }
-    
 }
-
-
-
-
-
-
-
-
 
 
 
