@@ -111,7 +111,7 @@ class UserProfile: UITableViewController {
     }
    
     if indexPath.row == 3 {
-      cell.textLabel?.text = "Обратная связь"
+      cell.textLabel?.text = "Онлайн поддержка"
     }
     
     if indexPath.row == 4 {
@@ -181,7 +181,7 @@ class UserProfile: UITableViewController {
     let mainUserData = snapshot.value as? NSDictionary
   
     
-    if let userNameSurname = mainUserData?["nameSurname"] as? String  {
+    if let userNameSurname = mainUserData?["name"] as? String  {
       self.initialImageView.setImageWithName(name: userNameSurname, randomColor: true)
       
       self.nameLabel.text = userNameSurname
@@ -209,7 +209,11 @@ class UserProfile: UITableViewController {
           let destination = storyboard?.instantiateViewController(withIdentifier: "UpdateUserProfile") as! UpdateUserProfile
           navigationController?.pushViewController(destination, animated: true)
         }
-          if indexPath.row == 3 { }
+         if indexPath.row == 3 {
+          let newMessageController = MessagesController()
+        
+          self.navigationController?.pushViewController(newMessageController, animated: true)
+      }
           
           if indexPath.row == 4 { }
           

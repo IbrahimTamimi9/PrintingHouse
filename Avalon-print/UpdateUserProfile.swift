@@ -57,7 +57,7 @@ class UpdateUserProfile: UIViewController {
     
     if let newName = nameSurname!.text {
       
-      userRef.updateChildValues(["nameSurname" : newName ], withCompletionBlock: {(error, reference)   in
+      userRef.updateChildValues(["name" : newName ], withCompletionBlock: {(error, reference)   in
         
         if error == nil{
           
@@ -183,7 +183,7 @@ class UpdateUserProfile: UIViewController {
       
       let mainUserData = snapshot.value as? NSDictionary
       
-      if let userNameSurname = mainUserData?["nameSurname"] as? String  {
+      if let userNameSurname = mainUserData?["name"] as? String  {
         self.nameSurname.text = userNameSurname
       
       }

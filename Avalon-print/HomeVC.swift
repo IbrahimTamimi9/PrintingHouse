@@ -124,17 +124,9 @@ extension NSObject: Utilities{
  
     override func viewDidLoad() {
         super.viewDidLoad()
-//      let firebaseAuth = FIRAuth.auth()
-//      do {
-//        try firebaseAuth?.signOut()
-//        dismiss(animated: true, completion: nil)
-//      } catch let signOutError as NSError {
-//        print ("Error signing out: %@", signOutError)
-//      }
-      
-        checkInternetConnection()
-   //   print("INEEEEEEEEEEEEEEEET", currentReachabilityStatus != .notReachable) //true connected
-      
+
+      checkInternetConnection()
+  
         bucketTransition = JTMaterialTransition(animatedView: button)
         profileButtonTransition = JTMaterialTransition(animatedView: profileButton)
       
@@ -145,16 +137,14 @@ extension NSObject: Utilities{
         updateBadgeValue()
         registerCell()
         getVariablesFromJSON()
-      
-  
   }
+  
   
   func checkInternetConnection () {
     
     if  currentReachabilityStatus != .notReachable {
       //true connected
-      
-      
+    
     } else {
       //no internet
       let alertController = UIAlertController(title: "Ошибка подключения к интернету", message: "Для совершения покупок, пожалуйста, подключитесь к интернету.", preferredStyle: .alert)
@@ -261,8 +251,7 @@ extension NSObject: Utilities{
           self.present(controller!, animated: true, completion: nil)
         }
       }
-      
-      }
+    }
   }
 
 

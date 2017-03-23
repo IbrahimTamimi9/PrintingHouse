@@ -238,7 +238,7 @@ class checkoutFormVC: UIViewController {
       
       let mainUserData = snapshot.value as? NSDictionary
       
-      if let userNameSurname = mainUserData?["nameSurname"] as? String  {
+      if let userNameSurname = mainUserData?["name"] as? String  {
         self.nameSurnameTF.text = userNameSurname
      
       }

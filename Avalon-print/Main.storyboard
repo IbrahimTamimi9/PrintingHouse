@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dD-5A-3iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3110" y="265"/>
+            <point key="canvasLocation" x="3110" y="1006"/>
         </scene>
         <!--Password ResetVC-->
         <scene sceneID="xLl-Rw-I8J">
@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xmw-Eo-50m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4319" y="672"/>
+            <point key="canvasLocation" x="5730" y="672"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="ghZ-h6-BO5">
@@ -635,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6j-cT-Y5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5039" y="672"/>
+            <point key="canvasLocation" x="6622" y="672"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="xoW-dS-CdB">
@@ -843,7 +843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sm7-at-3p5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4678" y="-54"/>
+            <point key="canvasLocation" x="6094" y="-54"/>
         </scene>
         <!--Главная страница-->
         <scene sceneID="F3B-r2-y2G">
@@ -891,7 +891,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grA-si-H78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5497" y="-53"/>
+            <point key="canvasLocation" x="6862" y="-54"/>
         </scene>
         <!--Корзина-->
         <scene sceneID="bPW-RN-ndd">
@@ -1095,7 +1095,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99h-Ya-poB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7047.1999999999998" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="7646" y="-91"/>
         </scene>
         <!--Оформление заказа-->
         <scene sceneID="oNK-Y4-Sio">
@@ -1381,7 +1381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu1-cs-n1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7711.1999999999998" y="-90.854572713643179"/>
+            <point key="canvasLocation" x="8465" y="-91"/>
         </scene>
         <!-- Плакаты-->
         <scene sceneID="df0-Cb-iZh">
@@ -3093,7 +3093,7 @@ Life  (093) 000-18-64
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a79-QC-46F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4678" y="-817"/>
+            <point key="canvasLocation" x="6094" y="-817"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JhR-lI-G0n">
@@ -3117,7 +3117,7 @@ Life  (093) 000-18-64
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30j-gl-QyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5497" y="-817"/>
+            <point key="canvasLocation" x="6863" y="-817"/>
         </scene>
         <!--Custom Navigation Controller-->
         <scene sceneID="4zI-x5-ivF">

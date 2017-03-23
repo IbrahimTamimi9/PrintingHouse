@@ -12,8 +12,7 @@ import Firebase
 import JTMaterialTransition
 
 
- class postersVC:  UIViewController {
-
+ class postersVC: UIViewController {
 
     @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -40,7 +39,7 @@ import JTMaterialTransition
     @IBOutlet weak var ndsPriceLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var xLetter: UILabel!
-    let nameButt =  "В корзину"
+    let nameButt = "В корзину"
     
     var materialInfoTransition = JTMaterialTransition()
     
@@ -179,8 +178,6 @@ import JTMaterialTransition
             
             self.present(navigationController, animated: true, completion: nil)
             
-            
-            
         } else {
             
             let newItem = AddedItems(context: managedObjextContext)
@@ -272,8 +269,6 @@ import JTMaterialTransition
 }
 
 
-
-
 extension postersVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -281,7 +276,6 @@ extension postersVC: UITextFieldDelegate {
     }
     
 }
-
 
 
 extension postersVC: UIPickerViewDataSource {
@@ -302,7 +296,6 @@ extension postersVC: UIPickerViewDataSource {
     }
     
 }
-
 
 
 extension postersVC: UIPickerViewDelegate {
@@ -376,7 +369,6 @@ extension postersVC: UIPickerViewDelegate {
             postersBoolVariables.matt1_1C = true
           default: break
           }
-
 
                updatePrices()
         return postersPostPrintTextField.text = postPrintData[row]
