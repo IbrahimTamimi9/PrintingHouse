@@ -19,10 +19,10 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
     
     lazy var inputTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter message..."
+        textField.placeholder = "Сообщение..."
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
-        return textField
+            return textField
     }()
     
     let uploadImageView: UIImageView = {
@@ -34,7 +34,8 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
     }()
     
     let sendButton = UIButton(type: .system)
-    
+  
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -47,8 +48,8 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         uploadImageView.widthAnchor.constraint(equalToConstant: 44).isActive = true
         uploadImageView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
-        
-        sendButton.setTitle("Send", for: UIControlState())
+     
+        sendButton.setImage(UIImage(named: "send"), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         
         //what is handleSend?
@@ -57,7 +58,7 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         //x,y,w,h
         sendButton.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         sendButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        sendButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        sendButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
         sendButton.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         
         addSubview(self.inputTextField)

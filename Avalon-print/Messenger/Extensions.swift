@@ -26,13 +26,7 @@ extension UIImageView {
         //otherwise fire off a new download
         let url = URL(string: urlString)//URL(string: urlString)
       
-     // URLSession.shared.dataTask(with: url!) { (data, response, error) in
-      //  <#code#>
-      //}
-     // URLSession.shared.dataTask(with: url!) { (data, response, error) in
-       // <#code#>
-      //}
-      
+        
       
       
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -53,6 +47,7 @@ extension UIImageView {
             })
             
         }.resume()
+      
     }
 }
 

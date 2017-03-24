@@ -79,7 +79,7 @@ class NewMessageController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72
+        return 88
     }
     
     var messagesController: MessagesController?

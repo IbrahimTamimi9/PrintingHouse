@@ -45,6 +45,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                     //scroll to the last index
                     let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
                     self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                  
                 })
                 
                 }, withCancel: nil)
@@ -58,9 +59,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-//        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+//      collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)

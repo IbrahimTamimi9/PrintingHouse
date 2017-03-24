@@ -32,11 +32,18 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class MessagesController: UITableViewController {
 
     let cellId = "cellId"
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
+    observeUserMessages()
+
+  }
     override func viewDidLoad() {
         super.viewDidLoad()
+    
      
-      navigationItem.title = "Диалоги"
+      navigationItem.title = "Чат"
       navigationController?.navigationBar.tintColor = UIColor.white
       
     
@@ -49,11 +56,13 @@ class MessagesController: UITableViewController {
       
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
-       observeUserMessages()
-        
+      
         tableView.allowsMultipleSelectionDuringEditing = true
-    }
+      
     
+
+    }
+  
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -132,7 +141,7 @@ class MessagesController: UITableViewController {
             }
             
             }, withCancel: nil)
-    }
+         }
     
     fileprivate func attemptReloadOfTable() {
         self.timer?.invalidate()
@@ -164,12 +173,13 @@ class MessagesController: UITableViewController {
         
         let message = messages[(indexPath as NSIndexPath).row]
         cell.message = message
-        
+
+      
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72
+        return 88
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
