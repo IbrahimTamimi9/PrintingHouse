@@ -32,35 +32,27 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class MessagesController: UITableViewController {
 
     let cellId = "cellId"
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    observeUserMessages()
-
-  }
-    override func viewDidLoad() {
+ 
+     override func viewDidLoad() {
         super.viewDidLoad()
-    
-     
+      
+      observeUserMessages()
+      
       navigationItem.title = "Чат"
       navigationController?.navigationBar.tintColor = UIColor.white
       
     
-     navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+      navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
       
       let image = UIImage(named: "new_message_icon")
+      
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(handleNewMessage))
         
         checkIfUserIsLoggedIn()
       
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
-        
       
         tableView.allowsMultipleSelectionDuringEditing = true
-      
-    
-
     }
   
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -170,14 +162,28 @@ class MessagesController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
+      
+      cell.profileImageView.alpha = 0
+      cell.textLabel?.alpha = 0
+      cell.detailTextLabel?.alpha = 0
+      cell.timeLabel.alpha = 0
         
         let message = messages[(indexPath as NSIndexPath).row]
         cell.message = message
 
       
+      
+      UIView.animate(withDuration: 0.15, animations: {
+        cell.profileImageView.alpha = 1
+        cell.textLabel?.alpha = 1
+        cell.detailTextLabel?.alpha = 1
+        cell.timeLabel.alpha = 1
+      })
+
         return cell
     }
-    
+
+  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }
@@ -219,88 +225,11 @@ class MessagesController: UITableViewController {
            // fetchUserAndSetupNavBarTitle()
         }
     }
-  
-//    func fetchUserAndSetupNavBarTitle() {
-//        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
-//            //for some reason uid = nil
-//            return
-//        }
-//        
-//        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//            
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-////                self.navigationItem.title = dictionary["name"] as? String
-//                
-//                let user = User()
-//                user.setValuesForKeys(dictionary)
-//              //  self.setupNavBarWithUser(user)
-//            }
-//            
-//            }, withCancel: nil)
-//    }
-  
-//    func setupNavBarWithUser(_ user: User) {
-//        messages.removeAll()
-//        messagesDictionary.removeAll()
-//        tableView.reloadData()
-//        
-//        observeUserMessages()
-//        
-//        let titleView = UIView()
-//        titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
-//       // titleView.backgroundColor = UIColor.white
-//        
-//        let containerView = UIView()
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        titleView.addSubview(containerView)
-//        
-//        let profileImageView = UIImageView()
-//        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-//        profileImageView.contentMode = .scaleAspectFill
-//        profileImageView.layer.cornerRadius = 20
-//        profileImageView.clipsToBounds = true
-//        if let profileImageUrl = user.profileImageUrl {
-//            profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
-//        }
-//        
-//        containerView.addSubview(profileImageView)
-//        
-//        //ios 9 constraint anchors
-//        //need x,y,width,height anchors
-//        profileImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-//        profileImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-//        profileImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-//        profileImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        
-//        let nameLabel = UILabel()
-//            nameLabel.textColor = UIColor.white
-//        
-//        containerView.addSubview(nameLabel)
-//        nameLabel.text = user.name
-//        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-//        //need x,y,width,height anchors
-//        nameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
-//        nameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
-//        nameLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
-//        nameLabel.heightAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
-//        
-//        containerView.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
-//        containerView.centerYAnchor.constraint(equalTo: titleView.centerYAnchor).isActive = true
-//        
-//        self.navigationItem.titleView = titleView
-//        
-////        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChatController)))
-//    }
+ 
   
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
         chatLogController.user = user
         navigationController?.pushViewController(chatLogController, animated: true)
     }
-    
-  //  func handleBack() {
-        // self.pop dismiss(animated: true, completion: nil)
-      
-//}
 }
-

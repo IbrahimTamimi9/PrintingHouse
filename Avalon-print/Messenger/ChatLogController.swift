@@ -10,67 +10,196 @@ import UIKit
 import Firebase
 import MobileCoreServices
 import AVFoundation
+import FirebaseStorage
+import ESPullToRefresh
+
+
+
 
 class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var user: User? {
         didSet {
             navigationItem.title = user?.name
-            
             observeMessages()
         }
     }
-    
+  
+  
+    let cellId = "cellId"
     var messages = [Message]()
-    
-    func observeMessages() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
-            return
-        }
-        
-        let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
-        userMessagesRef.observe(.childAdded, with: { (snapshot) in
-            
-            let messageId = snapshot.key
-            let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
-            messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                guard let dictionary = snapshot.value as? [String: AnyObject] else {
-                    return
-                }
-                
-                self.messages.append(Message(dictionary: dictionary))
-                DispatchQueue.main.async(execute: {
-                    self.collectionView?.reloadData()
-                    //scroll to the last index
-                    let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
-                    self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
-                  
-                })
-                
-                }, withCancel: nil)
-            
-            }, withCancel: nil)
+    var finishKey = [String]()
+  
+
+  
+  
+  func observeMessages() {
+    guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
+      return
     }
     
+    let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
+    userMessagesRef.queryLimited(toLast: 15).observe(.childAdded, with: { (snapshot) in
+      
+      print("FIRST !!!!")
+      let messageId = snapshot.key
+      let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
+      messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        guard let dictionary = snapshot.value as? [String: AnyObject] else {
+          return
+        }
+        
+        self.messages.append(Message(dictionary: dictionary))
+      
+        var res:[Message] = []
+        self.messages.forEach { (p) -> () in
+          if !res.contains (where: { $0.timestamp == p.timestamp }) {
+            res.append(p)
+            self.messages.removeAll()
+            self.messages.append(contentsOf: res)
+          }
+        }
+
+//        self.messages.sort(by: { (message1, message2) -> Bool in
+//          return message2.timestamp as! Int > message1.timestamp as! Int
+//        })
+        
+        
+        DispatchQueue.main.async(execute: {
+          self.collectionView?.reloadData()
+          let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+          self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        })
+        
+      }, withCancel: nil)
+      
+    }, withCancel: nil)
     
     
-    let cellId = "cellId"
+  }
+  
+  
+  func loadPreviousMessages () {
     
+    guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
+      return
+    }
+    
+    var count = 15
+    let numberOfPreviousMessages = 15
+    let messagesLimit = messages.count + count
+    
+    var userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
+       .queryOrderedByKey()
+       .queryLimited(toLast: UInt(messagesLimit))
+    
+    
+    if !finishKey.isEmpty {
+          userMessagesRef = userMessagesRef.queryEnding(atValue: finishKey[0])
+          count += numberOfPreviousMessages
+  }
+    
+  
+    userMessagesRef.observe(.childAdded, with: { (snapshot) in
+      
+     // self.messages.removeAll(keepingCapacity: true)
+    
+      let messageId = snapshot.key
+  
+//      if messageId == messageId {
+//        print("EQUALSSSS!!! TO DELETE")
+//      }
+      
+      let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
+     
+          messagesRef.observeSingleEvent( of: .value, with: { (snapshot) in
+ 
+            
+      guard let dictionary = snapshot.value as? [String: AnyObject] else {
+          return
+        }
+        
+        
+      self.messages.append(Message(dictionary: dictionary))
+
+             //  print("\n","1111111DONE", self.messages , "\n\n")
+//            struct Post {
+//              var id: Int
+//            }
+            
+            //let posts = [Post(id: 1),Post(id: 2),Post(id: 1),Post(id: 3),Post(id: 4),Post(id: 2)]
+            
+            // (1)
+            var res:[Message] = []
+            self.messages.forEach { (p) -> () in
+              if !res.contains (where: { $0.timestamp == p.timestamp }) {
+                res.append(p)
+                self.messages.removeAll()
+                self.messages.append(contentsOf: res)
+              }
+            }
+           // print("\n\n","DONE", res, "\n\n")
+    
+            
+      self.messages.sort(by: { (message1, message2) -> Bool in
+        
+          return message2.timestamp as! Int > message1.timestamp as! Int
+      })
+       
+        
+        DispatchQueue.main.async(execute: {
+           self.collectionView?.reloadData()
+        // let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+        // self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        })
+
+      }, withCancel: nil)
+      
+    }, withCancel: nil)
+    
+  }
+
+  //скроллы
+  //чтоб оставалось там же после обновы,
+  //чтоб не скролило при мервом запуске
+ 
+  
+
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+      print("view did load")
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
 //      collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
-        
         collectionView?.keyboardDismissMode = .interactive
-            
-        setupKeyboardObservers()
-    }
+  
+       setupKeyboardObservers()
+      
+      
+     
+      
+      
+      
+      
+   _ = collectionView?.es_addPullToRefresh  {
+      [weak  self] in
+        
+       // self?.observeMessageIndexes()
+    //self?.observeMessages()
+        
+      self?.loadPreviousMessages()
+        
+        self?.collectionView?.es_stopPullToRefresh()
+        
     
+      }
+    }
+  
+  
     lazy var inputContainerView: ChatInputContainerView = {
         let chatInputContainerView = ChatInputContainerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         chatInputContainerView.chatLogController = self
@@ -299,6 +428,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
             cell.messageImageView.isHidden = false
             cell.bubbleView.backgroundColor = UIColor.clear
+          
         } else {
             cell.messageImageView.isHidden = true
         }
@@ -307,7 +437,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout()
     }
-    
+  
+ 
+  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var height: CGFloat = 80
@@ -444,16 +576,3 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

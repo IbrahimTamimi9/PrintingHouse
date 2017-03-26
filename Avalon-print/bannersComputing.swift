@@ -67,8 +67,8 @@ func bannersComputings () {
   let backlitBannerMaterialM2 = JSONVariables.backlitBannerMaterialCost
   let backlitBannerPriceM2 = JSONVariables.backlitBannerCostOfPrinting
   
-  let meshBannerMaterialM2 = JSONVariables.meshBannerMaterialCost
-  let meshBannerPriceM2 = JSONVariables.meshBannerCostOfPrinting
+  //let meshBannerMaterialM2 = JSONVariables.meshBannerMaterialCost
+  //let meshBannerPriceM2 = JSONVariables.meshBannerCostOfPrinting
   
 ////MARK: POST PRINT
 //  

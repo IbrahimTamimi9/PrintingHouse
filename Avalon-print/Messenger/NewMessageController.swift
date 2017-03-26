@@ -93,11 +93,3 @@ class NewMessageController: UITableViewController {
     }
 
 }
-
-
-
-
-
-
-
-
