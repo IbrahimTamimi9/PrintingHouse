@@ -173,7 +173,7 @@ class MessagesController: UITableViewController {
 
       
       
-      UIView.animate(withDuration: 0.15, animations: {
+      UIView.animate(withDuration: 0.1, animations: {
         cell.profileImageView.alpha = 1
         cell.textLabel?.alpha = 1
         cell.detailTextLabel?.alpha = 1
