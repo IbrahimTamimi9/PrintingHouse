@@ -14,8 +14,23 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         didSet {
             sendButton.addTarget(chatLogController, action: #selector(ChatLogController.handleSend), for: .touchUpInside)
             uploadImageView.addGestureRecognizer(UITapGestureRecognizer(target: chatLogController, action: #selector(ChatLogController.handleUploadTap)))
-        }
+            inputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+               }
     }
+  
+  
+  func textFieldDidChange(_ textField: UITextField) {
+        if inputTextField.text == nil || inputTextField.text == "" {
+          sendButton.isEnabled = false
+        } else {
+          sendButton.isEnabled = true
+        }
+
+    
+  }
+  
+  
+  
     
     lazy var inputTextField: UITextField = {
         let textField = UITextField()
@@ -51,6 +66,7 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
      
         sendButton.setImage(UIImage(named: "send"), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
+        sendButton.isEnabled = false
         
         //what is handleSend?
         
@@ -60,6 +76,7 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         sendButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         sendButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
         sendButton.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+      
         
         addSubview(self.inputTextField)
         //x,y,w,h

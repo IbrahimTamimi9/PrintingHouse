@@ -1,9 +1,9 @@
 //
 //  ChatLogController.swift
-//  gameofchats
+//  Avalon-print
 //
-//  Created by Brian Voong on 7/7/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
+//  Created by Roman Mizin on 3/25/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
 import UIKit
@@ -79,38 +79,21 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         }
         
         self.messages.append(Message(dictionary: dictionary))
-//      
-//        var res:[Message] = []
-//        self.messages.forEach { (p) -> () in
-//          if !res.contains (where: { $0.timestamp == p.timestamp }) {
-//            res.append(p)
-//            self.messages.removeAll()
-//            self.messages.append(contentsOf: res)
-//          }
-//        }
-        
-       // self.messages.removeDuplicates()
-        
-        // DispatchQueue.main.async(execute: {
-//          
-//          UIView.performWithoutAnimation {
-//            
-//          }
-              self.collectionView?.reloadData()
-              let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
-              self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: self.onlyForNewMessages)
 
-//        })
+        self.collectionView?.reloadData()
+        let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+        self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: self.onlyForNewMessages)
         
-      }, withCancel: nil)
+      })
       
-    }, withCancel: nil)
+    })
     
   }
 
   
   var firstIdTaken = false
   var firstLoadIdTaken = false
+ 
  
   
   func loadPreviousMessages () {
@@ -164,18 +147,23 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
           return message2.timestamp as! Int > message1.timestamp as! Int
       })
 
-//            
        DispatchQueue.main.async(execute: {
-//         
+        
           self.collectionView?.reloadData()
-          let indexPath = IndexPath(item: 14, section: 0)
-          self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: false)
-//
+        
+          let contentSize = self.collectionView?.collectionViewLayout.collectionViewContentSize
+        
+        if (contentSize?.height)! > (self.collectionView?.bounds.size.height)! {
+          
+          //let indexPath = IndexPath(item: 14, section: 0)
+         // self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: false)
+          
+          }
+
         })
-           
 
       }, withCancel: nil)
-     //  self.reloadCollectionView(self.collectionView!)
+   
     }, withCancel: nil)
 
   }
@@ -189,28 +177,21 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }
   
   
- 
-  
-//  func reloadCollectionView(_ collectionView: UICollectionView) {
-//    let contentOffset = collectionView.contentOffset
-//    collectionView.reloadData()
-//    collectionView.layoutIfNeeded()
-//    
-//    collectionView.setContentOffset(contentOffset, animated: false) //(contentOffset, animated: false)
-//  }
-//  
+
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      print("didLoad")
+     
+        setupKeyboardObservers()
+      
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         //collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
-        //collectionView?.alwaysBounceVertical = true
+        collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.keyboardDismissMode = .interactive
       
-        setupKeyboardObservers()
+      
       
     _ = collectionView?.es_addPullToRefresh  {
          [weak  self] in
@@ -223,6 +204,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         }
       
       }
+  
+  
 
   
     lazy var inputContainerView: ChatInputContainerView = {
@@ -231,28 +214,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         return chatInputContainerView
     }()
   
-  /*
-   
-   
-   CGSize contentSize = [self.collectionView.collectionViewLayout collectionViewContentSize];
-   if (contentSize.height > self.collectionView.bounds.size.height) {
-   
-   */
-  
-//  override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//    let contentSize = self.collectionView?.collectionViewLayout.collectionViewContentSize
-//    
-//    
-//    if Double((contentSize?.height)!) > Double((self.collectionView?.bounds.size.height)!) {
-//      print(contentSize?.height , self.collectionView?.bounds.size.height)
-//      
-//    if  indexPath.row < 3 {
-//      // call loadMore function.
-//      self.firstIdTaken = false
-//      loadPreviousMessages()
-//      }
-//    }
-//  }
+ 
     func handleUploadTap() {
         let imagePickerController = UIImagePickerController()
         
@@ -401,15 +363,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
   
-//  override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//    if 0 == indexPath.row {
-//      UIView.performWithoutAnimation {
-//        collectionView.es_startPullToRefresh()
-//      }
-//    }
-//  }
-  
-  
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -448,7 +401,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         cell.chatLogController = self
         
-        let message = messages[(indexPath as NSIndexPath).item]
+        let message = messages[(indexPath as IndexPath).item]
         
         cell.message = message
         
@@ -545,6 +498,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
   
     func handleSend() {
+      inputContainerView.sendButton.isEnabled = false
         let properties = ["text": inputContainerView.inputTextField.text!]
         sendMessageWithProperties(properties as [String : AnyObject])
     }
@@ -557,6 +511,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
   
     fileprivate func sendMessageWithProperties(_ properties: [String: AnyObject]) {
+      
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         let toId = user!.id!

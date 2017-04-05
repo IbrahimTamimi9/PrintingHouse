@@ -20,7 +20,7 @@ class MyOrdersTableVC: UITableViewController {
   var ordersHistoryArray = [String]()
   var orderKeys = [String]()
   
- // var createdAtStr = [String]()
+ 
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +46,6 @@ class MyOrdersTableVC: UITableViewController {
         let orderStatus = orderInfo?["orderStatus"] as? String ?? ""
         let fullPrice = orderInfo?["fullPrice"]  as? Double ?? 0.0
         
-       //let createdAt = allOrders?["createdAt"] as? String ?? ""
-        //self.createdAtStr.append(createdAt)
-        //self.createdAtStr.reverse()
         
         if FIRAuth.auth()?.currentUser?.uid == uniqueIDofCustomer {
           
@@ -103,6 +100,7 @@ class MyOrdersTableVC: UITableViewController {
         return cell
     }
   
+  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let cell:UITableViewCell? = tableView.cellForRow(at: indexPath)
     
@@ -119,10 +117,13 @@ class MyOrdersTableVC: UITableViewController {
       
   }
  
+    
+    
     let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersDetailTableVC") as! MyOrdersDetailTableVC
         navigationController?.pushViewController(destination, animated: true)
     
   }
+  
   
   
   func checkInternetConnectionForFutureActivityIndicatorBehavior () {

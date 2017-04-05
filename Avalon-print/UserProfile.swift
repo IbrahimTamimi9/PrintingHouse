@@ -18,6 +18,7 @@ class UserProfile: UITableViewController {
    let headerView = UIView()
   
    var nameLabel = UILabel()
+   var emailLabel = UILabel()
   
    var nameToImage = ""
   
@@ -37,8 +38,6 @@ class UserProfile: UITableViewController {
   }
   
   
-  
-  
   @IBAction func BackButtonClicked(_ sender: Any) {
       dismiss(animated: true, completion: nil)
     }
@@ -51,7 +50,7 @@ class UserProfile: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    return 6
+    return 5
   }
   
   
@@ -59,16 +58,22 @@ class UserProfile: UITableViewController {
    
     headerView.backgroundColor = UIColor.white
     
-    let yPositionLabel = (96 - 15)/2
-    let yPositionImage = (headerView.frame.height + 30)/2
+    let yPositionLabel = 30
+    let yPositionImage = 16
 
     
     initialImageView.frame =  CGRect(x: 10, y: yPositionImage, width: 65, height: 65)
+    
     nameLabel.frame =  CGRect(x: Int(initialImageView.frame.width + 20), y: yPositionLabel, width: 200, height: 20)
     nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+    
+    emailLabel.frame =  CGRect(x: Int(initialImageView.frame.width + 20), y: yPositionLabel + 20, width: 200, height: 20)
+    emailLabel.font = UIFont.systemFont(ofSize: 13)
+    emailLabel.textColor = UIColor.gray
 
     headerView.addSubview(initialImageView)
     headerView.addSubview(nameLabel)
+    headerView.addSubview(emailLabel)
     
     return headerView
   }
@@ -113,12 +118,12 @@ class UserProfile: UITableViewController {
     if indexPath.row == 3 {
       cell.textLabel?.text = "Онлайн поддержка"
     }
+//    
+//    if indexPath.row == 4 {
+//      cell.textLabel?.text = "Уведомления"
+//    }
     
     if indexPath.row == 4 {
-      cell.textLabel?.text = "Уведомления"
-    }
-      
-    if indexPath.row == 5 {
       cell.textLabel?.textColor = UIColor.red
       cell.textLabel?.text = "Выйти"
       cell.accessoryType = .none
@@ -182,7 +187,7 @@ class UserProfile: UITableViewController {
   
     
     if let userNameSurname = mainUserData?["name"] as? String  {
-      self.initialImageView.setImageWithName(name: userNameSurname, randomColor: true)
+      self.initialImageView.setImageWithName(name: userNameSurname, randomColor: false)
       
       self.nameLabel.text = userNameSurname
 
@@ -191,14 +196,21 @@ class UserProfile: UITableViewController {
         cell.alpha = 1
         ARSLineProgress.hide() })
      }
+    
+    if let userEmail = mainUserData?["email"] as? String  {
+      //self.initialImageView.setImageWithName(name: userNameSurname, randomColor: false)
+      
+      self.emailLabel.text = userEmail
+      
+    }
+    
+    
+    
    })
   }
-  
  
   
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  
-      
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 1 {
           let destination = storyboard?.instantiateViewController(withIdentifier: "MyOrdersTableVC") as! MyOrdersTableVC
