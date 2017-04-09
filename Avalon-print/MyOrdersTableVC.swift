@@ -55,6 +55,9 @@ class MyOrdersTableVC: UITableViewController {
         
           self.ordersHistoryArray.append("\nДата поступления заказа: \(dateOfPlacement)\n\nСтатус заказа: \(orderStatus)\n\nИтого к оплате: \(fullPrice) грн.")
           
+          
+         
+          
           self.tableView.insertRows(at: [IndexPath(row: self.ordersHistoryArray.count - 1, section: 0)], with: UITableViewRowAnimation.automatic)
           
           }

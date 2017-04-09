@@ -6,11 +6,10 @@
 //  Copyright © 2016 Roman Mizin. All rights reserved.
 
 
-
 import UIKit
 import Firebase
 import JTMaterialTransition
-
+import FirebaseDatabase
 
  class postersVC: UIViewController {
 
@@ -42,15 +41,10 @@ import JTMaterialTransition
     let nameButt = "В корзину"
     
     var materialInfoTransition = JTMaterialTransition()
-    
-
-    
-    var data = ["Выберите материал...","CityLight Premium 140g/m2","Lomond Photo Paper 140g/m2","Фотобумага глянец/мат 200g/m2"]
- 
-    var postPrintData = ["Без постпечати","Припрес глянец 1+0","Припрес мат 1+0","Припрес глянец 1+1", "Припрес мат 1+1"]
+  
     var materialPicker = UIPickerView()
     var postPrintPicker = UIPickerView()
-    
+  
     let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
     
     let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 0.6м", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -65,10 +59,12 @@ import JTMaterialTransition
          leftImageViewConstraint.constant = -25
     }
   
-  
+ 
     override  func viewDidLoad() {
         super.viewDidLoad()
       
+        fetchMaterialsAndPostprint(productType: "Posters", postprintTypes: "")
+  
             managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
             applyMotionEffect(toView: backgroundImageView, magnitude: 25)
@@ -111,8 +107,8 @@ import JTMaterialTransition
         postersMaterialTextField.inputView = materialPicker
         postersPostPrintTextField.inputView = postPrintPicker
         
-        postersMaterialTextField.text = data[0]
-        postersPostPrintTextField.text = postPrintData[0]
+        postersMaterialTextField.text = materialsDictionary[0].title
+        postersPostPrintTextField.text = postPrintDictionary[0].title
     
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
@@ -226,23 +222,23 @@ import JTMaterialTransition
   
   
     func errorsCheck() {
-        if  ( postersMaterialTextField.text == data[0] ) {
-            
-        } else if (postersMaterialTextField.text == data[1] && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 1.591 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 1.591) {
-            
-            self.present(oversizeAlert, animated: true, completion: nil)
-            postersWidthTextField.text = ""
-            postersBoolVariables.postersWidthSet = postersWidthTextField.text!
-            updatePrices()
-            
-            
-        } else if ( (postersMaterialTextField.text == data[2] || postersMaterialTextField.text == data[3]) && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 0.61 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 0.61 ) {
-            self.present(oversizeAlertSmall, animated: true, completion: nil)
-            postersWidthTextField.text = ""
-            postersBoolVariables.postersWidthSet = postersWidthTextField.text!
-            updatePrices()
-
-        }
+//        if  ( postersMaterialTextField.text == data[0] ) {
+//            
+//        } else if (postersMaterialTextField.text == data[1] && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 1.591 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 1.591) {
+//            
+//            self.present(oversizeAlert, animated: true, completion: nil)
+//            postersWidthTextField.text = ""
+//            postersBoolVariables.postersWidthSet = postersWidthTextField.text!
+//            updatePrices()
+//            
+//            
+//        } else if ( (postersMaterialTextField.text == data[2] || postersMaterialTextField.text == data[3]) && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 0.61 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 0.61 ) {
+//            self.present(oversizeAlertSmall, animated: true, completion: nil)
+//            postersWidthTextField.text = ""
+//            postersBoolVariables.postersWidthSet = postersWidthTextField.text!
+//            updatePrices()
+//
+//        }
     }
     
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
@@ -288,9 +284,11 @@ extension postersVC: UIPickerViewDataSource {
         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
-            return data.count
+            return materialsDictionary.count
+          
+          
         } else if pickerView.tag == 1 {
-            return postPrintData.count
+            return  postPrintDictionary.count
         }
         return 1
     }
@@ -306,21 +304,21 @@ extension postersVC: UIPickerViewDelegate {
         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
+          
             let pickerLabel = UILabel()
             pickerLabel.textColor = UIColor.white
-            pickerLabel.text = data[row]
+            pickerLabel.text = materialsDictionary[row].title
             pickerLabel.font = UIFont.systemFont(ofSize: 17)
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel
         } else {
             let pickerLabel = UILabel()
             pickerLabel.textColor = UIColor.white
-            pickerLabel.text = postPrintData[row]
+            pickerLabel.text = postPrintDictionary[row].title
             pickerLabel.font = UIFont.systemFont(ofSize: 17)
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel
         }
-        
     }
     
   
@@ -331,47 +329,24 @@ extension postersVC: UIPickerViewDelegate {
         
         if pickerView.tag == 0 {
           
-               EnableButton()
-               postersBoolVariables.resetMaterials()
+            EnableButton()
           
-          switch row {
-          case 0:
-            postersBoolVariables.materialDidnNotChosen = true
-          case 1:
-            postersBoolVariables.cityC = true
-          case 2:
-            postersBoolVariables.lomondC = true
-          case 3:
-             postersBoolVariables.photoC = true
-          default: break
-          }
- 
+            priceData.materialPrice = materialsDictionary[row].matPrice
+            priceData.printPrice = materialsDictionary[row].printPrice
           
                updatePrices()
-        return postersMaterialTextField.text = data[row]
+        return postersMaterialTextField.text = materialsDictionary[row].title
             
             
         } else if pickerView.tag == 1 {
           
-               EnableButton()
-               postersBoolVariables.resetPostprint()
+          EnableButton()
+  
+          priceData.postPrintMaterialPrice = postPrintDictionary[row].materialCost
+          priceData.postPrintWorkPrice = postPrintDictionary[row].costOfWork
           
-          switch row {
-          case 0:
-            postersBoolVariables.withoutPostPrint = true
-          case 1:
-            postersBoolVariables.gloss1_0C = true
-          case 2:
-             postersBoolVariables.matt1_0C = true
-          case 3:
-             postersBoolVariables.gloss1_1C = true
-          case 4:
-            postersBoolVariables.matt1_1C = true
-          default: break
-          }
-
                updatePrices()
-        return postersPostPrintTextField.text = postPrintData[row]
+        return postersPostPrintTextField.text =  postPrintDictionary[row].title
           
         }
     }

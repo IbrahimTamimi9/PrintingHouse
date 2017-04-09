@@ -64,7 +64,7 @@ func stickersComputings() {
     //MARK: POST PRINT
     let lamination_cold =  JSONVariables.COLD_LAM_MATERIAL
     let work_lamination_cold = JSONVariables.COLD_LAM_WORK
-    let materialTitle = "stickers"
+    let materialTitle = "Stickers"
   
     
     //MARK: CITY MATERIAL, VARIANTS START

@@ -53,6 +53,7 @@ class MessagesController: UITableViewController {
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
       
         tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.separatorInset = .init(top: 0, left: 85, bottom: 0, right: 0)
     }
   
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

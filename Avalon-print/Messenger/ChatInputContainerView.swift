@@ -25,8 +25,6 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         } else {
           sendButton.isEnabled = true
         }
-
-    
   }
   
   

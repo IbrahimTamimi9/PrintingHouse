@@ -23,61 +23,34 @@ extension String {
     }
 }
 
-//MARK: SHOWS IF ELEMENTS IN postersMaterialVC.swift, postersPostPrintVC.swift, postersAmountAndSizeVC CHECKED OR NOT
+//MARK: SHOWS IF ELEMENTS IN postersVC.swift SELECTED OR NOT
 struct postersBoolVariables {
     static var amount = ""
     static var amountDidNotInputed = true
-    
-   static var materialDidnNotChosen = true
-   static var cityC = false
-   static var lomondC = false
-   static var photoC = false
 
    static var postersWidhOrHeightDidNotInputed = true
    static var postersWidthSet = ""
    static var postersHeightSet = ""
-    
-   static var withoutPostPrint = false
-   static var gloss1_0C = false
-   static var matt1_0C = false
-   static var gloss1_1C = false
-   static var matt1_1C = false
-    
+  
    static var priceToLabel = String()
    static var ndsPriceToLabel = String()
-  
-  static func resetMaterials() {
-      postersBoolVariables.materialDidnNotChosen = true
-      postersBoolVariables.cityC = false
-      postersBoolVariables.lomondC = false
-      postersBoolVariables.photoC = false
-
-  }
-  
-  static func resetPostprint() {
-    postersBoolVariables.withoutPostPrint = false
-    postersBoolVariables.gloss1_0C = false
-    postersBoolVariables.matt1_0C = false
-    postersBoolVariables.gloss1_1C = false
-    postersBoolVariables.matt1_1C = false
-  }
   
 }
 
 func getPosterStickerPrice (title: String, materialPrice: Double , materialPrintPrice: Double, prepress: Double,  workPrepress: Double)  {
   
-  var price = 0; //цена
-  var amount = Double()// postersBoolVariables.amount.doubleValue //количество
-  var custom_wi = Double()//postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot
-  var custom_he = Double()//postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot
+  var price = 0 //цена
+  var amount = Double()
+  var custom_wi = Double()
+  var custom_he = Double()
   
-  if title == "posters" {
+  if title == "Posters" {
      amount = postersBoolVariables.amount.doubleValue //количество
      custom_wi = postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot
      custom_he = postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot
   }
   
-  if title == "stickers" {
+  if title == "Stickers" {
      amount = stickersBoolVariables.amount.doubleValue //количество
      custom_wi = stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot
      custom_he = stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot
@@ -118,12 +91,12 @@ func getPosterStickerPrice (title: String, materialPrice: Double , materialPrint
   if(price >= 8000) { price = (price - (price * maxPercentOfDiscount)/100); }
   
   
-  if title == "posters" {
+  if title == "Posters" {
      postersBoolVariables.priceToLabel =  String(price)
      postersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
   }
   
-  if title == "stickers" {
+  if title == "Stickers" {
      stickersBoolVariables.priceToLabel =  String(price)
      stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
   }
@@ -132,164 +105,36 @@ func getPosterStickerPrice (title: String, materialPrice: Double , materialPrint
 }
 
 
+
     func computings() {
       
+      let materialTitle = "Posters"
+    
         //MARK: MATERIALS
-        let city_material_m2 = JSONVariables.cityMaterialCost // 0.46
-        let city_pricem2 =   JSONVariables.cityCostOfPrinting //3.7
-        
-        let lomond_material_m2 = JSONVariables.lomondMaterialCost // 0.78
-        let lomond_price_m2 = JSONVariables.lomondCostOfPrinting //6.0
-        
-        let fotoPaper_material_m2 = JSONVariables.photo200MaterialCost //4.0
-        let fotoPaper_price_m2 = JSONVariables.photo200CostOfPrinting //8.0
-        
-        
-        //MARK: POST PRINT
-        let gloss_1_0 =  JSONVariables.GLOSS1_0_MATERIAL// 0.13
-        let work_gloss_1_0 = JSONVariables.GLOSS1_0_WORK //0.5
-        let mat_1_0 =  JSONVariables.MAT1_0_MATERIAL //0.14
-        let work_mat_1_0 = JSONVariables.MAT1_0_WORK //0.5
-        
-        let gloss_1_1 =   JSONVariables.GLOSS1_1_MATERIAL //0.26
-        let work_gloss_1_1 = JSONVariables.GLOSS1_1_WORK //0.7
-        let mat_1_1 = JSONVariables.MAT1_1_MATERIAL //0.28
-        let work_mat_1_1 = JSONVariables.MAT1_1_WORK //0.7
-        let materialTitle = "posters"
-        
+      let materialPrice = priceData.materialPrice
+      let printPrice = priceData.printPrice
+      
+      //MARK: POST PRINT
+      let postPrintMaterialPrice = priceData.postPrintMaterialPrice
+      let postPrintWorkPrice = priceData.postPrintWorkPrice
+    
       
          //MARK: CITY MATERIAL, VARIANTS START
-        if( postersBoolVariables.materialDidnNotChosen == true || postersBoolVariables.amountDidNotInputed == true ||
-            postersBoolVariables.postersWidhOrHeightDidNotInputed == true )  {
+      if( postersBoolVariables.amountDidNotInputed == true || postersBoolVariables.postersWidhOrHeightDidNotInputed == true )  {
             
             postersBoolVariables.priceToLabel = "0"
             postersBoolVariables.ndsPriceToLabel = "0"
-        }
-    
+          
+        } else if (materialPrice == 0.0 || printPrice == 0.0) && (postPrintMaterialPrice != 0.0 || postPrintWorkPrice != 0.0) {
+        
+          postersBoolVariables.priceToLabel = "0"
+          postersBoolVariables.ndsPriceToLabel = "0"
+      } else {
+        
+        getPosterStickerPrice (title: materialTitle,
+                               materialPrice: materialPrice, materialPrintPrice: printPrice,
+                               prepress: postPrintMaterialPrice, workPrepress: postPrintWorkPrice)
+      }
       
-        
-        if( postersBoolVariables.cityC == true && postersBoolVariables.withoutPostPrint == true)  {
-            print("city + without post print")
-          
-            getPosterStickerPrice (title: materialTitle, materialPrice: city_material_m2, materialPrintPrice: city_pricem2,
-                                   prepress: 0.0, workPrepress: 0.0)
-        }
-  
-        
-        if( postersBoolVariables.cityC == true && postersBoolVariables.gloss1_0C == true)  {
-            print("city + gloss1_0 chosen")
-          
-            getPosterStickerPrice (title: materialTitle, materialPrice: city_material_m2, materialPrintPrice: city_pricem2,
-                                   prepress: gloss_1_0, workPrepress: work_gloss_1_0)
-        }
-    
-        
-        if ( postersBoolVariables.cityC == true && postersBoolVariables.matt1_0C == true) {
-             print("city + matt1_0 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: city_material_m2, materialPrintPrice: city_pricem2,
-                                    prepress: mat_1_0, workPrepress: work_mat_1_0)
-         }
-        
-        
-        if ( postersBoolVariables.cityC == true && postersBoolVariables.gloss1_1C == true) {
-             print("city + gloss1_1 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: city_material_m2, materialPrintPrice: city_pricem2,
-                                    prepress: gloss_1_1, workPrepress: work_gloss_1_1)
-        }
-        
-       
-        if ( postersBoolVariables.cityC == true && postersBoolVariables.matt1_1C == true) {
-             print("city + matt1_1 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: city_material_m2, materialPrintPrice: city_pricem2,
-                                    prepress: mat_1_1, workPrepress: work_mat_1_1)
-        }
-
-        
-         //MARK: LOMOND MATERIAL, VARIANTS START
-        
-        if( postersBoolVariables.lomondC == true && postersBoolVariables.withoutPostPrint == true)  {
-            print("lomond + without post print")
-          
-            getPosterStickerPrice (title: materialTitle, materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2,
-                                   prepress: 0.0, workPrepress: 0.0)
-        }
-        
-
-        if( postersBoolVariables.lomondC == true && postersBoolVariables.gloss1_0C == true)  {
-            print("lomond + gloss1_0 chosen")
-          
-            getPosterStickerPrice(title: materialTitle, materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2,
-                                  prepress: gloss_1_0, workPrepress: work_gloss_1_0)
-        }
-        
-        
-        if ( postersBoolVariables.lomondC == true && postersBoolVariables.matt1_0C == true) {
-             print("lomond + matt1_0 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2,
-                                    prepress: mat_1_0, workPrepress: work_mat_1_0)
-        }
-        
-        
-        if ( postersBoolVariables.lomondC == true && postersBoolVariables.gloss1_1C == true) {
-             print("lomond + gloss1_1 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2,
-                                    prepress: gloss_1_1, workPrepress: work_gloss_1_1)
-        }
-        
-        
-        if ( postersBoolVariables.lomondC == true && postersBoolVariables.matt1_1C == true) {
-             print("lomond + matt1_1 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: lomond_material_m2, materialPrintPrice: lomond_price_m2,
-                                    prepress: mat_1_1, workPrepress: work_mat_1_1)
-        }
-        
-        
-        //MARK: photo paper 200gr/m2 MATERIAL, VARIANTS START
-        
-        if( postersBoolVariables.photoC == true && postersBoolVariables.withoutPostPrint == true)  {
-            print("photo paper 200gr/m2 + without post print")
-          
-            getPosterStickerPrice (title: materialTitle, materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2,
-                                   prepress: 0.0, workPrepress: 0.0)
-        }
-      
-        
-        if( postersBoolVariables.photoC == true && postersBoolVariables.gloss1_0C == true)  {
-            print("photo paper 200gr/m2 + gloss1_0 chosen")
-          
-            getPosterStickerPrice (title: materialTitle, materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2,
-                                   prepress: gloss_1_0, workPrepress: work_gloss_1_0)
-        }
-        
-        
-        if ( postersBoolVariables.photoC == true && postersBoolVariables.matt1_0C == true) {
-             print("photo paper 200gr/m2 + matt1_0 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2,
-                                    prepress: mat_1_0, workPrepress: work_mat_1_0)
-        }
-        
-        
-        if ( postersBoolVariables.photoC == true && postersBoolVariables.gloss1_1C == true) {
-             print("photo paper 200gr/m2 + gloss1_1 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2,
-                                    prepress: gloss_1_1, workPrepress: work_gloss_1_1)
-        }
-        
-        
-        if ( postersBoolVariables.photoC == true && postersBoolVariables.matt1_1C == true) {
-             print("photo paper 200gr/m2 + matt1_1 chosen")
-          
-             getPosterStickerPrice (title: materialTitle, materialPrice: fotoPaper_material_m2, materialPrintPrice: fotoPaper_price_m2,
-                                    prepress: mat_1_1, workPrepress: work_mat_1_1)
-        }
-        
       
     }// func computings()

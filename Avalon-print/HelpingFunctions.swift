@@ -131,19 +131,19 @@ func reset (page: String) {
         postersBoolVariables.amount = ""
        // print("lol from posters it works")
         
-        postersBoolVariables.materialDidnNotChosen = true
-        postersBoolVariables.cityC = false
-        postersBoolVariables.lomondC = false
-        postersBoolVariables.photoC = false
+     //   postersBoolVariables.materialDidnNotChosen = true
+       // postersBoolVariables.cityC = false
+        //postersBoolVariables.lomondC = false
+        //postersBoolVariables.photoC = false
         postersBoolVariables.postersWidhOrHeightDidNotInputed = true
         postersBoolVariables.postersWidthSet = ""
         postersBoolVariables.postersHeightSet = ""
         
-        postersBoolVariables.withoutPostPrint = true
-        postersBoolVariables.gloss1_0C = false
-        postersBoolVariables.matt1_0C = false
-        postersBoolVariables.gloss1_1C = false
-        postersBoolVariables.matt1_1C = false
+       // postersBoolVariables.withoutPostPrint = true
+       // postersBoolVariables.gloss1_0C = false
+      //  postersBoolVariables.matt1_0C = false
+       // postersBoolVariables.gloss1_1C = false
+      //  postersBoolVariables.matt1_1C = false
         
         postersBoolVariables.priceToLabel = "0"
         postersBoolVariables.ndsPriceToLabel = "0"

@@ -11,8 +11,8 @@ import UIKit
 
 public class InitialImageView : UIImageView {
   
-  public var fontResizeValue:CGFloat = 0.3
-  public var font = UIFont.systemFont(ofSize: 15)  //font size does not matter, it will be calculated by the base on fontResizeValue and self.bounds
+  public var fontResizeValue:CGFloat = 0.26
+  public var font = UIFont(name: "Avenir-Light", size: 11)  //font size does not matter, it will be calculated by the base on fontResizeValue and self.bounds
   public var isCircle = true
   
   public func setImageWithFirstName(firstName: String, lastName: String, backgroundColor: UIColor = UIColor.darkGray, randomColor: Bool = false) {
@@ -56,7 +56,7 @@ public class InitialImageView : UIImageView {
   
   func createFontAttribute() -> [String: AnyObject] {
     let fontSize = self.bounds.width * fontResizeValue;
-    let fontAttribute:[String:AnyObject] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font.withSize(fontSize)]
+    let fontAttribute:[String:AnyObject] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font!.withSize(fontSize)]
     return fontAttribute
   }
   
