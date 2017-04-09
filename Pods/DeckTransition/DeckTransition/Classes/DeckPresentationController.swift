@@ -43,9 +43,9 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
     */
     override func presentationTransitionDidEnd(_ completed: Bool) {
         if completed {
-            let scale: CGFloat = 1 - (38/presentingViewController.view.frame.height)
+            let scale: CGFloat = 1 - (40/presentingViewController.view.frame.height)
             presentingViewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
-            presentingViewController.view.alpha = 0.9
+            presentingViewController.view.alpha = 0.8
             presentingViewController.view.layer.cornerRadius = 8
 			presentingViewController.view.layer.masksToBounds = true
             
@@ -55,7 +55,6 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
             pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
             pan!.delegate = self
             pan!.maximumNumberOfTouches = 1
-            pan!.delaysTouchesBegan = true
             presentedViewController.view.addGestureRecognizer(pan!)
         }
     }
@@ -156,10 +155,10 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
     private func updatePresentedViewForTranslation(inVerticalDirection translation: CGFloat) {
         
         let elasticThreshold: CGFloat = 120
-		let dismissThreshold: CGFloat = 200
+		let dismissThreshold: CGFloat = 240
 		
-		let elasticFactor: CGFloat = 1/10
-		let translationFactor: CGFloat = 1/2.5
+		let elasticFactor: CGFloat = 1/5
+		let translationFactor: CGFloat = 1/2
 		
         /**
          Nothing happens if the pan gesture is performed from bottom
@@ -168,12 +167,14 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
         if translation >= 0 {
             let translationForModal: CGFloat = {
                 if translation >= elasticThreshold {
-                    return ((translation-elasticThreshold) * elasticFactor) + (elasticThreshold * translationFactor)
+					let frictionLength = translation - elasticThreshold
+					let frictionTranslation = 30 * atan(frictionLength/120) + frictionLength/10
+                    return frictionTranslation + (elasticThreshold * translationFactor)
                 } else {
                     return translation * translationFactor
                 }
             }()
-            
+			
             presentedView?.transform = CGAffineTransform(translationX: 0, y: translationForModal)
             
             if translation >= dismissThreshold {

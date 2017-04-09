@@ -154,17 +154,17 @@ func reset (page: String) {
         stickersBoolVariables.amountDidNotInputed = true
         stickersBoolVariables.amount = ""
         //print("lol from stickers it works")
-        
-        stickersBoolVariables.materialDidnNotChosen = true
-        stickersBoolVariables.whiteStickerC = false
-        stickersBoolVariables.transparentStickerC = false
-        stickersBoolVariables.oneWayVisionC = false
+//        
+//        stickersBoolVariables.materialDidnNotChosen = true
+//        stickersBoolVariables.whiteStickerC = false
+//        stickersBoolVariables.transparentStickerC = false
+//        stickersBoolVariables.oneWayVisionC = false
         stickersBoolVariables.stickersWidhOrHeightDidNotInputed = true
         stickersBoolVariables.stickersWidthSet = ""
         stickersBoolVariables.stickersHeightSet = ""
         
-        stickersBoolVariables.withoutPostPrint = true
-        stickersBoolVariables.coldLaminationC = false
+       // stickersBoolVariables.withoutPostPrint = true
+       // stickersBoolVariables.coldLaminationC = false
         
         stickersBoolVariables.priceToLabel = "0"
         stickersBoolVariables.ndsPriceToLabel = "0"

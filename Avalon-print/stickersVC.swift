@@ -35,8 +35,8 @@ class stickersVC: UIViewController {
     
     var materialInfoTransition = JTMaterialTransition()
     
-    var data = ["Выберите материал...","Пленка самокл. белая глянец/мат","Пленка самокл. прозрачная глянец/мат","Перфорированая пленка One Way Vision"]
-    var postPrintData = ["Без постпечати","Холодная ламинация глянец/мат"]
+   // var data = ["Выберите материал...","Пленка самокл. белая глянец/мат","Пленка самокл. прозрачная глянец/мат","Перфорированая пленка One Way Vision"]
+   // var postPrintData = ["Без постпечати","Холодная ламинация глянец/мат"]
     
     var materialPicker = UIPickerView()
     
@@ -63,6 +63,8 @@ class stickersVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        fetchMaterialsAndPostprint(productType: "Stickers", postprintTypes: "")
         managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         
@@ -96,8 +98,8 @@ class stickersVC: UIViewController {
         stickersMaterialTextField.inputView = materialPicker
         stickersPostPrintTextField.inputView = postPrintPicker
         
-        stickersMaterialTextField.text = data[0]
-        stickersPostPrintTextField.text = postPrintData[0]
+        stickersMaterialTextField.text =  priceData.materialsDictionary[0].title//data[0]
+        stickersPostPrintTextField.text = priceData.postPrintDictionary[0].title//postPrintData[0]
         
         stickersWidthTextField.delegate = self
         stickersHeightTextField.delegate = self
@@ -223,23 +225,23 @@ class stickersVC: UIViewController {
     }
     
     func errorsCheck() {
-        if  ( stickersMaterialTextField.text == data[0] ) {
-            
-        } else if (stickersMaterialTextField.text == data[3] && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.511 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.511) {
-            
-            self.present(oversizeAlertSmall, animated: true, completion: nil)
-            stickersWidthTextField.text = ""
-            stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
-            updatePrices()
-            
-            
-        } else if ( (stickersMaterialTextField.text == data[1] || stickersMaterialTextField.text == data[2]) && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.591 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.591 ) {
-            self.present(oversizeAlert, animated: true, completion: nil)
-            stickersWidthTextField.text = ""
-            stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
-            updatePrices()
-            
-        }
+//        if  ( stickersMaterialTextField.text == data[0] ) {
+//            
+//        } else if (stickersMaterialTextField.text == data[3] && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.511 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.511) {
+//            
+//            self.present(oversizeAlertSmall, animated: true, completion: nil)
+//            stickersWidthTextField.text = ""
+//            stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
+//            updatePrices()
+//            
+//            
+//        } else if ( (stickersMaterialTextField.text == data[1] || stickersMaterialTextField.text == data[2]) && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.591 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.591 ) {
+//            self.present(oversizeAlert, animated: true, completion: nil)
+//            stickersWidthTextField.text = ""
+//            stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
+//            updatePrices()
+//            
+//        }
     }
     
     
@@ -283,9 +285,9 @@ extension stickersVC: UIPickerViewDataSource {
         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
-            return data.count
+            return priceData.materialsDictionary.count//data.count
         } else if pickerView.tag == 1 {
-            return postPrintData.count
+            return priceData.postPrintDictionary.count//postPrintData.count
         }
         return 1
     }
@@ -301,39 +303,46 @@ extension stickersVC: UIPickerViewDelegate {
         if pickerView.tag == 0 {
           
              EnableButton()
-             stickersBoolVariables.resetMaterials()
+            // stickersBoolVariables.resetMaterials()
           
-      switch row {
-          case 0:
-             stickersBoolVariables.materialDidnNotChosen = true
-          case 1:
-             stickersBoolVariables.whiteStickerC = true
-          case 2:
-             stickersBoolVariables.transparentStickerC = true
-          case 3:
-             stickersBoolVariables.oneWayVisionC = true
-          default: break
-          }
+//      switch row {
+//          case 0:
+//             stickersBoolVariables.materialDidnNotChosen = true
+//          case 1:
+//             stickersBoolVariables.whiteStickerC = true
+//          case 2:
+//             stickersBoolVariables.transparentStickerC = true
+//          case 3:
+//             stickersBoolVariables.oneWayVisionC = true
+//          default: break
+//          }
+          
+          priceData.materialPrice = priceData.materialsDictionary[row].matPrice
+          priceData.printPrice = priceData.materialsDictionary[row].printPrice
     
              updatePrices()
-      return stickersMaterialTextField.text = data[row]
+      return stickersMaterialTextField.text = priceData.materialsDictionary[row].title//data[row]
             
             
         } else if pickerView.tag == 1 {
           
              EnableButton()
-             stickersBoolVariables.resetPostprint()
+           //  stickersBoolVariables.resetPostprint()
           
-      switch row {
-          case 0:
-             stickersBoolVariables.withoutPostPrint = true
-          case 1:
-             stickersBoolVariables.coldLaminationC = true
-          default: break
-          }
+//      switch row {
+//          case 0:
+//             stickersBoolVariables.withoutPostPrint = true
+//          case 1:
+//             stickersBoolVariables.coldLaminationC = true
+//          default: break
+//          }
+          
+          priceData.postPrintMaterialPrice = priceData.postPrintDictionary[row].materialCost
+          priceData.postPrintWorkPrice = priceData.postPrintDictionary[row].costOfWork
+
           
              updatePrices()
-      return stickersPostPrintTextField.text = postPrintData[row]
+      return stickersPostPrintTextField.text = priceData.postPrintDictionary[row].title//postPrintData[row]
     }
   }
     
@@ -345,14 +354,14 @@ extension stickersVC: UIPickerViewDelegate {
         if pickerView.tag == 0 {
             let pickerLabel = UILabel()
             pickerLabel.textColor = UIColor.white
-            pickerLabel.text = data[row]
+            pickerLabel.text = priceData.materialsDictionary[row].title//data[row]
             pickerLabel.font = UIFont.systemFont(ofSize: 16)
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel
         } else {
             let pickerLabel = UILabel()
             pickerLabel.textColor = UIColor.white
-            pickerLabel.text = postPrintData[row]
+            pickerLabel.text = priceData.postPrintDictionary[row].title // postPrintData[row]
             pickerLabel.font = UIFont.systemFont(ofSize: 16)
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel

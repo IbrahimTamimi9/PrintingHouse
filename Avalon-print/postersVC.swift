@@ -107,8 +107,8 @@ import FirebaseDatabase
         postersMaterialTextField.inputView = materialPicker
         postersPostPrintTextField.inputView = postPrintPicker
         
-        postersMaterialTextField.text = materialsDictionary[0].title
-        postersPostPrintTextField.text = postPrintDictionary[0].title
+        postersMaterialTextField.text = priceData.materialsDictionary[0].title
+        postersPostPrintTextField.text = priceData.postPrintDictionary[0].title
     
         oversizeAlert.addAction(okAction)
         oversizeAlertSmall.addAction(okAction)
@@ -284,11 +284,11 @@ extension postersVC: UIPickerViewDataSource {
         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
-            return materialsDictionary.count
+            return priceData.materialsDictionary.count
           
           
         } else if pickerView.tag == 1 {
-            return  postPrintDictionary.count
+            return  priceData.postPrintDictionary.count
         }
         return 1
     }
@@ -307,14 +307,14 @@ extension postersVC: UIPickerViewDelegate {
           
             let pickerLabel = UILabel()
             pickerLabel.textColor = UIColor.white
-            pickerLabel.text = materialsDictionary[row].title
+            pickerLabel.text = priceData.materialsDictionary[row].title
             pickerLabel.font = UIFont.systemFont(ofSize: 17)
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel
         } else {
             let pickerLabel = UILabel()
             pickerLabel.textColor = UIColor.white
-            pickerLabel.text = postPrintDictionary[row].title
+            pickerLabel.text = priceData.postPrintDictionary[row].title
             pickerLabel.font = UIFont.systemFont(ofSize: 17)
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel
@@ -331,22 +331,22 @@ extension postersVC: UIPickerViewDelegate {
           
             EnableButton()
           
-            priceData.materialPrice = materialsDictionary[row].matPrice
-            priceData.printPrice = materialsDictionary[row].printPrice
+            priceData.materialPrice = priceData.materialsDictionary[row].matPrice
+            priceData.printPrice = priceData.materialsDictionary[row].printPrice
           
                updatePrices()
-        return postersMaterialTextField.text = materialsDictionary[row].title
+        return postersMaterialTextField.text = priceData.materialsDictionary[row].title
             
             
         } else if pickerView.tag == 1 {
           
           EnableButton()
   
-          priceData.postPrintMaterialPrice = postPrintDictionary[row].materialCost
-          priceData.postPrintWorkPrice = postPrintDictionary[row].costOfWork
+          priceData.postPrintMaterialPrice = priceData.postPrintDictionary[row].materialCost
+          priceData.postPrintWorkPrice = priceData.postPrintDictionary[row].costOfWork
           
                updatePrices()
-        return postersPostPrintTextField.text =  postPrintDictionary[row].title
+        return postersPostPrintTextField.text =  priceData.postPrintDictionary[row].title
           
         }
     }

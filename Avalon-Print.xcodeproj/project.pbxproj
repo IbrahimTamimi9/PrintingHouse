@@ -160,6 +160,7 @@
 		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersTableVC.swift; path = "Avalon-print/MyOrdersTableVC.swift"; sourceTree = SOURCE_ROOT; };
 		4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersDetailTableVC.swift; path = "Avalon-print/MyOrdersDetailTableVC.swift"; sourceTree = SOURCE_ROOT; };
+		4BCAA3961E9AECBB009C8FA3 /* Avalon-Print.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Avalon-Print.entitlements"; path = "Avalon-Print/Avalon-Print.entitlements"; sourceTree = "<group>"; };
 		4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4BFB58ED1E8579FC0048E0C6 /* Avalon-Print-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avalon-Print-Bridging-Header.h"; sourceTree = "<group>"; };
 		4BFD11C41E841F520026E152 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "Avalon-print/Messenger/Message.swift"; sourceTree = SOURCE_ROOT; };
@@ -436,6 +437,7 @@
 		B5EA1A1B1B7B383300E1C1C3 = {
 			isa = PBXGroup;
 			children = (
+				4BCAA3961E9AECBB009C8FA3 /* Avalon-Print.entitlements */,
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
 				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
 				4B98B1461E217FD1003D725C /* Fonts */,
@@ -501,7 +503,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Roman Mizin";
 				TargetAttributes = {
 					B5EA1A231B7B383300E1C1C3 = {
@@ -704,6 +706,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -720,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -750,6 +753,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -760,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -772,12 +776,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F309E9E061423185210A69E /* Pods-Avalon-Print.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Avalon-Print/Avalon-Print.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X9LK79XJU6;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-polygraphy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -794,12 +800,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7295E3F733109FC0F904C5E2 /* Pods-Avalon-Print.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Avalon-Print/Avalon-Print.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X9LK79XJU6;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-polygraphy";
 				PRODUCT_NAME = "$(TARGET_NAME)";

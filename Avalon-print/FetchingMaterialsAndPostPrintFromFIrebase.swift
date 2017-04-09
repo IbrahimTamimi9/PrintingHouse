@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseDatabase
 
-var materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
-var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
+//var materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
+//var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
 
 
 struct priceData {
+  
+  static var materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
+  static var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
   
   static var materialPrice = Double()
   static var printPrice = Double()
@@ -21,10 +25,18 @@ struct priceData {
   static var postPrintMaterialPrice = Double()
   static var postPrintWorkPrice = Double()
   
+  static func resetMaterialsAndPostprintDictionaries () {
+    
+    priceData.materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
+    priceData.postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
+  }
+  
 }
 
 
 func fetchMaterialsAndPostprint(productType: String, postprintTypes: String) {
+  
+     priceData.resetMaterialsAndPostprintDictionaries()
   
   var ref: FIRDatabaseReference!
   ref = FIRDatabase.database().reference()
@@ -43,10 +55,10 @@ func fetchMaterialsAndPostprint(productType: String, postprintTypes: String) {
         
         if let materialTitle = value["title"],  let materialPrice = value["materialPrice"] , let printPrice = value["printPrice"] {
           
-          materialsDictionary.append(( materialTitle as! String  , materialPrice as! Double  , printPrice as! Double  ))
+          priceData.materialsDictionary.append(( materialTitle as! String  , materialPrice as! Double  , printPrice as! Double  ))
         }
       }
-      print(materialsDictionary)
+      print(priceData.materialsDictionary)
     }
     
   }) { (error) in
@@ -69,7 +81,7 @@ func fetchMaterialsAndPostprint(productType: String, postprintTypes: String) {
       
       if let postprintTitle = dictionary["title"],  let materialCost = dictionary["materialCost"] , let workCost = dictionary["workCost"] {
         
-        postPrintDictionary.append(( postprintTitle as! String , materialCost as! Double , workCost as! Double ))
+        priceData.postPrintDictionary.append(( postprintTitle as! String , materialCost as! Double , workCost as! Double ))
       }
       
       // }
