@@ -34,28 +34,21 @@ class stickersVC: UIViewController {
     @IBOutlet weak var stickersAddToCartButton: UIButton!
     
     var materialInfoTransition = JTMaterialTransition()
-    
-   // var data = ["Выберите материал...","Пленка самокл. белая глянец/мат","Пленка самокл. прозрачная глянец/мат","Перфорированая пленка One Way Vision"]
-   // var postPrintData = ["Без постпечати","Холодная ламинация глянец/мат"]
-    
+ 
     var materialPicker = UIPickerView()
     
     var postPrintPicker = UIPickerView()
-    
-    let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
-    
-    let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.51м", preferredStyle: UIAlertControllerStyle.actionSheet)
-    
-    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-
+  
     let nameButt =  "В корзину"
-    
-   
+  
+    var selectedRow = Int()
+  
     
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
     }
-    
+  
+  
     override func viewDidAppear(_ animated: Bool) {
         leftImageViewConstraint.constant = -25
     }
@@ -64,7 +57,7 @@ class stickersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        fetchMaterialsAndPostprint(productType: "Stickers", postprintTypes: "")
+        fetchMaterialsAndPostprint(productType: "Stickers", onlyColdLamAllowed: true, onlyDefaultPrepressAllowed: false)
         managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
         
@@ -106,10 +99,7 @@ class stickersVC: UIViewController {
         stickersAmountTextField.delegate = self
         stickersMaterialTextField.delegate = self
         stickersPostPrintTextField.delegate = self
-        
-        oversizeAlert.addAction(okAction)
-        oversizeAlertSmall.addAction(okAction)
-        
+      
         setPickerTextFieldTint(sender: [stickersMaterialTextField, stickersPostPrintTextField])
         
         materialPicker.backgroundColor = UIColor.darkGray
@@ -139,7 +129,9 @@ class stickersVC: UIViewController {
     @IBAction func widthCursorPosChanged(_ sender: Any) {
         stickersBoolVariables.stickersWidhOrHeightDidNotInputed = false
         stickersBoolVariables.stickersWidthSet =  stickersWidthTextField.text!
-        errorsCheck()
+      
+        validateLayoutSize(row: selectedRow)
+
         updatePrices()
         if stickersAddToCartButton.titleLabel?.text == nameButt {
             EnableButton()
@@ -148,16 +140,18 @@ class stickersVC: UIViewController {
     }
     @IBAction func heightCursorPosChanged(_ sender: Any) {
         stickersBoolVariables.stickersWidhOrHeightDidNotInputed = false
-        
         stickersBoolVariables.stickersHeightSet = stickersHeightTextField.text!
-        errorsCheck()
+      
+        validateLayoutSize(row: selectedRow)
+
         updatePrices()
         if stickersAddToCartButton.titleLabel?.text == nameButt {
             EnableButton()
         }
         
     }
-    
+  
+  
     @IBAction func AddToCart(_ sender: Any) {
         
         if stickersAddToCartButton.titleLabel?.text == nameButt {
@@ -192,8 +186,7 @@ class stickersVC: UIViewController {
         }
     }
     
-    
-    
+  
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
         resetTableView ()
       
@@ -221,29 +214,8 @@ class stickersVC: UIViewController {
     
     func closeKeyboard() {
         self.view.endEditing(true)
-        errorsCheck()  
     }
-    
-    func errorsCheck() {
-//        if  ( stickersMaterialTextField.text == data[0] ) {
-//            
-//        } else if (stickersMaterialTextField.text == data[3] && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.511 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.511) {
-//            
-//            self.present(oversizeAlertSmall, animated: true, completion: nil)
-//            stickersWidthTextField.text = ""
-//            stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
-//            updatePrices()
-//            
-//            
-//        } else if ( (stickersMaterialTextField.text == data[1] || stickersMaterialTextField.text == data[2]) && stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > 1.591 && stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > 1.591 ) {
-//            self.present(oversizeAlert, animated: true, completion: nil)
-//            stickersWidthTextField.text = ""
-//            stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
-//            updatePrices()
-//            
-//        }
-    }
-    
+  
     
     //MARK: Touch Events
     
@@ -285,38 +257,53 @@ extension stickersVC: UIPickerViewDataSource {
         postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
-            return priceData.materialsDictionary.count//data.count
+            return priceData.materialsDictionary.count
         } else if pickerView.tag == 1 {
-            return priceData.postPrintDictionary.count//postPrintData.count
+            return priceData.postPrintDictionary.count
         }
         return 1
     }
-    
 }
 
 
 extension stickersVC: UIPickerViewDelegate {
+  
+  
+    func validateLayoutSize(row: Int) {
+      selectedRow = row
+  
+      if stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth &&
+        stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth {
+  
+        let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина \(priceData.materialsDictionary[row].maxMaterialWidth)м",
+          preferredStyle: UIAlertControllerStyle.actionSheet)
+  
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+  
+        oversizeAlert.addAction(okAction)
+  
+  
+        self.present(oversizeAlert, animated: true, completion: nil)
+        stickersWidthTextField.text = ""
+        stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
+  
+        stickersBoolVariables.priceToLabel = "0"
+        stickersBoolVariables.ndsPriceToLabel = "0"
+        
+      }
+    }
+  
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
          materialPicker.tag = 0
          postPrintPicker.tag = 1
         
         if pickerView.tag == 0 {
           
-             EnableButton()
-            // stickersBoolVariables.resetMaterials()
+          validateLayoutSize(row: row)
           
-//      switch row {
-//          case 0:
-//             stickersBoolVariables.materialDidnNotChosen = true
-//          case 1:
-//             stickersBoolVariables.whiteStickerC = true
-//          case 2:
-//             stickersBoolVariables.transparentStickerC = true
-//          case 3:
-//             stickersBoolVariables.oneWayVisionC = true
-//          default: break
-//          }
-          
+          EnableButton()
+                  
           priceData.materialPrice = priceData.materialsDictionary[row].matPrice
           priceData.printPrice = priceData.materialsDictionary[row].printPrice
     
@@ -327,15 +314,6 @@ extension stickersVC: UIPickerViewDelegate {
         } else if pickerView.tag == 1 {
           
              EnableButton()
-           //  stickersBoolVariables.resetPostprint()
-          
-//      switch row {
-//          case 0:
-//             stickersBoolVariables.withoutPostPrint = true
-//          case 1:
-//             stickersBoolVariables.coldLaminationC = true
-//          default: break
-//          }
           
           priceData.postPrintMaterialPrice = priceData.postPrintDictionary[row].materialCost
           priceData.postPrintWorkPrice = priceData.postPrintDictionary[row].costOfWork
@@ -366,7 +344,6 @@ extension stickersVC: UIPickerViewDelegate {
             pickerLabel.textAlignment = NSTextAlignment.center
             return pickerLabel
         }
-        
     }
 }
 
@@ -377,6 +354,3 @@ extension stickersVC: UITextFieldDelegate {
         UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
     }
 }
-
-
-

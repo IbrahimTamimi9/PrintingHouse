@@ -129,22 +129,11 @@ func reset (page: String) {
     if page == "posters" {
         postersBoolVariables.amountDidNotInputed = true
         postersBoolVariables.amount = ""
-       // print("lol from posters it works")
-        
-     //   postersBoolVariables.materialDidnNotChosen = true
-       // postersBoolVariables.cityC = false
-        //postersBoolVariables.lomondC = false
-        //postersBoolVariables.photoC = false
+    
         postersBoolVariables.postersWidhOrHeightDidNotInputed = true
         postersBoolVariables.postersWidthSet = ""
         postersBoolVariables.postersHeightSet = ""
-        
-       // postersBoolVariables.withoutPostPrint = true
-       // postersBoolVariables.gloss1_0C = false
-      //  postersBoolVariables.matt1_0C = false
-       // postersBoolVariables.gloss1_1C = false
-      //  postersBoolVariables.matt1_1C = false
-        
+   
         postersBoolVariables.priceToLabel = "0"
         postersBoolVariables.ndsPriceToLabel = "0"
     }
@@ -153,18 +142,10 @@ func reset (page: String) {
     if page == "stickers" {
         stickersBoolVariables.amountDidNotInputed = true
         stickersBoolVariables.amount = ""
-        //print("lol from stickers it works")
-//        
-//        stickersBoolVariables.materialDidnNotChosen = true
-//        stickersBoolVariables.whiteStickerC = false
-//        stickersBoolVariables.transparentStickerC = false
-//        stickersBoolVariables.oneWayVisionC = false
+  
         stickersBoolVariables.stickersWidhOrHeightDidNotInputed = true
         stickersBoolVariables.stickersWidthSet = ""
         stickersBoolVariables.stickersHeightSet = ""
-        
-       // stickersBoolVariables.withoutPostPrint = true
-       // stickersBoolVariables.coldLaminationC = false
         
         stickersBoolVariables.priceToLabel = "0"
         stickersBoolVariables.ndsPriceToLabel = "0"

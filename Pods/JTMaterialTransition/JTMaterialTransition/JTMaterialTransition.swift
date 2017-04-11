@@ -13,7 +13,7 @@ open class JTMaterialTransition: NSObject, UIViewControllerAnimatedTransitioning
     open var startFrame = CGRect()
     open var startBackgroundColor: UIColor?
     open var isReverse = false
-    open var transitionDuration : TimeInterval = 0.4
+    open var transitionDuration : TimeInterval = 0.5
 
     convenience public init(animatedView: UIView) {
         self.init()

@@ -44,17 +44,14 @@ import FirebaseDatabase
   
     var materialPicker = UIPickerView()
     var postPrintPicker = UIPickerView()
-  
-    let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 1.59м", preferredStyle: UIAlertControllerStyle.actionSheet)
-    
-    let oversizeAlertSmall = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина 0.6м", preferredStyle: UIAlertControllerStyle.actionSheet)
-    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-    
+    var selectedMaterialRow = Int()
+
     
     override func viewWillDisappear(_ animated: Bool) {
         leftImageViewConstraint.constant = 0
     }
-   
+  
+  
     override func viewDidAppear(_ animated: Bool) {
          leftImageViewConstraint.constant = -25
     }
@@ -63,7 +60,7 @@ import FirebaseDatabase
     override  func viewDidLoad() {
         super.viewDidLoad()
       
-        fetchMaterialsAndPostprint(productType: "Posters", postprintTypes: "")
+        fetchMaterialsAndPostprint(productType: "Posters", onlyColdLamAllowed: false, onlyDefaultPrepressAllowed: true)
   
             managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -109,9 +106,6 @@ import FirebaseDatabase
         
         postersMaterialTextField.text = priceData.materialsDictionary[0].title
         postersPostPrintTextField.text = priceData.postPrintDictionary[0].title
-    
-        oversizeAlert.addAction(okAction)
-        oversizeAlertSmall.addAction(okAction)
 
         setPickerTextFieldTint(sender: [postersMaterialTextField, postersPostPrintTextField])
         
@@ -120,8 +114,7 @@ import FirebaseDatabase
       
     }
    
-    
-
+  
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( postersAmountTextField.text == nil) {
             postersBoolVariables.amountDidNotInputed = true
@@ -136,31 +129,37 @@ import FirebaseDatabase
         if postersAddToCartButton.titleLabel?.text == nameButt {
             EnableButton()
         }
-        
     }
+  
   
     @IBAction func widthCursorPosChanged(_ sender: Any) {
         postersBoolVariables.postersWidhOrHeightDidNotInputed = false
         postersBoolVariables.postersWidthSet =  postersWidthTextField.text!
-              errorsCheck()
-              updatePrices()
+      
+        validateLayoutSize(row: selectedMaterialRow)
+      
+        updatePrices()
+      
         if postersAddToCartButton.titleLabel?.text == nameButt {
             EnableButton()
         }
-    
     }
+  
     
     @IBAction func heightCursorPosChanged(_ sender: Any) {
         postersBoolVariables.postersWidhOrHeightDidNotInputed = false
      
         postersBoolVariables.postersHeightSet = postersHeightTextField.text!
-        errorsCheck()
+      
+        validateLayoutSize(row: selectedMaterialRow)
+      
         updatePrices()
+      
         if postersAddToCartButton.titleLabel?.text == nameButt {
             EnableButton()
         }
-       
     }
+  
     
     @IBAction func AddToCart(_ sender: Any) {
         
@@ -192,9 +191,9 @@ import FirebaseDatabase
             updateBadgeValue()
             DisableButton()
             postersAddToCartButton.frame.size.width = 75
-            
         }
     }
+  
     
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
         resetTableView ()
@@ -213,7 +212,8 @@ import FirebaseDatabase
     func DisableButton() {
             postersAddToCartButton.setTitle("В корзину", for: .normal)
     }
-    
+  
+  
    func EnableButton() {
     postersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
     postersAddToCartButton.isUserInteractionEnabled = true
@@ -221,26 +221,6 @@ import FirebaseDatabase
     }
   
   
-    func errorsCheck() {
-//        if  ( postersMaterialTextField.text == data[0] ) {
-//            
-//        } else if (postersMaterialTextField.text == data[1] && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 1.591 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 1.591) {
-//            
-//            self.present(oversizeAlert, animated: true, completion: nil)
-//            postersWidthTextField.text = ""
-//            postersBoolVariables.postersWidthSet = postersWidthTextField.text!
-//            updatePrices()
-//            
-//            
-//        } else if ( (postersMaterialTextField.text == data[2] || postersMaterialTextField.text == data[3]) && postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > 0.61 && postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > 0.61 ) {
-//            self.present(oversizeAlertSmall, animated: true, completion: nil)
-//            postersWidthTextField.text = ""
-//            postersBoolVariables.postersWidthSet = postersWidthTextField.text!
-//            updatePrices()
-//
-//        }
-    }
-    
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
     func updatePrices() {
         computings()
@@ -320,25 +300,52 @@ extension postersVC: UIPickerViewDelegate {
             return pickerLabel
         }
     }
+  
+ 
+  func validateLayoutSize(row: Int) {
+    selectedMaterialRow = row
     
+    if postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth &&
+       postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth {
+      
+      let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина \(priceData.materialsDictionary[row].maxMaterialWidth)м",
+                                            preferredStyle: UIAlertControllerStyle.actionSheet)
+      
+      let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+      
+          oversizeAlert.addAction(okAction)
+      
+      self.present(oversizeAlert, animated: true, completion: nil)
+      postersWidthTextField.text = ""
+      postersBoolVariables.postersWidthSet = postersWidthTextField.text!
+      
+      postersBoolVariables.priceToLabel = "0"
+      postersBoolVariables.ndsPriceToLabel = "0"
+
+    }
+  }
+  
   
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
          materialPicker.tag = 0
          postPrintPicker.tag = 1
 
         
-        if pickerView.tag == 0 {
+        if pickerView.tag == 0 /* Materials */ {
+          
+            validateLayoutSize(row: row)
           
             EnableButton()
           
             priceData.materialPrice = priceData.materialsDictionary[row].matPrice
             priceData.printPrice = priceData.materialsDictionary[row].printPrice
           
-               updatePrices()
+            updatePrices()
+          
         return postersMaterialTextField.text = priceData.materialsDictionary[row].title
             
             
-        } else if pickerView.tag == 1 {
+        } else if pickerView.tag == 1 /* Postprint */ {
           
           EnableButton()
   

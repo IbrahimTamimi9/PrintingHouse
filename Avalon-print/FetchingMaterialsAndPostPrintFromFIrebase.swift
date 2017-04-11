@@ -4,19 +4,16 @@
 //
 //  Created by Roman Mizin on 4/9/17.
 //  Copyright © 2017 Roman Mizin. All rights reserved.
-//
 
-import Foundation
+
+import UIKit
 import Firebase
 import FirebaseDatabase
-
-//var materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
-//var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
 
 
 struct priceData {
   
-  static var materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
+  static var materialsDictionary = [(title: "Выберите материал...", maxMaterialWidth: 0.0, matPrice: 0.0, printPrice: 0.0)]
   static var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
   
   static var materialPrice = Double()
@@ -27,38 +24,25 @@ struct priceData {
   
   static func resetMaterialsAndPostprintDictionaries () {
     
-    priceData.materialsDictionary = [(title: "Выберите материал...", matPrice: 0.0, printPrice: 0.0)]
+    priceData.materialsDictionary = [(title: "Выберите материал...", maxMaterialWidth: 99999.0, matPrice: 0.0, printPrice: 0.0)]
     priceData.postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
   }
-  
 }
 
 
-func fetchMaterialsAndPostprint(productType: String, postprintTypes: String) {
+func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, onlyDefaultPrepressAllowed: Bool) {
   
      priceData.resetMaterialsAndPostprintDictionaries()
   
   var ref: FIRDatabaseReference!
-  ref = FIRDatabase.database().reference()
-  
+      ref = FIRDatabase.database().reference()
   
   // Materials
   
   ref.child("Materials").observe(.childAdded, with: { (snapshot) in
     
     if snapshot.key == productType {
-      guard let dictionary = snapshot.value as? [String: AnyObject] else {
-        return
-      }
-      
-      for (_, value) in dictionary {
-        
-        if let materialTitle = value["title"],  let materialPrice = value["materialPrice"] , let printPrice = value["printPrice"] {
-          
-          priceData.materialsDictionary.append(( materialTitle as! String  , materialPrice as! Double  , printPrice as! Double  ))
-        }
-      }
-      print(priceData.materialsDictionary)
+        observeMaterialsData(snapshot: snapshot)
     }
     
   }) { (error) in
@@ -66,28 +50,66 @@ func fetchMaterialsAndPostprint(productType: String, postprintTypes: String) {
   }
   
   
-  
   // Post Print
   
   ref.child("Postprint").observe(.childAdded, with: { (snapshot) in
     
-    if snapshot.key != "prepressCold" {
+    
+    if onlyColdLamAllowed == true && onlyDefaultPrepressAllowed == true {
+      print("error: impossible value in picker view")
+    }
+   
+    
+    if onlyDefaultPrepressAllowed == true {
       
-      guard let dictionary = snapshot.value as? [String: AnyObject] else {
-        return
+        if snapshot.key != "prepressCold" {
+            observePostrpintData(snapshot: snapshot)
+       }
+    }
+    
+    
+    if onlyColdLamAllowed == true {
+      
+      if snapshot.key == "prepressCold" {
+             observePostrpintData(snapshot: snapshot)
       }
-      
-      //  for (_, value) in dictionary {
-      
-      if let postprintTitle = dictionary["title"],  let materialCost = dictionary["materialCost"] , let workCost = dictionary["workCost"] {
-        
-        priceData.postPrintDictionary.append(( postprintTitle as! String , materialCost as! Double , workCost as! Double ))
-      }
-      
-      // }
+    }
+  
+    
+    if onlyColdLamAllowed == false && onlyDefaultPrepressAllowed == false {
+           observePostrpintData(snapshot: snapshot)
     }
     
   }) { (error) in
     print(error.localizedDescription)
+  }
+}
+
+
+func observeMaterialsData(snapshot: FIRDataSnapshot) {
+  
+  guard let dictionary = snapshot.value as? [String: AnyObject] else {
+    return
+  }
+  
+  for (_, value) in dictionary {
+    
+    if let materialTitle = value["title"], let maxMaterialWidth = value["maxMaterialWidth"], let materialPrice = value["materialPrice"] , let printPrice = value["printPrice"] {
+      
+      priceData.materialsDictionary.append(( materialTitle as! String, maxMaterialWidth as! Double, materialPrice as! Double  , printPrice as! Double  ))
+    }
+  }
+  
+}
+
+
+func observePostrpintData(snapshot: FIRDataSnapshot) {
+  
+  guard let dictionary = snapshot.value as? [String: AnyObject] else {
+    return
+  }
+  if let postprintTitle = dictionary["title"],  let materialCost = dictionary["materialCost"] , let workCost = dictionary["workCost"] {
+    
+    priceData.postPrintDictionary.append(( postprintTitle as! String , materialCost as! Double , workCost as! Double ))
   }
 }

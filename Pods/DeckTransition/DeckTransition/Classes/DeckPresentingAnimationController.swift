@@ -24,9 +24,8 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options:.curveEaseOut ,             animations: {
+            options: .curveEaseOut,
+            animations: {
                 let scale: CGFloat = 1 - (40/presentingViewController.view.frame.height)
                 presentingViewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
                 presentingViewController.view.alpha = 0.8

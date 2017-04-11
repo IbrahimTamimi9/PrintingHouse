@@ -14,7 +14,6 @@ extension String {
     var doubleValue: Double {
         return Double(self) ?? 0
     }
-    
 }
 
 extension String {
@@ -25,8 +24,8 @@ extension String {
 
 //MARK: SHOWS IF ELEMENTS IN postersVC.swift SELECTED OR NOT
 struct postersBoolVariables {
-    static var amount = ""
-    static var amountDidNotInputed = true
+   static var amount = ""
+   static var amountDidNotInputed = true
 
    static var postersWidhOrHeightDidNotInputed = true
    static var postersWidthSet = ""
@@ -100,13 +99,10 @@ func getPosterStickerPrice (title: String, materialPrice: Double , materialPrint
      stickersBoolVariables.priceToLabel =  String(price)
      stickersBoolVariables.ndsPriceToLabel = String((price + ((price * NDS)/100) ))
   }
-  
-  
 }
 
 
-
-    func computings() {
+   func computings() {
       
       let materialTitle = "Posters"
     
@@ -118,7 +114,6 @@ func getPosterStickerPrice (title: String, materialPrice: Double , materialPrint
       let postPrintMaterialPrice = priceData.postPrintMaterialPrice
       let postPrintWorkPrice = priceData.postPrintWorkPrice
     
-      
          //MARK: CITY MATERIAL, VARIANTS START
       if( postersBoolVariables.amountDidNotInputed == true || postersBoolVariables.postersWidhOrHeightDidNotInputed == true )  {
             
@@ -135,6 +130,4 @@ func getPosterStickerPrice (title: String, materialPrice: Double , materialPrint
                                materialPrice: materialPrice, materialPrintPrice: printPrice,
                                prepress: postPrintMaterialPrice, workPrepress: postPrintWorkPrice)
       }
-      
-      
     }// func computings()

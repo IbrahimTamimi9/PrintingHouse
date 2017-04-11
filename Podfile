@@ -13,9 +13,9 @@ target 'Avalon-Print' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  pod ‘Firebase/Storage’
+  pod 'Firebase/Storage'
   pod 'SDWebImage', '~>3.8'
-  pod ‘ESPullToRefresh’
+  pod 'ESPullToRefresh'
  
 
 end
