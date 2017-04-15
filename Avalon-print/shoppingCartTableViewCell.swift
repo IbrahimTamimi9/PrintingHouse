@@ -8,7 +8,7 @@
 
 import UIKit
  
-class shoppingCartTableViewCell: UITableViewCell {
+class ShoppingCartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainData: UITextView!
     @IBOutlet weak var purchasePrice: UILabel!
