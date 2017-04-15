@@ -11,7 +11,7 @@ import UIKit
 import JTMaterialTransition
 
  
-class canvasVC: UIViewController {
+class CanvasVC: UIViewController {
     
     @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var xLabel: UILabel!
@@ -195,7 +195,7 @@ class canvasVC: UIViewController {
         
         if canvasAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
+            let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
             let navigationController = UINavigationController(rootViewController: destination)
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             navigationController.isNavigationBarHidden = true
@@ -285,7 +285,7 @@ class canvasVC: UIViewController {
 
 
 
-extension canvasVC: UIPickerViewDataSource {
+extension CanvasVC: UIPickerViewDataSource {
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -308,7 +308,7 @@ extension canvasVC: UIPickerViewDataSource {
 }
 
 
-extension canvasVC: UIPickerViewDelegate {
+extension CanvasVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         standartSizesPicker.tag = 0
         postPrintPicker.tag = 1
@@ -468,7 +468,7 @@ extension canvasVC: UIPickerViewDelegate {
 }
 
 
-extension canvasVC: UITextFieldDelegate {
+extension CanvasVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
