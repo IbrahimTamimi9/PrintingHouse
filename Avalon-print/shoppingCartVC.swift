@@ -25,7 +25,7 @@ import CoreData
   var totalNDSprice = 0.0
 
 
- class shoppingCartVC: UIViewController {
+ class ShoppingCartVC: UIViewController {
     
     @IBOutlet weak var bottomViewWithButton: UIView!
     @IBOutlet weak var mainSumLabel: UILabel!
@@ -124,7 +124,7 @@ import CoreData
 
 
 
-extension shoppingCartVC: UITableViewDataSource {
+extension ShoppingCartVC: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addedItems.count
@@ -134,7 +134,7 @@ extension shoppingCartVC: UITableViewDataSource {
   
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:shoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! shoppingCartTableViewCell
+        let cell:ShoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! ShoppingCartTableViewCell
         
         let presentItem = addedItems[indexPath.row]
         

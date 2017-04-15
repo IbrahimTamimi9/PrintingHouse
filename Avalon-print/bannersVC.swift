@@ -11,7 +11,7 @@ import UIKit
 import JTMaterialTransition 
 
 
-class bannersVC: UIViewController {
+class BannersVC: UIViewController {
     
     
     @IBOutlet weak var AboutMaterialsButton: UIButton!
@@ -101,7 +101,7 @@ class bannersVC: UIViewController {
       
       if bannersAddToCartButton.titleLabel?.text == nameButt {
         
-        let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
+        let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
         let navigationController = UINavigationController(rootViewController: destination)
         
         navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -358,7 +358,7 @@ class bannersVC: UIViewController {
 }
 
 
-extension bannersVC: UIScrollViewDelegate {
+extension BannersVC: UIScrollViewDelegate {
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x>0 || scrollView.contentOffset.x<0 {
@@ -368,7 +368,7 @@ extension bannersVC: UIScrollViewDelegate {
 }
 
 
-extension bannersVC: UITextFieldDelegate {
+extension BannersVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
@@ -377,7 +377,7 @@ extension bannersVC: UITextFieldDelegate {
 }
 
 
-extension bannersVC: UIPickerViewDelegate {
+extension BannersVC: UIPickerViewDelegate {
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     materialPicker.tag = 0
@@ -475,7 +475,7 @@ extension bannersVC: UIPickerViewDelegate {
 }
 
 
-extension bannersVC: UIPickerViewDataSource {
+extension BannersVC: UIPickerViewDataSource {
   
   public func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1

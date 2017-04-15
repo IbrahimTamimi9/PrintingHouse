@@ -12,7 +12,8 @@ import JTMaterialTransition
 
  
 class StickersVC: UIViewController {
-    
+  
+  
     @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundImageView: UIImageView!

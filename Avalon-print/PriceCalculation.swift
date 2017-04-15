@@ -78,6 +78,7 @@ func getPosterStickerPrice ( materialPrice: Double , materialPrintPrice: Double,
   var custom_wi = Double()
   var custom_he = Double()
   
+  
   amount = currentPageData.amount.doubleValue //количество
   custom_wi = currentPageData.width.convertToDemicalIfItIsNot
   custom_he = currentPageData.height.convertToDemicalIfItIsNot
