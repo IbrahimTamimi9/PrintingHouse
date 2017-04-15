@@ -8,7 +8,7 @@
 
 import UIKit
  
-class informationDetail: UIViewController {
+class InformationDetail: UIViewController {
     
     @IBOutlet weak var textViewForLoadingContent: UITextView!
     var passedValue:String! //name of cell

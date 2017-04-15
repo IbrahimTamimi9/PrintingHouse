@@ -24,8 +24,6 @@ class UserCell: UITableViewCell {
                 dateFormatter.dateFormat = "hh:mm a"
                 timeLabel.text = dateFormatter.string(from: timestampDate)
             }
-            
-            
         }
     }
     
@@ -53,7 +51,7 @@ class UserCell: UITableViewCell {
         textLabel?.frame = CGRect(x: 82, y: textLabel!.frame.origin.y - 2, width: textLabel!.frame.width * 2, height: textLabel!.frame.height)
         textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
-      detailTextLabel?.textColor = UIColor.lightGray
+        detailTextLabel?.textColor = UIColor.lightGray
         detailTextLabel?.frame = CGRect(x: 82, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width * 2, height: detailTextLabel!.frame.height)
     }
     

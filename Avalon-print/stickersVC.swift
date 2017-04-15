@@ -11,7 +11,7 @@ import UIKit
 import JTMaterialTransition
 
  
-class stickersVC: UIViewController {
+class StickersVC: UIViewController {
     
     @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var leftImageViewConstraint: NSLayoutConstraint!
@@ -112,11 +112,11 @@ class stickersVC: UIViewController {
     
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( stickersAmountTextField.text == nil) {
-            stickersBoolVariables.amountDidNotInputed = true
+            currentPageData.amountIsEmpty = true
             updatePrices()
         } else {
-            stickersBoolVariables.amountDidNotInputed = false
-            stickersBoolVariables.amount = stickersAmountTextField.text!
+            currentPageData.amountIsEmpty = false
+            currentPageData.amount = stickersAmountTextField.text!
             
             updatePrices()
         }
@@ -127,8 +127,8 @@ class stickersVC: UIViewController {
     }
     
     @IBAction func widthCursorPosChanged(_ sender: Any) {
-        stickersBoolVariables.stickersWidhOrHeightDidNotInputed = false
-        stickersBoolVariables.stickersWidthSet =  stickersWidthTextField.text!
+        currentPageData.widthOrHeightIsEmpty = false
+        currentPageData.width =  stickersWidthTextField.text!
       
         validateLayoutSize(row: selectedRow)
 
@@ -139,8 +139,8 @@ class stickersVC: UIViewController {
         
     }
     @IBAction func heightCursorPosChanged(_ sender: Any) {
-        stickersBoolVariables.stickersWidhOrHeightDidNotInputed = false
-        stickersBoolVariables.stickersHeightSet = stickersHeightTextField.text!
+        currentPageData.widthOrHeightIsEmpty = false
+        currentPageData.height = stickersHeightTextField.text!
       
         validateLayoutSize(row: selectedRow)
 
@@ -156,7 +156,7 @@ class stickersVC: UIViewController {
         
         if stickersAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
+            let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
             let navigationController = UINavigationController(rootViewController: destination)
             
             
@@ -225,31 +225,39 @@ class stickersVC: UIViewController {
     
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
     func updatePrices() {
-        stickersComputings()
-        stickersPrice.text = stickersBoolVariables.priceToLabel
-        stickersNDSPrice.text = stickersBoolVariables.ndsPriceToLabel
-        
-        
-        if stickersPrice.text == "0" {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.stickersAddToCartButton.alpha = 0.5 })
-            stickersAddToCartButton.isEnabled  = false
-        } else {
-            stickersAddToCartButton.isEnabled = true
-            UIView.animate(withDuration: 0.5, animations: {
-                self.stickersAddToCartButton.alpha = 1.0 })
-        }
-
+       
+        calculatePriceOfSelectedProduct()
+        stickersPrice.text = currentPageData.price
+        stickersNDSPrice.text = currentPageData.ndsPrice
+        animateAddToCartButton()
+      
     }
+  
+  
+  func animateAddToCartButton () {
+    
+    if stickersPrice.text == "0" {
+      
+      UIView.animate(withDuration: 0.5, animations: {
+        self.stickersAddToCartButton.alpha = 0.5 })
+      stickersAddToCartButton.isEnabled  = false
+      
+    } else {
+      
+      stickersAddToCartButton.isEnabled = true
+      UIView.animate(withDuration: 0.5, animations: {
+        self.stickersAddToCartButton.alpha = 1.0 })
+    }
+  }
+  
 }
 
 
-extension stickersVC: UIPickerViewDataSource {
+extension StickersVC: UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
-    
+  
     // returns the # of rows in each component..
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -266,14 +274,14 @@ extension stickersVC: UIPickerViewDataSource {
 }
 
 
-extension stickersVC: UIPickerViewDelegate {
+extension StickersVC: UIPickerViewDelegate {
   
   
     func validateLayoutSize(row: Int) {
       selectedRow = row
   
-      if stickersBoolVariables.stickersWidthSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth &&
-        stickersBoolVariables.stickersHeightSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth {
+      if currentPageData.width.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth &&
+        currentPageData.height.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth {
   
         let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина \(priceData.materialsDictionary[row].maxMaterialWidth)м",
           preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -285,10 +293,10 @@ extension stickersVC: UIPickerViewDelegate {
   
         self.present(oversizeAlert, animated: true, completion: nil)
         stickersWidthTextField.text = ""
-        stickersBoolVariables.stickersWidthSet = stickersWidthTextField.text!
+        currentPageData.width = stickersWidthTextField.text!
   
-        stickersBoolVariables.priceToLabel = "0"
-        stickersBoolVariables.ndsPriceToLabel = "0"
+        currentPageData.price = "0"
+        currentPageData.ndsPrice = "0"
         
       }
     }
@@ -313,7 +321,7 @@ extension stickersVC: UIPickerViewDelegate {
             
         } else if pickerView.tag == 1 {
           
-             EnableButton()
+          EnableButton()
           
           priceData.postPrintMaterialPrice = priceData.postPrintDictionary[row].materialCost
           priceData.postPrintWorkPrice = priceData.postPrintDictionary[row].costOfWork
@@ -348,7 +356,7 @@ extension stickersVC: UIPickerViewDelegate {
 }
 
 
-extension stickersVC: UITextFieldDelegate {
+extension StickersVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })

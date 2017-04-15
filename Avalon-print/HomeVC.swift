@@ -18,6 +18,19 @@ var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
 
 
+
+func lout() {
+  
+  let firebaseAuth = FIRAuth.auth()
+  do {
+    try firebaseAuth?.signOut()
+   // dismiss(animated: true, completion: nil)
+  } catch let signOutError as NSError {
+    print ("Error signing out: %@", signOutError)
+  }
+  
+}
+
  public func updateBadgeValue () {
      managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
    
@@ -42,7 +55,6 @@ let screenSize: CGRect = UIScreen.main.bounds
      let group = UIMotionEffectGroup()
      group.motionEffects = [xMotion, yMotion]
      view.addMotionEffect(group)
-    
  }
 
 
@@ -137,6 +149,8 @@ extension NSObject: Utilities{
         updateBadgeValue()
         registerCell()
         getVariablesFromJSON()
+      
+     // lout()
   }
   
   
@@ -201,7 +215,7 @@ extension NSObject: Utilities{
     
     func rightButtonPressed(_ sender: UIButton) {
         
-        let controller = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
+        let controller = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
             controller.modalPresentationStyle = .custom
             controller.transitioningDelegate = self.bucketTransition
         
@@ -297,17 +311,18 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+   
+    
+    currentPageData.resetDataBeforeChangingPage()
     
        if indexPath.row == 0 {
-              let destination = storyboard?.instantiateViewController(withIdentifier: "postersVC") as! postersVC
+              let destination = storyboard?.instantiateViewController(withIdentifier: "PostersVC") as! PostersVC
                       navigationController?.pushViewController(destination, animated: true)
       
-              //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-                reset(page: "posters")
     }
   
     if indexPath.row == 1 {
-              let destination = storyboard?.instantiateViewController(withIdentifier: "bannersVC") as! bannersVC
+              let destination = storyboard?.instantiateViewController(withIdentifier: "BannersVC") as! BannersVC
                   navigationController?.pushViewController(destination, animated: true)
       
              //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
@@ -315,14 +330,15 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
       
     }
     if indexPath.row == 2 {
-      let destination = storyboard?.instantiateViewController(withIdentifier: "stickersVC") as! stickersVC
+      let destination = storyboard?.instantiateViewController(withIdentifier: "StickersVC") as! StickersVC
           navigationController?.pushViewController(destination, animated: true)
       
               //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-                reset(page: "stickers")
+              //  reset(page: "stickers")
+       //currentPageData.resetDataBeforeChangingPage()
     }
     if indexPath.row == 3 {
-      let destination = storyboard?.instantiateViewController(withIdentifier: "canvasVC") as! canvasVC
+      let destination = storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as! CanvasVC
           navigationController?.pushViewController(destination, animated: true)
       
               //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (canvasComputing.swift)

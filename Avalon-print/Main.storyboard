@@ -896,7 +896,7 @@
         <!--Корзина-->
         <scene sceneID="bPW-RN-ndd">
             <objects>
-                <viewController storyboardIdentifier="shoppingCartVC" title="Корзина" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cCO-xJ-YFf" customClass="shoppingCartVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShoppingCartVC" title="Корзина" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cCO-xJ-YFf" customClass="ShoppingCartVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g9O-SY-svm"/>
                         <viewControllerLayoutGuide type="bottom" id="B7E-QZ-850"/>
@@ -914,7 +914,7 @@
                                 <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="shoppingCartTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="140" id="xld-EY-Fec" customClass="shoppingCartTableViewCell" customModule="Avalon_Print" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ShoppingCartTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="140" id="xld-EY-Fec" customClass="ShoppingCartTableViewCell" customModule="Avalon_Print" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xld-EY-Fec" id="qph-GD-Uwe">
@@ -1100,7 +1100,7 @@
         <!--Оформление заказа-->
         <scene sceneID="oNK-Y4-Sio">
             <objects>
-                <viewController storyboardIdentifier="checkoutFormVC" title="Оформление заказа" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dnc-Ye-m5p" customClass="checkoutFormVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckoutFormVC" title="Оформление заказа" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dnc-Ye-m5p" customClass="CheckoutFormVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2da-Ok-Xxn"/>
                         <viewControllerLayoutGuide type="bottom" id="Ql4-bd-Yrl"/>
@@ -1386,7 +1386,7 @@
         <!-- Плакаты-->
         <scene sceneID="df0-Cb-iZh">
             <objects>
-                <viewController storyboardIdentifier="postersVC" title=" Плакаты" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nW7-o5-byK" customClass="postersVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostersVC" title=" Плакаты" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nW7-o5-byK" customClass="PostersVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wu8-mc-cLz"/>
                         <viewControllerLayoutGuide type="bottom" id="beb-0S-ut0"/>
@@ -1680,7 +1680,7 @@
         <!--Баннеры-->
         <scene sceneID="2Vm-WT-QO1">
             <objects>
-                <viewController storyboardIdentifier="bannersVC" title="Баннеры" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OJB-LI-2yD" customClass="bannersVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BannersVC" title="Баннеры" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OJB-LI-2yD" customClass="BannersVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CDC-kN-vss"/>
                         <viewControllerLayoutGuide type="bottom" id="mSM-xM-Lzh"/>
@@ -2145,7 +2145,7 @@
         <!--Наклейки-->
         <scene sceneID="dNN-pj-jL9">
             <objects>
-                <viewController storyboardIdentifier="stickersVC" title="Наклейки" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mlp-bK-D1K" customClass="stickersVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StickersVC" title="Наклейки" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mlp-bK-D1K" customClass="StickersVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SRb-vb-XPO"/>
                         <viewControllerLayoutGuide type="bottom" id="PCy-HG-Pym"/>
@@ -2424,7 +2424,7 @@
         <!--Холсты-->
         <scene sceneID="n4e-lq-MoH">
             <objects>
-                <viewController storyboardIdentifier="canvasVC" title="Холсты" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZxG-tB-Tjs" customClass="canvasVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CanvasVC" title="Холсты" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZxG-tB-Tjs" customClass="CanvasVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qir-KO-HiM"/>
                         <viewControllerLayoutGuide type="bottom" id="7Vd-8h-0dk"/>
@@ -2791,7 +2791,7 @@ Life  (093) 000-18-64
         <!--Карта-->
         <scene sceneID="2FJ-9B-9Pk">
             <objects>
-                <viewController storyboardIdentifier="map" title="Карта" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VPw-nU-EMA" customClass="map" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Map" title="Карта" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VPw-nU-EMA" customClass="Map" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="duW-sb-zJu"/>
                         <viewControllerLayoutGuide type="bottom" id="r88-j2-RSW"/>
@@ -2932,7 +2932,7 @@ Life  (093) 000-18-64
         <!--Information Detail-->
         <scene sceneID="RHE-EE-s5T">
             <objects>
-                <viewController storyboardIdentifier="informationDetail" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dBg-L6-D3u" customClass="informationDetail" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationDetail" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dBg-L6-D3u" customClass="InformationDetail" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FAU-Ft-Gbl"/>
                         <viewControllerLayoutGuide type="bottom" id="9SU-cU-Yi5"/>

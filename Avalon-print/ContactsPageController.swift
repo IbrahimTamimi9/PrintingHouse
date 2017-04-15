@@ -32,7 +32,7 @@ class ContactsPageController: UIViewController {
     }
     
     @IBAction func openMap(_ sender: Any) {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "map") as! map
+        let destination = storyboard?.instantiateViewController(withIdentifier: "Map") as! Map
                 navigationController?.pushViewController(destination, animated: true)
     }
 }

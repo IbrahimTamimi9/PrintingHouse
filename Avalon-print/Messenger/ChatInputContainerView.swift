@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ChatInputContainerView: UIView, UITextFieldDelegate {
+class ChatInputContainerView: UIView {
     
     weak var chatLogController: ChatLogController? {
         didSet {
             sendButton.addTarget(chatLogController, action: #selector(ChatLogController.handleSend), for: .touchUpInside)
             uploadImageView.addGestureRecognizer(UITapGestureRecognizer(target: chatLogController, action: #selector(ChatLogController.handleUploadTap)))
             inputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-               }
+        }
     }
   
   
@@ -27,9 +27,7 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         }
   }
   
-  
-  
-    
+ 
     lazy var inputTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Сообщение..."
@@ -94,14 +92,18 @@ class ChatInputContainerView: UIView, UITextFieldDelegate {
         separatorLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        chatLogController?.handleSend()
-        return true
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+  
+}
+
+extension ChatInputContainerView: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    chatLogController?.handleSend()
+    return true
+  }
   
 }
 

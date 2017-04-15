@@ -54,8 +54,11 @@ func getCanvasPrice ( materialPrice: Double, materialPrintPrice: Double,
   let materialPrintPriceM2 = materialPrintPrice
  
        podramnik = ((custom_he + custom_wi) * 2) * podramnikPrice
+  
    let materialSum = materialPrintPriceM2 + materialPriceM2 * overprice1
+  
    let underframePrice = (natyazhkaHolsta * amount) + (podramnik * amount)
+  
        price = Int((currency_course * amount * materialSum * squareMeters)  + (underframePrice))
 
   //MARK: DISCOUNT

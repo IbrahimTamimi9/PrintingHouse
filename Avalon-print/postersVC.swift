@@ -11,7 +11,7 @@ import Firebase
 import JTMaterialTransition
 import FirebaseDatabase
 
- class postersVC: UIViewController {
+ class PostersVC: UIViewController {
 
     @IBOutlet weak var AboutMaterialsButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -60,7 +60,7 @@ import FirebaseDatabase
     override  func viewDidLoad() {
         super.viewDidLoad()
       
-        fetchMaterialsAndPostprint(productType: "Posters", onlyColdLamAllowed: false, onlyDefaultPrepressAllowed: true)
+            fetchMaterialsAndPostprint(productType: "Posters", onlyColdLamAllowed: false, onlyDefaultPrepressAllowed: true)
   
             managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -117,11 +117,11 @@ import FirebaseDatabase
   
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( postersAmountTextField.text == nil) {
-            postersBoolVariables.amountDidNotInputed = true
+            currentPageData.amountIsEmpty = true
             updatePrices()
         } else {
-            postersBoolVariables.amountDidNotInputed = false
-            postersBoolVariables.amount = postersAmountTextField.text!
+            currentPageData.amountIsEmpty = false
+            currentPageData.amount = postersAmountTextField.text!
            
             updatePrices()
         }
@@ -133,8 +133,8 @@ import FirebaseDatabase
   
   
     @IBAction func widthCursorPosChanged(_ sender: Any) {
-        postersBoolVariables.postersWidhOrHeightDidNotInputed = false
-        postersBoolVariables.postersWidthSet =  postersWidthTextField.text!
+        currentPageData.widthOrHeightIsEmpty = false
+        currentPageData.width =  postersWidthTextField.text!
       
         validateLayoutSize(row: selectedMaterialRow)
       
@@ -147,9 +147,8 @@ import FirebaseDatabase
   
     
     @IBAction func heightCursorPosChanged(_ sender: Any) {
-        postersBoolVariables.postersWidhOrHeightDidNotInputed = false
-     
-        postersBoolVariables.postersHeightSet = postersHeightTextField.text!
+        currentPageData.widthOrHeightIsEmpty = false
+        currentPageData.height = postersHeightTextField.text!
       
         validateLayoutSize(row: selectedMaterialRow)
       
@@ -165,7 +164,7 @@ import FirebaseDatabase
         
         if postersAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "shoppingCartVC") as! shoppingCartVC
+            let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
             let navigationController = UINavigationController(rootViewController: destination)
             
             navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -196,7 +195,7 @@ import FirebaseDatabase
   
     
     @IBAction func openInfoAboutMaterials(_ sender: Any) {
-        resetTableView ()
+        resetTableView()
       
         let controller = storyboard?.instantiateViewController(withIdentifier:"ExpandingMaterialViewController")
         controller?.modalPresentationStyle = .custom
@@ -218,34 +217,39 @@ import FirebaseDatabase
     postersAddToCartButton.setTitle("Добавить в корзину", for: .normal )
     postersAddToCartButton.isUserInteractionEnabled = true
     postersAddToCartButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-    }
+  }
   
   
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
     func updatePrices() {
-        computings()
-        postersPrice.text = postersBoolVariables.priceToLabel
-        postersNDSPrice.text = postersBoolVariables.ndsPriceToLabel
-        
-        if postersPrice.text == "0" {
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.postersAddToCartButton.alpha = 0.5 })
-
-            postersAddToCartButton.isEnabled  = false
-
-        } else {
-             postersAddToCartButton.isEnabled = true
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.postersAddToCartButton.alpha = 1.0 })
-
-        }
+     
+        calculatePriceOfSelectedProduct()
+        postersPrice.text = currentPageData.price
+        postersNDSPrice.text = currentPageData.ndsPrice
+        animateAddToCartButton()
+      
     }
+  
+    func animateAddToCartButton() {
+    
+      if postersPrice.text == "0" {
+      
+        UIView.animate(withDuration: 0.5, animations: {
+          self.postersAddToCartButton.alpha = 0.5 })
+          postersAddToCartButton.isEnabled  = false
+      
+      } else {
+      
+        UIView.animate(withDuration: 0.5, animations: {
+          self.postersAddToCartButton.alpha = 1.0 })
+          postersAddToCartButton.isEnabled = true
+    }
+    
+  }
 }
 
 
-extension postersVC: UITextFieldDelegate {
+extension PostersVC: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform(scaleX: 1.1, y: 1.1) }, completion: { (finish: Bool) in UIView.animate(withDuration: 0.1, animations: { textField.transform = CGAffineTransform.identity }) })
@@ -254,7 +258,7 @@ extension postersVC: UITextFieldDelegate {
 }
 
 
-extension postersVC: UIPickerViewDataSource {
+extension PostersVC: UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -276,7 +280,7 @@ extension postersVC: UIPickerViewDataSource {
 }
 
 
-extension postersVC: UIPickerViewDelegate {
+extension PostersVC: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
@@ -305,11 +309,10 @@ extension postersVC: UIPickerViewDelegate {
   func validateLayoutSize(row: Int) {
     selectedMaterialRow = row
     
-    if postersBoolVariables.postersWidthSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth &&
-       postersBoolVariables.postersHeightSet.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth {
+    if currentPageData.width.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth &&
+       currentPageData.height.convertToDemicalIfItIsNot > priceData.materialsDictionary[row].maxMaterialWidth {
       
-      let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина \(priceData.materialsDictionary[row].maxMaterialWidth)м",
-                                            preferredStyle: UIAlertControllerStyle.actionSheet)
+      let oversizeAlert = UIAlertController(title: "Превышен максимальный размер", message: "Максимальная ширина \(priceData.materialsDictionary[row].maxMaterialWidth)м", preferredStyle: UIAlertControllerStyle.actionSheet)
       
       let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
       
@@ -317,10 +320,10 @@ extension postersVC: UIPickerViewDelegate {
       
       self.present(oversizeAlert, animated: true, completion: nil)
       postersWidthTextField.text = ""
-      postersBoolVariables.postersWidthSet = postersWidthTextField.text!
+      currentPageData.width = postersWidthTextField.text!
       
-      postersBoolVariables.priceToLabel = "0"
-      postersBoolVariables.ndsPriceToLabel = "0"
+      currentPageData.price = "0"
+      currentPageData.ndsPrice = "0"
 
     }
   }

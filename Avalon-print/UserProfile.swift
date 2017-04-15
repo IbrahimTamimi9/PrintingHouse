@@ -227,10 +227,10 @@ class UserProfile: UITableViewController {
           self.navigationController?.pushViewController(newMessageController, animated: true)
       }
           
-          if indexPath.row == 4 { }
+         // if indexPath.row == 4 { }
           
   
-          if indexPath.row == 5 {
+          if indexPath.row == 4 {
   
             let firebaseAuth = FIRAuth.auth()
             do {

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
  
-class map: UIViewController {
+class Map: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
     

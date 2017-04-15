@@ -126,31 +126,31 @@ func setPickerTextFieldTint(sender: [UITextField]) {
 
 func reset (page: String) {
     
-    if page == "posters" {
-        postersBoolVariables.amountDidNotInputed = true
-        postersBoolVariables.amount = ""
-    
-        postersBoolVariables.postersWidhOrHeightDidNotInputed = true
-        postersBoolVariables.postersWidthSet = ""
-        postersBoolVariables.postersHeightSet = ""
-   
-        postersBoolVariables.priceToLabel = "0"
-        postersBoolVariables.ndsPriceToLabel = "0"
-    }
-    
-    
-    if page == "stickers" {
-        stickersBoolVariables.amountDidNotInputed = true
-        stickersBoolVariables.amount = ""
-  
-        stickersBoolVariables.stickersWidhOrHeightDidNotInputed = true
-        stickersBoolVariables.stickersWidthSet = ""
-        stickersBoolVariables.stickersHeightSet = ""
-        
-        stickersBoolVariables.priceToLabel = "0"
-        stickersBoolVariables.ndsPriceToLabel = "0"
-    }
-    
+//    if page == "posters" {
+//        postersBoolVariables.amountDidNotInputed = true
+//        postersBoolVariables.amount = ""
+//    
+//        postersBoolVariables.postersWidhOrHeightDidNotInputed = true
+//        postersBoolVariables.postersWidthSet = ""
+//        postersBoolVariables.postersHeightSet = ""
+//   
+//        postersBoolVariables.priceToLabel = "0"
+//        postersBoolVariables.ndsPriceToLabel = "0"
+//    }
+//    
+//    
+//    if page == "stickers" {
+//        stickersBoolVariables.amountDidNotInputed = true
+//        stickersBoolVariables.amount = ""
+//  
+//        stickersBoolVariables.stickersWidhOrHeightDidNotInputed = true
+//        stickersBoolVariables.stickersWidthSet = ""
+//        stickersBoolVariables.stickersHeightSet = ""
+//        
+//        stickersBoolVariables.priceToLabel = "0"
+//        stickersBoolVariables.ndsPriceToLabel = "0"
+//    }
+//    
     
     if page == "canvas" {
         canvasBoolVariables.amount = ""

@@ -14,21 +14,19 @@
 		4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */; };
 		4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */; };
 		4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */; };
-		4B3F81931E226EE900034E3E /* postersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81911E226EE900034E3E /* postersComputing.swift */; };
-		4B3F81941E226EE900034E3E /* postersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81921E226EE900034E3E /* postersVC.swift */; };
-		4B3F81971E226F0800034E3E /* stickersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81951E226F0800034E3E /* stickersComputing.swift */; };
-		4B3F81981E226F0800034E3E /* stickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81961E226F0800034E3E /* stickersVC.swift */; };
+		4B3F81941E226EE900034E3E /* PostersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81921E226EE900034E3E /* PostersVC.swift */; };
+		4B3F81981E226F0800034E3E /* StickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81961E226F0800034E3E /* StickersVC.swift */; };
 		4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81991E226F2D00034E3E /* canvasComputing.swift */; };
-		4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819A1E226F2D00034E3E /* canvasVC.swift */; };
+		4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819A1E226F2D00034E3E /* CanvasVC.swift */; };
 		4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819D1E226F4000034E3E /* bannersComputing.swift */; };
-		4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819E1E226F4000034E3E /* bannersVC.swift */; };
-		4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */; };
-		4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */; };
-		4B3F81AE1E226FC300034E3E /* checkoutFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */; };
+		4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819E1E226F4000034E3E /* BannersVC.swift */; };
+		4B3F81AC1E226FC300034E3E /* ShoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */; };
+		4B3F81AD1E226FC300034E3E /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */; };
+		4B3F81AE1E226FC300034E3E /* CheckoutFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */; };
 		4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A41E226FC300034E3E /* ContactsPageController.swift */; };
-		4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A51E226FC300034E3E /* informationDetail.swift */; };
+		4B3F81B01E226FC300034E3E /* InformationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A51E226FC300034E3E /* InformationDetail.swift */; };
 		4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A61E226FC300034E3E /* InformationPageController.swift */; };
-		4B3F81B31E226FC300034E3E /* map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A81E226FC300034E3E /* map.swift */; };
+		4B3F81B31E226FC300034E3E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A81E226FC300034E3E /* Map.swift */; };
 		4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */; };
 		4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AA1E226FC300034E3E /* UserProfile.swift */; };
 		4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AB1E226FC300034E3E /* HomeVC.swift */; };
@@ -54,6 +52,7 @@
 		4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B894DF31E3E3137008D694D /* PasswordResetVC.swift */; };
 		4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */; };
 		4B9E4DBB1E4B517A00FB1591 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */; };
+		4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */; };
 		4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */; };
 		4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */; };
 		4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */; };
@@ -109,22 +108,20 @@
 		4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-ExtraLight.ttf"; path = "Avalon-print/Fonts/Exo2-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Light.ttf"; path = "Avalon-print/Fonts/Exo2-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Regular.ttf"; path = "Avalon-print/Fonts/Exo2-Regular.ttf"; sourceTree = SOURCE_ROOT; };
-		4B3F81911E226EE900034E3E /* postersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = postersComputing.swift; path = "Avalon-print/postersComputing.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81921E226EE900034E3E /* postersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = postersVC.swift; path = "Avalon-print/postersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81951E226F0800034E3E /* stickersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stickersComputing.swift; path = "Avalon-print/stickersComputing.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81961E226F0800034E3E /* stickersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stickersVC.swift; path = "Avalon-print/stickersVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81921E226EE900034E3E /* PostersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostersVC.swift; path = "Avalon-print/PostersVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81961E226F0800034E3E /* StickersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickersVC.swift; path = "Avalon-print/StickersVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81991E226F2D00034E3E /* canvasComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = canvasComputing.swift; path = "Avalon-print/canvasComputing.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F819A1E226F2D00034E3E /* canvasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = canvasVC.swift; path = "Avalon-print/canvasVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F819A1E226F2D00034E3E /* CanvasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanvasVC.swift; path = "Avalon-print/CanvasVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819D1E226F4000034E3E /* bannersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersComputing.swift; path = "Avalon-print/bannersComputing.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F819E1E226F4000034E3E /* bannersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersVC.swift; path = "Avalon-print/bannersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = shoppingCartVC.swift; path = "Avalon-print/shoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = shoppingCartTableViewCell.swift; path = "Avalon-print/shoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = checkoutFormVC.swift; path = "Avalon-print/checkoutFormVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F819E1E226F4000034E3E /* BannersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersVC.swift; path = "Avalon-print/BannersVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartVC.swift; path = "Avalon-print/ShoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartTableViewCell.swift; path = "Avalon-print/ShoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutFormVC.swift; path = "Avalon-print/CheckoutFormVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A41E226FC300034E3E /* ContactsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsPageController.swift; path = "Avalon-print/ContactsPageController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A51E226FC300034E3E /* informationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = informationDetail.swift; path = "Avalon-print/informationDetail.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A51E226FC300034E3E /* InformationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationDetail.swift; path = "Avalon-print/InformationDetail.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A61E226FC300034E3E /* InformationPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationPageController.swift; path = "Avalon-print/InformationPageController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A71E226FC300034E3E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Avalon-print/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A81E226FC300034E3E /* map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = map.swift; path = "Avalon-print/map.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A81E226FC300034E3E /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Map.swift; path = "Avalon-print/Map.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Avalon-print/RegistrationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81AA1E226FC300034E3E /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "Avalon-print/UserProfile.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81AB1E226FC300034E3E /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = "Avalon-print/HomeVC.swift"; sourceTree = SOURCE_ROOT; };
@@ -154,6 +151,7 @@
 		4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = "Avalon-print/textfieldEffects/HoshiTextField.swift"; sourceTree = SOURCE_ROOT; };
 		4B9E4DB81E4B517A00FB1591 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldEffects.h; path = "Avalon-print/textfieldEffects/TextFieldEffects.h"; sourceTree = SOURCE_ROOT; };
 		4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = "Avalon-print/textfieldEffects/TextFieldsEffects.swift"; sourceTree = SOURCE_ROOT; };
+		4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceCalculation.swift; path = "Avalon-print/PriceCalculation.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVCCell.swift; path = "Avalon-print/HomeVCCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchingMaterialsAndPostPrintFromFIrebase.swift; path = "Avalon-print/FetchingMaterialsAndPostPrintFromFIrebase.swift"; sourceTree = SOURCE_ROOT; };
@@ -252,8 +250,7 @@
 				4BF1D6B21E83F1810027C82B /* Model */,
 				4BF1D6B11E83F1600027C82B /* MessengerControllers */,
 				4BBED8CC1E33ECD500A62636 /* MaterialInfoVC */,
-				4B8D1C191DF2F2C7001A97F2 /* posters */,
-				4B7BFF4E1E0C391600E72E8A /* stickers */,
+				4B8D1C191DF2F2C7001A97F2 /* PostersStickers */,
 				4B7BFF4F1E0C392100E72E8A /* canvas */,
 				4B7BFF501E0C392700E72E8A /* banners */,
 				4B8F69301E37C9B400F0C91D /* information */,
@@ -267,20 +264,11 @@
 			name = pages;
 			sourceTree = "<group>";
 		};
-		4B7BFF4E1E0C391600E72E8A /* stickers */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81951E226F0800034E3E /* stickersComputing.swift */,
-				4B3F81961E226F0800034E3E /* stickersVC.swift */,
-			);
-			name = stickers;
-			sourceTree = "<group>";
-		};
 		4B7BFF4F1E0C392100E72E8A /* canvas */ = {
 			isa = PBXGroup;
 			children = (
 				4B3F81991E226F2D00034E3E /* canvasComputing.swift */,
-				4B3F819A1E226F2D00034E3E /* canvasVC.swift */,
+				4B3F819A1E226F2D00034E3E /* CanvasVC.swift */,
 			);
 			name = canvas;
 			sourceTree = "<group>";
@@ -289,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3F819D1E226F4000034E3E /* bannersComputing.swift */,
-				4B3F819E1E226F4000034E3E /* bannersVC.swift */,
+				4B3F819E1E226F4000034E3E /* BannersVC.swift */,
 			);
 			name = banners;
 			sourceTree = "<group>";
@@ -315,13 +303,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		4B8D1C191DF2F2C7001A97F2 /* posters */ = {
+		4B8D1C191DF2F2C7001A97F2 /* PostersStickers */ = {
 			isa = PBXGroup;
 			children = (
-				4B3F81911E226EE900034E3E /* postersComputing.swift */,
-				4B3F81921E226EE900034E3E /* postersVC.swift */,
+				4B3F81921E226EE900034E3E /* PostersVC.swift */,
+				4B3F81961E226F0800034E3E /* StickersVC.swift */,
+				4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */,
 			);
-			name = posters;
+			name = PostersStickers;
 			sourceTree = "<group>";
 		};
 		4B8F692F1E37C96300F0C91D /* home */ = {
@@ -337,7 +326,7 @@
 		4B8F69301E37C9B400F0C91D /* information */ = {
 			isa = PBXGroup;
 			children = (
-				4B3F81A51E226FC300034E3E /* informationDetail.swift */,
+				4B3F81A51E226FC300034E3E /* InformationDetail.swift */,
 				4B3F81A61E226FC300034E3E /* InformationPageController.swift */,
 			);
 			name = information;
@@ -358,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3F81A41E226FC300034E3E /* ContactsPageController.swift */,
-				4B3F81A81E226FC300034E3E /* map.swift */,
+				4B3F81A81E226FC300034E3E /* Map.swift */,
 			);
 			name = contacts;
 			sourceTree = "<group>";
@@ -427,9 +416,9 @@
 		4BFFD84E1E3E385100710282 /* shoppingCart */ = {
 			isa = PBXGroup;
 			children = (
-				4B3F81A11E226FC300034E3E /* shoppingCartVC.swift */,
-				4B3F81A21E226FC300034E3E /* shoppingCartTableViewCell.swift */,
-				4B3F81A31E226FC300034E3E /* checkoutFormVC.swift */,
+				4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */,
+				4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */,
+				4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */,
 			);
 			name = shoppingCart;
 			sourceTree = "<group>";
@@ -610,17 +599,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3FE8A11E44F34D00852A2A /* ARSProgressLoader.swift in Sources */,
-				4B3F81931E226EE900034E3E /* postersComputing.swift in Sources */,
-				4B3F81981E226F0800034E3E /* stickersVC.swift in Sources */,
-				4B3F81AE1E226FC300034E3E /* checkoutFormVC.swift in Sources */,
+				4B3F81981E226F0800034E3E /* StickersVC.swift in Sources */,
+				4B3F81AE1E226FC300034E3E /* CheckoutFormVC.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
 				4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */,
-				4B3F81941E226EE900034E3E /* postersVC.swift in Sources */,
+				4B3F81941E226EE900034E3E /* PostersVC.swift in Sources */,
 				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
-				4B3F81A01E226F4000034E3E /* bannersVC.swift in Sources */,
+				4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */,
 				4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */,
 				4BC8241D1E3F8582004B6DCE /* MyOrdersTableVC.swift in Sources */,
-				4B3F81B31E226FC300034E3E /* map.swift in Sources */,
+				4B3F81B31E226FC300034E3E /* Map.swift in Sources */,
 				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
 				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
@@ -632,6 +620,7 @@
 				4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
 				4B3FE89A1E44F34D00852A2A /* ARSInfiniteLoader.swift in Sources */,
+				4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */,
 				4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */,
 				4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */,
 				4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */,
@@ -652,17 +641,16 @@
 				4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */,
 				4B3FE89B1E44F34D00852A2A /* ARSLineProgress.swift in Sources */,
 				4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */,
-				4B3F81971E226F0800034E3E /* stickersComputing.swift in Sources */,
-				4B3F819C1E226F2D00034E3E /* canvasVC.swift in Sources */,
+				4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */,
 				4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */,
 				4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */,
 				4B3FE89E1E44F34D00852A2A /* ARSLineProgressExtensions.swift in Sources */,
 				4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */,
 				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
 				4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */,
-				4B3F81AC1E226FC300034E3E /* shoppingCartVC.swift in Sources */,
-				4B3F81AD1E226FC300034E3E /* shoppingCartTableViewCell.swift in Sources */,
-				4B3F81B01E226FC300034E3E /* informationDetail.swift in Sources */,
+				4B3F81AC1E226FC300034E3E /* ShoppingCartVC.swift in Sources */,
+				4B3F81AD1E226FC300034E3E /* ShoppingCartTableViewCell.swift in Sources */,
+				4B3F81B01E226FC300034E3E /* InformationDetail.swift in Sources */,
 				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
 				4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */,
 				4B9E4DBB1E4B517A00FB1591 /* TextFieldsEffects.swift in Sources */,

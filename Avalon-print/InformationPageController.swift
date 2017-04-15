@@ -37,14 +37,14 @@ class InformationPageController: UITableViewController {
     //MARK: HELPER FUNCTIONS
     
     func goToDetailInfo() {
-        let destination = storyboard?.instantiateViewController(withIdentifier: "informationDetail") as! informationDetail
+        let destination = storyboard?.instantiateViewController(withIdentifier: "InformationDetail") as! InformationDetail
         navigationController?.pushViewController(destination, animated: true)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "seguePaymentAndDelivery") {
-            let viewController = segue.destination as! informationDetail
+            let viewController = segue.destination as! InformationDetail
             viewController.passedValue = valueToPass
         }
     }

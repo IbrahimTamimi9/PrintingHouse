@@ -13,7 +13,7 @@ import FirebaseAuth
 
 var orderToFirebaseArray = [AddedItems]()
 
-class checkoutFormVC: UIViewController {
+class CheckoutFormVC: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -331,7 +331,7 @@ class checkoutFormVC: UIViewController {
 }
 
 
- extension checkoutFormVC: UIScrollViewDelegate {
+ extension CheckoutFormVC: UIScrollViewDelegate {
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView.isEqual(mainScrollView) else {
@@ -362,7 +362,7 @@ class checkoutFormVC: UIViewController {
 }
 
 
- extension checkoutFormVC: UITextFieldDelegate {
+ extension CheckoutFormVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

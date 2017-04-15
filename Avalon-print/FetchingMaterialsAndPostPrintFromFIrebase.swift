@@ -10,23 +10,24 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+var priceData = priceDataStatus()
 
-struct priceData {
+struct priceDataStatus {
   
-  static var materialsDictionary = [(title: "Выберите материал...", maxMaterialWidth: 0.0, matPrice: 0.0, printPrice: 0.0)]
-  static var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
+   var materialsDictionary = [(title: "Выберите материал...", maxMaterialWidth: 0.0, matPrice: 0.0, printPrice: 0.0)]
+   var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
   
-  static var materialPrice = Double()
-  static var printPrice = Double()
+   var materialPrice = Double()
+   var printPrice = Double()
   
-  static var postPrintMaterialPrice = Double()
-  static var postPrintWorkPrice = Double()
+   var postPrintMaterialPrice = Double()
+   var postPrintWorkPrice = Double()
   
-  static func resetMaterialsAndPostprintDictionaries () {
+  mutating func resetMaterialsAndPostprintDictionaries () {
     
-    priceData.materialsDictionary = [(title: "Выберите материал...", maxMaterialWidth: 99999.0, matPrice: 0.0, printPrice: 0.0)]
-    priceData.postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
+    self = priceDataStatus()
   }
+  
 }
 
 
@@ -49,16 +50,12 @@ func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, o
     print(error.localizedDescription)
   }
   
-  
   // Post Print
-  
   ref.child("Postprint").observe(.childAdded, with: { (snapshot) in
-    
     
     if onlyColdLamAllowed == true && onlyDefaultPrepressAllowed == true {
       print("error: impossible value in picker view")
     }
-   
     
     if onlyDefaultPrepressAllowed == true {
       
@@ -67,7 +64,6 @@ func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, o
        }
     }
     
-    
     if onlyColdLamAllowed == true {
       
       if snapshot.key == "prepressCold" {
@@ -75,7 +71,6 @@ func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, o
       }
     }
   
-    
     if onlyColdLamAllowed == false && onlyDefaultPrepressAllowed == false {
            observePostrpintData(snapshot: snapshot)
     }
@@ -99,7 +94,6 @@ func observeMaterialsData(snapshot: FIRDataSnapshot) {
       priceData.materialsDictionary.append(( materialTitle as! String, maxMaterialWidth as! Double, materialPrice as! Double  , printPrice as! Double  ))
     }
   }
-  
 }
 
 

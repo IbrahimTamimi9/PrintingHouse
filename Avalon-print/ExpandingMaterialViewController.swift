@@ -27,12 +27,6 @@ class ExpandingMaterialViewController: ExpandingViewController , UIViewControlle
     @IBAction func dismissPage(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
-    
-   
-    
-    
-    
-   
    
     @IBOutlet weak var backgroundImageViewMain: UIImageView!
    
@@ -72,10 +66,6 @@ class ExpandingMaterialViewController: ExpandingViewController , UIViewControlle
        pushToViewController(getViewController())
 
   }
-  
-  
-  
-  
   
   
     fileprivate func registerCell() {
@@ -123,11 +113,9 @@ class ExpandingMaterialViewController: ExpandingViewController , UIViewControlle
         cell.cellIsOpen(open)
         cellsIsOpen[(indexPath as NSIndexPath).row] = cell.isOpened
         fillTableView(indexPath: indexPath)
-     
-
+  
         }
-    
- 
+  
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pageLabel.text = "\(currentIndex+1)/\(items.count)"
@@ -155,15 +143,10 @@ class ExpandingMaterialViewController: ExpandingViewController , UIViewControlle
             cell.cellIsOpen(true)
         } else {
             pushToViewController(getViewController())
-         
-
-            
-            
+          
         }
-     
     }
   
-
   
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         fillTableView(indexPath: indexPath)
