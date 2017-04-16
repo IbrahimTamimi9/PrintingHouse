@@ -27,6 +27,7 @@ struct currentPageDataStatus {
   
   var amountIsEmpty = true
   var widthOrHeightIsEmpty = true
+  var withUnderframe = false
   var amount = ""
   var width = ""
   var height = ""
@@ -38,7 +39,6 @@ struct currentPageDataStatus {
     self = currentPageDataStatus()
     
   }
-  
 }
 
 
@@ -52,40 +52,60 @@ func calculatePriceOfSelectedProduct() {
   let postPrintMaterialPrice = priceData.postPrintMaterialPrice
   let postPrintWorkPrice = priceData.postPrintWorkPrice
   
-  //MARK: CITY MATERIAL, VARIANTS START
   if( currentPageData.amountIsEmpty == true || currentPageData.widthOrHeightIsEmpty == true )  {
     
     currentPageData.price = "0"
     currentPageData.ndsPrice = "0"
-    
+   
   } else if (materialPrice == 0.0 || printPrice == 0.0) && (postPrintMaterialPrice != 0.0 || postPrintWorkPrice != 0.0) {
     
     currentPageData.price = "0"
     currentPageData.ndsPrice = "0"
   } else {
-    getPosterStickerPrice ( materialPrice: materialPrice, materialPrintPrice: printPrice,
-                            prepress: postPrintMaterialPrice, workPrepress: postPrintWorkPrice )
+    getPosterStickerPrice (materialPrice: materialPrice, materialPrintPrice: printPrice,
+                            postprint: postPrintMaterialPrice, workPostprint: postPrintWorkPrice )
     
   }
   
 } //calculatePriceOfSelectedProduct()
 
 
-func getPosterStickerPrice ( materialPrice: Double , materialPrintPrice: Double, prepress: Double,  workPrepress: Double)  {
+func getPosterStickerPrice (materialPrice: Double , materialPrintPrice: Double, postprint: Double,  workPostprint: Double)  {
   
   var price = 0 //цена
   var amount = Double()
   var custom_wi = Double()
   var custom_he = Double()
-  
-  
+
   amount = currentPageData.amount.doubleValue //количество
   custom_wi = currentPageData.width.convertToDemicalIfItIsNot
   custom_he = currentPageData.height.convertToDemicalIfItIsNot
   
   
-  let squareMeters = custom_he * custom_wi
+// if selected page is canvas page ======================================
+  let underframePriceLengthMeter = 120.0
+  let setupWorkPrice = 150.0
   
+  let perimeter = (custom_he + custom_wi) * 2
+  let underframePrice = perimeter * underframePriceLengthMeter
+
+  
+
+  var underframeSum = Double()
+  
+  if currentPageData.withUnderframe == false {
+    underframeSum = 0.0
+  } else  if currentPageData.withUnderframe && ( custom_he == 0 || custom_wi == 0 ) {
+    underframeSum = 0.0
+  } else {
+    underframeSum = (underframePrice + setupWorkPrice) * amount
+  }
+  
+//========================================================================
+  
+  
+  let squareMeters = custom_he * custom_wi
+
   let currency_course = JSONVariables.USD
   let NDS = JSONVariables.NDS
   let overprice1 = JSONVariables.OVERPRICE1
@@ -96,21 +116,19 @@ func getPosterStickerPrice ( materialPrice: Double , materialPrintPrice: Double,
   let materialPrintPriceM2 = materialPrintPrice
   
   ////MARK: POST PRINT
-  let prepressPrice =  prepress
-  let workPrepressPrice = workPrepress
+  let postprintPrice = postprint  //podramnikprice
+  let workPostprintsPrice = workPostprint //natyazhkaHolsta
   
-  var prepressMaterial = Double() //просчет припреса
-  var prepressWork = Double()
+  var postprintMaterial = Double() //просчет припреса
+  var postprintWork = Double()
   
-  
-  prepressMaterial = (squareMeters * prepressPrice) * amount
-  prepressWork = (squareMeters * workPrepressPrice) * amount
+  postprintMaterial = (squareMeters * postprintPrice) * amount
+  postprintWork = (squareMeters * workPostprintsPrice) * amount
   
   let materialSum = materialPrintPriceM2 + materialPriceM2 * overprice1
-  let prepressSum = prepressMaterial + prepressWork
+  let postprintSum = postprintMaterial + postprintWork
   
-  price = Int(currency_course * ( (prepressSum) + amount * materialSum * squareMeters))
-  
+  price = Int((currency_course * ( (postprintSum) + amount * materialSum * squareMeters)) + underframeSum )
   
   //MARK: DISCOUNT
   if(price >= 150)  { price = (price - (price * 5)/100); }
@@ -120,6 +138,5 @@ func getPosterStickerPrice ( materialPrice: Double , materialPrintPrice: Double,
   
   currentPageData.price =  String(price)
   currentPageData.ndsPrice = String((price + ((price * NDS)/100) ))
-  
 }
 

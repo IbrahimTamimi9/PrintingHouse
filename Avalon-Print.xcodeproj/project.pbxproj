@@ -16,7 +16,6 @@
 		4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */; };
 		4B3F81941E226EE900034E3E /* PostersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81921E226EE900034E3E /* PostersVC.swift */; };
 		4B3F81981E226F0800034E3E /* StickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81961E226F0800034E3E /* StickersVC.swift */; };
-		4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81991E226F2D00034E3E /* canvasComputing.swift */; };
 		4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819A1E226F2D00034E3E /* CanvasVC.swift */; };
 		4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819D1E226F4000034E3E /* bannersComputing.swift */; };
 		4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819E1E226F4000034E3E /* BannersVC.swift */; };
@@ -110,7 +109,6 @@
 		4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Regular.ttf"; path = "Avalon-print/Fonts/Exo2-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		4B3F81921E226EE900034E3E /* PostersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostersVC.swift; path = "Avalon-print/PostersVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81961E226F0800034E3E /* StickersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickersVC.swift; path = "Avalon-print/StickersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81991E226F2D00034E3E /* canvasComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = canvasComputing.swift; path = "Avalon-print/canvasComputing.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819A1E226F2D00034E3E /* CanvasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanvasVC.swift; path = "Avalon-print/CanvasVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819D1E226F4000034E3E /* bannersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersComputing.swift; path = "Avalon-print/bannersComputing.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819E1E226F4000034E3E /* BannersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersVC.swift; path = "Avalon-print/BannersVC.swift"; sourceTree = SOURCE_ROOT; };
@@ -250,8 +248,7 @@
 				4BF1D6B21E83F1810027C82B /* Model */,
 				4BF1D6B11E83F1600027C82B /* MessengerControllers */,
 				4BBED8CC1E33ECD500A62636 /* MaterialInfoVC */,
-				4B8D1C191DF2F2C7001A97F2 /* PostersStickers */,
-				4B7BFF4F1E0C392100E72E8A /* canvas */,
+				4B8D1C191DF2F2C7001A97F2 /* PostersStickersCanvas */,
 				4B7BFF501E0C392700E72E8A /* banners */,
 				4B8F69301E37C9B400F0C91D /* information */,
 				4BB42CB01E37E014008CA109 /* contacts */,
@@ -262,15 +259,6 @@
 				4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */,
 			);
 			name = pages;
-			sourceTree = "<group>";
-		};
-		4B7BFF4F1E0C392100E72E8A /* canvas */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81991E226F2D00034E3E /* canvasComputing.swift */,
-				4B3F819A1E226F2D00034E3E /* CanvasVC.swift */,
-			);
-			name = canvas;
 			sourceTree = "<group>";
 		};
 		4B7BFF501E0C392700E72E8A /* banners */ = {
@@ -303,14 +291,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		4B8D1C191DF2F2C7001A97F2 /* PostersStickers */ = {
+		4B8D1C191DF2F2C7001A97F2 /* PostersStickersCanvas */ = {
 			isa = PBXGroup;
 			children = (
 				4B3F81921E226EE900034E3E /* PostersVC.swift */,
 				4B3F81961E226F0800034E3E /* StickersVC.swift */,
+				4B3F819A1E226F2D00034E3E /* CanvasVC.swift */,
 				4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */,
 			);
-			name = PostersStickers;
+			name = PostersStickersCanvas;
 			sourceTree = "<group>";
 		};
 		4B8F692F1E37C96300F0C91D /* home */ = {
@@ -640,7 +629,6 @@
 				4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */,
 				4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */,
 				4B3FE89B1E44F34D00852A2A /* ARSLineProgress.swift in Sources */,
-				4B3F819B1E226F2D00034E3E /* canvasComputing.swift in Sources */,
 				4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */,
 				4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */,
 				4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */,

@@ -152,28 +152,28 @@ func reset (page: String) {
 //    }
 //    
     
-    if page == "canvas" {
-        canvasBoolVariables.amount = ""
-        canvasBoolVariables.amountDidNotInputed = true
-        //print("lol from canvas it works")
-        
-        canvasBoolVariables.standartSizeDidnNotChosen = true
-        canvasBoolVariables.sixH_x_NineH_C = false
-        canvasBoolVariables.fiveH_x_sevenH_C = false
-        canvasBoolVariables.fourH_x_fiveH_C = false
-        canvasBoolVariables.threeH_x_fourH_C = false
-        canvasBoolVariables.twoH_x_threeH_C = false
-        
-        canvasBoolVariables.canvasWidhOrHeightDidNotInputed = true
-        canvasBoolVariables.canvasWidthSet = ""
-        canvasBoolVariables.canvasHeightSet = ""
-        
-        canvasBoolVariables.withoutUnderframe = true
-        canvasBoolVariables.withUnderframe = false
-        
-        canvasBoolVariables.priceToLabel = "0"
-        canvasBoolVariables.ndsPriceToLabel = "0"
-    }
+//    if page == "canvas" {
+//        canvasBoolVariables.amount = ""
+//        canvasBoolVariables.amountDidNotInputed = true
+//        //print("lol from canvas it works")
+//        
+//        canvasBoolVariables.standartSizeDidnNotChosen = true
+//        canvasBoolVariables.sixH_x_NineH_C = false
+//        canvasBoolVariables.fiveH_x_sevenH_C = false
+//        canvasBoolVariables.fourH_x_fiveH_C = false
+//        canvasBoolVariables.threeH_x_fourH_C = false
+//        canvasBoolVariables.twoH_x_threeH_C = false
+//        
+//        canvasBoolVariables.canvasWidhOrHeightDidNotInputed = true
+//        canvasBoolVariables.canvasWidthSet = ""
+//        canvasBoolVariables.canvasHeightSet = ""
+//        
+//        canvasBoolVariables.withoutUnderframe = true
+//        canvasBoolVariables.withUnderframe = false
+//        
+//        canvasBoolVariables.priceToLabel = "0"
+//        canvasBoolVariables.ndsPriceToLabel = "0"
+//    }
   
   if page == "banners" {
     

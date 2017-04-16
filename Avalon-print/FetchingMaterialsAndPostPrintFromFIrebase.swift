@@ -20,6 +20,10 @@ struct priceDataStatus {
    var materialPrice = Double()
    var printPrice = Double()
   
+   var underframePrice = 0.0// Double()
+   var setupWorkPrice = 0.0//Double()
+
+  
    var postPrintMaterialPrice = Double()
    var postPrintWorkPrice = Double()
   
@@ -59,7 +63,7 @@ func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, o
     
     if onlyDefaultPrepressAllowed == true {
       
-        if snapshot.key != "prepressCold" {
+        if snapshot.key != "prepressCold" && snapshot.key != "underframeSetup" {
             observePostrpintData(snapshot: snapshot)
        }
     }
@@ -72,7 +76,11 @@ func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, o
     }
   
     if onlyColdLamAllowed == false && onlyDefaultPrepressAllowed == false {
-           observePostrpintData(snapshot: snapshot)
+      
+      if  snapshot.key == "underframeSetup" {
+        observePostrpintData(snapshot: snapshot)
+    }
+    
     }
     
   }) { (error) in
