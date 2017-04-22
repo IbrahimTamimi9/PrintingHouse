@@ -32,6 +32,7 @@ import CoreData
    
     @IBOutlet weak var purchaseTableView: UITableView!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var editButton: UIButton!
   
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,8 +55,23 @@ import CoreData
     @IBAction func dismissBucket(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+  
     
-    
+    @IBAction func editButtonClicked(_ sender: Any) {
+      
+      purchaseTableView.setEditing(!purchaseTableView.isEditing, animated: true)
+  
+    if  purchaseTableView.isEditing == true {
+        let doneImage = UIImage(named: "done.png")
+            editButton.setImage(doneImage, for: .normal)
+     } else {
+          let editImage = UIImage(named: "edit.png")
+              editButton.setImage(editImage, for: .normal)
+      }
+          
+    }
+  
+  
     func loadData () {
         do {
             addedItems = try managedObjextContext.fetch(presentRequest)
@@ -183,5 +199,14 @@ extension ShoppingCartVC: UITableViewDataSource {
             
         }
     }
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    purchaseTableView.setEditing(editing, animated: animated)
+    //self.setEditing(editing, animated: animated)
+    
+  }
+  
+  
 }
 
