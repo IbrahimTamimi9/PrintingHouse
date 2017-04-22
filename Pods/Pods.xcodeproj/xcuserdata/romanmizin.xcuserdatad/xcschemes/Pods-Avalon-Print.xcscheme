@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2682EA97CD9664993B33C9E8662BA984"
+               BlueprintIdentifier = "85B63B67C36A9A4D3E7B198B57D57713"
                BuildableName = "Pods_Avalon_Print.framework"
                BlueprintName = "Pods-Avalon-Print"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2682EA97CD9664993B33C9E8662BA984"
+            BlueprintIdentifier = "85B63B67C36A9A4D3E7B198B57D57713"
             BuildableName = "Pods_Avalon_Print.framework"
             BlueprintName = "Pods-Avalon-Print"
             ReferencedContainer = "container:Pods.xcodeproj">

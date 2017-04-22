@@ -1,6 +1,5 @@
 PODS:
   - DeckTransition (0.2.0)
-  - ESPullToRefresh (2.6)
   - expanding-collection (1.0.4)
   - Firebase/Auth (3.15.0):
     - Firebase/Core
@@ -48,7 +47,6 @@ PODS:
 
 DEPENDENCIES:
   - DeckTransition
-  - ESPullToRefresh
   - expanding-collection (~> 1.0.3)
   - Firebase/Auth
   - Firebase/Core
@@ -59,7 +57,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   DeckTransition: 9028a222282d317bdd1199b681ecac15c3834bbc
-  ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
   expanding-collection: be78b5822d7382d3da02b52d52273f4661567a64
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
@@ -73,6 +70,6 @@ SPEC CHECKSUMS:
   JTMaterialTransition: 2350b44b404d1982a7ba755866cc65da452f4eec
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 17d8d69540305e7b52b809ff998b87de67d09c76
+PODFILE CHECKSUM: 91f8e8ead9f8547b90cd8c81b13f1684696d2354
 
 COCOAPODS: 1.1.1

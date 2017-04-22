@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -164,22 +165,23 @@ class MessagesController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
       
-      cell.profileImageView.alpha = 0
-      cell.textLabel?.alpha = 0
-      cell.detailTextLabel?.alpha = 0
-      cell.timeLabel.alpha = 0
-        
+//      cell.profileImageView.alpha = 0
+//      cell.textLabel?.alpha = 0
+//      cell.detailTextLabel?.alpha = 0
+//      cell.timeLabel.alpha = 0
+      
         let message = messages[(indexPath as NSIndexPath).row]
         cell.message = message
 
       
       
-      UIView.animate(withDuration: 0.1, animations: {
-        cell.profileImageView.alpha = 1
-        cell.textLabel?.alpha = 1
-        cell.detailTextLabel?.alpha = 1
-        cell.timeLabel.alpha = 1
-      })
+//      UIView.animate(withDuration: 0.35, animations: {
+//        cell.profileImageView.alpha = 1
+//        cell.textLabel?.alpha = 1
+//        cell.detailTextLabel?.alpha = 1
+//        cell.timeLabel.alpha = 1
+//        
+//      })
 
         return cell
     }

@@ -11,7 +11,6 @@ import Firebase
 import MobileCoreServices
 import AVFoundation
 import FirebaseStorage
-import ESPullToRefresh
 
 
 extension Array where Element:Equatable {
@@ -28,8 +27,30 @@ extension Array where Element:Equatable {
   }
 }
 
+  private var isInsertingCellsToTop: Bool = false
+  private var contentSizeWhenInsertingToTop: CGSize?
 
-class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AutoSizingCollectionViewFlowLayout: UICollectionViewFlowLayout {
+  
+  
+  override func prepare() {
+      super.prepare()
+    
+    if isInsertingCellsToTop == true {
+      if let collectionView = collectionView, let oldContentSize = contentSizeWhenInsertingToTop {
+        let newContentSize = collectionViewContentSize
+        let contentOffsetY = collectionView.contentOffset.y + (newContentSize.height - oldContentSize.height)
+        let newOffset = CGPoint(x: collectionView.contentOffset.x, y: contentOffsetY)
+        collectionView.setContentOffset(newOffset, animated: false)
+      }
+      contentSizeWhenInsertingToTop = nil
+      isInsertingCellsToTop = false
+    }
+  }
+}
+
+
+class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var user: User? {
         didSet {
@@ -37,7 +58,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             navigationItem.title = user?.name
         }
     }
-  
+
   
     let cellId = "cellId"
     var messages = [Message]()
@@ -46,6 +67,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     var startKey: String? = nil
     var endKey: String? = nil
+  
+    var paginatioManager: PaginationManager!
  
   
   func observeMessages() {
@@ -146,26 +169,16 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
           return message2.timestamp as! Int > message1.timestamp as! Int
       })
-
-       DispatchQueue.main.async(execute: {
-        
-          self.collectionView?.reloadData()
-        
-          let contentSize = self.collectionView?.collectionViewLayout.collectionViewContentSize
-        
-        if (contentSize?.height)! > (self.collectionView?.bounds.size.height)! {
-          
-          //let indexPath = IndexPath(item: 14, section: 0)
-         // self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: false)
-          
-          }
-
-        })
-
+            
+            
+            isInsertingCellsToTop = true
+            contentSizeWhenInsertingToTop = self.collectionView?.contentSize
+            self.collectionView?.reloadData()
+         
       }, withCancel: nil)
    
     }, withCancel: nil)
-
+    
   }
  
   
@@ -176,12 +189,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     onlyForNewMessages  = true
   }
   
+ 
   
-
   
     override func viewDidLoad() {
         super.viewDidLoad()
      
+      collectionView?.collectionViewLayout = AutoSizingCollectionViewFlowLayout()
         setupKeyboardObservers()
       
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -191,22 +205,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.keyboardDismissMode = .interactive
       
-      
-      
-    _ = collectionView?.es_addPullToRefresh  {
-         [weak  self] in
-      
-        self?.firstIdTaken = false
-        self?.loadPreviousMessages()
-      
-        self?.collectionView?.es_stopPullToRefresh()
-      
-        }
+        self.paginatioManager = PaginationManager(scrollView: collectionView, delegate: self)
       
       }
   
-  
-
   
     lazy var inputContainerView: ChatInputContainerView = {
         let chatInputContainerView = ChatInputContainerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
@@ -429,6 +431,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         if let profileImageUrl = self.user?.profileImageUrl {
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
+     
         
         if message.fromId == FIRAuth.auth()?.currentUser?.uid {
             //outgoing blue
@@ -438,7 +441,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             
             cell.bubbleViewRightAnchor?.isActive = true
             cell.bubbleViewLeftAnchor?.isActive = false
-            
+      
         } else {
             //incoming gray
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
@@ -453,7 +456,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
             cell.messageImageView.isHidden = false
             cell.bubbleView.backgroundColor = UIColor.clear
-          
+        
         } else {
             cell.messageImageView.isHidden = true
         }
@@ -587,7 +590,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                 }, completion: { (completed) in
 //                    do nothing
             })
-            
         }
     }
   
@@ -610,4 +612,22 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             })
         }
     }
+}
+
+
+extension ChatLogController: PaginationManagerDelegate {
+  
+  public func paginationManagerDidStartLoading(_ controller: PaginationManager, onCompletion: @escaping () -> Void) {
+    let delayTime = DispatchTime.now() + Double(Int64(0.35 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: delayTime) { () -> Void in
+      
+      self.firstIdTaken = false
+      self.loadPreviousMessages()
+      onCompletion()
+    }
+  }
+  
+  public func paginationManagerShouldStartLoading(_ controller: PaginationManager) -> Bool {
+    return true
+  }
 }

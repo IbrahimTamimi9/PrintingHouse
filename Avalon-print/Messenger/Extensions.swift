@@ -18,7 +18,7 @@ extension UIImageView {
         
         //self.image = nil
       
-      self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .continueInBackground])
+      self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .continueInBackground, .highPriority])
       
     //  sd_setImage(with: URL(string: urlString))
      // let sss = UIImageView.self
