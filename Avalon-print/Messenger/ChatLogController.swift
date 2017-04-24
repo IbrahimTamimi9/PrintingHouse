@@ -102,22 +102,36 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         }
         
         self.messages.append(Message(dictionary: dictionary))
-
-        self.collectionView?.reloadData()
-        let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
-        self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: self.onlyForNewMessages)
+        
+     
+        self.animateNewMessage(itIsNewMessage: self.onlyForNewMessages)
+     //   self.collectionView?.reloadData()
+      
+      //   let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+        //     self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true /*self.onlyForNewMessages*/)
         
       })
-      
     })
+  }
+  
+  func animateNewMessage(itIsNewMessage: Bool) {
+    
+    if itIsNewMessage {
+      self.collectionView?.reloadData()
+      
+      let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+          self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true /*self.onlyForNewMessages*/)
+
+      
+    } else {
+       self.collectionView?.reloadData()
+    }
     
   }
 
   
   var firstIdTaken = false
   var firstLoadIdTaken = false
- 
- 
   
   func loadPreviousMessages () {
     
@@ -184,29 +198,46 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
     //animated
     onlyForNewMessages  = true
   }
+
   
- 
   
+  func setupCallBarButtonItem () {
+    
+    let callBarButtonItem = UIBarButtonItem(image: UIImage(named: "call"), style: .plain, target: self, action: #selector(makeACall))
+  
+    self.navigationItem.rightBarButtonItem  = callBarButtonItem
+    
+  }
+  
+  func makeACall () {
+    
+    let number = user?.phoneNumber
+    print(" calling \(number!)(not on simulator)")
+    let phoneCallURL:URL = URL(string: "tel://\(number!)")!
+    UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
+  }
   
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+  
+      
+      setupCallBarButtonItem()
+      
+      collectionView?.isPrefetchingEnabled = true
       collectionView?.collectionViewLayout = AutoSizingCollectionViewFlowLayout()
         setupKeyboardObservers()
       
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        //collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.keyboardDismissMode = .interactive
       
         self.paginatioManager = PaginationManager(scrollView: collectionView, delegate: self)
-      
       }
   
   
@@ -618,7 +649,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
 extension ChatLogController: PaginationManagerDelegate {
   
   public func paginationManagerDidStartLoading(_ controller: PaginationManager, onCompletion: @escaping () -> Void) {
-    let delayTime = DispatchTime.now() + Double(Int64(0.35 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    let delayTime = DispatchTime.now()// + Double(Int64(0.15 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
     DispatchQueue.main.asyncAfter(deadline: delayTime) { () -> Void in
       
       self.firstIdTaken = false

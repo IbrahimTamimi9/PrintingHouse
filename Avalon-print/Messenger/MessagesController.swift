@@ -42,7 +42,7 @@ class MessagesController: UITableViewController {
       navigationItem.title = "Чат"
       navigationController?.navigationBar.tintColor = UIColor.white
       
-    
+      
       navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
       
       let image = UIImage(named: "new_message_icon")
@@ -55,6 +55,8 @@ class MessagesController: UITableViewController {
       
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.separatorInset = .init(top: 0, left: 85, bottom: 0, right: 0)
+      
+      
     }
   
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -169,12 +171,16 @@ class MessagesController: UITableViewController {
 //      cell.textLabel?.alpha = 0
 //      cell.detailTextLabel?.alpha = 0
 //      cell.timeLabel.alpha = 0
+     // let emptyU
+    //  cell.profileImageView.sd_setImage(with: nil, placeholderImage: UIImage(named: "placeholderProfileImage.png"), options: [])
+      
+   
       
         let message = messages[(indexPath as NSIndexPath).row]
         cell.message = message
 
       
-      
+//             
 //      UIView.animate(withDuration: 0.35, animations: {
 //        cell.profileImageView.alpha = 1
 //        cell.textLabel?.alpha = 1
@@ -232,7 +238,7 @@ class MessagesController: UITableViewController {
   
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
-        chatLogController.user = user
-        navigationController?.pushViewController(chatLogController, animated: true)
+            chatLogController.user = user
+            navigationController?.pushViewController(chatLogController, animated: true)
     }
 }

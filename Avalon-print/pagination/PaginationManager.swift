@@ -62,13 +62,13 @@ extension PaginationManager: ScrollViewStateControllerDataSource {
   }
   
   public func stateControllerDidReleaseToStartLoading(_ offset: CGFloat) -> Bool {
-    let shouldStart = self.calculateDelta(offset) < self.stateConfig.thresholdStartLoading
-    return shouldStart
+   // let shouldStart = self.calculateDelta(offset) < self.stateConfig.thresholdStartLoading - 150
+    return true // shouldStart
   }
   
   public func stateControllerDidReleaseToCancelLoading(_ offset: CGFloat) -> Bool {
-    let shouldStart = self.calculateDelta(offset) > self.stateConfig.thresholdStartLoading
-    return shouldStart
+   // let shouldStart = self.calculateDelta(offset) > self.stateConfig.thresholdStartLoading
+    return  false// shouldStart
   }
   
   
