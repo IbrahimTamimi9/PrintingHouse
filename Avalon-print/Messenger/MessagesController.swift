@@ -33,15 +33,14 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class MessagesController: UITableViewController {
 
     let cellId = "cellId"
- 
+   
      override func viewDidLoad() {
         super.viewDidLoad()
-      
+    
       observeUserMessages()
       
       navigationItem.title = "Чат"
       navigationController?.navigationBar.tintColor = UIColor.white
-      
       
       navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
       
@@ -98,12 +97,12 @@ class MessagesController: UITableViewController {
             return
         }
         
-        let ref = FIRDatabase.database().reference().child("user-messages").child(uid)
+        let ref = FIRDatabase.database().reference().child("user-messages").child(uid)//.queryLimited(toLast: 2 )
         ref.observe(.childAdded, with: { (snapshot) in
             
             let userId = snapshot.key
-            FIRDatabase.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot) in
-                
+            FIRDatabase.database().reference().child("user-messages").child(uid).child(userId).queryLimited(toLast: 1 ).observe(.childAdded, with: { (snapshot) in
+                print("new message")
                 let messageId = snapshot.key
                 self.fetchMessageWithMessageId(messageId)
                 
@@ -143,9 +142,12 @@ class MessagesController: UITableViewController {
         self.timer?.invalidate()
         
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+  
+  
     }
     
     var timer: Timer?
+ 
     
     func handleReloadTable() {
         self.messages = Array(self.messagesDictionary.values)
@@ -163,32 +165,14 @@ class MessagesController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
-    
+  
+  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
       
-//      cell.profileImageView.alpha = 0
-//      cell.textLabel?.alpha = 0
-//      cell.detailTextLabel?.alpha = 0
-//      cell.timeLabel.alpha = 0
-     // let emptyU
-    //  cell.profileImageView.sd_setImage(with: nil, placeholderImage: UIImage(named: "placeholderProfileImage.png"), options: [])
-      
-   
-      
         let message = messages[(indexPath as NSIndexPath).row]
         cell.message = message
-
-      
-//             
-//      UIView.animate(withDuration: 0.35, animations: {
-//        cell.profileImageView.alpha = 1
-//        cell.textLabel?.alpha = 1
-//        cell.detailTextLabel?.alpha = 1
-//        cell.timeLabel.alpha = 1
-//        
-//      })
-
+  
         return cell
     }
 
@@ -203,7 +187,8 @@ class MessagesController: UITableViewController {
         guard let chatPartnerId = message.chatPartnerId() else {
             return
         }
-        
+      
+    
         let ref = FIRDatabase.database().reference().child("users").child(chatPartnerId)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: AnyObject] else {
@@ -214,6 +199,7 @@ class MessagesController: UITableViewController {
             user.id = chatPartnerId
             user.setValuesForKeys(dictionary)
             self.showChatControllerForUser(user)
+          
             
             }, withCancel: nil)
     }

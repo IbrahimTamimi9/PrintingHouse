@@ -30,6 +30,7 @@ extension Array where Element:Equatable {
   private var isInsertingCellsToTop: Bool = false
   private var contentSizeWhenInsertingToTop: CGSize?
 
+
 class AutoSizingCollectionViewFlowLayout: UICollectionViewFlowLayout {
   
   
@@ -46,6 +47,7 @@ class AutoSizingCollectionViewFlowLayout: UICollectionViewFlowLayout {
       contentSizeWhenInsertingToTop = nil
       isInsertingCellsToTop = false
     }
+    
   }
 }
 
@@ -72,28 +74,28 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
  
   
   func observeMessages() {
-    
+ 
     guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
          return
     }
     
     let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
     
+    let numberOfMessagesForFirsLoad = 15
+    var messageIdArray = [String]()
     
-    userMessagesRef.queryLimited(toLast: 15).observe(.childAdded, with: { (snapshot) in
-    
+    userMessagesRef.queryLimited(toLast: UInt(numberOfMessagesForFirsLoad)).observe(.childAdded, with: { (snapshot) in
+      
       let messageId = snapshot.key
+      
+      messageIdArray.append(messageId)
       
       if self.firstLoadIdTaken == false {
         self.endKey = messageId
-        
-        
         self.firstLoadIdTaken = true
       }
       
-      
       let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
-      
       
       messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
         
@@ -103,31 +105,38 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         
         self.messages.append(Message(dictionary: dictionary))
         
-     
-        self.animateNewMessage(itIsNewMessage: self.onlyForNewMessages)
-     //   self.collectionView?.reloadData()
-      
-      //   let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
-        //     self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true /*self.onlyForNewMessages*/)
+        
+        if (self.messages.count == messageIdArray.count) && (!self.onlyForNewMessages) {
+          
+          self.collectionView?.reloadData()
+          self.startCollectionViewAtBottom()
+          
+        }
+        
+        if self.onlyForNewMessages == true {
+          
+          self.collectionView?.reloadData()
+          let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+          self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true /*self.onlyForNewMessages*/)
+        }
+        
         
       })
     })
   }
   
-  func animateNewMessage(itIsNewMessage: Bool) {
+  
+  fileprivate func startCollectionViewAtBottom () {
     
-    if itIsNewMessage {
-      self.collectionView?.reloadData()
-      
-      let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
-          self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true /*self.onlyForNewMessages*/)
-
-      
-    } else {
-       self.collectionView?.reloadData()
+    let collectionViewInsets: CGFloat = 58
+    //self.collectionView?.layoutIfNeeded()
+    let contentSize = self.collectionView?.collectionViewLayout.collectionViewContentSize
+    if Double((contentSize?.height)!) > Double((self.collectionView?.bounds.size.height)!) {
+      let targetContentOffset = CGPoint(x: 0.0, y: (contentSize?.height)! - (((self.collectionView?.bounds.size.height)! - collectionViewInsets)))
+      self.collectionView?.contentOffset = targetContentOffset
     }
-    
   }
+  
 
   
   var firstIdTaken = false
@@ -198,11 +207,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    //animated
     onlyForNewMessages  = true
   }
 
-  
   
   func setupCallBarButtonItem () {
     
@@ -220,9 +227,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
     UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
   }
   
+
     override func viewDidLoad() {
         super.viewDidLoad()
-  
       
       setupCallBarButtonItem()
       
@@ -231,7 +238,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         setupKeyboardObservers()
       
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
@@ -381,9 +387,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
   
     func setupKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-//        
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
     }
   
@@ -444,7 +448,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         
         if let text = message.text {
             //a text message
-            cell.bubbleWidthAnchor?.constant = estimateFrameForText(text).width + 32
+            cell.bubbleWidthAnchor?.constant = estimateFrameForText(text).width + 28
             cell.textView.isHidden = false
         } else if message.imageUrl != nil {
             //fall in here if its an image message
@@ -472,7 +476,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
             
             cell.bubbleViewRightAnchor?.isActive = true
             cell.bubbleViewLeftAnchor?.isActive = false
-      
+  
         } else {
             //incoming gray
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
@@ -505,7 +509,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         
         let message = messages[(indexPath as NSIndexPath).item]
         if let text = message.text {
-            height = estimateFrameForText(text).height + 20
+            height = estimateFrameForText(text).height + 16
+          
         } else if let imageWidth = message.imageWidth?.floatValue, let imageHeight = message.imageHeight?.floatValue {
             
             // h1 / w1 = h2 / w2
@@ -524,7 +529,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
     fileprivate func estimateFrameForText(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15)], context: nil)
     }
   
   

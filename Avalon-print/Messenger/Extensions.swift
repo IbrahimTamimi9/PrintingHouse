@@ -17,8 +17,8 @@ extension UIImageView {
     func loadImageUsingCacheWithUrlString(_ urlString: String) {
         
         //self.image = nil
-        let placeholderIMG = UIImage(named: "placeholderProfileImage.png")
-      self.sd_setImage(with: URL(string: urlString), placeholderImage: placeholderIMG!, options: [.progressiveDownload, .continueInBackground])
+       // let placeholderIMG = UIImage(named: "placeholderProfileImage.png")
+      self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .continueInBackground])
       
     //  sd_setImage(with: URL(string: urlString))
      // let sss = UIImageView.self
