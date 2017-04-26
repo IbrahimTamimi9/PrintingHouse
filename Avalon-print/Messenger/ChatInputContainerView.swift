@@ -25,6 +25,7 @@ class ChatInputContainerView: UIView {
         } else {
           sendButton.isEnabled = true
         }
+    chatLogController?.isTyping = textField.text != ""
   }
   
  
@@ -46,6 +47,7 @@ class ChatInputContainerView: UIView {
     
     let sendButton = UIButton(type: .system)
   
+  
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,13 +55,14 @@ class ChatInputContainerView: UIView {
         backgroundColor = .white
         
         addSubview(uploadImageView)
+      
+      
         //x,y,w,h
         uploadImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         uploadImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         uploadImageView.widthAnchor.constraint(equalToConstant: 44).isActive = true
         uploadImageView.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        
-     
+      
         sendButton.setImage(UIImage(named: "send"), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.isEnabled = false

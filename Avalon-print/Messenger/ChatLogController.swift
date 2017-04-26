@@ -71,7 +71,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
     var endKey: String? = nil
   
     var paginatioManager: PaginationManager!
- 
   
   func observeMessages() {
  
@@ -121,9 +120,82 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         }
         
         
+        
       })
     })
   }
+  
+  
+  var userIsTypingRef = FIRDatabase.database().reference().child("user-messages").child("typingIndicator").child((FIRAuth.auth()?.currentUser?.uid)!)
+  
+  private var localTyping = false
+  var isTyping: Bool {
+    get {
+      return localTyping
+    }
+    
+    set {
+      var currentInterlocutorId = String()
+      
+      if newValue {
+        currentInterlocutorId = (user?.id)!
+      } else {
+          currentInterlocutorId = ""
+      }
+
+      localTyping = newValue
+      
+      let typingData: NSDictionary = ["Is typing" : newValue,
+                                      "Typing to" : currentInterlocutorId ]
+      userIsTypingRef.setValue(typingData)
+    }
+  }
+  
+  
+  private lazy var usersTypingQuery = FIRDatabaseQuery()
+  
+  var typster = false
+ 
+  private func observeTyping() {
+  
+    let typingIndicatorRef = FIRDatabase.database().reference().child("user-messages").child("typingIndicator")
+    
+        userIsTypingRef = typingIndicatorRef.child((FIRAuth.auth()?.currentUser?.uid)!)
+        userIsTypingRef.onDisconnectRemoveValue()
+    
+    usersTypingQuery.observe(.value) { (data: FIRDataSnapshot) in
+      
+      if data.childrenCount == 1 && self.isTyping  {
+        return
+      }
+      
+      self.typster = data.childrenCount > 0
+      
+      if self.typster {
+        
+        let interlocutorRef = FIRDatabase.database().reference().child("user-messages").child("typingIndicator").child((self.user?.id!)!).child("Typing to")
+        
+      interlocutorRef.observe(.value, with: { (interlocutorId) in
+        
+       let currentInterlocutor = FIRAuth.auth()?.currentUser?.uid
+          
+          if let interlocutorIdValue = interlocutorId.value as? String {
+            
+            if interlocutorIdValue == currentInterlocutor! {
+              
+              self.istypingLabel.isHidden = false
+            }
+            
+          }
+          
+        })
+        
+      } else {
+        self.istypingLabel.isHidden = true
+    }
+      
+  }
+ }
   
   
   fileprivate func startCollectionViewAtBottom () {
@@ -207,6 +279,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    observeTyping()
     onlyForNewMessages  = true
   }
 
@@ -227,15 +300,46 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
     UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
   }
   
-
+  
+  func leftBarButtonAction(sender: UIBarButtonItem) {
+  
+        isTyping = false
+    _ = navigationController?.popViewController(animated: true)
+  }
+  
+  
+  func setUpControllers () {
+    
+    self.view.addSubview(istypingLabel)
+    
+    let senderUsername = user?.name
+    istypingLabel.text = "\(senderUsername!) печатает..."
+    
+    let width = NSLayoutConstraint(item: istypingLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: (self.collectionView?.frame.width)!)
+    let height = NSLayoutConstraint(item: istypingLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 10)
+    istypingLabel.addConstraint(width)
+    istypingLabel.addConstraint(height)
+    
+    let x = NSLayoutConstraint(item: istypingLabel, attribute: .left, relatedBy: .equal, toItem: self.collectionView, attribute: .left, multiplier: 1, constant: 5)
+    let y = NSLayoutConstraint(item: istypingLabel, attribute: .bottom, relatedBy: .equal, toItem: self.collectionView, attribute: .bottom, multiplier: 1, constant: -58)
+    self.view.addConstraint(x)
+    self.view.addConstraint(y)
+  }
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      setupCallBarButtonItem()
+      let currentInterlocutor = user?.id
       
-      collectionView?.isPrefetchingEnabled = true
-      collectionView?.collectionViewLayout = AutoSizingCollectionViewFlowLayout()
+        usersTypingQuery = FIRDatabase.database().reference().child("user-messages").child("typingIndicator").child(currentInterlocutor!).queryOrderedByValue().queryEqual(toValue: true)
+      
+        collectionView?.isPrefetchingEnabled = true
+        collectionView?.collectionViewLayout = AutoSizingCollectionViewFlowLayout()
+      
         setupKeyboardObservers()
+        setUpControllers()
+        setupCallBarButtonItem()
       
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         collectionView?.alwaysBounceVertical = true
@@ -244,7 +348,23 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
         collectionView?.keyboardDismissMode = .interactive
       
         self.paginatioManager = PaginationManager(scrollView: collectionView, delegate: self)
+      
+      let  newBackButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft.png"), style: .plain, target: self, action: #selector(self.leftBarButtonAction(sender:)))
+      self.navigationItem.leftBarButtonItem = newBackButton
+      
       }
+  
+  
+    let istypingLabel: UILabel = {
+      let istypingLabel = UILabel()
+    
+      istypingLabel.translatesAutoresizingMaskIntoConstraints = false
+      istypingLabel.font = UIFont.systemFont(ofSize: 11)
+      istypingLabel.textColor = UIColor.gray
+      istypingLabel.isHidden = true
+    
+      return istypingLabel
+    }()
   
   
     lazy var inputContainerView: ChatInputContainerView = {
@@ -540,6 +660,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
       inputContainerView.sendButton.isEnabled = false
         let properties = ["text": inputContainerView.inputTextField.text!]
         sendMessageWithProperties(properties as [String : AnyObject])
+      
+      isTyping = false
     }
   
   
@@ -550,6 +672,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
   
   
     fileprivate func sendMessageWithProperties(_ properties: [String: AnyObject]) {
+      
+      self.inputContainerView.inputTextField.text = nil
       
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
@@ -568,8 +692,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate , UICol
                 print(error as Any)
                 return
             }
-            
-            self.inputContainerView.inputTextField.text = nil
             
             let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(fromId).child(toId)
             

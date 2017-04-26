@@ -55,8 +55,15 @@ class MessagesController: UITableViewController {
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.separatorInset = .init(top: 0, left: 85, bottom: 0, right: 0)
       
+      let  newBackButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft.png"), style: .plain, target: self, action: #selector(self.leftBarButtonAction(sender:)))
+      self.navigationItem.leftBarButtonItem = newBackButton
       
     }
+  
+  
+  func leftBarButtonAction(sender: UIBarButtonItem) {
+    _ = navigationController?.popViewController(animated: true) //popToRootViewController(animated: true)
+  }
   
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
