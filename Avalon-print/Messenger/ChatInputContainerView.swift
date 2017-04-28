@@ -8,34 +8,73 @@
 
 import UIKit
 
-class ChatInputContainerView: UIView {
+class ChatInputContainerView: UIView, UITextViewDelegate {
     
     weak var chatLogController: ChatLogController? {
         didSet {
             sendButton.addTarget(chatLogController, action: #selector(ChatLogController.handleSend), for: .touchUpInside)
             uploadImageView.addGestureRecognizer(UITapGestureRecognizer(target: chatLogController, action: #selector(ChatLogController.handleUploadTap)))
-            inputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         }
     }
   
+ 
   
-  func textFieldDidChange(_ textField: UITextField) {
-        if inputTextField.text == nil || inputTextField.text == "" {
-          sendButton.isEnabled = false
-        } else {
-          sendButton.isEnabled = true
-        }
-    chatLogController?.isTyping = textField.text != ""
+  func textViewDidChange(_ textView: UITextView) {
+      placeholderLabel.isHidden = !textView.text.isEmpty
+   self.updateConstraints()
+      if textView.text == nil || textView.text == "" {
+        sendButton.isEnabled = false
+      } else {
+        sendButton.isEnabled = true
+      }
+        chatLogController?.isTyping = textView.text != ""
+
   }
   
+
+  
+  let istypingLabel: UILabel = {
+    let istypingLabel = UILabel()
+     istypingLabel.isHidden = true
+    istypingLabel.text = ""
+    istypingLabel.translatesAutoresizingMaskIntoConstraints = false
+    istypingLabel.font = UIFont.systemFont(ofSize: 11)
+    istypingLabel.textColor = UIColor.gray
+    
+    return istypingLabel
+  }()
+  
+
  
-    lazy var inputTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Сообщение..."
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.delegate = self
-            return textField
+    lazy var inputTextView: UITextView = {
+        let textView = UITextView()
+      
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.delegate = self
+        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.sizeToFit()
+    
+      textView.isScrollEnabled = false
+      textView.layer.borderColor = UIColor.lightGray.cgColor
+      textView.layer.borderWidth = 1
+      textView.layer.cornerRadius = 16
+      textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 30)
+    return textView
     }()
+  
+  
+  let placeholderLabel: UILabel = {
+  
+    let placeholderLabel = UILabel()
+    placeholderLabel.text = "Сообщение"
+
+    placeholderLabel.sizeToFit()
+    placeholderLabel.textColor = UIColor.lightGray
+   
+    
+    return placeholderLabel
+  }()
+  
     
     let uploadImageView: UIImageView = {
         let uploadImageView = UIImageView()
@@ -47,16 +86,16 @@ class ChatInputContainerView: UIView {
     
     let sendButton = UIButton(type: .system)
   
+ 
   
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    
         backgroundColor = .white
+
         
         addSubview(uploadImageView)
-      
-      
         //x,y,w,h
         uploadImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         uploadImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -66,38 +105,51 @@ class ChatInputContainerView: UIView {
         sendButton.setImage(UIImage(named: "send"), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.isEnabled = false
-        
-        //what is handleSend?
-        
-        addSubview(sendButton)
-        //x,y,w,h
-        sendButton.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        sendButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        sendButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        sendButton.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
       
-        
-        addSubview(self.inputTextField)
-        //x,y,w,h
-        self.inputTextField.leftAnchor.constraint(equalTo: uploadImageView.rightAnchor, constant: 8).isActive = true
-        self.inputTextField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        self.inputTextField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
-        self.inputTextField.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        
+      
+      addSubview(inputTextView)
+      //x,y,w,h
+      inputTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true
+      inputTextView.leftAnchor.constraint(equalTo: uploadImageView.rightAnchor, constant: 8).isActive = true
+      inputTextView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
+      
+      inputTextView.addSubview(placeholderLabel)
+      placeholderLabel.font = UIFont.systemFont(ofSize: (inputTextView.font?.pointSize)!)
+      placeholderLabel.frame.origin = CGPoint(x: 12, y: (inputTextView.font?.pointSize)! / 2)
+      placeholderLabel.isHidden = !inputTextView.text.isEmpty
+      
+      inputTextView.addSubview(sendButton)
+      //x,y,w,h
+      sendButton.rightAnchor.constraint(equalTo: rightAnchor, constant: 7).isActive = true
+      sendButton.topAnchor.constraint(equalTo: topAnchor, constant: 1).isActive = true
+      sendButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+      sendButton.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+      
+      
         let separatorLineView = UIView()
         separatorLineView.backgroundColor = UIColor(r: 220, g: 220, b: 220)
         separatorLineView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(separatorLineView)
         //x,y,w,h
         separatorLineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        separatorLineView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        //separatorLineView.bottomAnchor.constraint(equalTo: inputTextView.topAnchor, constant: -5).isActive = true
+        separatorLineView.topAnchor.constraint(lessThanOrEqualTo: topAnchor).isActive  = true
         separatorLineView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        separatorLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separatorLineView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+     
+      
+      addSubview(istypingLabel)
+      self.istypingLabel.bottomAnchor.constraint(equalTo: separatorLineView.topAnchor, constant: -2).isActive = true
+      self.istypingLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
+      self.istypingLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+      self.istypingLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+      
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
   
 }
 

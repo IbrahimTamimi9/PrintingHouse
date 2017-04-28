@@ -68,9 +68,24 @@ class ChatMessageCell: UICollectionViewCell {
         tv.backgroundColor = UIColor.clear
         tv.textColor = .white
         tv.isEditable = false
+      
         return tv
     }()
-    
+  
+  
+  let statusTextView: UILabel = {
+    let statusTextView = UILabel()
+    statusTextView.text = "nillll"
+    statusTextView.font = UIFont.systemFont(ofSize: 9)
+    statusTextView.translatesAutoresizingMaskIntoConstraints = false
+    statusTextView.backgroundColor = UIColor.clear
+    statusTextView.textColor = UIColor.darkGray
+   // statusTextView.isEditable = false
+    statusTextView.textAlignment = .right
+    return statusTextView
+  }()
+
+  
     static let blueColor = UIColor(r: 0, g: 137, b: 249)
     
     let bubbleView: UIView = {
@@ -123,6 +138,7 @@ class ChatMessageCell: UICollectionViewCell {
         
         addSubview(bubbleView)
         addSubview(textView)
+       //addSubview(statusTextView)
         addSubview(profileImageView)
         
         bubbleView.addSubview(messageImageView)
@@ -150,7 +166,17 @@ class ChatMessageCell: UICollectionViewCell {
         profileImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
         profileImageView.heightAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
-        
+      
+      
+   
+    
+//      statusTextView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -5).isActive = true
+//      statusTextView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: 4).isActive = true
+//      statusTextView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+//      statusTextView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+
+      
         //x,y,w,h
         
             bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)

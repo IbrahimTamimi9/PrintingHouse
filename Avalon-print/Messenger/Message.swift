@@ -15,6 +15,8 @@ class Message: NSObject {
     var text: String?
     var timestamp: NSNumber?
     var toId: String?
+  
+    var status: String?
     
     var imageUrl: String?
     var imageHeight: NSNumber?
@@ -33,6 +35,8 @@ class Message: NSObject {
         text = dictionary["text"] as? String
         timestamp = dictionary["timestamp"] as? NSNumber
         toId = dictionary["toId"] as? String
+      
+        status = dictionary["status"] as? String
         
         imageUrl = dictionary["imageUrl"] as? String
         imageHeight = dictionary["imageHeight"] as? NSNumber

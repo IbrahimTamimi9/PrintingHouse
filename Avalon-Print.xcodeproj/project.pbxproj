@@ -57,6 +57,7 @@
 		4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */; };
 		4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */; };
 		4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */; };
+		4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */; };
 		4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */; };
 		4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */; };
 		4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
@@ -157,6 +158,7 @@
 		4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVCCell.swift; path = "Avalon-print/HomeVCCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchingMaterialsAndPostPrintFromFIrebase.swift; path = "Avalon-print/FetchingMaterialsAndPostPrintFromFIrebase.swift"; sourceTree = SOURCE_ROOT; };
+		4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoSizingCollectionViewFlowLayout.swift; path = "Avalon-print/Messenger/AutoSizingCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersTableVC.swift; path = "Avalon-print/MyOrdersTableVC.swift"; sourceTree = SOURCE_ROOT; };
@@ -372,6 +374,7 @@
 				4BFD11CB1E841F910026E152 /* ChatLogController.swift */,
 				4BFD11CE1E841F910026E152 /* MessagesController.swift */,
 				4BFD11CF1E841F910026E152 /* NewMessageController.swift */,
+				4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */,
 			);
 			name = MessengerControllers;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
 				4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */,
+				4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */,
 				4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */,
 				4BFD11D91E841FA50026E152 /* ChatMessageCell.swift in Sources */,
