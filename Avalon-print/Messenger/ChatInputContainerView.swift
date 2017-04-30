@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ChatInputContainerView: UIView, UITextViewDelegate {
     
     weak var chatLogController: ChatLogController? {
@@ -16,6 +18,8 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
             uploadImageView.addGestureRecognizer(UITapGestureRecognizer(target: chatLogController, action: #selector(ChatLogController.handleUploadTap)))
         }
     }
+  
+  
   
  
   
@@ -28,6 +32,10 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
         sendButton.isEnabled = true
       }
         chatLogController?.isTyping = textView.text != ""
+    
+    if textView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty {
+       sendButton.isEnabled = false
+    }
 
   }
   
@@ -56,7 +64,7 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
     
       textView.isScrollEnabled = false
       textView.layer.borderColor = UIColor.lightGray.cgColor
-      textView.layer.borderWidth = 1
+      textView.layer.borderWidth = 0.3
       textView.layer.cornerRadius = 16
       textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 30)
     return textView
@@ -105,6 +113,7 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
         sendButton.setImage(UIImage(named: "send"), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.isEnabled = false
+       // sendButton.tintColor = UIColor(red:0.00, green:0.53, blue:0.80, alpha:1.0)
       
       
       addSubview(inputTextView)

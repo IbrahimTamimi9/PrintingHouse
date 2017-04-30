@@ -63,15 +63,25 @@ class ChatMessageCell: UICollectionViewCell {
     let textView: UITextView = {
         let tv = UITextView()
         tv.text = "SAMPLE TEXT FOR NOW"
-        tv.font = UIFont.systemFont(ofSize: 15)
+        tv.font = UIFont.systemFont(ofSize: 14)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
         tv.textColor = .white
         tv.isEditable = false
+        tv.isScrollEnabled = false
       
         return tv
     }()
   
+//  let timeLabel: UILabel = {
+//    
+//    let timeLabel = UILabel()
+//    timeLabel.text = "2:08 PM"
+//    timeLabel.textColor = UIColor.gray
+//     timeLabel.translatesAutoresizingMaskIntoConstraints = false
+//     timeLabel.font = UIFont.systemFont(ofSize: 10)
+//    return timeLabel
+//  }()
   
   let statusTextView: UILabel = {
     let statusTextView = UILabel()
@@ -105,7 +115,18 @@ class ChatMessageCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
+  
+  
+//  let statusImageView: UIImageView = {
+//    let imageView = UIImageView()
+//    imageView.translatesAutoresizingMaskIntoConstraints = false
+//    //imageView.layer.cornerRadius = 16
+//    imageView.backgroundColor = UIColor.clear
+//    imageView.layer.masksToBounds = true
+//    imageView.contentMode = .scaleAspectFit
+//    return imageView
+//  }()
+  
     lazy var messageImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -132,7 +153,7 @@ class ChatMessageCell: UICollectionViewCell {
     var bubbleWidthAnchor: NSLayoutConstraint?
     var bubbleViewRightAnchor: NSLayoutConstraint?
     var bubbleViewLeftAnchor: NSLayoutConstraint?
-    
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -140,6 +161,7 @@ class ChatMessageCell: UICollectionViewCell {
         addSubview(textView)
        //addSubview(statusTextView)
         addSubview(profileImageView)
+       // addSubview(timeLabel)
         
         bubbleView.addSubview(messageImageView)
         messageImageView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor).isActive = true
@@ -179,32 +201,28 @@ class ChatMessageCell: UICollectionViewCell {
       
         //x,y,w,h
         
-            bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
-            
+        bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
         bubbleViewRightAnchor?.isActive = true
-        
         bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8)
-//        bubbleViewLeftAnchor?.active = false
-        
-        
+        //bubbleViewLeftAnchor?.active = false
         bubbleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        
         bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
         bubbleWidthAnchor?.isActive = true
-        
         bubbleView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        
-        //ios 9 constraints
-        //x,y,w,h
-//        textView.rightAnchor.constraintEqualToAnchor(self.rightAnchor).active = true
+      
         textView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor, constant: 8).isActive = true
         textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        
-        textView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
-//        textView.widthAnchor.constraintEqualToConstant(200).active = true
-        
-        
+        textView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
         textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+      
+//        timeLabel.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant : -11).isActive = true
+//        timeLabel.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
+//        timeLabel.heightAnchor.constraint(equalToConstant: 8).isActive = true
+
+
+      
+      
+      
     }
     
     required init?(coder aDecoder: NSCoder) {

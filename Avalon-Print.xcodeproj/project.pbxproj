@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */; };
 		4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */; };
-		4B25D0F11EABE9560017FB9C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25D0EE1EABE9550017FB9C /* PaginationManager.swift */; };
-		4B25D0F31EABE9560017FB9C /* ScrollViewStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25D0F01EABE9560017FB9C /* ScrollViewStateController.swift */; };
 		4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* customNavigationController.swift */; };
 		4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */; };
 		4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */; };
@@ -105,8 +103,6 @@
 		0428C93784D8F1D699100807 /* Pods_Avalon_Print.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Avalon_Print.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialViewController.swift; path = "Avalon-print/ExpandingMaterialViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialTableViewController.swift; path = "Avalon-print/ExpandingMaterialTableViewController.swift"; sourceTree = SOURCE_ROOT; };
-		4B25D0EE1EABE9550017FB9C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaginationManager.swift; path = "Avalon-print/pagination/PaginationManager.swift"; sourceTree = SOURCE_ROOT; };
-		4B25D0F01EABE9560017FB9C /* ScrollViewStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollViewStateController.swift; path = "Avalon-print/pagination/ScrollViewStateController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3008AA1E2F888E0044654E /* customNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customNavigationController.swift; path = "Avalon-print/customNavigationController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpingFunctions.swift; path = "Avalon-print/HelpingFunctions.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-ExtraLight.ttf"; path = "Avalon-print/Fonts/Exo2-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
@@ -212,19 +208,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4B25D0ED1EABE9430017FB9C /* Pagination */ = {
-			isa = PBXGroup;
-			children = (
-				4B25D0EE1EABE9550017FB9C /* PaginationManager.swift */,
-				4B25D0F01EABE9560017FB9C /* ScrollViewStateController.swift */,
-			);
-			name = Pagination;
-			sourceTree = "<group>";
-		};
 		4B2D03B21DF78E5C00BF0B23 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				4B25D0ED1EABE9430017FB9C /* Pagination */,
 				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
 				4B3FE86C1E44E57000852A2A /* progressLoader */,
 				4B3F81BF1E22706100034E3E /* ButtonMockup.swift */,
@@ -620,7 +606,6 @@
 				4B3F81B31E226FC300034E3E /* Map.swift in Sources */,
 				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
 				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
-				4B25D0F11EABE9560017FB9C /* PaginationManager.swift in Sources */,
 				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
 				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
 				4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */,
@@ -641,7 +626,6 @@
 				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,
 				4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */,
 				4BFD11C61E841F520026E152 /* Message.swift in Sources */,
-				4B25D0F31EABE9560017FB9C /* ScrollViewStateController.swift in Sources */,
 				4BFD11C71E841F520026E152 /* User.swift in Sources */,
 				4BFD11D41E841F910026E152 /* NewMessageController.swift in Sources */,
 				4B3FE89F1E44F34D00852A2A /* ARSLineProgressProtocols.swift in Sources */,
