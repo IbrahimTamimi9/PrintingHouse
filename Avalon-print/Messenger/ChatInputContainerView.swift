@@ -20,9 +20,6 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
     }
   
   
-  
- 
-  
   func textViewDidChange(_ textView: UITextView) {
       placeholderLabel.isHidden = !textView.text.isEmpty
    self.updateConstraints()

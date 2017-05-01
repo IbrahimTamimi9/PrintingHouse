@@ -73,15 +73,15 @@ class ChatMessageCell: UICollectionViewCell {
         return tv
     }()
   
-//  let timeLabel: UILabel = {
-//    
-//    let timeLabel = UILabel()
-//    timeLabel.text = "2:08 PM"
-//    timeLabel.textColor = UIColor.gray
-//     timeLabel.translatesAutoresizingMaskIntoConstraints = false
-//     timeLabel.font = UIFont.systemFont(ofSize: 10)
-//    return timeLabel
-//  }()
+  let timeLabel: UILabel = {
+    
+    let timeLabel = UILabel()
+    timeLabel.text = "2:08 PM"
+    timeLabel.textColor = UIColor.gray
+     timeLabel.translatesAutoresizingMaskIntoConstraints = false
+     timeLabel.font = UIFont.systemFont(ofSize: 10)
+    return timeLabel
+  }()
   
   let statusTextView: UILabel = {
     let statusTextView = UILabel()
@@ -149,19 +149,74 @@ class ChatMessageCell: UICollectionViewCell {
             self.chatLogController?.performZoomInForStartingImageView(imageView)
         }
     }
+  
+  
+  var originalCenter = CGPoint()
+  var isSwipeSuccessful = false
+  
+  
+  func checkIfSwiped(recongizer: UIPanGestureRecognizer) {
+    let translation = recongizer.translation(in: self)
+    let centerCell = self.originalCenter
     
+    if center.x <=  centerCell.x && center.x >= screenSize.width/3.35 {
+       center = CGPoint(x: originalCenter.x + translation.x, y: originalCenter.y)
+    }
+   
+  
+  }
+  
+  func moveViewBackIntoPlace(originalFrame: CGRect) {
+    UIView.animate(withDuration: 0.2, animations: {self.frame = originalFrame})
+  }
+  
+  override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+      let translation = panGestureRecognizer.translation(in: superview!)
+      if fabs(translation.x) > fabs(translation.y) {
+        return true
+      }
+    }
+    return false
+  }
+  
+  func handlePan(recognizer: UIPanGestureRecognizer) {
+    if recognizer.state == .began {
+      originalCenter = center
+    }
+    
+    if recognizer.state == .changed {
+      checkIfSwiped(recongizer: recognizer)
+    }
+    
+    if recognizer.state == .ended {
+      let originalFrame = CGRect(x: 0, y: frame.origin.y,
+                                 width: bounds.size.width, height: bounds.size.height)
+        moveViewBackIntoPlace(originalFrame: originalFrame)
+    }
+  }
+  
+  
     var bubbleWidthAnchor: NSLayoutConstraint?
     var bubbleViewRightAnchor: NSLayoutConstraint?
     var bubbleViewLeftAnchor: NSLayoutConstraint?
+    var timelabelLeftAnchor: NSLayoutConstraint?
   
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+      
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(recognizer:)))
+            recognizer.delegate = self as? UIGestureRecognizerDelegate
+            recognizer.cancelsTouchesInView = true
+      
+        self.addGestureRecognizer(recognizer)
+
+      
         addSubview(bubbleView)
         addSubview(textView)
-       //addSubview(statusTextView)
+        //addSubview(statusTextView)
         addSubview(profileImageView)
-       // addSubview(timeLabel)
+        addSubview(timeLabel)
         
         bubbleView.addSubview(messageImageView)
         messageImageView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor).isActive = true
@@ -189,18 +244,14 @@ class ChatMessageCell: UICollectionViewCell {
         profileImageView.widthAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
         profileImageView.heightAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
       
-      
-   
     
 //      statusTextView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -5).isActive = true
 //      statusTextView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: 4).isActive = true
 //      statusTextView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
 //      statusTextView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-
-
+      
       
         //x,y,w,h
-        
         bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
         bubbleViewRightAnchor?.isActive = true
         bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8)
@@ -215,13 +266,10 @@ class ChatMessageCell: UICollectionViewCell {
         textView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
         textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
       
-//        timeLabel.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant : -11).isActive = true
-//        timeLabel.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: -8).isActive = true
-//        timeLabel.heightAnchor.constraint(equalToConstant: 8).isActive = true
-
-
       
-      
+        timelabelLeftAnchor = timeLabel.leftAnchor.constraint(equalTo: self.rightAnchor, constant: 9)
+        timelabelLeftAnchor?.isActive = true
+        timeLabel.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor, constant: 0).isActive = true
       
     }
     

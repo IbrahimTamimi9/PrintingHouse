@@ -26,8 +26,27 @@ extension Double {
   }
 }
 
+extension Array {
+  
+  func filterDuplicates( includeElement: @escaping (_ lhs:Element, _ rhs:Element) -> Bool) -> [Element]{
+    var results = [Element]()
+    
+    forEach { (element) in
+      let existingElements = results.filter {
+        return includeElement(element, $0)
+      }
+      if existingElements.count == 0 {
+        results.append(element)
+      }
+    }
+    
+    return results
+  }
+}
+
 
  private var sentMessageDataToId = ""
+
  private var snapStatus = ""
 
  private var messageStatus: UILabel = {
@@ -43,7 +62,6 @@ extension Double {
   
     return messageStatus
 }()
-
 
 
 class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -232,7 +250,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
          self.endKey = messageId
          self.firstIdTaken = true
       }
-     
+      
       let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
           messagesRef.observeSingleEvent( of: .value, with: { (snapshot) in
  
@@ -259,10 +277,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }
   
   func performMessagesUpdates (messages: [Message]) {
-    
-    self.messages.removeLast()
-    self.messageIdArray.removeLast()
-    
+  
+    let filteredElements = self.messages.filterDuplicates { $0.timestamp == $1.timestamp }
+  
+    self.messages.removeAll()
+    self.messageIdArray.removeFirst()
+    self.messages.append(contentsOf: filteredElements)
+ 
     self.messages.sort(by: { (message1, message2) -> Bool in
       return message2.timestamp as! Int > message1.timestamp as! Int
     })
@@ -689,6 +710,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       cell.message = message
       
       cell.textView.text = message.text
+      cell.timeLabel.text = (message.timestamp as! Double).getDateStringFromUTC()
       
       setupCell(cell, message: message)
       
