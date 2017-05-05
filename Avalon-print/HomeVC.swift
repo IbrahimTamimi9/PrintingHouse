@@ -137,7 +137,7 @@ extension NSObject: Utilities{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      checkInternetConnection()
+        checkInternetConnection()
   
         bucketTransition = JTMaterialTransition(animatedView: button)
         profileButtonTransition = JTMaterialTransition(animatedView: profileButton)

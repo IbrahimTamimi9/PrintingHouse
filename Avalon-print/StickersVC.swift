@@ -52,37 +52,21 @@ class StickersVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         leftImageViewConstraint.constant = -25
     }
+  
+  
+    //MARK: Touch Events
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      closeKeyboard()
+    }
 
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
         fetchMaterialsAndPostprint(productType: "Stickers", onlyColdLamAllowed: true, onlyDefaultPrepressAllowed: false)
         managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)
-        
-       
-        // //MARK: iPhone 5/5c/5s/se
-        if screenSize.height == 568 {
-            topConstraint.constant = 30
-            betweenAmountAndMaterial.constant = 50
-            betweenWidthAndMaterial.constant = 20
-            betweenHeightAndMaterial.constant = 20
-            betweenSizeAndPostPrint.constant = 50
-            betweenPostPrintAndPrice.constant = 40
-            
-        }
-        
-        //MARK: iPhone 6+/7+
-        if screenSize.height == 736 {
-            topConstraint.constant = 40
-            betweenAmountAndMaterial.constant = 70
-            betweenWidthAndMaterial.constant = 40
-            betweenHeightAndMaterial.constant = 40
-            betweenSizeAndPostPrint.constant = 70
-            betweenPostPrintAndPrice.constant = 60
-            
-        }
+      
 
         materialPicker.delegate = self
         materialPicker.dataSource = self
@@ -105,11 +89,11 @@ class StickersVC: UIViewController {
         materialPicker.backgroundColor = UIColor.darkGray
         postPrintPicker.backgroundColor = UIColor.darkGray
         
-          self.materialInfoTransition = JTMaterialTransition(animatedView: self.AboutMaterialsButton)
+        self.materialInfoTransition = JTMaterialTransition(animatedView: self.AboutMaterialsButton)
 
     }
-    
-    
+  
+  
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( stickersAmountTextField.text == nil) {
             currentPageData.amountIsEmpty = true
@@ -198,9 +182,32 @@ class StickersVC: UIViewController {
         items = [ ("transparentOracalPicture", "Пленка самокл. прозрачная"), ("whiteStickerPicture", "Пленка самокл. белая"),("onewayvisionPicture", "One Way Vision")]
       gottenSignal.stickersSignal = true
     }
+  
+    func configureConstraints () {
     
+      //MARK: iPhone 5/5c/5s/se
+      if screenSize.height == 568 {
+        topConstraint.constant = 30
+        betweenAmountAndMaterial.constant = 50
+        betweenWidthAndMaterial.constant = 20
+        betweenHeightAndMaterial.constant = 20
+        betweenSizeAndPostPrint.constant = 50
+        betweenPostPrintAndPrice.constant = 40
+      
+      }
+    
+      //MARK: iPhone 6+/7+
+      if screenSize.height == 736 {
+        topConstraint.constant = 40
+        betweenAmountAndMaterial.constant = 70
+        betweenWidthAndMaterial.constant = 40
+        betweenHeightAndMaterial.constant = 40
+        betweenSizeAndPostPrint.constant = 70
+        betweenPostPrintAndPrice.constant = 60
+      }
+    }
 
-    
+  
     //MARK: HELPER FUNCTIONS
     func DisableButton() {
           stickersAddToCartButton.setTitle("В корзину", for: .normal)
@@ -216,13 +223,7 @@ class StickersVC: UIViewController {
         self.view.endEditing(true)
     }
   
-    
-    //MARK: Touch Events
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        closeKeyboard()
-    }
-    
+  
     //MARK: DEPENDS ON SIZE AMOUNT AND WHICH ELEMENTS WERE SELECTED, PRICES UPDATE
     func updatePrices() {
        
