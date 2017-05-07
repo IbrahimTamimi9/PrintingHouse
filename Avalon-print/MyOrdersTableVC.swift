@@ -1,5 +1,5 @@
 //
-//  myOrdersTableVC.swift
+//  MyOrdersTableVC.swift
 //  Avalon-Print
 //
 //  Created by Roman Mizin on 1/30/17.

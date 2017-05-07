@@ -1,5 +1,5 @@
 //
-//  shoppingCartVC.swift
+//  ShoppingCartVC.swift
 //  Avalon-Print
 //
 //  Created by Roman Mizin on 12/7/16.

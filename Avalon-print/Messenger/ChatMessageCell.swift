@@ -1,10 +1,11 @@
 //
 //  ChatMessageCell.swift
-//  gameofchats
+//  Avalon-print
 //
-//  Created by Brian Voong on 7/12/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
+//  Created by Roman Mizin on 3/25/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
+
 
 import UIKit
 import AVFoundation
@@ -167,7 +168,7 @@ class ChatMessageCell: UICollectionViewCell {
   }
   
   func moveViewBackIntoPlace(originalFrame: CGRect) {
-    UIView.animate(withDuration: 0.2, animations: {self.frame = originalFrame})
+    UIView.animate(withDuration: 0.3, animations: {self.frame = originalFrame})
   }
   
   override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -208,6 +209,7 @@ class ChatMessageCell: UICollectionViewCell {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(recognizer:)))
             recognizer.delegate = self as? UIGestureRecognizerDelegate
             recognizer.cancelsTouchesInView = true
+            recognizer.requiresExclusiveTouchType = false
       
         self.addGestureRecognizer(recognizer)
 
@@ -215,7 +217,7 @@ class ChatMessageCell: UICollectionViewCell {
         addSubview(bubbleView)
         addSubview(textView)
         //addSubview(statusTextView)
-        addSubview(profileImageView)
+       // addSubview(profileImageView)
         addSubview(timeLabel)
         
         bubbleView.addSubview(messageImageView)
@@ -239,22 +241,22 @@ class ChatMessageCell: UICollectionViewCell {
         activityIndicatorView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         //x,y,w,h
-        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true // set true if need avatar
-        profileImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
-        profileImageView.heightAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
-      
+//        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true // set true if need avatar
+//        profileImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        profileImageView.widthAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
+//        profileImageView.heightAnchor.constraint(equalToConstant: 0).isActive = true// set true if need avatar 32
+//      
     
 //      statusTextView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -5).isActive = true
 //      statusTextView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor, constant: 4).isActive = true
 //      statusTextView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
 //      statusTextView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-      
+
       
         //x,y,w,h
-        bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
+        bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10)
         bubbleViewRightAnchor?.isActive = true
-        bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8)
+        bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10)
         //bubbleViewLeftAnchor?.active = false
         bubbleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
@@ -270,7 +272,7 @@ class ChatMessageCell: UICollectionViewCell {
         timelabelLeftAnchor = timeLabel.leftAnchor.constraint(equalTo: self.rightAnchor, constant: 9)
         timelabelLeftAnchor?.isActive = true
         timeLabel.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor, constant: 0).isActive = true
-      
+         
     }
     
     required init?(coder aDecoder: NSCoder) {

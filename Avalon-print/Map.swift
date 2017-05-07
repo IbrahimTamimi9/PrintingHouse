@@ -1,5 +1,5 @@
 //
-//  map.swift
+//  Map.swift
 //  Avalon-print
 //
 //  Created by Roman Mizin on 12/2/16.

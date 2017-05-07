@@ -17,20 +17,18 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
         let containerView = transitionContext.containerView
         
         let offScreenFrame = CGRect(x: 0, y: containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
-    
+        
         containerView.addSubview(presentedViewController.view)
         presentedViewController.view.frame = offScreenFrame
         
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options: .curveEaseInOut,
+            options: .curveEaseOut,
             animations: {
-                let scale: CGFloat = 1 - (43/presentingViewController.view.frame.height)
+                let scale: CGFloat = 1 - (40/presentingViewController.view.frame.height)
                 presentingViewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
-               presentingViewController.view.alpha = 0.8
+                presentingViewController.view.alpha = 0.8
 				presentingViewController.view.layer.cornerRadius = 8
 				presentingViewController.view.layer.masksToBounds = true
 				
@@ -43,7 +41,7 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.3
     }
     
 }

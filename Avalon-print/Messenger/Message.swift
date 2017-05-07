@@ -1,9 +1,9 @@
 //
 //  Message.swift
-//  gameofchats
+//  Avalon-print
 //
-//  Created by Brian Voong on 7/7/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
+//  Created by Roman Mizin on 3/25/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
 import UIKit

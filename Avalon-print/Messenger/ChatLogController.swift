@@ -64,6 +64,8 @@ extension Array {
 }()
 
 
+
+
 class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   
@@ -427,10 +429,23 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
  }
   
   
+//  let timestampView: UIView = {
+//    let timestampView = UIView()
+//    
+//    timestampView.translatesAutoresizingMaskIntoConstraints = false
+//    timestampView.backgroundColor = UIColor.red
+//    
+//    return timestampView
+//  }()
   
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+//      self.view.addSubview(timestampView)
+//      timestampView.topAnchor.constraint(equalTo: collectionView?.topAnchor, constant: 0).isActive = true
+//      timestampView.bottomAnchor.constraint(equalTo: collectionView?.bottomAnchor, constant: 0).isActive = true
+//      timestampView.widthAnchor.constraint(equalToConstant: 200).isActive = true
       
       self.inputContainerView.istypingLabel.text = "\(String(describing: (user?.name)!)) печатает..."
       

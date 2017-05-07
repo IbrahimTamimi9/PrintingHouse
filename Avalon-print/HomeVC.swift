@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  Avalon-print
 //
 //  Created by Roman Mizin on 12/3/16.

@@ -157,7 +157,7 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
         let elasticThreshold: CGFloat = 120
 		let dismissThreshold: CGFloat = 240
 		
-		//let elasticFactor: CGFloat = 1/5
+		let _: CGFloat = 1/5
 		let translationFactor: CGFloat = 1/2
 		
         /**

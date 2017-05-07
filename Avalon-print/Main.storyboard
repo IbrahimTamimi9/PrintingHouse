@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xmw-Eo-50m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5730" y="672"/>
+            <point key="canvasLocation" x="5658" y="672"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="ghZ-h6-BO5">
@@ -635,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6j-cT-Y5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6622" y="672"/>
+            <point key="canvasLocation" x="6543" y="672"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="xoW-dS-CdB">
@@ -781,7 +781,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="tnY-3S-qwP" kind="custom" customClass="DeckSegue" customModule="DeckTransition" id="AcE-f6-RrY"/>
+                                    <segue destination="tnY-3S-qwP" kind="custom" customClass="DeckSegue" customModule="Avalon_Print" id="AcE-f6-RrY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q67-jn-N1H" customClass="ButtonMockup" customModule="Avalon_Print">
@@ -800,7 +800,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="puW-6A-hrM" kind="custom" customClass="DeckSegue" customModule="DeckTransition" id="Dlc-W7-Rsv"/>
+                                    <segue destination="puW-6A-hrM" kind="custom" customClass="DeckSegue" customModule="Avalon_Print" id="Dlc-W7-Rsv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuK-HV-iXm">
@@ -1046,7 +1046,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="dnc-Ye-m5p" kind="custom" customClass="DeckSegue" customModule="DeckTransition" id="tbg-ZV-dzf"/>
+                                            <segue destination="dnc-Ye-m5p" kind="custom" customClass="DeckSegue" customModule="Avalon_Print" id="tbg-ZV-dzf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1564,7 +1564,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-Zq-5Nk">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="SdE-PY-R1N"/>
                                 </constraints>
@@ -1943,7 +1943,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEs-4k-Fgg">
-                                        <rect key="frame" x="224" y="548" width="77" height="16"/>
+                                        <rect key="frame" x="218" y="548" width="83" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Nmj-uc-0ze"/>
                                         </constraints>
@@ -2330,7 +2330,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-Kn-Bnm">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="rLl-FZ-lfn"/>
                                 </constraints>
@@ -2607,7 +2607,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfK-Lk-rRE">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="IiV-nk-1Nc"/>
                                 </constraints>
@@ -2987,7 +2987,7 @@ Life  (093) 000-18-64
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="S2S-0I-KiH">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="S2S-0I-KiH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3097,7 +3097,7 @@ Life  (093) 000-18-64
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKl-Zb-wy2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKl-Zb-wy2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3118,7 +3118,7 @@ Life  (093) 000-18-64
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="HuN-55-zKY" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="HuN-55-zKY" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3143,7 +3143,7 @@ Life  (093) 000-18-64
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="o04-ZP-lRP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="o04-ZP-lRP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

@@ -1,10 +1,11 @@
 //
 //  UserCell.swift
-//  gameofchats
+//  Avalon-print
 //
-//  Created by Brian Voong on 7/8/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
+//  Created by Roman Mizin on 3/25/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
+
 
 import UIKit
 import Firebase
@@ -43,20 +44,21 @@ class UserCell: UITableViewCell {
                         self.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
                     }
                 }
-                
-                }, withCancel: nil)
+            }, withCancel: nil)
         }
     }
-    
+  
+  
     override func layoutSubviews() {
         super.layoutSubviews()
-      
-        textLabel?.frame = CGRect(x: 82, y: textLabel!.frame.origin.y - 2, width: textLabel!.frame.width * 2, height: textLabel!.frame.height)
-        textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+        let tlWidth = screenSize.width - profileImageView.frame.width - timeLabel.frame.width - 45
+        let detailTLWidth = screenSize.width - profileImageView.frame.width - 40
+        textLabel?.frame = CGRect(x: 90, y: textLabel!.frame.origin.y - 15, width: tlWidth , height: textLabel!.frame.height)
+        textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        detailTextLabel?.font = UIFont.systemFont(ofSize: 12)
         detailTextLabel?.textColor = UIColor.lightGray
-        detailTextLabel?.frame = CGRect(x: 82, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width * 2, height: detailTextLabel!.frame.height)
-     
+        detailTextLabel?.frame = CGRect(x: 90, y: textLabel!.frame.origin.y + 20, width: detailTLWidth, height: detailTextLabel!.frame.height)
+  
     }
   
   
@@ -84,31 +86,44 @@ class UserCell: UITableViewCell {
 
     let timeLabel: UILabel = {
         let label = UILabel()
-//        label.text = "HH:MM:SS"
-        label.font = UIFont (name: "HelveticaNeue-Light", size: 13)
-        label.textColor = UIColor.darkGray
+        //label.text = "HH:MM:SS"
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.textColor = UIColor.lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+  
+    let disclosureIndicator = UIImageView()
+  
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
+      
+     
         addSubview(profileImageView)
         addSubview(timeLabel)
-       // addSubview(newMessagesCounter)
+        addSubview(disclosureIndicator)
+    
+      disclosureIndicator.image = UIImage(named: "icon-go")
+      disclosureIndicator.translatesAutoresizingMaskIntoConstraints = false
+      disclosureIndicator.widthAnchor.constraint(equalToConstant: 8).isActive = true
+      disclosureIndicator.heightAnchor.constraint(equalToConstant: 13).isActive = true
+      disclosureIndicator.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
+      disclosureIndicator.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 0).isActive = true
+      
+        //addSubview(newMessagesCounter)
         //ios 9 constraint anchors
         //need x,y,width,height anchors
-        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 65).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 65).isActive = true
-        
+        profileImageView.widthAnchor.constraint(equalToConstant: 63).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 63).isActive = true
+      
         //need x,y,width,height anchors
-        timeLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 35).isActive = true
-        timeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 28).isActive = true
-        timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        timeLabel.rightAnchor.constraint(equalTo: disclosureIndicator.leftAnchor, constant: 0).isActive = true
+        timeLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor, constant: 3).isActive = true
+        timeLabel.widthAnchor.constraint(equalToConstant: 58).isActive = true
         timeLabel.heightAnchor.constraint(equalTo: (textLabel?.heightAnchor)!).isActive = true
+       // timeLabel.centerYAnchor.constraint(equalTo: textLabel!.centerYAnchor, constant: 0).isActive = true
       
 //      newMessagesCounter.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 35).isActive = true
 //      newMessagesCounter.topAnchor.constraint(equalTo: self.topAnchor, constant: 58).isActive = true

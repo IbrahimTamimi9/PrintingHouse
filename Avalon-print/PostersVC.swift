@@ -1,9 +1,10 @@
 //
-//  postersMaterialPage.swift
-//  CustomSlideMenu
+//  PostersVC.swift
+//  Avalon-Print
 //
 //  Created by Roman Mizin on 12/3/16.
 //  Copyright © 2016 Roman Mizin. All rights reserved.
+//
 
 
 import UIKit

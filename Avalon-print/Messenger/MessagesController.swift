@@ -1,9 +1,9 @@
 //
-//  ViewController.swift
-//  gameofchats
+//  MessagesController.swift
+//  Avalon-print
 //
-//  Created by Brian Voong on 6/24/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
+//  Created by Roman Mizin on 3/25/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
 import UIKit
@@ -33,13 +33,15 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class MessagesController: UITableViewController {
 
     let cellId = "cellId"
-   
+  
+  
      override func viewDidLoad() {
         super.viewDidLoad()
     
       observeUserMessages()
       
-      navigationItem.title = "Чат"
+      navigationItem.title = "Сообщения"
+      tableView.backgroundColor = UIColor.white
       navigationController?.navigationBar.tintColor = UIColor.white
       
       navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -53,7 +55,7 @@ class MessagesController: UITableViewController {
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
       
         tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.separatorInset = .init(top: 0, left: 85, bottom: 0, right: 0)
+       // tableView.separatorInset = .init(top: 0, left: 35, bottom: 0, right: 0)
       
       let  newBackButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft.png"), style: .plain, target: self, action: #selector(self.leftBarButtonAction(sender:)))
       self.navigationItem.leftBarButtonItem = newBackButton
@@ -116,7 +118,8 @@ class MessagesController: UITableViewController {
                 }, withCancel: nil)
             
             }, withCancel: nil)
-        
+      
+      
         ref.observe(.childRemoved, with: { (snapshot) in
             print(snapshot.key)
             print(self.messagesDictionary)
@@ -151,7 +154,7 @@ class MessagesController: UITableViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
   
   
-    }
+  }
     
     var timer: Timer?
  
@@ -176,16 +179,16 @@ class MessagesController: UITableViewController {
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
-      
+     
         let message = messages[(indexPath as NSIndexPath).row]
-        cell.message = message
-  
+            cell.message = message
+   
         return cell
     }
 
   
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
+        return 80
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

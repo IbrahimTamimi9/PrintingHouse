@@ -1,5 +1,5 @@
 //
-//  passwordResetVC.swift
+//  PasswordResetVC.swift
 //  Avalon-Print
 //
 //  Created by Roman Mizin on 1/29/17.

@@ -1,9 +1,9 @@
 //
 //  NewMessageController.swift
-//  gameofchats
+//  Avalon-print
 //
-//  Created by Brian Voong on 6/29/16.
-//  Copyright © 2016 letsbuildthatapp. All rights reserved.
+//  Created by Roman Mizin on 3/25/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
 import UIKit
@@ -16,12 +16,14 @@ class NewMessageController: UITableViewController {
     
     var users = [User]()
 
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
       navigationController?.navigationBar.tintColor = UIColor.white
       navigationController?.navigationBar.barStyle = UIBarStyle.black
       navigationController?.navigationBar.isTranslucent = false
+      //tableView.separatorInset = .init(top: 0, left: 35, bottom: 0, right: 0)
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain , target: self, action: #selector(handleCancel))
         
@@ -29,7 +31,8 @@ class NewMessageController: UITableViewController {
         
         fetchUser()
     }
-    
+  
+  
     func fetchUser() {
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             
@@ -40,11 +43,10 @@ class NewMessageController: UITableViewController {
                 //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
                 user.setValuesForKeys(dictionary)
               
-              if user.type !=  "user" {
+              if user.type != "user" {
                 self.users.append(user)
               }
               
-                
                 //this will crash because of background thread, so lets use dispatch_async to fix
                 DispatchQueue.main.async(execute: { 
                     self.tableView.reloadData()
@@ -55,14 +57,17 @@ class NewMessageController: UITableViewController {
             
             }, withCancel: nil)
     }
-    
+  
+  
     func handleCancel() {
         dismiss(animated: true, completion: nil)
     }
-    
+  
+  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
+  
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
@@ -70,6 +75,7 @@ class NewMessageController: UITableViewController {
         let user = users[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = user.name
         cell.detailTextLabel?.text = user.email
+        cell.disclosureIndicator.isHidden = true
         
         if let profileImageUrl = user.profileImageUrl {            
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
@@ -77,11 +83,13 @@ class NewMessageController: UITableViewController {
         
         return cell
     }
+  
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
+        return 80
     }
-    
+  
+  
     var messagesController: MessagesController?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,5 +99,4 @@ class NewMessageController: UITableViewController {
             self.messagesController?.showChatControllerForUser(user)
         }
     }
-
 }

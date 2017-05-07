@@ -3,11 +3,10 @@
 //  Avalon-Print
 //
 //  Created by Roman Mizin on 12/11/16.
-//  Copyright © 2016 Константин. All rights reserved.
+//  Copyright © 2016 Roman Mizin. All rights reserved.
 //
 
 import UIKit
-import DeckTransition
 import FirebaseDatabase
 import FirebaseAuth
 

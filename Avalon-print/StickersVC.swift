@@ -1,5 +1,5 @@
 //
-//  MainPageController.swift
+//  StickersVC.swift
 //  Avalon-print
 //
 //  Created by Roman Mizin on 12/1/16.
