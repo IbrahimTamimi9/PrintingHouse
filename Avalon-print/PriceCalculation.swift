@@ -103,7 +103,6 @@ func getPosterStickerPrice (materialPrice: Double , materialPrintPrice: Double, 
   
 //========================================================================
   
-  
   let squareMeters = custom_he * custom_wi
 
   let currency_course = JSONVariables.USD

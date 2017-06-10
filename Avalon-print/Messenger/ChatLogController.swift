@@ -528,7 +528,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         _ = navigationController?.popViewController(animated: true)
     }
   
- 
+ // == uploading
     func handleUploadTap() {
       
         let imagePickerController = UIImagePickerController()
@@ -554,7 +554,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         dismiss(animated: true, completion: nil)
     }
   
-  
+  //---=====
     fileprivate func handleVideoSelectedForUrl(_ url: URL) {
         let filename = UUID().uuidString + ".mov"
         let uploadTask = FIRStorage.storage().reference().child("message_movies").child(filename).putFile(url, metadata: nil, completion: { (metadata, error) in

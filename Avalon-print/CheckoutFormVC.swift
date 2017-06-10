@@ -20,16 +20,16 @@ class CheckoutFormVC: UIViewController {
     @IBOutlet weak var nameSurnameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var layoutLinkTF: UITextField!
+    //@IBOutlet weak var layoutLinkTF: UITextField!
     @IBOutlet weak var commentsTV: UITextView!
     @IBOutlet weak var deliveryAdress: UITextField!
     
     @IBOutlet weak var commentsLabel: UILabel!
-    @IBOutlet weak var layoutDevSwitch: UISwitch!
+  //  @IBOutlet weak var layoutDevSwitch: UISwitch!
     @IBOutlet weak var deliverySwitch: UISwitch!
     
     @IBOutlet weak var checkOutButton: ButtonMockup!
-    @IBOutlet weak var attachLayoutButton: UIButton!
+   // @IBOutlet weak var attachLayoutButton: UIButton!
     
     var ordersCount = Int()
   
@@ -44,12 +44,12 @@ class CheckoutFormVC: UIViewController {
         nameSurnameTF.delegate = self
         emailTF.delegate = self
         phoneTF.delegate = self
-        layoutLinkTF.delegate = self
+        //layoutLinkTF.delegate = self
         deliveryAdress.delegate = self
         
         self.hideKeyboardWhenTappedAround()
 
-        setFontsForControllers(textfield: [nameSurnameTF,phoneTF, emailTF, layoutLinkTF, deliveryAdress], textview: commentsTV, label: commentsLabel)
+        setFontsForControllers(textfield: [nameSurnameTF,phoneTF, emailTF, deliveryAdress], textview: commentsTV, label: commentsLabel)
         
         localyRetrieveUserData()
       
@@ -68,17 +68,17 @@ class CheckoutFormVC: UIViewController {
     }
     
     
-    @IBAction func layoutDevSwitchStateChanged(_ sender: Any) {
-        
-        if layoutDevSwitch.isOn == true {
-            attachLayoutButton.isEnabled = false
-            textfieldState(textField: layoutLinkTF, state: false)
-        } else {
-            attachLayoutButton.isEnabled = true
-            textfieldState(textField: layoutLinkTF, state: true)
-        }
-    }
-    
+//    @IBAction func layoutDevSwitchStateChanged(_ sender: Any) {
+//        
+//        if layoutDevSwitch.isOn == true {
+//            attachLayoutButton.isEnabled = false
+//            textfieldState(textField: layoutLinkTF, state: false)
+//        } else {
+//            attachLayoutButton.isEnabled = true
+//            textfieldState(textField: layoutLinkTF, state: true)
+//        }
+//    }
+  
     
     @IBAction func deliverySwitchStateChanged(_ sender: Any) {
         
@@ -139,7 +139,7 @@ class CheckoutFormVC: UIViewController {
       createdAt.setValue(createdAtValue)
       
       var deliveryFinal = ""
-      var layoutFinal = ""
+      //var layoutFinal = ""
       
       if deliverySwitch.isOn == true {
         deliveryFinal = deliveryAdress.text!
@@ -147,11 +147,11 @@ class CheckoutFormVC: UIViewController {
        deliveryFinal =  "Без доставки"
       }
       
-      if layoutDevSwitch.isOn == true {
-        layoutFinal = "Разработка макета в вашей дизайн студии"
-      } else {
-        layoutFinal = layoutLinkTF.text!
-      }
+//      if layoutDevSwitch.isOn == true {
+//       // layoutFinal = "Разработка макета в вашей дизайн студии"
+//      } else {
+//        //layoutFinal = layoutLinkTF.text!
+//      }
       
       
       let orderInfoContent: NSDictionary = [
@@ -160,7 +160,7 @@ class CheckoutFormVC: UIViewController {
                                 "fullPrice": totalprice,
                                 "fullNDSPrice": totalNDSprice,
                                 "comments": commentsTV.text!,
-                                "layout": layoutFinal,
+                              //  "layout": layoutFinal,
                                 "deliveryAdress": deliveryFinal ]
       
       

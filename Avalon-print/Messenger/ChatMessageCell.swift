@@ -135,8 +135,8 @@ class ChatMessageCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomTap)))
-        
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(handleZoomTap)))
+    
         return imageView
     }()
     

@@ -62,7 +62,7 @@ class StickersVC: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        configureConstraints()
         fetchMaterialsAndPostprint(productType: "Stickers", onlyColdLamAllowed: true, onlyDefaultPrepressAllowed: false)
         managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         applyMotionEffect(toView: backgroundImageView, magnitude: 25)

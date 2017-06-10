@@ -24,7 +24,6 @@ import FirebaseDatabase
     @IBOutlet weak var betweenWidthAndMaterial: NSLayoutConstraint!
     @IBOutlet weak var betweenHeightAndMaterial: NSLayoutConstraint!
     @IBOutlet weak var betweenSizeAndPostPrint: NSLayoutConstraint!
-    @IBOutlet weak var betweenPostPrintAndPrice: NSLayoutConstraint!
     
     @IBOutlet weak var postersAmountTextField: HoshiTextField!
     @IBOutlet weak var postersMaterialTextField: UITextField!
@@ -40,6 +39,14 @@ import FirebaseDatabase
     @IBOutlet weak var ndsPriceLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var xLetter: UILabel!
+  
+    @IBOutlet weak var layoutPreview: UIImageView!
+    @IBOutlet weak var yourPreviewSign: UILabel!
+    @IBOutlet weak var canBePrintedIndicator: UILabel!
+    @IBOutlet weak var infoAboutLayout: UIButton!
+    @IBOutlet weak var attachLayout: UIButton!
+  
+  
     let nameButt = "В корзину"
     
     var materialInfoTransition = JTMaterialTransition()
@@ -47,6 +54,8 @@ import FirebaseDatabase
     var materialPicker = UIPickerView()
     var postPrintPicker = UIPickerView()
     var selectedMaterialRow = Int()
+  
+    let layoutPicker = UIImagePickerController()
 
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,7 +87,6 @@ import FirebaseDatabase
             betweenWidthAndMaterial.constant = 20
             betweenHeightAndMaterial.constant = 20
             betweenSizeAndPostPrint.constant = 50
-            betweenPostPrintAndPrice.constant = 40
         }
         
         //MARK: iPhone 6+/7+
@@ -88,8 +96,6 @@ import FirebaseDatabase
             betweenWidthAndMaterial.constant = 40
             betweenHeightAndMaterial.constant = 40
             betweenSizeAndPostPrint.constant = 70
-            betweenPostPrintAndPrice.constant = 60
-            
         }
         
         materialPicker.delegate = self
@@ -102,6 +108,8 @@ import FirebaseDatabase
         postersAmountTextField.delegate = self
         postersWidthTextField.delegate = self
         postersHeightTextField.delegate = self
+      
+        layoutPicker.delegate = self
         
         postersMaterialTextField.inputView = materialPicker
         postersPostPrintTextField.inputView = postPrintPicker
@@ -114,9 +122,12 @@ import FirebaseDatabase
         materialPicker.backgroundColor = UIColor.darkGray
         postPrintPicker.backgroundColor = UIColor.darkGray
       
+        let tapOnPreview = UITapGestureRecognizer(target: self, action: #selector(PostersVC.handleZoomTap))
+        layoutPreview.addGestureRecognizer(tapOnPreview)
+      
     }
-   
   
+
     @IBAction func amountCursorPosChanged(_ sender: Any) {
         if ( postersAmountTextField.text == nil) {
             currentPageData.amountIsEmpty = true
@@ -161,6 +172,23 @@ import FirebaseDatabase
         }
     }
   
+  
+    @IBAction func pickTheLayout(_ sender: Any) {
+    
+      if (self.layoutPreview.image == nil) {
+        //no image set
+        layoutPicker.allowsEditing = false
+        layoutPicker.sourceType = .photoLibrary
+        layoutPicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(layoutPicker, animated: true, completion: nil)
+     
+      } else {
+        //image set
+        layoutPreview.image = nil
+        manageViewsConnectedToAttachingLayout()
+    }
+  }
+  
     
     @IBAction func AddToCart(_ sender: Any) {
         
@@ -191,7 +219,6 @@ import FirebaseDatabase
             
             updateBadgeValue()
             DisableButton()
-            postersAddToCartButton.frame.size.width = 75
         }
     }
   
@@ -208,7 +235,74 @@ import FirebaseDatabase
         gottenSignal.postersSignal = true
     }
 
+
+  var startingFrame: CGRect?
+  var blackBackgroundView: UIView?
+  var startingImageView: UIImageView?
+  
+  func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
+   
+    if let imageView = tapGesture.view as? UIImageView {
+      //PRO Tip: don't perform a lot of custom logic inside of a view class
+      performZoomInForStartingImageView(imageView)
+    }
+  }
+
+  
+  func performZoomInForStartingImageView(_ startingImageView: UIImageView) {
     
+    self.startingImageView = startingImageView
+    self.startingImageView?.isHidden = true
+    
+    startingFrame = startingImageView.superview?.convert(startingImageView.frame, to: nil)
+    
+    let zoomingImageView = UIImageView(frame: startingFrame!)
+   
+    zoomingImageView.image = startingImageView.image
+    zoomingImageView.isUserInteractionEnabled = true
+    zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomOut)))
+    
+    if let keyWindow = UIApplication.shared.keyWindow {
+      blackBackgroundView = UIView(frame: keyWindow.frame)
+      blackBackgroundView?.backgroundColor = UIColor.black
+      blackBackgroundView?.alpha = 0
+      
+      keyWindow.addSubview(blackBackgroundView!)
+      keyWindow.addSubview(zoomingImageView)
+      
+      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        
+        self.blackBackgroundView?.alpha = 1
+        zoomingImageView.contentMode = .scaleAspectFit
+        zoomingImageView.frame = UIScreen.main.bounds
+      
+      //  zoomingImageView.center = keyWindow.center
+        
+      }, completion: { (completed) in
+        // do nothing
+      })
+    }
+  }
+  
+  
+  func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
+    if let zoomOutImageView = tapGesture.view {
+      //need to animate back out to controller
+      zoomOutImageView.clipsToBounds = true
+      
+      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        
+        zoomOutImageView.frame = self.startingFrame!
+        self.blackBackgroundView?.alpha = 0
+        
+      }, completion: { (completed) in
+        zoomOutImageView.removeFromSuperview()
+        self.startingImageView?.isHidden = false
+      })
+    }
+  }
+  
+  
     //MARK: HELPER FUNCTIONS
     func DisableButton() {
             postersAddToCartButton.setTitle("В корзину", for: .normal)
@@ -232,6 +326,27 @@ import FirebaseDatabase
       
     }
   
+  
+  func manageViewsConnectedToAttachingLayout () {
+    
+    if layoutPreview.image == nil {
+      
+      yourPreviewSign.isHidden = false
+      canBePrintedIndicator.isHidden = true
+      infoAboutLayout.isHidden = true
+      attachLayout.setTitle("Или прикрепить", for: .normal)
+      layoutPreview.isUserInteractionEnabled = false
+      
+    } else {
+      
+       yourPreviewSign.isHidden = true
+       canBePrintedIndicator.isHidden = false
+       infoAboutLayout.isHidden = false
+       attachLayout.setTitle("Удалить", for : .normal)
+       layoutPreview.isUserInteractionEnabled = true
+    }
+    
+  }
     func animateAddToCartButton() {
     
       if postersPrice.text == "0" {
@@ -248,6 +363,29 @@ import FirebaseDatabase
     }
     
   }
+}
+
+
+extension PostersVC:  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+  
+
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+    layoutPreview.contentMode = .scaleAspectFit
+    
+     layoutPreview.image = chosenImage//readyImage
+    
+     manageViewsConnectedToAttachingLayout()
+     dismiss(animated:true, completion: nil)
+  }
+
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+
+     manageViewsConnectedToAttachingLayout()
+     dismiss(animated: true, completion: nil)
+  }
+  
 }
 
 

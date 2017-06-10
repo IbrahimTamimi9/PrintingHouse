@@ -71,12 +71,12 @@ class LoginViewController: UIViewController {
         
         if let user = FIRAuth.auth()?.currentUser {
           if !user.isEmailVerified {
-            let alertVC = UIAlertController(title: "Error", message: "Sorry. Your email address has not yet been verified. Do you want us to send another verification email to \(self.loginTextField.text!).", preferredStyle: .alert)
-            let alertActionOkay = UIAlertAction(title: "Send", style: .default) {
+            let alertVC = UIAlertController(title: "Ошибка", message: "Извините. Ваш email еще небыл подтвержден.Хотите чтобы мы отправлили вам письмо с подтверждением повторно? \(self.loginTextField.text!).", preferredStyle: .alert)
+            let alertActionOkay = UIAlertAction(title: "Отправить", style: .default) {
               (_) in
               user.sendEmailVerification(completion: nil)
             }
-            let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let alertActionCancel = UIAlertAction(title: "Отмена", style: .default, handler: nil)
             
             alertVC.addAction(alertActionOkay)
             alertVC.addAction(alertActionCancel)
