@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B17AA021EEE87D10096F562 /* PreviewZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */; };
+		4B17AA041EEE9B0A0096F562 /* LayoutZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17AA031EEE9B0A0096F562 /* LayoutZoomHandling.swift */; };
 		4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */; };
 		4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */; };
 		4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* customNavigationController.swift */; };
@@ -107,6 +109,8 @@
 
 /* Begin PBXFileReference section */
 		0428C93784D8F1D699100807 /* Pods_Avalon_Print.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Avalon_Print.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewZoomHandling.swift; path = "Avalon-print/PreviewZoomHandling.swift"; sourceTree = SOURCE_ROOT; };
+		4B17AA031EEE9B0A0096F562 /* LayoutZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutZoomHandling.swift; path = "Avalon-print/LayoutZoomHandling.swift"; sourceTree = SOURCE_ROOT; };
 		4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialViewController.swift; path = "Avalon-print/ExpandingMaterialViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialTableViewController.swift; path = "Avalon-print/ExpandingMaterialTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3008AA1E2F888E0044654E /* customNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customNavigationController.swift; path = "Avalon-print/customNavigationController.swift"; sourceTree = SOURCE_ROOT; };
@@ -186,7 +190,6 @@
 		4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateUserProfile.swift; path = "Avalon-print/UpdateUserProfile.swift"; sourceTree = SOURCE_ROOT; };
 		657B8B5C724347DD5F22983B /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
 		B5EA1A241B7B383300E1C1C3 /* Avalon-Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avalon-Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5EA1A331B7B383300E1C1C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB4FDA446405594BCDEC69EC /* Pods-Avalon-Print.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.release.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -313,6 +316,7 @@
 				4B3F81961E226F0800034E3E /* StickersVC.swift */,
 				4B3F819A1E226F2D00034E3E /* CanvasVC.swift */,
 				4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */,
+				4B17AA031EEE9B0A0096F562 /* LayoutZoomHandling.swift */,
 			);
 			name = PostersStickersCanvas;
 			sourceTree = "<group>";
@@ -438,6 +442,7 @@
 				4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */,
 				4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */,
 				4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */,
+				4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */,
 			);
 			name = shoppingCart;
 			sourceTree = "<group>";
@@ -472,7 +477,6 @@
 				4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */,
 				4B3F81B91E22702300034E3E /* Main.storyboard */,
 				4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */,
-				B5EA1A331B7B383300E1C1C3 /* Info.plist */,
 				4B3F81BA1E22702300034E3E /* Assets.xcassets */,
 			);
 			name = "Avalon-print";
@@ -652,6 +656,8 @@
 				4BFD11D01E841F910026E152 /* ChatLogController.swift in Sources */,
 				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
 				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,
+				4B17AA041EEE9B0A0096F562 /* LayoutZoomHandling.swift in Sources */,
+				4B17AA021EEE87D10096F562 /* PreviewZoomHandling.swift in Sources */,
 				4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */,
 				4BFD11C61E841F520026E152 /* Message.swift in Sources */,
 				4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */,

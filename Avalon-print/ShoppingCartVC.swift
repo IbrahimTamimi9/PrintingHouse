@@ -34,12 +34,17 @@ import CoreData
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var editButton: UIButton!
   
+    var startingFrame: CGRect?
+    var blackBackgroundView: UIView?
+    var startingImageView: UIImageView?
+
 
     override func viewDidAppear(_ animated: Bool) {
         mainPriceSumCounter()
         purchaseTableView.reloadData()
         
     }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +55,7 @@ import CoreData
         mainPriceSumCounter()
         bottomViewVisibility()
     }
-    
+  
     
     @IBAction func dismissBucket(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -80,7 +85,6 @@ import CoreData
             print("Could not load data from database \(error.localizedDescription)")
         }
     }
-    
   
 
     func bottomViewVisibility() {
@@ -89,7 +93,8 @@ import CoreData
             viewMoveIn(view: bottomViewWithButton)
         }
     }
-    
+  
+  
     func mainPriceSumCounter () {
       
        totalprice = 0.0
@@ -114,8 +119,8 @@ import CoreData
                 if (addedItems.count == 0) {
                      UIView.animate(withDuration: 0.2, animations: { self.mainSumLabel.alpha = 0.0 })
          }
-        
      }
+  
     
     //ANIMATIONS
     func viewMoveIn(view: UIView) {
@@ -130,14 +135,10 @@ import CoreData
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
         view.isUserInteractionEnabled = false
-        
-        
+      
         view.layer.add(animation, forKey: "fade")
     }
-
-
 }
-
 
 
 extension ShoppingCartVC: UITableViewDataSource {
@@ -146,30 +147,43 @@ extension ShoppingCartVC: UITableViewDataSource {
         return addedItems.count
     }
   
-  
-  
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ShoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! ShoppingCartTableViewCell
-        
+      
         let presentItem = addedItems[indexPath.row]
+      
+        let tapOnPreview = UITapGestureRecognizer(target: self, action: #selector(handleZoomTap))
+        cell.layout.addGestureRecognizer(tapOnPreview)
+
+      if presentItem.layoutImage == nil {
+        
+          cell.layout.isHidden = true
+        
+          cell.mainData?.text = presentItem.list
+          cell.purchasePrice?.text = presentItem.price
+          cell.purchaseNDSPrice?.text = presentItem.ndsPrice
+        
+      } else {
+      
+        cell.layout.isHidden = false
         
         cell.mainData?.text = presentItem.list
         cell.purchasePrice?.text = presentItem.price
         cell.purchaseNDSPrice?.text = presentItem.ndsPrice
-      
-    
-      
-    
+        
+       // let layoutForRow = UIImage(data: presentItem.layoutImagePreview! as Data)
+      }
       
         mainPriceSumCounter()
+      
         
         return cell
     }
-    
-    
+  
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      
         let context:NSManagedObjectContext = managedObjextContext
         
         if editingStyle == UITableViewCellEditingStyle.delete {
@@ -183,7 +197,7 @@ extension ShoppingCartVC: UITableViewDataSource {
             } catch  {
                 print("error : \(error)")
             }
-            
+          
             purchaseTableView.deleteRows(at: [indexPath], with: .fade )
             purchaseTableView.endUpdates()
             
@@ -192,7 +206,7 @@ extension ShoppingCartVC: UITableViewDataSource {
             } catch {
                 print("error : \(error)")
             }
-            
+          
             bottomViewVisibility()
             mainPriceSumCounter()
             updateBadgeValue()
@@ -200,13 +214,65 @@ extension ShoppingCartVC: UITableViewDataSource {
         }
     }
   
+  
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     purchaseTableView.setEditing(editing, animated: animated)
-    //self.setEditing(editing, animated: animated)
-    
   }
   
-  
 }
+
+
+
+/* thumbnail
+ 
+ func compressImage (_ image: UIImage) -> UIImage {
+ 
+ let size = CGSize(width: 100, height: 100)
+ 
+ // Define rect for thumbnail
+ let scale = max(size.width/image.size.width, size.height/image.size.height)
+ let width = image.size.width * scale
+ let height = image.size.height * scale
+ let x = (size.width - width) / CGFloat(2)
+ let y = (size.height - height) / CGFloat(2)
+ let thumbnailRect = CGRect(x: x, y: y, width: width, height: height)
+ 
+ // Generate thumbnail from image
+ UIGraphicsBeginImageContextWithOptions(size, false, 0)
+ image.draw(in: thumbnailRect)
+ let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
+ UIGraphicsEndImageContext()
+ 
+ return thumbnail!
+ 
+ }
+ */
+
+
+/* just compression
+ 
+ func compressImage (_ image: UIImage) -> UIImage {
+ 
+ //    let actualHeight:CGFloat = image.size.height
+ //    let actualWidth:CGFloat = image.size.width
+ //    let imgRatio:CGFloat = actualWidth/actualHeight
+ //    let maxWidth:CGFloat = 1024.0
+ //    let resizedHeight:CGFloat = maxWidth/imgRatio
+ //    let compressionQuality:CGFloat = 0.5
+ //
+ //    let rect:CGRect = CGRect(x: 0, y: 0, width: maxWidth, height: resizedHeight)
+ //    UIGraphicsBeginImageContext(rect.size)
+ //    image.draw(in: rect)
+ //    let img: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+ //    let imageData:Data = UIImageJPEGRepresentation(img, compressionQuality)!
+ //    UIGraphicsEndImageContext()
+ 
+ return UIImage(data: imageData)!
+ 
+ }
+ */
+
+
+
 
