@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 var orderToFirebaseArray = [AddedItems]()
 
@@ -20,16 +21,12 @@ class CheckoutFormVC: UIViewController {
     @IBOutlet weak var nameSurnameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
-    //@IBOutlet weak var layoutLinkTF: UITextField!
     @IBOutlet weak var commentsTV: UITextView!
     @IBOutlet weak var deliveryAdress: UITextField!
-    
     @IBOutlet weak var commentsLabel: UILabel!
-  //  @IBOutlet weak var layoutDevSwitch: UISwitch!
     @IBOutlet weak var deliverySwitch: UISwitch!
-    
     @IBOutlet weak var checkOutButton: ButtonMockup!
-   // @IBOutlet weak var attachLayoutButton: UIButton!
+  
     
     var ordersCount = Int()
   
@@ -44,7 +41,6 @@ class CheckoutFormVC: UIViewController {
         nameSurnameTF.delegate = self
         emailTF.delegate = self
         phoneTF.delegate = self
-        //layoutLinkTF.delegate = self
         deliveryAdress.delegate = self
         
         self.hideKeyboardWhenTappedAround()
@@ -191,16 +187,34 @@ class CheckoutFormVC: UIViewController {
         let exactOrderID = "work\(i)"
         let works = addedItems[i]
         
-        let contentOfWork: NSDictionary = ["mainData": works.list!,
-                                           "price": works.price!,
-                                           "ndsprice": works.ndsPrice!]
+        var contentOfWork: NSDictionary = [:]
+        
       
         
-        let exactOrder = orderInfoBlock.child("works").child(exactOrderID)
         
-        exactOrder.setValue(contentOfWork)
+        let layoutForRow = UIImage(data: works.layoutImage! as Data)
+        
+        uploadToFirebaseStorageUsingImage(layoutForRow!, completion: { (imageUrl) in
+          
+          print("completiom before ")
+          contentOfWork =  [ "mainData": works.list!,
+                             "price": works.price!,
+                             "ndsprice": works.ndsPrice!,
+                             "printLayoutURL": imageUrl ]
+          
+          let exactOrder = orderInfoBlock.child("works").child(exactOrderID)
+          
+          exactOrder.setValue(contentOfWork)
+          print("completiom done")
+          
+        })
+        
+        
+       
+
       }
       
+      print("SUCCESS")
       ARSLineProgress.showSuccess()
       
       
@@ -212,13 +226,34 @@ class CheckoutFormVC: UIViewController {
       
       ARSLineProgress.hide()
       
+      
       self.view.isUserInteractionEnabled = true
       
       self.present(alert, animated: true, completion: nil)
+      print("ALERT PRESENT")
 
     
     }
   
+  fileprivate func uploadToFirebaseStorageUsingImage(_ image: UIImage, completion: @escaping (_ imageUrl: String) -> ()) {
+    let imageName = UUID().uuidString
+    let ref = FIRStorage.storage().reference().child("print_Layouts").child(imageName)
+    
+    if let uploadData = UIImageJPEGRepresentation(image, 1.0) {
+      ref.put(uploadData, metadata: nil, completion: { (metadata, error) in
+        
+        if error != nil {
+          print("Failed to upload image:", error as Any)
+          return
+        }
+        
+        if let imageUrl = metadata?.downloadURL()?.absoluteString {
+          completion(imageUrl)
+        }
+        
+      })
+    }
+  }
   
     @IBAction func nameSurnameEditingChanged(_ sender: Any) { validateRegistraionData() }
     @IBAction func phoneNumberEditingChanged(_ sender: Any) { validateRegistraionData() }
