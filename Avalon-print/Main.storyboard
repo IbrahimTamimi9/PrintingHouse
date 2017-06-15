@@ -1297,7 +1297,7 @@
                                             <action selector="phoneNumberEditingChanged:" destination="dnc-Ye-m5p" eventType="editingChanged" id="Gqf-IG-Unw"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Адрес доставки" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="N61-Ah-c6d">
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Адрес доставки" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="N61-Ah-c6d">
                                         <rect key="frame" x="16" y="359" width="341" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="rQC-kD-nGp"/>
@@ -1376,7 +1376,7 @@
                                             <action selector="checkOutButtonClicked:" destination="dnc-Ye-m5p" eventType="touchUpInside" id="3WM-b0-fgO"/>
                                         </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-cn-Tpz">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-cn-Tpz">
                                         <rect key="frame" x="306" y="320" width="51" height="31"/>
                                         <connections>
                                             <action selector="deliverySwitchStateChanged:" destination="dnc-Ye-m5p" eventType="valueChanged" id="OOo-Av-OIz"/>
@@ -1710,6 +1710,9 @@
                                     </imageView>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YST-SD-zu0">
                                         <rect key="frame" x="302" y="439" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="layoutDevSwitchStateChanged:" destination="nW7-o5-byK" eventType="valueChanged" id="kRV-1Q-uTU"/>
+                                        </connections>
                                     </switch>
                                     <button hidden="YES" opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Td-GJ-eEZ">
                                         <rect key="frame" x="212" y="644" width="139" height="45"/>
@@ -1843,6 +1846,8 @@
                         <outlet property="canBePrintedIndicator" destination="sYK-rj-u4V" id="9Vv-CK-lUX"/>
                         <outlet property="grnLabel" destination="qS3-kU-6mK" id="h3A-iY-pLe"/>
                         <outlet property="infoAboutLayout" destination="8Td-GJ-eEZ" id="6DC-kG-x4N"/>
+                        <outlet property="layoutDevSwitch" destination="YST-SD-zu0" id="3fo-JZ-Wh8"/>
+                        <outlet property="layoutLinkTextField" destination="c7c-f1-R6L" id="d27-pa-AI6"/>
                         <outlet property="layoutPreview" destination="CqM-yx-r33" id="AMh-XL-d51"/>
                         <outlet property="leftImageViewConstraint" destination="Uhd-AI-YGN" id="yUe-57-Axf"/>
                         <outlet property="ndsGrnLabel" destination="9pV-zu-Sg8" id="6wH-Gd-nZe"/>
@@ -3159,7 +3164,7 @@ Life  (093) 000-18-64
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="S2S-0I-KiH">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="S2S-0I-KiH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3269,7 +3274,7 @@ Life  (093) 000-18-64
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKl-Zb-wy2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKl-Zb-wy2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3290,7 +3295,7 @@ Life  (093) 000-18-64
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="HuN-55-zKY" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="HuN-55-zKY" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3315,7 +3320,7 @@ Life  (093) 000-18-64
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="o04-ZP-lRP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="o04-ZP-lRP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

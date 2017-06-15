@@ -4,11 +4,12 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="layoutImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="layoutImagePreview" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="layoutLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="list" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ndsPrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AddedItems" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="AddedItems" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

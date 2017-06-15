@@ -39,6 +39,7 @@ class ShoppingCartTableViewCell: UITableViewCell {
     layout.layer.cornerRadius = 16
     layout.layer.borderWidth = 1
     layout.layer.borderColor = UIColor.lightGray.cgColor
+    layout.isHidden = false 
     
     
     layout.addSubview(previewLabel)

@@ -46,6 +46,9 @@ import FirebaseDatabase
     @IBOutlet weak var infoAboutLayout: UIButton!
     @IBOutlet weak var attachLayout: UIButton!
   
+    @IBOutlet weak var layoutLinkTextField: UITextField!
+    @IBOutlet weak var layoutDevSwitch: UISwitch!
+  
     var startingFrame: CGRect?
     var blackBackgroundView: UIView?
     var startingImageView: UIImageView?
@@ -194,6 +197,36 @@ import FirebaseDatabase
   }
   
   
+  @IBAction func layoutDevSwitchStateChanged(_ sender: Any) {
+    
+          if layoutDevSwitch.isOn {
+            
+           setLayoutTextFieldState(enabled: true)
+          
+          } else {
+           
+            setLayoutTextFieldState(enabled: false)
+          }
+  }
+  
+  
+  fileprivate func setLayoutTextFieldState (enabled: Bool) {
+    
+    if enabled {
+      
+      layoutLinkTextField.text = ""
+      layoutLinkTextField.isEnabled = false
+      attachLayout.isEnabled = false
+      layoutPreview.image = nil
+      
+    } else {
+      
+      layoutLinkTextField.isEnabled = true
+      attachLayout.isEnabled = true
+      
+    }
+  }
+  
     
     @IBAction func AddToCart(_ sender: Any) {
         
@@ -221,16 +254,25 @@ import FirebaseDatabase
             
             print("NO LAYOUT")
             
+            if layoutDevSwitch.isOn {
+              newItem.layoutLink = "Разработка макета в дизайн студии"
+            }
+            
+            if layoutLinkTextField.text != "" {
+              newItem.layoutLink = layoutLinkTextField.text
+            }
+
           } else {
             
+              newItem.layoutLink = ""
+              
               if let imageData = UIImageJPEGRepresentation(self.layoutPreview.image!, 1.0) as NSData? {
-                 newItem.layoutImage = imageData
-            }
-            
-            
-           if let imageData = UIImageJPEGRepresentation(self.layoutPreview.image!, 0) as NSData? {
-              newItem.layoutImagePreview = imageData
-            }
+                newItem.layoutImage = imageData
+              }
+              
+              if let imageData = UIImageJPEGRepresentation(self.layoutPreview.image!, 0) as NSData? {
+                newItem.layoutImagePreview = imageData
+              }
           }
           
             do {
@@ -292,7 +334,20 @@ import FirebaseDatabase
       attachLayout.setTitle("Или прикрепить", for: .normal)
       layoutPreview.isUserInteractionEnabled = false
       
+      //==
+      layoutLinkTextField.isEnabled = true
+      layoutDevSwitch.isEnabled = true
+      //==
+      
+      
     } else {
+      
+      //==
+      layoutLinkTextField.text = ""
+      layoutLinkTextField.isEnabled = false
+      layoutDevSwitch.isOn = false
+      layoutDevSwitch.isEnabled = false
+      //==
       
        yourPreviewSign.isHidden = true
        canBePrintedIndicator.isHidden = false

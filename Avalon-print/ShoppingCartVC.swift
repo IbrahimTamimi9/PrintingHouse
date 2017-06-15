@@ -152,32 +152,30 @@ extension ShoppingCartVC: UITableViewDataSource {
         let cell:ShoppingCartTableViewCell = self.purchaseTableView.dequeueReusableCell(withIdentifier: "cell") as! ShoppingCartTableViewCell
       
         let presentItem = addedItems[indexPath.row]
-      
-        let tapOnPreview = UITapGestureRecognizer(target: self, action: #selector(handleZoomTap))
-        cell.layout.addGestureRecognizer(tapOnPreview)
 
       if presentItem.layoutImage == nil {
         
-          cell.layout.isHidden = true
+          cell.layout.isUserInteractionEnabled = false
         
           cell.mainData?.text = presentItem.list
           cell.purchasePrice?.text = presentItem.price
           cell.purchaseNDSPrice?.text = presentItem.ndsPrice
+          cell.previewLabel.text = presentItem.layoutLink
         
       } else {
-      
-        cell.layout.isHidden = false
         
+        let tapOnPreview = UITapGestureRecognizer(target: self, action: #selector(handleZoomTap))
+        cell.layout.addGestureRecognizer(tapOnPreview)
+      
+        cell.layout.isUserInteractionEnabled = true
         cell.mainData?.text = presentItem.list
         cell.purchasePrice?.text = presentItem.price
         cell.purchaseNDSPrice?.text = presentItem.ndsPrice
-        
-       // let layoutForRow = UIImage(data: presentItem.layoutImagePreview! as Data)
+        cell.previewLabel.text = "Нажмите чтобы открыть превью"
       }
       
         mainPriceSumCounter()
-      
-        
+
         return cell
     }
   
