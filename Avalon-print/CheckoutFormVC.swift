@@ -168,9 +168,9 @@ class CheckoutFormVC: UIViewController {
               let userInfoToOrderInfoLabel = "userInfo"
       
               let userInfoToOrderInfoContent: NSDictionary = [ "userEmail": emailTF.text!,
-                                                                "userName": nameSurnameTF.text!,
-                                                                "userPhone": phoneTF.text!,
-                                                                "userUniqueID": FIRAuth.auth()?.currentUser?.uid as Any ]
+                                                               "userName": nameSurnameTF.text!,
+                                                               "userPhone": phoneTF.text!,
+                                                               "userUniqueID": FIRAuth.auth()?.currentUser?.uid as Any ]
       
               let userInfoToOrderInfo = orderInfoBlock.child(userInfoToOrderInfoLabel)
               userInfoToOrderInfo.setValue(userInfoToOrderInfoContent)
@@ -225,24 +225,23 @@ class CheckoutFormVC: UIViewController {
   }
   
   
-  fileprivate var layoutLinksNumber = 0
-  /* Number of shopping cards without print Layout images (with layout links) */
-  fileprivate func progressCounter ()  {
+  fileprivate var attachedImagesNumber = 0
+  /* Number of shopping cards with print Layout images */
+  fileprivate func attachedImagesCount ()  {
     
-    var layoutLinks = 0
+    var attachedImages = 0
     
     for works in addedItems {
-      if works.layoutLink != "" {
-        layoutLinks += 1
+      if works.layoutLink == "" {
+        attachedImages += 1
       }
     }
 
-     layoutLinksNumber = layoutLinks
+    attachedImagesNumber = attachedImages
   }
   
-
-  fileprivate var progressStep = addedItems.count
-  fileprivate func uploadToFirebaseStorageUsingImage(_ image: UIImage, completion: @escaping (_ imageUrl: String) -> ()) {
+  
+   fileprivate func uploadToFirebaseStorageUsingImage(_ image: UIImage, completion: @escaping (_ imageUrl: String) -> ()) {
     
     let imageName = UUID().uuidString
     let ref = FIRStorage.storage().reference().child("print_Layouts").child(imageName)
@@ -263,23 +262,29 @@ class CheckoutFormVC: UIViewController {
       })
       
        // gets num of shopping cards without print layout image
-       progressCounter()
+       attachedImagesCount()
       
        uploadTask.observe(.progress) { snapshot in
-     
+       print(snapshot.progress!)
         
-       let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)/Double(snapshot.progress!.totalUnitCount)
+        let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)/Double(snapshot.progress!.totalUnitCount)
       
-       print("\n", percentComplete, "\n")
-        let numberOfImages = Double(self.progressStep - self.layoutLinksNumber)
-       
-        ARSLineProgress.updateWithProgress(CGFloat(percentComplete / numberOfImages ))
+        print("\n", percentComplete, "\n")
         
+        let uploadingProgress = CGFloat(percentComplete / Double(self.attachedImagesNumber))
+       
+        ARSLineProgress.updateWithProgress(uploadingProgress)
       }
       
       uploadTask.observe(.success) { snapshot in
-        self.progressStep -= 1
+        print("in success")
         
+        self.attachedImagesNumber -= 1 /* means that one image is uploaded */
+          print("in decreasing")
+        
+        if self.attachedImagesNumber == 0 {
+          ARSLineProgress.updateWithProgress(100)
+        }
       }
       
       
@@ -344,8 +349,7 @@ class CheckoutFormVC: UIViewController {
         }
     }
     
-    
-    
+  
     func textfieldState(textField: UITextField, state: Bool ) {
         
         if state == true {
@@ -393,8 +397,6 @@ class CheckoutFormVC: UIViewController {
                 self.checkOutButton.alpha = 1.0 })
         }
     }
-    
-
 }
 
 

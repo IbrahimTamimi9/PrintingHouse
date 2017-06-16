@@ -179,6 +179,12 @@ import FirebaseDatabase
         }
     }
   
+  @IBAction func layoutlinkCursorPosChanged(_ sender: Any) {
+    if postersAddToCartButton.titleLabel?.text == nameButt {
+      EnableButton()
+    }
+    validateLayoutSelection()
+  }
   
     @IBAction func pickTheLayout(_ sender: Any) {
     
@@ -198,6 +204,11 @@ import FirebaseDatabase
   
   
   @IBAction func layoutDevSwitchStateChanged(_ sender: Any) {
+    if postersAddToCartButton.titleLabel?.text == nameButt {
+      EnableButton()
+      
+    }
+    validateLayoutSelection()
     
           if layoutDevSwitch.isOn {
             
@@ -211,6 +222,7 @@ import FirebaseDatabase
   
   
   fileprivate func setLayoutTextFieldState (enabled: Bool) {
+    
     
     if enabled {
       
@@ -253,6 +265,7 @@ import FirebaseDatabase
           if layoutPreview.image == nil {
             
             print("NO LAYOUT")
+            
             
             if layoutDevSwitch.isOn {
               newItem.layoutLink = "Разработка макета в дизайн студии"
@@ -320,11 +333,30 @@ import FirebaseDatabase
         postersPrice.text = currentPageData.price
         postersNDSPrice.text = currentPageData.ndsPrice
         animateAddToCartButton()
+        validateLayoutSelection()
       
     }
   
-  
+  func validateLayoutSelection () {
+    if layoutPreview.image == nil && !layoutDevSwitch.isOn && layoutLinkTextField.text == "" {
+      
+      UIView.animate(withDuration: 0.5, animations: {
+        self.postersAddToCartButton.alpha = 0.5 })
+      postersAddToCartButton.isEnabled  = false
+      
+
+    } else {
+      animateAddToCartButton()
+    }
+  }
+
+
   func manageViewsConnectedToAttachingLayout () {
+    
+    if postersAddToCartButton.titleLabel?.text == nameButt {
+      EnableButton()
+    }
+    validateLayoutSelection()
     
     if layoutPreview.image == nil {
       

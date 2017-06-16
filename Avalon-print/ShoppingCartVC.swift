@@ -161,6 +161,7 @@ extension ShoppingCartVC: UITableViewDataSource {
           cell.purchasePrice?.text = presentItem.price
           cell.purchaseNDSPrice?.text = presentItem.ndsPrice
           cell.previewLabel.text = presentItem.layoutLink
+          cell.previewLabel.textColor = UIColor.darkGray
         
       } else {
         
@@ -172,6 +173,7 @@ extension ShoppingCartVC: UITableViewDataSource {
         cell.purchasePrice?.text = presentItem.price
         cell.purchaseNDSPrice?.text = presentItem.ndsPrice
         cell.previewLabel.text = "Нажмите чтобы открыть превью"
+        cell.previewLabel.textColor = UIColor(red:0.34, green:0.59, blue:0.96, alpha:1.0)
       }
       
         mainPriceSumCounter()
