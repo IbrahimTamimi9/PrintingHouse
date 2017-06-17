@@ -8,8 +8,9 @@
         <attribute name="list" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ndsPrice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AddedItems" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="AddedItems" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

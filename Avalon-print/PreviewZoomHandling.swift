@@ -9,7 +9,6 @@
 import Foundation
 
 
-
 extension ShoppingCartVC {
   
   
@@ -17,11 +16,11 @@ extension ShoppingCartVC {
     
     if let imageView = tapGesture.view as? UIImageView {
   
-        guard let cell = tapGesture.view?.superview?.superview as? ShoppingCartTableViewCell else {
+        guard let cell = tapGesture.view?.superview?.superview?.superview as? ShoppingCartTableViewCell else {
           return
         }
         
-      if let indexPath = purchaseTableView.indexPath(for: cell) {
+      if let indexPath = shoppingCardsTableView.indexPath(for: cell) {
          let row = indexPath.row
         
          performZoomInForStartingImageView(imageView, row: row)

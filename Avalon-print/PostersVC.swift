@@ -244,18 +244,17 @@ import FirebaseDatabase
         
         if postersAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
-            let navigationController = UINavigationController(rootViewController: destination)
-            
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            navigationController.isNavigationBarHidden = true
-            
-            self.present(navigationController, animated: true, completion: nil)
+          let destination = ShoppingCartVC ()
+          destination.modalPresentationStyle = .currentContext
+          self.present(destination, animated: true, completion: nil)
             
         } else {
             
             let newItem = AddedItems(context: managedObjextContext)
-            
+          
+            newItem.productType = navigationItem.title!
+          
+              print(navigationItem.title!)
             newItem.list = ("Тираж: \(postersAmountTextField.text!) шт.\nМатериал: \(postersMaterialTextField.text!)\nРазмер: \(postersWidthTextField.text!) .м. x \(postersHeightTextField.text!) м.\nПостпечатные работы: \(postersPostPrintTextField.text!)" )
             
             newItem.price = (postersPrice.text!)

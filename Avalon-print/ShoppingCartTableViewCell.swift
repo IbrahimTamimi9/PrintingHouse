@@ -2,52 +2,36 @@
 //  ShoppingCartTableViewCell.swift
 //  Avalon-Print
 //
-//  Created by Roman Mizin on 12/7/16.
-//  Copyright © 2016 Roman Mizin. All rights reserved.
+//  Created by Roman Mizin on 6/17/17.
+//  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
 import UIKit
- 
-class ShoppingCartTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var mainData: UITextView!
-  
-    @IBOutlet weak var purchasePrice: UILabel!
-  
-    @IBOutlet weak var purchaseNDSPrice: UILabel!
-  
-    @IBOutlet weak var layout: UIImageView!
-  
-    let previewLabel: UILabel = {
-      
-      let previewLabel = UILabel()
-      
-      previewLabel.text = "Нажмите чтобы открыть превью"
-      previewLabel.numberOfLines = 2
-      previewLabel.textColor = UIColor(red:0.34, green:0.59, blue:0.96, alpha:1.0)
-      previewLabel.font = UIFont.systemFont(ofSize: 12)
-      previewLabel.textAlignment = .center
-      previewLabel.translatesAutoresizingMaskIntoConstraints = false
 
-    return previewLabel
-  }()
+class ShoppingCartTableViewCell: UITableViewCell {
+
+ let containerView: ShoppingCellContainerView = {
+     let containerView = ShoppingCellContainerView()
+    containerView.translatesAutoresizingMaskIntoConstraints = false
   
- 
-  override func awakeFromNib() {
-    super.awakeFromNib()
+   return containerView
+ }()
     
-    layout.layer.cornerRadius = 16
-    layout.layer.borderWidth = 1
-    layout.layer.borderColor = UIColor.lightGray.cgColor
-    layout.isHidden = false 
+
+  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+   
+    contentView.addSubview(containerView)
+    containerView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+    containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+    containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     
-    
-    layout.addSubview(previewLabel)
-    previewLabel.leftAnchor.constraint(equalTo: layout.leftAnchor, constant: 5).isActive = true
-    previewLabel.rightAnchor.constraint(equalTo: layout.rightAnchor, constant: -5).isActive = true
-    previewLabel.topAnchor.constraint(equalTo: layout.topAnchor, constant: 5).isActive = true
-    previewLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    
+    containerView.mainData.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
   }
   
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
 }

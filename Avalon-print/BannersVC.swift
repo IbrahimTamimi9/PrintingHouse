@@ -101,12 +101,9 @@ class BannersVC: UIViewController {
       
       if bannersAddToCartButton.titleLabel?.text == nameButt {
         
-        let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
-        let navigationController = UINavigationController(rootViewController: destination)
-        
-        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        navigationController.isNavigationBarHidden = true
-        self.present(navigationController, animated: true, completion: nil)
+        let destination = ShoppingCartVC ()
+        destination.modalPresentationStyle = .currentContext
+        self.present(destination, animated: true, completion: nil)
         
       } else {
         
@@ -135,7 +132,7 @@ class BannersVC: UIViewController {
         let newItem = AddedItems(context: managedObjextContext)
         
         newItem.list = ("Тираж: \(bannersAmountTextField.text!) шт.\nМатериал: \(bannersMaterialTextField.text!)\nРазмер: \(bannersWidthTextField.text!) .м. x \(bannersHeightTextField.text!) м.\n\(setupLuversCoreData) \n\(setupPocketSeamsCoreData)" )
-        
+        newItem.productType = navigationItem.title
         newItem.price = (bannersPrice.text!)
         newItem.ndsPrice = (bannersNDSPrice.text!)
         

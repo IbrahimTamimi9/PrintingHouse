@@ -16,6 +16,7 @@ import SystemConfiguration
 var rightBarButton: ENMBadgedBarButtonItem?
 var leftBarButton: ENMBadgedBarButtonItem?
 let screenSize: CGRect = UIScreen.main.bounds
+let statusBarSize = UIApplication.shared.statusBarFrame.size
 
 
 
@@ -195,7 +196,6 @@ extension NSObject: Utilities{
   }
   
   
-  
    fileprivate func setUpRightBarButton() {
         let image = UIImage(named: "shoppingCart")
         
@@ -214,13 +214,13 @@ extension NSObject: Utilities{
     }
     
     func rightButtonPressed(_ sender: UIButton) {
-        
-        let controller = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
-            controller.modalPresentationStyle = .custom
-            controller.transitioningDelegate = self.bucketTransition
-        
-        self.present(controller, animated: true, completion: nil)
-       }
+      
+      let refactoredController = ShoppingCartVC ()
+      refactoredController.modalPresentationStyle = .custom
+      refactoredController.transitioningDelegate = self.bucketTransition
+      self.present(refactoredController, animated: true, completion: nil)
+      
+    }
   
     
   fileprivate  func setUpLeftBarButton() {
@@ -242,7 +242,6 @@ extension NSObject: Utilities{
             navigationItem.leftBarButtonItem = leftBarButton
     }
 
-   
     
      func leftButtonPressed(_ sender: UIButton) {
      

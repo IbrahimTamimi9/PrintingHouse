@@ -157,17 +157,15 @@ class CanvasVC: UIViewController {
         
         if canvasAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
-            let navigationController = UINavigationController(rootViewController: destination)
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            navigationController.isNavigationBarHidden = true
-            self.present(navigationController, animated: true, completion: nil)
-            
+          let destination = ShoppingCartVC ()
+          destination.modalPresentationStyle = .currentContext
+          self.present(destination, animated: true, completion: nil)
+          
         } else {
             let newItem = AddedItems(context: managedObjextContext)
             
                 newItem.list = ("Тираж: \(canvasAmountTextField.text!) шт.\nМатериал: \(canvasMaterialTextField.text!)\nРазмер: \(canvasWidthTextField.text!) .м. x \(canvasHeightTextField.text!) м.\nПостпечатные работы: \(canvasPostPrintTextField.text!)" )
-          
+            newItem.productType = navigationItem.title
             newItem.price = (canvasPrice.text!)
             newItem.ndsPrice = (canvasNDSPrice.text!)
             

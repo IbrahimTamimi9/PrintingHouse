@@ -140,20 +140,15 @@ class StickersVC: UIViewController {
         
         if stickersAddToCartButton.titleLabel?.text == nameButt {
             
-            let destination = storyboard?.instantiateViewController(withIdentifier: "ShoppingCartVC") as! ShoppingCartVC
-            let navigationController = UINavigationController(rootViewController: destination)
-            
-            
-            
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            navigationController.isNavigationBarHidden = true
-            self.present(navigationController, animated: true, completion: nil)
-            
+          let destination = ShoppingCartVC ()
+          destination.modalPresentationStyle = .currentContext
+          self.present(destination, animated: true, completion: nil)
+          
         } else {
             let newItem = AddedItems(context: managedObjextContext)
             
             newItem.list = ("Тираж: \(stickersAmountTextField.text!) шт.\nМатериал: \(stickersMaterialTextField.text!)\nРазмер: \(stickersWidthTextField.text!) .м. x \(stickersHeightTextField.text!) м.\nПостпечатные работы: \(stickersPostPrintTextField.text!)" )
-            
+            newItem.productType = navigationItem.title
             newItem.price = (stickersPrice.text!)
             newItem.ndsPrice = (stickersNDSPrice.text!)
             

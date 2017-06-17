@@ -21,8 +21,6 @@
 		4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819A1E226F2D00034E3E /* CanvasVC.swift */; };
 		4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819D1E226F4000034E3E /* bannersComputing.swift */; };
 		4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819E1E226F4000034E3E /* BannersVC.swift */; };
-		4B3F81AC1E226FC300034E3E /* ShoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */; };
-		4B3F81AD1E226FC300034E3E /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */; };
 		4B3F81AE1E226FC300034E3E /* CheckoutFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */; };
 		4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A41E226FC300034E3E /* ContactsPageController.swift */; };
 		4B3F81B01E226FC300034E3E /* InformationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A51E226FC300034E3E /* InformationDetail.swift */; };
@@ -57,6 +55,11 @@
 		4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */; };
 		4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */; };
 		4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */; };
+		4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */; };
+		4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */; };
+		4BBDDE811EF51CB4000CF3BE /* CheckoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */; };
+		4BBDDE831EF52975000CF3BE /* ShoppingCellContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */; };
+		4BBDDE851EF5695E000CF3BE /* ModalNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE841EF5695E000CF3BE /* ModalNavigationBarView.swift */; };
 		4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */; };
 		4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */; };
 		4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */; };
@@ -123,8 +126,6 @@
 		4B3F819A1E226F2D00034E3E /* CanvasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanvasVC.swift; path = "Avalon-print/CanvasVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819D1E226F4000034E3E /* bannersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersComputing.swift; path = "Avalon-print/bannersComputing.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F819E1E226F4000034E3E /* BannersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersVC.swift; path = "Avalon-print/BannersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartVC.swift; path = "Avalon-print/ShoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartTableViewCell.swift; path = "Avalon-print/ShoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutFormVC.swift; path = "Avalon-print/CheckoutFormVC.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A41E226FC300034E3E /* ContactsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsPageController.swift; path = "Avalon-print/ContactsPageController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81A51E226FC300034E3E /* InformationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationDetail.swift; path = "Avalon-print/InformationDetail.swift"; sourceTree = SOURCE_ROOT; };
@@ -164,6 +165,11 @@
 		4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVCCell.swift; path = "Avalon-print/HomeVCCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchingMaterialsAndPostPrintFromFIrebase.swift; path = "Avalon-print/FetchingMaterialsAndPostPrintFromFIrebase.swift"; sourceTree = SOURCE_ROOT; };
+		4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartVC.swift; path = "Avalon-print/ShoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
+		4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartTableViewCell.swift; path = "Avalon-print/ShoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutButtonView.swift; path = "Avalon-print/CheckoutButtonView.swift"; sourceTree = SOURCE_ROOT; };
+		4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCellContainerView.swift; path = "Avalon-print/ShoppingCellContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4BBDDE841EF5695E000CF3BE /* ModalNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalNavigationBarView.swift; path = "Avalon-print/ModalNavigationBarView.swift"; sourceTree = SOURCE_ROOT; };
 		4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoSizingCollectionViewFlowLayout.swift; path = "Avalon-print/Messenger/AutoSizingCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
@@ -256,6 +262,24 @@
 				4B3FE8991E44F34D00852A2A /* ARSStatus.swift */,
 			);
 			name = progressLoader;
+			sourceTree = "<group>";
+		};
+		4B4288831EF5D99D0058B0C8 /* shoppingCartViews */ = {
+			isa = PBXGroup;
+			children = (
+				4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */,
+				4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */,
+				4BBDDE841EF5695E000CF3BE /* ModalNavigationBarView.swift */,
+			);
+			name = shoppingCartViews;
+			sourceTree = "<group>";
+		};
+		4B4288841EF5D9E00058B0C8 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */,
+			);
+			name = support;
 			sourceTree = "<group>";
 		};
 		4B5FCE831DF0DB350080B034 /* pages */ = {
@@ -439,10 +463,11 @@
 		4BFFD84E1E3E385100710282 /* shoppingCart */ = {
 			isa = PBXGroup;
 			children = (
-				4B3F81A11E226FC300034E3E /* ShoppingCartVC.swift */,
-				4B3F81A21E226FC300034E3E /* ShoppingCartTableViewCell.swift */,
+				4B4288841EF5D9E00058B0C8 /* support */,
+				4B4288831EF5D99D0058B0C8 /* shoppingCartViews */,
+				4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */,
+				4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */,
 				4B3F81A31E226FC300034E3E /* CheckoutFormVC.swift */,
-				4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */,
 			);
 			name = shoppingCart;
 			sourceTree = "<group>";
@@ -634,6 +659,7 @@
 				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
 				4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */,
 				4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */,
+				4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */,
 				4BC8241D1E3F8582004B6DCE /* MyOrdersTableVC.swift in Sources */,
 				4B3F81B31E226FC300034E3E /* Map.swift in Sources */,
 				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
@@ -644,6 +670,7 @@
 				4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */,
 				4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */,
+				4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */,
 				4BFD11D91E841FA50026E152 /* ChatMessageCell.swift in Sources */,
 				4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
@@ -657,11 +684,13 @@
 				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
 				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,
 				4B17AA041EEE9B0A0096F562 /* LayoutZoomHandling.swift in Sources */,
+				4BBDDE831EF52975000CF3BE /* ShoppingCellContainerView.swift in Sources */,
 				4B17AA021EEE87D10096F562 /* PreviewZoomHandling.swift in Sources */,
 				4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */,
 				4BFD11C61E841F520026E152 /* Message.swift in Sources */,
 				4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */,
 				4BFD11C71E841F520026E152 /* User.swift in Sources */,
+				4BBDDE811EF51CB4000CF3BE /* CheckoutButtonView.swift in Sources */,
 				4BFD11D41E841F910026E152 /* NewMessageController.swift in Sources */,
 				4B3FE89F1E44F34D00852A2A /* ARSLineProgressProtocols.swift in Sources */,
 				4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */,
@@ -675,13 +704,12 @@
 				4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */,
 				4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */,
 				4B3FE89E1E44F34D00852A2A /* ARSLineProgressExtensions.swift in Sources */,
+				4BBDDE851EF5695E000CF3BE /* ModalNavigationBarView.swift in Sources */,
 				4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */,
 				4BF718811EBF1BCC00D079D9 /* DeckSegue.swift in Sources */,
 				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
 				4BF718831EBF1BCC00D079D9 /* Utilities.swift in Sources */,
 				4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */,
-				4B3F81AC1E226FC300034E3E /* ShoppingCartVC.swift in Sources */,
-				4B3F81AD1E226FC300034E3E /* ShoppingCartTableViewCell.swift in Sources */,
 				4B3F81B01E226FC300034E3E /* InformationDetail.swift in Sources */,
 				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
 				4BF7187F1EBF1BCC00D079D9 /* DeckPresentationController.swift in Sources */,
