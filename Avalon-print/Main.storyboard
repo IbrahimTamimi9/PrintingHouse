@@ -893,231 +893,6 @@
             </objects>
             <point key="canvasLocation" x="6862" y="-54"/>
         </scene>
-        <!--Оформление заказа-->
-        <scene sceneID="oNK-Y4-Sio">
-            <objects>
-                <viewController storyboardIdentifier="CheckoutFormVC" title="Оформление заказа" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dnc-Ye-m5p" customClass="CheckoutFormVC" customModule="Avalon_Print" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2da-Ok-Xxn"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ql4-bd-Yrl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Af7-Rm-Gnw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucketAndPlaceOrderBGv3" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-9M-ln2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Ma5-iO-a47">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dSC-Jl-rsT">
-                                        <rect key="frame" x="16" y="99" width="341" height="50"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Le1-HF-bto"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="nameSurnameEditingChanged:" destination="dnc-Ye-m5p" eventType="editingChanged" id="spv-3O-ZhM"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Эл. почта" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wm9-P2-N4T">
-                                        <rect key="frame" x="16" y="231" width="341" height="50"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="uvR-en-tah"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="emailEditingChanged:" destination="dnc-Ye-m5p" eventType="editingChanged" id="6tf-XR-dOt"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Номер телефона" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PpN-If-dWG">
-                                        <rect key="frame" x="16" y="165" width="341" height="50"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="RaU-UI-4nf"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="phoneNumberEditingChanged:" destination="dnc-Ye-m5p" eventType="editingChanged" id="Gqf-IG-Unw"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Адрес доставки" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="N61-Ah-c6d">
-                                        <rect key="frame" x="16" y="359" width="341" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="rQC-kD-nGp"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Exo2-Light" family="Exo 2" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оформление заказа" textAlignment="center" lineBreakMode="clip" baselineAdjustment="none" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8f-BL-fBW">
-                                        <rect key="frame" x="40" y="44" width="295" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Коментарий к заказу..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN9-aQ-WSF">
-                                        <rect key="frame" x="15" y="434" width="198" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="198" id="yGk-ut-GBQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" indicatorStyle="black" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Doi-NC-xOq">
-                                        <rect key="frame" x="16" y="463" width="341" height="190"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="190" id="SdI-5B-HPN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-Pz-MwA">
-                                        <rect key="frame" x="170" y="11" width="33" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Qq2-QK-Qwn"/>
-                                            <constraint firstAttribute="width" constant="33" id="VZ3-nZ-xi6"/>
-                                        </constraints>
-                                        <state key="normal" image="Arrow-DownWhite"/>
-                                        <connections>
-                                            <action selector="dismissOrder:" destination="dnc-Ye-m5p" eventType="touchUpInside" id="TTH-hb-oXB"/>
-                                        </connections>
-                                    </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-cn-Tpz">
-                                        <rect key="frame" x="308" y="320" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="deliverySwitchStateChanged:" destination="dnc-Ye-m5p" eventType="valueChanged" id="OOo-Av-OIz"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доставка (стоимость 50грн)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oS4-1d-4yD">
-                                        <rect key="frame" x="15" y="320" width="286" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="286" id="3kG-iA-EWN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQx-dN-bU1" customClass="ButtonMockup" customModule="Avalon_Print">
-                                        <rect key="frame" x="16" y="677" width="341" height="55"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="rRG-Xm-3Wa"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Заказать">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="checkOutButtonClicked:" destination="dnc-Ye-m5p" eventType="touchUpInside" id="3WM-b0-fgO"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="oS4-1d-4yD" firstAttribute="top" secondItem="Wm9-P2-N4T" secondAttribute="bottom" constant="39" id="1EG-Df-LmR"/>
-                                    <constraint firstItem="w8f-BL-fBW" firstAttribute="leading" secondItem="Ma5-iO-a47" secondAttribute="leading" constant="40" id="1xo-wa-geq"/>
-                                    <constraint firstItem="Doi-NC-xOq" firstAttribute="leading" secondItem="N61-Ah-c6d" secondAttribute="leading" id="3Nm-K6-44m"/>
-                                    <constraint firstItem="Doi-NC-xOq" firstAttribute="trailing" secondItem="N61-Ah-c6d" secondAttribute="trailing" id="40W-ls-MiN"/>
-                                    <constraint firstItem="N61-Ah-c6d" firstAttribute="top" secondItem="djJ-cn-Tpz" secondAttribute="bottom" constant="8" id="6fE-sr-LPr"/>
-                                    <constraint firstItem="HQx-dN-bU1" firstAttribute="centerX" secondItem="Ma5-iO-a47" secondAttribute="centerX" constant="-1" id="6mn-Wb-loB"/>
-                                    <constraint firstItem="hN9-aQ-WSF" firstAttribute="leading" secondItem="Doi-NC-xOq" secondAttribute="leading" constant="-1" id="8TS-Il-S86"/>
-                                    <constraint firstItem="dSC-Jl-rsT" firstAttribute="trailing" secondItem="PpN-If-dWG" secondAttribute="trailing" id="Acl-MH-vaI"/>
-                                    <constraint firstItem="PpN-If-dWG" firstAttribute="leading" secondItem="Wm9-P2-N4T" secondAttribute="leading" id="Aps-Yp-MtC"/>
-                                    <constraint firstItem="oS4-1d-4yD" firstAttribute="centerY" secondItem="djJ-cn-Tpz" secondAttribute="centerY" id="Atv-3M-od9"/>
-                                    <constraint firstItem="dSC-Jl-rsT" firstAttribute="leading" secondItem="PpN-If-dWG" secondAttribute="leading" id="DdF-bW-jx8"/>
-                                    <constraint firstAttribute="trailing" secondItem="w8f-BL-fBW" secondAttribute="trailing" constant="40" id="DjA-ny-Jyz"/>
-                                    <constraint firstItem="w8f-BL-fBW" firstAttribute="top" secondItem="KK7-Pz-MwA" secondAttribute="bottom" constant="8" symbolic="YES" id="EmT-db-kRm"/>
-                                    <constraint firstItem="Wm9-P2-N4T" firstAttribute="top" secondItem="PpN-If-dWG" secondAttribute="bottom" constant="16" id="F7Z-BA-TBF"/>
-                                    <constraint firstItem="N61-Ah-c6d" firstAttribute="top" secondItem="oS4-1d-4yD" secondAttribute="bottom" constant="8" id="GQE-Sw-ZoK"/>
-                                    <constraint firstItem="PpN-If-dWG" firstAttribute="top" secondItem="dSC-Jl-rsT" secondAttribute="bottom" constant="16" id="ILK-xR-jVr"/>
-                                    <constraint firstItem="dSC-Jl-rsT" firstAttribute="leading" secondItem="Ma5-iO-a47" secondAttribute="leading" constant="16" id="JhA-U2-kHc"/>
-                                    <constraint firstItem="dSC-Jl-rsT" firstAttribute="top" secondItem="w8f-BL-fBW" secondAttribute="bottom" constant="33" id="LXP-fA-zKV"/>
-                                    <constraint firstItem="N61-Ah-c6d" firstAttribute="trailing" secondItem="Wm9-P2-N4T" secondAttribute="trailing" id="MAd-uX-2h3"/>
-                                    <constraint firstItem="Doi-NC-xOq" firstAttribute="top" secondItem="hN9-aQ-WSF" secondAttribute="bottom" constant="8" id="RAV-PV-XFN"/>
-                                    <constraint firstItem="N61-Ah-c6d" firstAttribute="leading" secondItem="Wm9-P2-N4T" secondAttribute="leading" id="Xok-zb-iFj"/>
-                                    <constraint firstItem="Doi-NC-xOq" firstAttribute="top" secondItem="N61-Ah-c6d" secondAttribute="bottom" constant="54" id="YhB-YL-RjR"/>
-                                    <constraint firstItem="KK7-Pz-MwA" firstAttribute="centerX" secondItem="dSC-Jl-rsT" secondAttribute="centerX" id="cwy-j0-Zmt"/>
-                                    <constraint firstItem="KK7-Pz-MwA" firstAttribute="top" secondItem="Ma5-iO-a47" secondAttribute="top" constant="11" id="eR8-3A-f1Q"/>
-                                    <constraint firstItem="djJ-cn-Tpz" firstAttribute="trailing" secondItem="N61-Ah-c6d" secondAttribute="trailing" id="fEy-yb-wWO"/>
-                                    <constraint firstItem="HQx-dN-bU1" firstAttribute="trailing" secondItem="Ma5-iO-a47" secondAttribute="trailingMargin" constant="-10" id="jDk-Y9-AXl"/>
-                                    <constraint firstAttribute="trailing" secondItem="Doi-NC-xOq" secondAttribute="trailing" constant="18" id="jKy-cj-lEj"/>
-                                    <constraint firstItem="PpN-If-dWG" firstAttribute="trailing" secondItem="Wm9-P2-N4T" secondAttribute="trailing" id="pc1-cO-t0I"/>
-                                    <constraint firstItem="oS4-1d-4yD" firstAttribute="leading" secondItem="N61-Ah-c6d" secondAttribute="leading" constant="-1" id="v5Y-7x-cIw"/>
-                                    <constraint firstAttribute="bottom" secondItem="HQx-dN-bU1" secondAttribute="bottom" constant="18" id="vWH-LL-s2j"/>
-                                    <constraint firstItem="HQx-dN-bU1" firstAttribute="top" secondItem="Doi-NC-xOq" secondAttribute="bottom" constant="24" id="wRs-MC-15M"/>
-                                    <constraint firstItem="HQx-dN-bU1" firstAttribute="leading" secondItem="Ma5-iO-a47" secondAttribute="leading" constant="16" id="wjS-ld-tDL"/>
-                                    <constraint firstItem="oS4-1d-4yD" firstAttribute="top" secondItem="djJ-cn-Tpz" secondAttribute="top" id="yXX-G3-wgI"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Ma5-iO-a47" firstAttribute="leading" secondItem="3QQ-9M-ln2" secondAttribute="leading" id="0Ic-8S-0fJ"/>
-                            <constraint firstItem="3QQ-9M-ln2" firstAttribute="leading" secondItem="Af7-Rm-Gnw" secondAttribute="leading" id="966-LR-MSr"/>
-                            <constraint firstItem="Ma5-iO-a47" firstAttribute="trailing" secondItem="3QQ-9M-ln2" secondAttribute="trailing" id="Gx7-Ut-KoD"/>
-                            <constraint firstAttribute="trailing" secondItem="3QQ-9M-ln2" secondAttribute="trailing" id="bDC-4a-PQq"/>
-                            <constraint firstItem="Ql4-bd-Yrl" firstAttribute="top" secondItem="3QQ-9M-ln2" secondAttribute="bottom" id="eWz-wF-ypW"/>
-                            <constraint firstItem="Ma5-iO-a47" firstAttribute="top" secondItem="3QQ-9M-ln2" secondAttribute="top" id="pUH-vN-o4F"/>
-                            <constraint firstItem="3QQ-9M-ln2" firstAttribute="top" secondItem="Af7-Rm-Gnw" secondAttribute="top" id="qKN-ZY-xOi"/>
-                            <constraint firstItem="Ma5-iO-a47" firstAttribute="bottom" secondItem="Ql4-bd-Yrl" secondAttribute="top" id="xYg-w9-XqL"/>
-                        </constraints>
-                    </view>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="750"/>
-                    <connections>
-                        <outlet property="checkOutButton" destination="HQx-dN-bU1" id="fqM-gs-rJX"/>
-                        <outlet property="commentsLabel" destination="hN9-aQ-WSF" id="dI1-2R-KsN"/>
-                        <outlet property="commentsTV" destination="Doi-NC-xOq" id="HkE-YC-Tzs"/>
-                        <outlet property="deliveryAdress" destination="N61-Ah-c6d" id="ggW-Qs-vVu"/>
-                        <outlet property="deliverySwitch" destination="djJ-cn-Tpz" id="48e-ye-0rt"/>
-                        <outlet property="emailTF" destination="Wm9-P2-N4T" id="Ln4-8W-Ode"/>
-                        <outlet property="mainScrollView" destination="Ma5-iO-a47" id="VCg-MR-CHi"/>
-                        <outlet property="mainView" destination="Af7-Rm-Gnw" id="uZL-rB-qKL"/>
-                        <outlet property="nameSurnameTF" destination="dSC-Jl-rsT" id="Kgv-3N-PNC"/>
-                        <outlet property="phoneTF" destination="PpN-If-dWG" id="cCt-6Z-tf7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gu1-cs-n1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7817" y="-73"/>
-        </scene>
         <!-- Плакаты-->
         <scene sceneID="df0-Cb-iZh">
             <objects>
@@ -1777,7 +1552,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEs-4k-Fgg">
-                                        <rect key="frame" x="224" y="548" width="77" height="16"/>
+                                        <rect key="frame" x="218" y="548" width="83" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Nmj-uc-0ze"/>
                                         </constraints>
@@ -2164,7 +1939,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-Kn-Bnm">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="rLl-FZ-lfn"/>
                                 </constraints>
@@ -2441,7 +2216,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена с НДС:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfK-Lk-rRE">
-                                <rect key="frame" x="222" y="466" width="77" height="16"/>
+                                <rect key="frame" x="216" y="466" width="83" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="IiV-nk-1Nc"/>
                                 </constraints>
@@ -2821,7 +2596,7 @@ Life  (093) 000-18-64
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="S2S-0I-KiH">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="S2S-0I-KiH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2931,7 +2706,7 @@ Life  (093) 000-18-64
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FKl-Zb-wy2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKl-Zb-wy2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2952,7 +2727,7 @@ Life  (093) 000-18-64
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="HuN-55-zKY" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="HuN-55-zKY" customClass="customNavigationBar" customModule="Avalon_Print" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2977,7 +2752,7 @@ Life  (093) 000-18-64
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="o04-ZP-lRP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="o04-ZP-lRP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

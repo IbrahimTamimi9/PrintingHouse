@@ -8,16 +8,20 @@
 
 import UIKit
 
+struct AvalonPalette {
+  static let avalonBlue = UIColor(red:0.00, green:0.50, blue:1.00, alpha:0.85)
+}
+
 class CheckoutButtonView: UIView {
 
-  let checkout: UIButton = {
-    let checkout = UIButton()
-    checkout.layer.cornerRadius = 10
+  let checkout: AvalonUIButton = {
+    let checkout = AvalonUIButton()
+   // checkout.layer.cornerRadius = 10
     checkout.addTarget(self, action: #selector(ShoppingCartVC.checkoutButtonTapped), for: .touchUpInside)
     checkout.translatesAutoresizingMaskIntoConstraints = false
-    checkout.backgroundColor = UIColor(red:0.00, green:0.50, blue:1.00, alpha:0.85)
+    //checkout.backgroundColor = AvalonPalette.avalonBlue//UIColor(red:0.00, green:0.50, blue:1.00, alpha:0.85)
     checkout.setTitle("Оформить заказ", for: .normal)
-    checkout.titleLabel?.font =  UIFont.systemFont(ofSize: 15, weight: 21)
+    
   
     return checkout
   }()

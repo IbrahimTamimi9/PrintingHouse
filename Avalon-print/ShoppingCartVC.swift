@@ -36,8 +36,15 @@ class ShoppingCartVC: UIViewController {
   let shoppingCardsTableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
   
   let shoppingCartCellId = "shoppingCartCell"
- 
   
+  let background: UIImageView = {
+    let background = UIImageView()
+    background.image = UIImage(named: "bucketAndPlaceOrderBGv3")
+    background.frame = UIScreen.main.bounds
+    
+    return background
+  }()
+ 
 
   fileprivate func initializeTableView () {
   
@@ -56,15 +63,6 @@ class ShoppingCartVC: UIViewController {
   }
   
   
-  let backgroundImage: UIImageView = {
-     let backgroundImage = UIImageView()
-     backgroundImage.image = UIImage(named: "bucketAndPlaceOrderBGv3")
-     backgroundImage.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
-    
-    return backgroundImage
-  }()
-  
-  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -72,7 +70,7 @@ class ShoppingCartVC: UIViewController {
       shoppingCardsTableView.dataSource = self
       
       self.view.backgroundColor = UIColor.white
-      self.view.addSubview(backgroundImage)
+      self.view.insertSubview(background, at: 0)
       self.view.addSubview(shoppingCardsTableView)
       self.view.addSubview(modalNavigationBar)
       self.view.addSubview(checkoutButtonView)
@@ -134,7 +132,7 @@ extension ShoppingCartVC /* custom Navigation bar functions + onTapped function 
   
   func checkoutButtonTapped () {
     
-    let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CheckoutFormVC") as! CheckoutFormVC
+    let controller = CheckoutVC()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CheckoutFormVC") as! CheckoutFormVC
     let transitionDelegate = DeckTransitioningDelegate()
     controller.transitioningDelegate = transitionDelegate
     controller.modalPresentationStyle = .custom

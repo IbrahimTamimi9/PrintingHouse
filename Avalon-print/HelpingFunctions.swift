@@ -47,6 +47,8 @@ func resetTableView () {
   gottenSignal.canvasSignal = false
   gottenSignal.bannersSignal = false
 }
+
+
 func fillTableView (indexPath: IndexPath) {
   
   if gottenSignal.postersSignal == true {
