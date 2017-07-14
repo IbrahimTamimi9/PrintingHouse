@@ -8,27 +8,78 @@
 
 import UIKit
 
-class AvalonUITextField: UITextField {
+
+class AvalonUITextField: UITextField, UITextFieldDelegate {
   
   override var isEnabled: Bool {
     didSet{
-      alpha = isEnabled ? 0.9 : 0.6
+      alpha = isEnabled ? 1.0 : 0.6
       text = isEnabled ? "" : ""
     }
   }
-
-  override func draw(_ rect: CGRect) {
+  
+  
+  override var placeholder: String? {
     
-   // alpha = 0.9
-    if isEnabled {
-      alpha = 0.9
+    didSet {
+      guard let tmpText = placeholder else {
+        self.attributedPlaceholder = NSAttributedString(string: "")
+        return
+      }
+    
+      let textRange = NSMakeRange(0, tmpText.characters.count)
+      let attributedText = NSMutableAttributedString(string: tmpText)
+      attributedText.addAttribute(NSForegroundColorAttributeName , value: AvalonPalette.avalonPlaceholder, range: textRange)
+      
+      self.attributedPlaceholder = attributedText
+    }
+  }
+
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    
+  if isEnabled {
+      alpha = 1.0
     } else {
       alpha = 0.6
     }
-    isOpaque = false
-    clipsToBounds = true
-    borderStyle = .roundedRect
-    backgroundColor = UIColor.white
+    
+    delegate = self
+    
+    borderStyle = .none
+
+    backgroundColor = AvalonPalette.avalonTextFieldBackground
+    
+    font = UIFont.systemFont(ofSize: 17)
+    
+    layer.cornerRadius = 11
+    
+    returnKeyType = .done
+    
+    clearButtonMode = .whileEditing
+  }
   
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+    
+  }
+
+  
+  let inset: CGFloat = 14
+  
+  // placeholder position
+  override func textRect(forBounds bounds: CGRect) -> CGRect {
+    return bounds.insetBy(dx: inset, dy: inset)
+  }
+  
+  // text position
+  override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    return bounds.insetBy(dx: inset, dy: inset)
   }
 }

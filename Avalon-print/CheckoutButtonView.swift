@@ -8,30 +8,29 @@
 
 import UIKit
 
-struct AvalonPalette {
-  static let avalonBlue = UIColor(red:0.00, green:0.50, blue:1.00, alpha:0.85)
-}
+
 
 class CheckoutButtonView: UIView {
 
   let checkout: AvalonUIButton = {
     let checkout = AvalonUIButton()
-   // checkout.layer.cornerRadius = 10
+    
     checkout.addTarget(self, action: #selector(ShoppingCartVC.checkoutButtonTapped), for: .touchUpInside)
     checkout.translatesAutoresizingMaskIntoConstraints = false
-    //checkout.backgroundColor = AvalonPalette.avalonBlue//UIColor(red:0.00, green:0.50, blue:1.00, alpha:0.85)
-    checkout.setTitle("Оформить заказ", for: .normal)
+    checkout.setTitle(NSLocalizedString("CheckoutButtonView.checkout.title", comment: ""), for: .normal)
     
-  
     return checkout
   }()
   
   let totalPrice: UILabel = {
     let totalPrice = UILabel()
-    totalPrice.text = "вся цена"
+    
+    totalPrice.text = ""
     totalPrice.font =  UIFont.systemFont(ofSize: 13, weight: 21)
-    totalPrice.textColor = UIColor.white
+    totalPrice.textColor = UIColor.black
     totalPrice.translatesAutoresizingMaskIntoConstraints = false
+    totalPrice.textAlignment = .right
+    totalPrice.backgroundColor = UIColor.white
     
     return totalPrice
   }()
@@ -47,11 +46,8 @@ class CheckoutButtonView: UIView {
     
     addSubview(totalPrice)
     totalPrice.bottomAnchor.constraint(equalTo: checkout.topAnchor, constant: 0).isActive = true
-    totalPrice.rightAnchor.constraint(equalTo: checkout.rightAnchor, constant: 0).isActive = true
-    
-    
-    
-    
+    totalPrice.trailingAnchor.constraint(equalTo: checkout.trailingAnchor, constant: 0).isActive = true
+    totalPrice.leadingAnchor.constraint(equalTo: checkout.leadingAnchor).isActive = true
   }
   
   required init(coder aDecoder: NSCoder) {

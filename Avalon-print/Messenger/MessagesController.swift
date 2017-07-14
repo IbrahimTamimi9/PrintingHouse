@@ -37,50 +37,36 @@ class MessagesController: UITableViewController {
   
      override func viewDidLoad() {
         super.viewDidLoad()
-    
-      observeUserMessages()
-      
-      navigationItem.title = "Сообщения"
-      tableView.backgroundColor = UIColor.white
-      navigationController?.navigationBar.tintColor = UIColor.white
-      
-      navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-      
-      let image = UIImage(named: "new_message_icon")
-      
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(handleNewMessage))
-        
-        checkIfUserIsLoggedIn()
       
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
       
         tableView.allowsMultipleSelectionDuringEditing = true
-       // tableView.separatorInset = .init(top: 0, left: 35, bottom: 0, right: 0)
+    
+        observeUserMessages()
       
-      let  newBackButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft.png"), style: .plain, target: self, action: #selector(self.leftBarButtonAction(sender:)))
-      self.navigationItem.leftBarButtonItem = newBackButton
+        navigationItem.title = "Сообщения"
       
+        tableView.backgroundColor = UIColor.white
+      
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "new_message_icon"), style: .plain, target: self, action: #selector(handleNewMessage))
     }
-  
-  
-  func leftBarButtonAction(sender: UIBarButtonItem) {
-    _ = navigationController?.popViewController(animated: true) //popToRootViewController(animated: true)
-  }
+
   
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+  
+  
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
         let message = self.messages[(indexPath as NSIndexPath).row]
         
         if let chatPartnerId = message.chatPartnerId() {
-            FIRDatabase.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
+            Database.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
                 
                 if error != nil {
                     print("Failed to delete message:", error as Any)
@@ -97,27 +83,34 @@ class MessagesController: UITableViewController {
             })
         }
     }
-    
+  
+  
     var messages = [Message]()
     var messagesDictionary = [String: Message]()
-    
+  
+  
     func observeUserMessages() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
-        let ref = FIRDatabase.database().reference().child("user-messages").child(uid)//.queryLimited(toLast: 2 )
+        let ref = Database.database().reference().child("user-messages").child(uid)
+      
         ref.observe(.childAdded, with: { (snapshot) in
             
             let userId = snapshot.key
-            FIRDatabase.database().reference().child("user-messages").child(uid).child(userId).queryLimited(toLast: 1 ).observe(.childAdded, with: { (snapshot) in
+          
+            Database.database().reference().child("user-messages").child(uid).child(userId).queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
+              
                 print("new message")
                 let messageId = snapshot.key
+              
                 self.fetchMessageWithMessageId(messageId)
                 
                 }, withCancel: nil)
             
             }, withCancel: nil)
+      
       
       
         ref.observe(.childRemoved, with: { (snapshot) in
@@ -129,13 +122,16 @@ class MessagesController: UITableViewController {
             
             }, withCancel: nil)
     }                            
-    
+  
+  
     fileprivate func fetchMessageWithMessageId(_ messageId: String) {
-        let messagesReference = FIRDatabase.database().reference().child("messages").child(messageId)
+      
+        let messagesReference = Database.database().reference().child("messages").child(messageId)
         
         messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
+              
                 let message = Message(dictionary: dictionary)
                 
                 if let chatPartnerId = message.chatPartnerId() {
@@ -147,21 +143,20 @@ class MessagesController: UITableViewController {
             
             }, withCancel: nil)
          }
-    
+  
+  
+    var timer: Timer?
     fileprivate func attemptReloadOfTable() {
         self.timer?.invalidate()
         
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+    }
   
-  
-  }
-    
-    var timer: Timer?
- 
     
     func handleReloadTable() {
-        self.messages = Array(self.messagesDictionary.values)
-        self.messages.sort(by: { (message1, message2) -> Bool in
+        messages = Array(self.messagesDictionary.values)
+      
+        messages.sort(by: { (message1, message2) -> Bool in
             
             return message1.timestamp?.int32Value > message2.timestamp?.int32Value
         })
@@ -171,7 +166,8 @@ class MessagesController: UITableViewController {
             self.tableView.reloadData()
         })
     }
-    
+  
+  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -180,7 +176,7 @@ class MessagesController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
      
-        let message = messages[(indexPath as NSIndexPath).row]
+        let message = messages[indexPath.row]
             cell.message = message
    
         return cell
@@ -190,16 +186,18 @@ class MessagesController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
+  
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let message = messages[(indexPath as NSIndexPath).row]
+        let message = messages[indexPath.row]
         
         guard let chatPartnerId = message.chatPartnerId() else {
             return
         }
       
     
-        let ref = FIRDatabase.database().reference().child("users").child(chatPartnerId)
+        let ref = Database.database().reference().child("users").child(chatPartnerId)
+      
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: AnyObject] else {
                 return
@@ -213,6 +211,7 @@ class MessagesController: UITableViewController {
             
             }, withCancel: nil)
     }
+  
     
     func handleNewMessage() {
         let newMessageController = NewMessageController()
@@ -221,20 +220,21 @@ class MessagesController: UITableViewController {
         present(navController, animated: true, completion: nil)
     }
     
-    func checkIfUserIsLoggedIn() {
-        if FIRAuth.auth()?.currentUser?.uid == nil {
-           // perform(#selector(handleLogout), with: nil, afterDelay: 0)
-          print("USER IS LOGGED OUT")
-        } else {
-          
-           // fetchUserAndSetupNavBarTitle()
-        }
-    }
+//    func checkIfUserIsLoggedIn() {
+//        if Auth.auth().currentUser?.uid == nil {
+//           // perform(#selector(handleLogout), with: nil, afterDelay: 0)
+//          print("USER IS LOGGED OUT")
+//        } else {
+//          
+//           // fetchUserAndSetupNavBarTitle()
+//        }
+//    }
  
   
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
             chatLogController.user = user
-            navigationController?.pushViewController(chatLogController, animated: true)
+            self.navigationController?.pushViewController(chatLogController, animated: true)
+     
     }
 }

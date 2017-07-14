@@ -34,13 +34,17 @@ class UserCell: UITableViewCell {
     fileprivate func setupNameAndProfileImage() {
         
         if let id = message?.chatPartnerId() {
-            let ref = FIRDatabase.database().reference().child("users").child(id)
+          
+            let ref = Database.database().reference().child("users").child(id)
+          
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
+                  
                     self.textLabel?.text = dictionary["name"] as? String
                     
                     if let profileImageUrl = dictionary["profileImageUrl"] as? String {
+                      
                         self.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
                     }
                 }
@@ -93,7 +97,7 @@ class UserCell: UITableViewCell {
         return label
     }()
   
-    let disclosureIndicator = UIImageView()
+   // let disclosureIndicator = UIImageView()
   
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
@@ -101,14 +105,14 @@ class UserCell: UITableViewCell {
      
         addSubview(profileImageView)
         addSubview(timeLabel)
-        addSubview(disclosureIndicator)
+     //   addSubview(disclosureIndicator)
     
-      disclosureIndicator.image = UIImage(named: "icon-go")
-      disclosureIndicator.translatesAutoresizingMaskIntoConstraints = false
-      disclosureIndicator.widthAnchor.constraint(equalToConstant: 8).isActive = true
-      disclosureIndicator.heightAnchor.constraint(equalToConstant: 13).isActive = true
-      disclosureIndicator.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
-      disclosureIndicator.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 0).isActive = true
+    //  disclosureIndicator.image = UIImage(named: "icon-go")
+//      disclosureIndicator.translatesAutoresizingMaskIntoConstraints = false
+//      disclosureIndicator.widthAnchor.constraint(equalToConstant: 8).isActive = true
+//      disclosureIndicator.heightAnchor.constraint(equalToConstant: 13).isActive = true
+//      disclosureIndicator.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
+//      disclosureIndicator.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 0).isActive = true
       
         //addSubview(newMessagesCounter)
         //ios 9 constraint anchors
@@ -119,7 +123,7 @@ class UserCell: UITableViewCell {
         profileImageView.heightAnchor.constraint(equalToConstant: 63).isActive = true
       
         //need x,y,width,height anchors
-        timeLabel.rightAnchor.constraint(equalTo: disclosureIndicator.leftAnchor, constant: 0).isActive = true
+        timeLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         timeLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor, constant: 3).isActive = true
         timeLabel.widthAnchor.constraint(equalToConstant: 58).isActive = true
         timeLabel.heightAnchor.constraint(equalTo: (textLabel?.heightAnchor)!).isActive = true

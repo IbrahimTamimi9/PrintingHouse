@@ -44,6 +44,22 @@ extension Array {
   }
 }
 
+extension Array {
+  
+  func shift(withDistance distance: Int = 1) -> Array<Element> {
+    let offsetIndex = distance >= 0 ?
+      self.index(startIndex, offsetBy: distance, limitedBy: endIndex) :
+      self.index(endIndex, offsetBy: distance, limitedBy: startIndex)
+    
+    guard let index = offsetIndex else { return self }
+    return Array(self[index ..< endIndex] + self[startIndex ..< index])
+  }
+  
+  mutating func shiftInPlace(withDistance distance: Int = 1) {
+    self = shift(withDistance: distance)
+  }
+  
+}
 
  private var sentMessageDataToId = ""
 
@@ -71,12 +87,15 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     var user: User? {
         didSet {
-            observeMessages()
-            navigationItem.title = user?.name
+          loadMessages()
+          navigationItem.title = user?.name
         }
     }
 
-    let cellId = "cellId"
+  let cellId = "cellId"
+  
+  //let incomingCellID = "incomingCellID"
+  //let outgoingCellID = "outgoingCellID"
   
     var messages = [Message]()
   
@@ -97,7 +116,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   fileprivate func startCollectionViewAtBottom () {
     
     let collectionViewInsets: CGFloat = (collectionView?.contentInset.bottom)! + inputContainerView.inputTextView.frame.height + 1/*separatorLineView*/
-    //self.collectionView?.layoutIfNeeded()
+    
     let contentSize = self.collectionView?.collectionViewLayout.collectionViewContentSize
     if Double((contentSize?.height)!) > Double((self.collectionView?.bounds.size.height)!) {
       let targetContentOffset = CGPoint(x: 0.0, y: (contentSize?.height)! - (((self.collectionView?.bounds.size.height)! - collectionViewInsets)))
@@ -107,207 +126,173 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
   
   
-  func observeMessages() {
-    
- 
-    guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
-         return
-    }
-    
-    let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
-    
-    let numberOfMessagesForFirsLoad = 15
-   
-    
-    userMessagesRef.queryLimited(toLast: UInt(numberOfMessagesForFirsLoad)).observe(.childAdded, with: { (snapshot) in
-      
-    if self.sentMessageDataFromId == uid {
-      
-      self.sentMessageDataFromId = ""
-     
-    } else {
-      
-      let messageId = snapshot.key
+  var messagesIds = [String]()
+  var appendingMessages = [Message]()
   
-      self.messageIdArray.append(messageId)
-      
-      if self.firstLoadIdTaken == false {
-        self.endKey = messageId
-        self.firstLoadIdTaken = true
-      }
-      
-      let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
-      self.updateMessageStatus(messagesRef: messagesRef)
-     
-
-      messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
-      self.updateMessageStatus(messagesRef: messagesRef)
-        
-        
-      guard let dictionary = snapshot.value as? [String: AnyObject] else {
-        return
-      }
-
+  var newOutboxMessage = false
+  var newInboxMessage = false
   
-        self.messages.append(Message(dictionary: dictionary))
-       
-        if self.newMessage {
-     
-          self.collectionView?.reloadData()
-         
-           let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
-          
-          if self.messages.count - 1 > 0 {
-            self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true /*self.newMessage*/)
-
-          }
-        }
-        
-        
-        if (self.messages.count == self.messageIdArray.count) && (!self.newMessage) {
-           CATransaction.begin()
-           CATransaction.setDisableActions(true)
-          self.collectionView?.reloadData()
-          
-          self.startCollectionViewAtBottom()
-           CATransaction.commit()
-        }
-
-      })
-      
-    }//else
-      
-  })
-    
- }
-
+  func loadMessages() {
   
-  var canRefresh = true
-
-  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
-    if scrollView.contentOffset.y < 0 { //change 100 to whatever you want
-      
-      if (collectionView?.contentSize.height)! < UIScreen.main.bounds.height - 50 {
-        canRefresh = false
-         self.refreshControl.endRefreshing()
-        
-        
-      }
-      
-      if canRefresh && !self.refreshControl.isRefreshing {
-        
-        self.canRefresh = false
-        self.refreshControl.beginRefreshing()
-        
-          let delayTime = DispatchTime.now() + Double(Int64(0.75 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: delayTime) { () -> Void in
-
-       //print("908765467890-876547890-876547890-876543678907654367")
-        self.performRefresh()
-        }
-        
-        //self // your viewController refresh function
-      }
-    }else if scrollView.contentOffset.y >= 0 {
-      
-      self.canRefresh = true
-    }
-  }
-  
-
- 
-  
-  var firstIdTaken = false
-  
-  var firstLoadIdTaken = false
-  
-  let autoSizingCollectionViewFlowLayout = AutoSizingCollectionViewFlowLayout()
-  
-  
-  func loadPreviousMessages () {
-    
-    guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
+    guard let uid = Auth.auth().currentUser?.uid,let toId = user?.id else {
       return
     }
     
-    var count = 14
-    
-    var userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
-       .queryOrderedByKey()
-    
-    if self.endKey != nil {
-      userMessagesRef = userMessagesRef.queryEnding(atValue: self.endKey)
-      count += 1
+    let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId)
+    userMessagesRef.queryLimited(toLast: UInt(50)).observe( .childAdded, with: { (snapshot) in
+    self.messagesIds.append(snapshot.key)
+    print(self.messagesIds)
+      
      
-    }
-  
-    userMessagesRef.queryLimited(toLast: UInt(count)).observe(.childAdded, with: { (snapshot) in
+       let messagesRef = Database.database().reference().child("messages").child(snapshot.key)
+       messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+          
+        guard let dictionary = snapshot.value as? [String: AnyObject] else {
+          print("returninggggg")
+            return
+        }
+        
+          switch true {
+                
+            case self.newOutboxMessage:
+              self.newOutboxMessage = false
+              
+              break
+                
+            case self.newInboxMessage:
+              print("inbox")
+              self.messages.append(Message(dictionary: dictionary))
+              self.updateMessageStatus(messagesRef: messagesRef)
+              self.collectionView?.reloadData()
+                
+              let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+                
+              if self.messages.count - 1 > 0 {
+                self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+              }
 
-      let messageId = snapshot.key
+              break
+                
+            default:
+              print("default")
+             
+              self.appendingMessages.append(Message(dictionary: dictionary))
+          
+              print(self.messagesIds.count, " " ,self.messages.count)
+              
+              if self.appendingMessages.count == self.messagesIds.count {
+                print("in end")
+                
+                self.messages = self.appendingMessages
+                
+                DispatchQueue.main.async {
+                  self.collectionView?.reloadData()
+                  self.startCollectionViewAtBottom()
+                  self.newInboxMessage = true
+                  self.observeTyping()
+                }
+          
+               break
+              }
+          }
+    
+        }, withCancel: { (error) in
+              print("error loading message")
+        })
       
-      self.messageIdArray.append(messageId)
-      
-      if self.firstIdTaken == false {
-         self.endKey = messageId
-         self.firstIdTaken = true
+    }, withCancel: { (error) in
+          print("error loading message iDS")
+    })
+ }
+  
+ 
+  var queryStartingID = String()
+  var queryEndingID = String()
+  var messagesFromHistory = 50
+ 
+  
+  func loadPreviousMessages() {
+    
+    let numberOfMessagesToLoad = messages.count + messagesFromHistory
+    let nextMessageIndex = messages.count + 1
+    
+    guard let uid = Auth.auth().currentUser?.uid, let toId = user?.id else {
+      return
+    }
+    
+    let startingIDRef = Database.database().reference().child("user-messages").child(uid).child(toId).queryLimited(toLast: UInt(numberOfMessagesToLoad))
+    startingIDRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+   
+      if snapshot.exists() {
+          self.queryStartingID = snapshot.key
+        print(self.queryStartingID)
       }
       
-      let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
-          messagesRef.observeSingleEvent( of: .value, with: { (snapshot) in
- 
-            guard let dictionary = snapshot.value as? [String: AnyObject] else {
-              return
-            }
-        
-            self.messages.append(Message(dictionary: dictionary))
-            
-            if (self.messages.count == self.messageIdArray.count) {
-              self.performMessagesUpdates(messages: self.messages)
-          
-          }
-            
-          }, withCancel: { (error) in
+        let endingIDRef = Database.database().reference().child("user-messages").child(uid).child(toId).queryLimited(toLast: UInt(nextMessageIndex))
+        endingIDRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+        self.queryEndingID = snapshot.key
+          print(self.queryEndingID)
+      
+          if self.queryStartingID == self.queryEndingID {
             self.refreshControl.endRefreshing()
-          })
-   
-    }, withCancel: { (error) in
-     self.refreshControl.endRefreshing()
-    })
+            print("ALL messages downloaded")
+            return
+          }
+            let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId).queryOrderedByKey()
+            userMessagesRef.queryStarting(atValue: self.queryStartingID).queryEnding(atValue: self.queryEndingID).observe(.childAdded, with: { (snapshot) in
+              self.messagesIds.append(snapshot.key)
+              print(self.messagesIds.count)
+      
+      
+                let messagesRef = Database.database().reference().child("messages").child(snapshot.key)
+                messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+          
+                guard let dictionary = snapshot.value as? [String: AnyObject] else {
+                  return
+                }
+                  
+                self.messages.append(Message(dictionary: dictionary))
+                print(self.messages.count ,"  ", numberOfMessagesToLoad, "   ids", self.messagesIds.count )
+                  
+          
+                    if self.messages.count == self.messagesIds.count {
     
+                      var arrayWithShiftedMessages = self.messages
+                      
+                      let shiftingIndex = self.messagesFromHistory - (numberOfMessagesToLoad - self.messagesIds.count )
+                      print(-shiftingIndex, "shifting index")
+                      
+                      arrayWithShiftedMessages.shiftInPlace(withDistance: -shiftingIndex)
+            
+                      self.messages = arrayWithShiftedMessages
+                      
+                      contentSizeWhenInsertingToTop = self.collectionView?.contentSize
+                      isInsertingCellsToTop = true
+                      self.refreshControl.endRefreshing()
+                      self.collectionView?.reloadData()
+                    } // if self.messages.count == numberOfMessagesToLoad
+              
+                 }, withCancel: { (error) in
+              
+                      print("error loading messages (Message)")
+              
+                 }) // messagesRef
+              
+            }) { (error) in
+          
+                    print("error loading user-messages (ID's)")
     
-  }
-  
-  func performMessagesUpdates (messages: [Message]) {
-  
-    let filteredElements = self.messages.filterDuplicates { $0.timestamp == $1.timestamp }
-  
-    self.messages.removeAll()
-    self.messageIdArray.removeFirst()
-    self.messages.append(contentsOf: filteredElements)
- 
-    self.messages.sort(by: { (message1, message2) -> Bool in
-      return message2.timestamp as! Int > message1.timestamp as! Int
-    })
-   
-    CATransaction.begin()
-    CATransaction.setDisableActions(true)
-    
-      contentSizeWhenInsertingToTop = self.collectionView?.contentSize
-      isInsertingCellsToTop = true
-
-    DispatchQueue.main.async {
-      self.collectionView?.reloadData()
-      self.refreshControl.endRefreshing()
-    }
-
-    CATransaction.commit()
-    
-  }
+            } // error
+          
+          }) // endingIDRef
+    })  // startingIDRef
+ }
   
   
-  var userIsTypingRef = FIRDatabase.database().reference().child("user-messages").child("typingIndicator").child((FIRAuth.auth()?.currentUser?.uid)!)
+  var userIsTypingRef = Database.database().reference().child("user-messages").child("typingIndicator").child((Auth.auth().currentUser?.uid)!)
+  
   private var localTyping = false
+  
   var isTyping: Bool {
     get {
       return localTyping
@@ -331,28 +316,27 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }
   
   
-  
-  private lazy var usersTypingQuery = FIRDatabaseQuery()
+  private lazy var usersTypingQuery = DatabaseQuery()
   
   func observeTyping() {
     
-    let typingIndicatorRef = FIRDatabase.database().reference().child("user-messages").child("typingIndicator")
+    let typingIndicatorRef = Database.database().reference().child("user-messages").child("typingIndicator")
     
-    userIsTypingRef = typingIndicatorRef.child((FIRAuth.auth()?.currentUser?.uid)!)
+    userIsTypingRef = typingIndicatorRef.child((Auth.auth().currentUser?.uid)!)
     userIsTypingRef.onDisconnectRemoveValue()
     
-    usersTypingQuery.observe(.value) { (data: FIRDataSnapshot) in
+    usersTypingQuery.observe(.value) { (data: DataSnapshot) in
       
       if data.childrenCount == 1 && self.isTyping  {
         return
       }
       
         
-    let interlocutorRef = FIRDatabase.database().reference().child("user-messages").child("typingIndicator").child((self.user?.id!)!).child("Typing to")
+    let interlocutorRef = Database.database().reference().child("user-messages").child("typingIndicator").child((self.user?.id!)!).child("Typing to")
         
         interlocutorRef.observe(.value, with: { (interlocutorId) in
           
-        let currentInterlocutor = FIRAuth.auth()?.currentUser?.uid
+        let currentInterlocutor = Auth.auth().currentUser?.uid
           
             if let interlocutorIdValue = interlocutorId.value as? String {
               print("\n", interlocutorIdValue, "\n", currentInterlocutor! , "\n")
@@ -377,8 +361,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }
   
   
-  
-  fileprivate func updateMessageStatus(messagesRef: FIRDatabaseReference) {
+  fileprivate func updateMessageStatus(messagesRef: DatabaseReference) {
     
     messagesRef.child("toId").observeSingleEvent(of: .value, with: { (snapshot) in
       
@@ -388,7 +371,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       }
       
       
-      if (FIRAuth.auth()?.currentUser?.uid)! == sentMessageDataToId {
+      if (Auth.auth().currentUser?.uid)! == sentMessageDataToId {
         
         if self.navigationController?.visibleViewController is ChatLogController {
           
@@ -410,7 +393,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     
     messagesRef.observe(.childChanged, with: { (snapshot) in
       
-      if FIRAuth.auth()?.currentUser?.uid != sentMessageDataToId {
+      if Auth.auth().currentUser?.uid != sentMessageDataToId {
         
         print("\n\n\n child CHANGED")
         print("\n\n\\n",snapshot.value!)
@@ -429,31 +412,16 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
  }
   
   
-//  let timestampView: UIView = {
-//    let timestampView = UIView()
-//    
-//    timestampView.translatesAutoresizingMaskIntoConstraints = false
-//    timestampView.backgroundColor = UIColor.red
-//    
-//    return timestampView
-//  }()
-  
+    let autoSizingCollectionViewFlowLayout = AutoSizingCollectionViewFlowLayout()
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-//      self.view.addSubview(timestampView)
-//      timestampView.topAnchor.constraint(equalTo: collectionView?.topAnchor, constant: 0).isActive = true
-//      timestampView.bottomAnchor.constraint(equalTo: collectionView?.bottomAnchor, constant: 0).isActive = true
-//      timestampView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-      
-      self.inputContainerView.istypingLabel.text = "\(String(describing: (user?.name)!)) печатает..."
+        inputContainerView.istypingLabel.text = "\(String(describing: (user?.name)!)) печатает..."
       
         let currentInterlocutor = user?.id
       
-        let newBackButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft.png"), style: .plain, target: self, action: #selector(self.leftBarButtonAction(sender:)))
-      
-        usersTypingQuery = FIRDatabase.database().reference().child("user-messages").child("typingIndicator").child(currentInterlocutor!).queryOrderedByValue().queryEqual(toValue: true)
+        usersTypingQuery = Database.database().reference().child("user-messages").child("typingIndicator").child(currentInterlocutor!).queryOrderedByValue().queryEqual(toValue: true)
       
         autoSizingCollectionViewFlowLayout.minimumLineSpacing = 6
      
@@ -467,20 +435,41 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 20, right: 0)
         collectionView?.alwaysBounceVertical = true
+      
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.keyboardDismissMode = .interactive
         collectionView?.backgroundColor = UIColor.white
       
-        self.navigationItem.leftBarButtonItem = newBackButton
     }
   
- 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        observeTyping()
-        newMessage  = true
-    }
   
+    var canRefresh = true
+  
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    
+        
+        if scrollView.contentOffset.y < 0 { //change 100 to whatever you want
+          
+          if collectionView!.contentSize.height < UIScreen.main.bounds.height - 50 {
+            canRefresh = false
+            refreshControl.endRefreshing()
+          }
+          
+          if canRefresh && !refreshControl.isRefreshing {
+            
+            canRefresh = false
+            
+            refreshControl.beginRefreshing()
+            
+            performRefresh()
+          }
+          
+        } else if scrollView.contentOffset.y >= 0 {
+          canRefresh = true
+        }
+      
+    }
+
 
     lazy var inputContainerView: ChatInputContainerView = {
         let chatInputContainerView = ChatInputContainerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
@@ -501,11 +490,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
   
     func performRefresh () {
-      self.firstIdTaken = false
       loadPreviousMessages()
     }
 
-  
   
     func setupCallBarButtonItem () {
     
@@ -522,13 +509,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
   
-    func leftBarButtonAction(sender: UIBarButtonItem) {
-      
-        isTyping = false
-        _ = navigationController?.popViewController(animated: true)
-    }
-  
- // == uploading
     func handleUploadTap() {
       
         let imagePickerController = UIImagePickerController()
@@ -557,7 +537,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   //---=====
     fileprivate func handleVideoSelectedForUrl(_ url: URL) {
         let filename = UUID().uuidString + ".mov"
-        let uploadTask = FIRStorage.storage().reference().child("message_movies").child(filename).putFile(url, metadata: nil, completion: { (metadata, error) in
+        let uploadTask = Storage.storage().reference().child("message_movies").child(filename).putFile(from: url, metadata: nil, completion: { (metadata, error) in
             
             if error != nil {
                 print("Failed upload of video:", error as Any)
@@ -625,10 +605,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     fileprivate func uploadToFirebaseStorageUsingImage(_ image: UIImage, completion: @escaping (_ imageUrl: String) -> ()) {
         let imageName = UUID().uuidString
-        let ref = FIRStorage.storage().reference().child("message_images").child(imageName)
+        let ref = Storage.storage().reference().child("message_images").child(imageName)
         
         if let uploadData = UIImageJPEGRepresentation(image, 0.2) {
-            ref.put(uploadData, metadata: nil, completion: { (metadata, error) in
+            ref.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 
                 if error != nil {
                     print("Failed to upload image:", error as Any)
@@ -663,8 +643,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     func setupKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
     }
   
   
@@ -711,95 +689,95 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
  
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
-        cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.main.scale
-
-      
-        
+  
+  override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    let cell = cell as! ChatMessageCell
+    
+    let message = messages[(indexPath as IndexPath).item]
+    
+    
+    DispatchQueue.main.async {
       cell.chatLogController = self
-      
-      let message = messages[(indexPath as IndexPath).item]
-
       cell.message = message
+    }
+    
+     cell.textView.text = message.text
+     setupCell(cell, message: message)
+  }
+  
+  
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
+    
+    let message = messages[(indexPath as IndexPath).item]
+  
+    if let text = message.text {
+     
+      //a text message
+      cell.bubbleWidthAnchor?.constant = estimateFrameForText(text).width + 15//cell.textView.frame.width//contentSize.width//estimateFrameForText(text).width //+ 20
+      cell.textView.isHidden = false
       
-      cell.textView.text = message.text
-      cell.timeLabel.text = (message.timestamp as! Double).getDateStringFromUTC()
+    } else if message.imageUrl != nil {
       
-      setupCell(cell, message: message)
+      //fall in here if its an image message
+      cell.bubbleWidthAnchor?.constant = 200
+      cell.textView.isHidden = true
+    }
+    
+    cell.playButton.isHidden = message.videoUrl == nil
+    
+    return cell
+  }
+  
+  
+  fileprivate func setupCell(_ cell: ChatMessageCell, message: Message) {
+    
+     if message.fromId == Auth.auth().currentUser?.uid {
       
-      if let text = message.text {
-        //a text message
-        cell.bubbleWidthAnchor?.constant = estimateFrameForText(text).width + 25
-        cell.textView.isHidden = false
-      } else if message.imageUrl != nil {
-        //fall in here if its an image message
-        cell.bubbleWidthAnchor?.constant = 200
-        cell.textView.isHidden = true
+      //outgoing blue
+      cell.textViewCenterXAnchor?.constant = 0
+      cell.bubbleView.image = ChatMessageCell.blueBubbleImage
+      cell.textView.textColor = UIColor.white
+      cell.bubbleViewRightAnchor?.isActive = true
+      cell.bubbleViewLeftAnchor?.isActive = false
+      
+    } else {
+      
+      //incoming gray
+      cell.textViewCenterXAnchor?.constant = 5
+      cell.bubbleView.image = ChatMessageCell.grayBubbleImage
+      cell.textView.textColor = UIColor.darkText
+      cell.bubbleViewRightAnchor?.isActive = false
+      cell.bubbleViewLeftAnchor?.isActive = true
+    }
+  
+    if let messageImageUrl = message.imageUrl {
+      
+      DispatchQueue.main.async {
+        cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
+        cell.messageImageView.isHidden = false
+        cell.bubbleView.image = nil
       }
-      
-      cell.playButton.isHidden = message.videoUrl == nil
-      
-      return cell
-    }
-  
-  
-    fileprivate func setupCell(_ cell: ChatMessageCell, message: Message) {
-        if let profileImageUrl = self.user?.profileImageUrl {
-            cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
-        }
-      
     
-        if message.fromId == FIRAuth.auth()?.currentUser?.uid {
-          
-            //outgoing blue
-            cell.bubbleView.backgroundColor = ChatMessageCell.blueColor//(red:0.88, green:1.00, blue:0.78, alpha:1.0)
-            cell.textView.textColor = UIColor.darkText
-            cell.profileImageView.isHidden = true
-            cell.textView.textColor = UIColor.white
-            cell.bubbleViewRightAnchor?.isActive = true
-            cell.bubbleViewLeftAnchor?.isActive = false
-           // messageStatus.isHidden = false
-          
-        } else {
-          
-            //incoming gray
-            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)//.white
-            cell.textView.textColor = UIColor.darkText
-            cell.profileImageView.isHidden = true
-    
-            cell.bubbleViewRightAnchor?.isActive = false
-            cell.bubbleViewLeftAnchor?.isActive = true
-          //  messageStatus.isHidden = true
-        }
-        
-        if let messageImageUrl = message.imageUrl {
-            cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
-            cell.messageImageView.isHidden = false
-            cell.bubbleView.backgroundColor = UIColor.clear
-        
-        } else {
-            cell.messageImageView.isHidden = true
-        }
+    } else {
+      cell.messageImageView.isHidden = true
     }
+  }
+ 
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        collectionView?.collectionViewLayout.invalidateLayout()
+//    }
   
   
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        collectionView?.collectionViewLayout.invalidateLayout()
-    }
-  
-   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var height: CGFloat = 80
         let message = messages[(indexPath as NSIndexPath).item]
       
-
-      
       if let text = message.text {
     
-            height = estimateFrameForText(text).height + 18
+            height = estimateFrameForText(text).height + 20
+        
       } else if let imageWidth = message.imageWidth?.floatValue, let imageHeight = message.imageHeight?.floatValue {
             
             // h1 / w1 = h2 / w2
@@ -818,12 +796,11 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     fileprivate func estimateFrameForText(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
     }
   
   
     var containerViewBottomAnchor: NSLayoutConstraint?
-  
   
     func handleSend() {
       
@@ -847,13 +824,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       
         self.inputContainerView.inputTextView.text = nil
       
-        let ref = FIRDatabase.database().reference().child("messages")
+        let ref = Database.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         let messageStatusForSending = "Отправлено"
       
     
         let toId = user!.id!
-        let fromId = FIRAuth.auth()!.currentUser!.uid
+        let fromId = Auth.auth().currentUser!.uid
         let timestamp = NSNumber(value: Int(Date().timeIntervalSince1970))
       
         sentMessageDataFromId = fromId
@@ -882,21 +859,27 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                 return
             }
             
-            let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(fromId).child(toId)
+            let userMessagesRef = Database.database().reference().child("user-messages").child(fromId).child(toId)
             
             let messageId = childRef.key
-            userMessagesRef.updateChildValues([messageId: 1])
-            
-            let recipientUserMessagesRef = FIRDatabase.database().reference().child("user-messages").child(toId).child(fromId)
-            recipientUserMessagesRef.updateChildValues([messageId: 1])
           
+            self.newOutboxMessage = true
+          
+            userMessagesRef.updateChildValues([messageId: 1])
+          
+           // self.messagesIds.append(childRef.key)
+          
+            let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId).child(fromId)
+          
+            recipientUserMessagesRef.updateChildValues([messageId: 1])
+  
            self.observeMessageStatus(messageId: messageId)
         }
     }
   
   
     func observeMessageStatus(messageId: String) {
-        let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId).child("status")
+        let messagesRef = Database.database().reference().child("messages").child(messageId).child("status")
     
         messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             print("\n\n",snapshot.value!, "\n\n")
@@ -919,7 +902,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     //my custom zooming logic
     func performZoomInForStartingImageView(_ startingImageView: UIImageView) {
-        
+        print("tapped")
         self.startingImageView = startingImageView
         self.startingImageView?.isHidden = true
         

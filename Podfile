@@ -7,8 +7,7 @@ target 'Avalon-Print' do
   use_frameworks!
   
   # Pods for Avalon-Print
-  pod 'JTMaterialTransition', '~> 2.0'
-  pod 'expanding-collection', '~> 1.0.3'
+  pod 'JTMaterialTransition'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'

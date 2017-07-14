@@ -24,22 +24,26 @@ class AvalonUIButton: UIButton {
   
   override var isEnabled: Bool {
     didSet{
-      alpha = isEnabled ? 0.9 : 0.6
+      alpha = isEnabled ? 1.0 : 0.6
 
     }
   }
+  
 
   override func draw(_ rect: CGRect) {
+    super.draw(rect)
     
-    //alpha = 0.9
-    isOpaque = false
-    layer.cornerRadius = 10
-    titleLabel?.font =  UIFont.systemFont(ofSize: 15, weight: 21)
-    setTitleColor(UIColor.white, for: .normal)
     titleLabel?.adjustsFontSizeToFitWidth = true
     
-    round(corners: .allCorners, withRadius: 10)
+    titleLabel?.font =  UIFont.systemFont(ofSize: 18)
+    
+    setTitleColor(UIColor.white, for: .normal)
+   
+    round(corners: .allCorners, withRadius: 11)
+  
     setBackgroundColor(AvalonPalette.avalonBlue, for: .normal)
     
+    titleLabel?.backgroundColor = backgroundColor
   }
+  
 }

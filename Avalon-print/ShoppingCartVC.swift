@@ -10,11 +10,7 @@
 import UIKit
 import CoreData
 
-let presentRequest:NSFetchRequest<AddedItems> = AddedItems.fetchRequest()
 
-var addedItems = [AddedItems]()
-
-var managedObjextContext:NSManagedObjectContext!
 
 var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -31,32 +27,31 @@ class ShoppingCartVC: UIViewController {
   var blackBackgroundView: UIView?
   var startingImageView: UIImageView?
   
-  let modalNavigationBar = ModalNavigationBarView(frame: CGRect(x: 0, y: statusBarSize.height, width: screenSize.width, height: 44))
-  let checkoutButtonView = CheckoutButtonView(frame: CGRect(x: 0, y: screenSize.height - 90, width: screenSize.width, height: 90))
+  let checkoutButtonView = CheckoutButtonView()
+  
   let shoppingCardsTableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
   
   let shoppingCartCellId = "shoppingCartCell"
   
-  let background: UIImageView = {
-    let background = UIImageView()
-    background.image = UIImage(named: "bucketAndPlaceOrderBGv3")
-    background.frame = UIScreen.main.bounds
-    
-    return background
-  }()
- 
-
-  fileprivate func initializeTableView () {
   
-    shoppingCardsTableView.backgroundColor = UIColor.clear
+  fileprivate func initializeTableView () {
+    
+  //  shoppingCardsTableView.separatorColor = UIColor.white
+    shoppingCardsTableView.separatorStyle = .none
+    shoppingCardsTableView.backgroundColor = UIColor.white
     shoppingCardsTableView.allowsSelection = false
     shoppingCardsTableView.translatesAutoresizingMaskIntoConstraints = false
     shoppingCardsTableView.register(ShoppingCartTableViewCell.self, forCellReuseIdentifier: shoppingCartCellId)
+    
+    
+   
+
   }
   
   fileprivate func setTableViewConstraints () {
     
-    shoppingCardsTableView.topAnchor.constraint(equalTo: modalNavigationBar.bottomAnchor).isActive = true
+   
+    shoppingCardsTableView.topAnchor.constraint(equalTo:  self.view.topAnchor).isActive = true
     shoppingCardsTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
     shoppingCardsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
     shoppingCardsTableView.bottomAnchor.constraint(equalTo: checkoutButtonView.topAnchor).isActive = true
@@ -66,24 +61,45 @@ class ShoppingCartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+      DispatchQueue.main.async {
+        localizeCoreDataIfNeeded()
+      }
+      
       shoppingCardsTableView.delegate = self
       shoppingCardsTableView.dataSource = self
+    
+      view.backgroundColor = UIColor.white
       
-      self.view.backgroundColor = UIColor.white
-      self.view.insertSubview(background, at: 0)
-      self.view.addSubview(shoppingCardsTableView)
-      self.view.addSubview(modalNavigationBar)
-      self.view.addSubview(checkoutButtonView)
-      
+      view.addSubview(shoppingCardsTableView)
+      view.addSubview(checkoutButtonView)
+     
+     
       initializeTableView()
       setTableViewConstraints()
       totalPriceCalculation()
       animateBottomViewIfNeeded()
+      
+      
+      
+      navigationItem.rightBarButtonItem = self.editButtonItem
+      
+      editButtonItem.title = NSLocalizedString("ShoppingCartVC.editButtonItem.basicTitle", comment: "")//"Изменить"
+      
+      self.editButtonItem.tintColor = AvalonPalette.avalonBlue
+      
+      let leftButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft"), style: .plain, target: self, action: #selector(ShoppingCartVC.leftBarButtonTapped))
+     //= UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
+      navigationItem.leftBarButtonItem = leftButton
+      
+      checkoutButtonView.frame =  CGRect(x: 0, y: view.bounds.height - navigationController!.navigationBar.bounds.height - UIApplication.shared.statusBarView!.frame.height - 90, width: screenSize.width, height: 90)
   
   }
  
   
   fileprivate func totalPriceCalculation () {
+    
+    let sumLocalizedLabel = NSLocalizedString("ShoppingCartVC.sumLocalizedLabel", comment: "")
+    let ndsSumLocalizedLabel =  NSLocalizedString("ShoppingCartVC.ndsSumLocalizedLabel", comment: "")
     
     totalprice = 0.0
     totalNDSprice = 0.0
@@ -100,12 +116,11 @@ class ShoppingCartVC: UIViewController {
       totalNDSprice += item.ndsPrice!.doubleValue
     }
     
-    checkoutButtonView.totalPrice.text = "Сумма: \(totalprice) грн, с НДС: \(totalNDSprice) грн."
+    checkoutButtonView.totalPrice.text = "\(sumLocalizedLabel): \(totalprice) \(currencyTypeLocalizedLabel), \(ndsSumLocalizedLabel): \(totalNDSprice) \(currencyTypeLocalizedLabel)."
     if (addedItems.count == 0) {
       UIView.animate(withDuration: 0.2, animations: { self.checkoutButtonView.totalPrice.alpha = 0.0 })
     }
   }
-  
 }
 
 
@@ -114,25 +129,29 @@ extension ShoppingCartVC /* custom Navigation bar functions + onTapped function 
   func leftBarButtonTapped () {
     dismiss(animated: true, completion: nil)
   }
+
   
-  
-  func rightBarButtonTapped () {
+  func moreButtonTapped (_ sender: UIButton) {
     
-    shoppingCardsTableView.setEditing(!shoppingCardsTableView.isEditing, animated: true)
-    
-    if  shoppingCardsTableView.isEditing == true {
-      let doneImage = UIImage(named: "done")
-      modalNavigationBar.rightBarButton.setImage(doneImage, for: .normal)
-    } else {
-      let editImage = UIImage(named: "edit")
-      modalNavigationBar.rightBarButton.setImage(editImage, for: .normal)
+    guard let cell = sender.superview?.superview?.superview as? ShoppingCartTableViewCell else {
+        return
     }
+    
+    let indexPath = shoppingCardsTableView.indexPath(for: cell)
+    
+    let row = indexPath?.row
+    
+    let destination = ShoppingCartDetailTableViewController()
+    
+    destination.selectedShoppingCard = row!
+   
+    self.navigationController?.pushViewController(destination, animated: true)
   }
   
   
   func checkoutButtonTapped () {
     
-    let controller = CheckoutVC()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CheckoutFormVC") as! CheckoutFormVC
+    let controller = CheckoutVC()
     let transitionDelegate = DeckTransitioningDelegate()
     controller.transitioningDelegate = transitionDelegate
     controller.modalPresentationStyle = .custom
@@ -168,62 +187,55 @@ extension ShoppingCartVC /* Animations */ {
       viewMoveIn(view: checkoutButtonView)
     }
   }
-
-  
 }
 
 
 extension ShoppingCartVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 360
+    return 180
   }
   
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 65
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+      guard let cell = cell as? ShoppingCartTableViewCell else { return }
+    
+    DispatchQueue.main.async {
+      let presentItem = addedItems[indexPath.row]
+      
+      cell.containerView.productionType.text = presentItem.productType
+      
+      cell.containerView.mainData.text = presentItem.list
+      
+      cell.containerView.price.text = "\(priceLocalizedLabel): \(String(describing: presentItem.price!)) \(currencyTypeLocalizedLabel).\n\(ndsPriceLocalizedLabel): \(String(describing: presentItem.ndsPrice!)) \(currencyTypeLocalizedLabel)."
+    }
+    
+    
+  }
 }
 
 
 extension ShoppingCartVC: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = shoppingCardsTableView.dequeueReusableCell(withIdentifier: shoppingCartCellId, for: indexPath) as! ShoppingCartTableViewCell
+//    let cell = shoppingCardsTableView.dequeueReusableCell(withIdentifier: shoppingCartCellId, for: indexPath) as! ShoppingCartTableViewCell
     
-    let presentItem = addedItems[indexPath.row]
+   // cell.layer.drawsAsynchronously = true
+//    DispatchQueue.main.async {
+//      let presentItem = addedItems[indexPath.row]
+//      
+//      cell.containerView.productionType.text = presentItem.productType
+//      
+//      cell.containerView.mainData.text = presentItem.list
+//      
+//      cell.containerView.price.text = "Цена: \(String(describing: presentItem.price!)) грн.\nЦена с НДС: \(String(describing: presentItem.ndsPrice!)) грн."
+//    }
+  
     
-  
-    if presentItem.layoutImage == nil {
-      
-      cell.containerView.layout.isUserInteractionEnabled = false
-      
-      cell.containerView.productionType.text = presentItem.productType
-      
-      cell.containerView.mainData.text = presentItem.list
-      
-      cell.containerView.price.text = "Цена: \(String(describing: presentItem.price!)) грн.\nЦена с НДС: \(String(describing: presentItem.ndsPrice!)) грн."
-      
-      cell.containerView.previewTitle.text = presentItem.layoutLink
-      
-      cell.containerView.previewTitle.textColor = UIColor.darkGray
-      
-      
-    } else {
-      
-      let tapOnPreview = UITapGestureRecognizer(target: self, action: #selector(handleZoomTap))
-      cell.containerView.layout.addGestureRecognizer(tapOnPreview)
-      
-      cell.containerView.layout.isUserInteractionEnabled = true
-      
-      cell.containerView.productionType.text = presentItem.productType
-      
-      cell.containerView.mainData.text = presentItem.list
-      
-      cell.containerView.price.text = "Цена: \(String(describing: presentItem.price!)) грн.\nЦена с НДС: \(String(describing: presentItem.ndsPrice!)) грн."
-      
-      cell.containerView.previewTitle.text = "Нажмите чтобы открыть превью"
-      
-      cell.containerView.previewTitle.textColor = UIColor(red:0.34, green:0.59, blue:0.96, alpha:1.0)
-    }
-  
-    return cell
+    return shoppingCardsTableView.dequeueReusableCell(withIdentifier: shoppingCartCellId, for: indexPath) as! ShoppingCartTableViewCell//cell
   }
   
   
@@ -251,9 +263,14 @@ extension ShoppingCartVC: UITableViewDataSource {
       } catch {
         print("error : \(error)")
       }
+
+    
+    UIView.animate(withDuration: 0.2, animations: {
+       self.shoppingCardsTableView.cellForRow(at: indexPath)?.alpha = 0
+    }) { (completion) in
+       self.shoppingCardsTableView.deleteRows(at: [indexPath], with: .none)
       
-      shoppingCardsTableView.deleteRows(at: [indexPath], with: .fade)
-      shoppingCardsTableView.endUpdates()
+      self.shoppingCardsTableView.endUpdates()
       
       do {
         try managedObjextContext.save()
@@ -261,16 +278,44 @@ extension ShoppingCartVC: UITableViewDataSource {
         print("error : \(error)")
       }
       
-      animateBottomViewIfNeeded()
-      totalPriceCalculation()
+      self.animateBottomViewIfNeeded()
+      self.totalPriceCalculation()
       updateBadgeValue()
     }
+   }
   }
+  
+  
+  func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+    return NSLocalizedString("ShoppingCartVC.titleForDeleteConfirmationButtonForRowAt", comment: "")//"Удалить"
+  }
+  
+  
+   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return NSLocalizedString("ShoppingCartVC.header.textLabel.text", comment: "")//"Корзина"
+   }
+  
+  
+   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    let header = view as! UITableViewHeaderFooterView
+    
+    header.textLabel?.text = NSLocalizedString("ShoppingCartVC.header.textLabel.text", comment: "")//"Корзина"
+    header.textLabel?.font = UIFont.systemFont(ofSize: 34)
+    header.textLabel?.textColor = UIColor.black
+    header.textLabel?.backgroundColor = self.view.backgroundColor
+    
+    }
   
   
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
+    
     shoppingCardsTableView.setEditing(editing, animated: animated)
-   
+    
+    if shoppingCardsTableView.isEditing {
+      editButtonItem.title = NSLocalizedString("ShoppingCartVC.editButtonItem.doneTitle", comment: "")//"Готово"
+    } else {
+      editButtonItem.title = NSLocalizedString("ShoppingCartVC.editButtonItem.basicTitle", comment: "")//"Изменить"
+    }
   }
 }

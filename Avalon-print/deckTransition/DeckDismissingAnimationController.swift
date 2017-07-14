@@ -13,6 +13,7 @@ final class DeckDismissingAnimationController: NSObject, UIViewControllerAnimate
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let presentingViewController = transitionContext.viewController(forKey: .to)!
         let presentedViewController = transitionContext.viewController(forKey: .from)!
+       let rootViewController = UIApplication.shared.keyWindow?.rootViewController
         
         let containerView = transitionContext.containerView
         
@@ -26,9 +27,12 @@ final class DeckDismissingAnimationController: NSObject, UIViewControllerAnimate
                 presentingViewController.view.alpha = 1
                 presentingViewController.view.transform = .identity
                 presentingViewController.view.layer.cornerRadius = 0
+                UIApplication.shared.statusBarStyle = .default
+            
                 
                 presentedViewController.view.frame = offScreenFrame
             }, completion: { _ in
+               rootViewController?.view.alpha = 1
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
     }

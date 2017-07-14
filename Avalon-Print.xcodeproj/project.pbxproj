@@ -11,34 +11,15 @@
 		4B0055271EF67461002EAE4E /* AvalonUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0055261EF67461002EAE4E /* AvalonUITextField.swift */; };
 		4B0055291EF67804002EAE4E /* CheckoutVCContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0055281EF67804002EAE4E /* CheckoutVCContainer.swift */; };
 		4B00552B1EF68EC8002EAE4E /* AvalonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B00552A1EF68EC8002EAE4E /* AvalonUIButton.swift */; };
-		4B17AA021EEE87D10096F562 /* PreviewZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */; };
-		4B17AA041EEE9B0A0096F562 /* LayoutZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17AA031EEE9B0A0096F562 /* LayoutZoomHandling.swift */; };
-		4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */; };
+		4B0E8BBD1F02AEA100DF8580 /* PictureZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E8BBC1F02AEA100DF8580 /* PictureZoomHandling.swift */; };
 		4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */; };
-		4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3008AA1E2F888E0044654E /* customNavigationController.swift */; };
+		4B25E41F1F06AFC3007A10E1 /* HidingNavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25E41D1F06AFC3007A10E1 /* HidingNavigationBarManager.swift */; };
+		4B25E4201F06AFC3007A10E1 /* HidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25E41E1F06AFC3007A10E1 /* HidingViewController.swift */; };
 		4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */; };
-		4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */; };
-		4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */; };
-		4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */; };
-		4B3F81941E226EE900034E3E /* PostersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81921E226EE900034E3E /* PostersVC.swift */; };
-		4B3F81981E226F0800034E3E /* StickersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81961E226F0800034E3E /* StickersVC.swift */; };
-		4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819A1E226F2D00034E3E /* CanvasVC.swift */; };
-		4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819D1E226F4000034E3E /* bannersComputing.swift */; };
-		4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F819E1E226F4000034E3E /* BannersVC.swift */; };
-		4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A41E226FC300034E3E /* ContactsPageController.swift */; };
-		4B3F81B01E226FC300034E3E /* InformationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A51E226FC300034E3E /* InformationDetail.swift */; };
-		4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A61E226FC300034E3E /* InformationPageController.swift */; };
-		4B3F81B31E226FC300034E3E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A81E226FC300034E3E /* Map.swift */; };
-		4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */; };
-		4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AA1E226FC300034E3E /* UserProfile.swift */; };
-		4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81AB1E226FC300034E3E /* HomeVC.swift */; };
+		4B3F81B31E226FC300034E3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A81E226FC300034E3E /* MapViewController.swift */; };
 		4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81B71E22702300034E3E /* AppDelegate.swift */; };
-		4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */; };
-		4B3F81BD1E22702300034E3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81B91E22702300034E3E /* Main.storyboard */; };
 		4B3F81BE1E22702300034E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81BA1E22702300034E3E /* Assets.xcassets */; };
-		4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C01E22706100034E3E /* customNavigationBar.swift */; };
 		4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */; };
-		4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */; };
 		4B3FE8671E44B59200852A2A /* InitialImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8661E44B59200852A2A /* InitialImageView.swift */; };
 		4B3FE89A1E44F34D00852A2A /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8911E44F34D00852A2A /* ARSInfiniteLoader.swift */; };
 		4B3FE89B1E44F34D00852A2A /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8921E44F34D00852A2A /* ARSLineProgress.swift */; };
@@ -51,26 +32,63 @@
 		4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8991E44F34D00852A2A /* ARSStatus.swift */; };
 		4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */; };
 		4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */; };
-		4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B894DF31E3E3137008D694D /* PasswordResetVC.swift */; };
-		4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */; };
-		4B9E4DBB1E4B517A00FB1591 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */; };
+		4B47F17C1F08FEF600172176 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F17B1F08FEF600172176 /* UserProfileViewController.swift */; };
+		4B47F17F1F08FF4400172176 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F17E1F08FF4400172176 /* UserProfileHeaderView.swift */; };
+		4B47F1831F09092700172176 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F1821F09092700172176 /* UserProfileTableViewCell.swift */; };
+		4B47F18C1F0936AA00172176 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F18B1F0936AA00172176 /* OrdersViewController.swift */; };
+		4B47F18E1F0936C000172176 /* OrdersHeaderVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F18D1F0936C000172176 /* OrdersHeaderVIew.swift */; };
+		4B47F1901F0936D100172176 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F18F1F0936D100172176 /* OrdersTableViewCell.swift */; };
+		4B47F1941F094D3600172176 /* OrdersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F1931F094D3600172176 /* OrdersDetailViewController.swift */; };
+		4B48FB161F06446900A0E353 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB151F06446900A0E353 /* LoginViewController.swift */; };
+		4B48FB181F0644B200A0E353 /* LoginContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB171F0644B200A0E353 /* LoginContainerView.swift */; };
+		4B48FB1A1F06504700A0E353 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB191F06504700A0E353 /* RegistrationViewController.swift */; };
+		4B48FB1C1F06506400A0E353 /* RegistrationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB1B1F06506400A0E353 /* RegistrationContainerView.swift */; };
+		4B48FB1E1F0650A600A0E353 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB1D1F0650A600A0E353 /* PasswordResetViewController.swift */; };
+		4B48FB201F0650BF00A0E353 /* PasswordResetContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB1F1F0650BF00A0E353 /* PasswordResetContainerView.swift */; };
+		4B78B8661F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */; };
+		4B78B8671F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */; };
+		4B78B8681F1290D7000689B3 /* AboutMaterialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8651F1290D7000689B3 /* AboutMaterialsViewController.swift */; };
+		4B7E59001F0E19C5003945D5 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E58FF1F0E19C5003945D5 /* EditProfileViewController.swift */; };
+		4B7E59021F0E1A13003945D5 /* EditProfileContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E59011F0E1A13003945D5 /* EditProfileContainerView.swift */; };
+		4B916E841F0A8344007F1A23 /* AvalonPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B916E831F0A8344007F1A23 /* AvalonPalette.swift */; };
+		4B9466121F0FF3B800B595A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B9466141F0FF3B800B595A1 /* Localizable.strings */; };
+		4B94661E1F12415100B595A1 /* HomeViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B94661D1F12415100B595A1 /* HomeViewControllerCell.xib */; };
 		4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */; };
-		4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */; };
-		4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */; };
+		4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */; };
 		4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */; };
 		4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */; };
 		4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */; };
 		4BBDDE811EF51CB4000CF3BE /* CheckoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */; };
 		4BBDDE831EF52975000CF3BE /* ShoppingCellContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */; };
-		4BBDDE851EF5695E000CF3BE /* ModalNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE841EF5695E000CF3BE /* ModalNavigationBarView.swift */; };
 		4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */; };
-		4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */; };
-		4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */; };
-		4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81BF1E22706100034E3E /* ButtonMockup.swift */; };
-		4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F81A71E226FC300034E3E /* LoginViewController.swift */; };
-		4BC8241D1E3F8582004B6DCE /* MyOrdersTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */; };
-		4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */; };
+		4BCC4E741EFD37A000085A9A /* StickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E731EFD37A000085A9A /* StickersViewController.swift */; };
+		4BCC4E761EFD438000085A9A /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E751EFD438000085A9A /* CanvasViewController.swift */; };
+		4BCC4E781EFD507700085A9A /* BannersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E771EFD507700085A9A /* BannersViewController.swift */; };
+		4BCC4E7A1EFD601B00085A9A /* BannersPostprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E791EFD601B00085A9A /* BannersPostprintView.swift */; };
+		4BCC4E7D1EFD9B9F00085A9A /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E7C1EFD9B9F00085A9A /* ContactsTableViewController.swift */; };
+		4BCC4E7F1EFDA4DC00085A9A /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E7E1EFDA4DC00085A9A /* ContactsTableViewCell.swift */; };
 		4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */; };
+		4BDBFD211EFE6D6400010AEA /* InformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBFD201EFE6D6400010AEA /* InformationTableViewController.swift */; };
+		4BDBFD231EFE762700010AEA /* DetailInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBFD221EFE762700010AEA /* DetailInformationViewController.swift */; };
+		4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */; };
+		4BDC374E1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC374D1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift */; };
+		4BDC37511F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC37501F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift */; };
+		4BE0C3611F13A87E00E6ED02 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE0C3601F13A87E00E6ED02 /* ResetPasswordViewController.swift */; };
+		4BE0C3631F13A88700E6ED02 /* ResetPasswordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE0C3621F13A88700E6ED02 /* ResetPasswordContainerView.swift */; };
+		4BE3DBA61EFAC2DA00DADA39 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBA51EFAC2DA00DADA39 /* MainNavigationController.swift */; };
+		4BE3DBA81EFAC37600DADA39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBA71EFAC37600DADA39 /* HomeViewController.swift */; };
+		4BE3DBAB1EFAC53400DADA39 /* public.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBAA1EFAC53400DADA39 /* public.swift */; };
+		4BE3DBAE1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBAD1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift */; };
+		4BE3DBB01EFAD31300DADA39 /* LayoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBAF1EFAD31300DADA39 /* LayoutSelectionView.swift */; };
+		4BE3DBB21EFAD33300DADA39 /* PriceAndAddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBB11EFAD33300DADA39 /* PriceAndAddToCartView.swift */; };
+		4BE3DBB41EFAD37200DADA39 /* PostersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBB31EFAD37200DADA39 /* PostersViewController.swift */; };
+		4BE3DBB61EFB120000DADA39 /* AvalonUIButtonLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBB51EFB120000DADA39 /* AvalonUIButtonLight.swift */; };
+		4BF0AAAC1F0AB67100140C55 /* WorksDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0AAAB1F0AB67100140C55 /* WorksDetailTableViewController.swift */; };
+		4BF0AAAE1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0AAAD1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift */; };
+		4BF0AAB01F0AB76200140C55 /* WorksDetailImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0AAAF1F0AB76200140C55 /* WorksDetailImageTableViewCell.swift */; };
+		4BF0AAB41F0AC2C000140C55 /* OrdersDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0AAB31F0AC2C000140C55 /* OrdersDetailTableViewCell.swift */; };
+		4BF0AAB61F0AC2D900140C55 /* OrdersDetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0AAB51F0AC2D900140C55 /* OrdersDetailContainerView.swift */; };
+		4BF0C5131F0C0FFD001C3EA1 /* StorageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0C5121F0C0FFD001C3EA1 /* StorageTableViewController.swift */; };
 		4BF3D4391EF6DE6D0061D337 /* CheckoutVCOrderSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF3D4381EF6DE6D0061D337 /* CheckoutVCOrderSender.swift */; };
 		4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF718781EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift */; };
 		4BF7187F1EBF1BCC00D079D9 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF718791EBF1BCC00D079D9 /* DeckPresentationController.swift */; };
@@ -87,7 +105,6 @@
 		4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11D51E841FA50026E152 /* ChatInputContainerView.swift */; };
 		4BFD11D91E841FA50026E152 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11D61E841FA50026E152 /* ChatMessageCell.swift */; };
 		4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11D71E841FA50026E152 /* UserCell.swift */; };
-		4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */; };
 		E3A771AD5BE84BBD89BE16E0 /* Pods_Avalon_Print.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0428C93784D8F1D699100807 /* Pods_Avalon_Print.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,37 +137,16 @@
 		4B0055261EF67461002EAE4E /* AvalonUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvalonUITextField.swift; path = "Avalon-print/AvalonUITextField.swift"; sourceTree = SOURCE_ROOT; };
 		4B0055281EF67804002EAE4E /* CheckoutVCContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutVCContainer.swift; path = "Avalon-print/CheckoutVCContainer.swift"; sourceTree = SOURCE_ROOT; };
 		4B00552A1EF68EC8002EAE4E /* AvalonUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvalonUIButton.swift; path = "Avalon-print/AvalonUIButton.swift"; sourceTree = SOURCE_ROOT; };
-		4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewZoomHandling.swift; path = "Avalon-print/PreviewZoomHandling.swift"; sourceTree = SOURCE_ROOT; };
-		4B17AA031EEE9B0A0096F562 /* LayoutZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutZoomHandling.swift; path = "Avalon-print/LayoutZoomHandling.swift"; sourceTree = SOURCE_ROOT; };
-		4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialViewController.swift; path = "Avalon-print/ExpandingMaterialViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B0E8BBC1F02AEA100DF8580 /* PictureZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureZoomHandling.swift; path = "Avalon-print/PictureZoomHandling.swift"; sourceTree = SOURCE_ROOT; };
 		4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialTableViewController.swift; path = "Avalon-print/ExpandingMaterialTableViewController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3008AA1E2F888E0044654E /* customNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customNavigationController.swift; path = "Avalon-print/customNavigationController.swift"; sourceTree = SOURCE_ROOT; };
+		4B25E41D1F06AFC3007A10E1 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HidingNavigationBarManager.swift; path = "Avalon-print/HidingNavigationBar/HidingNavigationBarManager.swift"; sourceTree = SOURCE_ROOT; };
+		4B25E41E1F06AFC3007A10E1 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HidingViewController.swift; path = "Avalon-print/HidingNavigationBar/HidingViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpingFunctions.swift; path = "Avalon-print/HelpingFunctions.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-ExtraLight.ttf"; path = "Avalon-print/Fonts/Exo2-ExtraLight.ttf"; sourceTree = SOURCE_ROOT; };
-		4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Light.ttf"; path = "Avalon-print/Fonts/Exo2-Light.ttf"; sourceTree = SOURCE_ROOT; };
-		4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Exo2-Regular.ttf"; path = "Avalon-print/Fonts/Exo2-Regular.ttf"; sourceTree = SOURCE_ROOT; };
-		4B3F81921E226EE900034E3E /* PostersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostersVC.swift; path = "Avalon-print/PostersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81961E226F0800034E3E /* StickersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickersVC.swift; path = "Avalon-print/StickersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F819A1E226F2D00034E3E /* CanvasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanvasVC.swift; path = "Avalon-print/CanvasVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F819D1E226F4000034E3E /* bannersComputing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = bannersComputing.swift; path = "Avalon-print/bannersComputing.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F819E1E226F4000034E3E /* BannersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersVC.swift; path = "Avalon-print/BannersVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A41E226FC300034E3E /* ContactsPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsPageController.swift; path = "Avalon-print/ContactsPageController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A51E226FC300034E3E /* InformationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationDetail.swift; path = "Avalon-print/InformationDetail.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A61E226FC300034E3E /* InformationPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationPageController.swift; path = "Avalon-print/InformationPageController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A71E226FC300034E3E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Avalon-print/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A81E226FC300034E3E /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Map.swift; path = "Avalon-print/Map.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Avalon-print/RegistrationViewController.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81AA1E226FC300034E3E /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = "Avalon-print/UserProfile.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81AB1E226FC300034E3E /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = "Avalon-print/HomeVC.swift"; sourceTree = SOURCE_ROOT; };
+		4B3F81A81E226FC300034E3E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = "Avalon-print/MapViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81B71E22702300034E3E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Avalon-print/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseCalculationsDataRetrieving.swift; path = "Avalon-print/FirebaseCalculationsDataRetrieving.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81B91E22702300034E3E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Avalon-print/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		4B3F81BA1E22702300034E3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Avalon-print/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
-		4B3F81BF1E22706100034E3E /* ButtonMockup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonMockup.swift; path = "Avalon-print/ButtonMockup.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81C01E22706100034E3E /* customNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customNavigationBar.swift; path = "Avalon-print/customNavigationBar.swift"; sourceTree = SOURCE_ROOT; };
 		4B3F81C11E22706100034E3E /* ENMBadgedBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ENMBadgedBarButton.h; path = "Avalon-print/ENMBadgedBarButton.h"; sourceTree = SOURCE_ROOT; };
 		4B3F81C21E22706100034E3E /* ENMBadgedBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ENMBadgedBarButtonItem.swift; path = "Avalon-print/ENMBadgedBarButtonItem.swift"; sourceTree = SOURCE_ROOT; };
-		4B3F81CC1E2271D300034E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Avalon-print/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		4B3FE8661E44B59200852A2A /* InitialImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialImageView.swift; path = "Avalon-print/InitialImageView.swift"; sourceTree = SOURCE_ROOT; };
 		4B3FE8911E44F34D00852A2A /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSInfiniteLoader.swift; path = "Avalon-print/progressIndicator/ARSInfiniteLoader.swift"; sourceTree = SOURCE_ROOT; };
 		4B3FE8921E44F34D00852A2A /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgress.swift; path = "Avalon-print/progressIndicator/ARSLineProgress.swift"; sourceTree = SOURCE_ROOT; };
@@ -163,27 +159,66 @@
 		4B3FE8991E44F34D00852A2A /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSStatus.swift; path = "Avalon-print/progressIndicator/ARSStatus.swift"; sourceTree = SOURCE_ROOT; };
 		4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressHelpers.swift; path = "Avalon-print/progressIndicator/ARSLineProgressHelpers.swift"; sourceTree = SOURCE_ROOT; };
 		4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
+		4B47F17B1F08FEF600172176 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = "Avalon-print/UserProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B47F17E1F08FF4400172176 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileHeaderView.swift; path = "Avalon-print/UserProfileHeaderView.swift"; sourceTree = SOURCE_ROOT; };
+		4B47F1821F09092700172176 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileTableViewCell.swift; path = "Avalon-print/UserProfileTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B47F18B1F0936AA00172176 /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersViewController.swift; path = "Avalon-print/OrdersViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B47F18D1F0936C000172176 /* OrdersHeaderVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersHeaderVIew.swift; path = "Avalon-print/OrdersHeaderVIew.swift"; sourceTree = SOURCE_ROOT; };
+		4B47F18F1F0936D100172176 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersTableViewCell.swift; path = "Avalon-print/OrdersTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B47F1931F094D3600172176 /* OrdersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersDetailViewController.swift; path = "Avalon-print/OrdersDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B48FB151F06446900A0E353 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Avalon-print/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B48FB171F0644B200A0E353 /* LoginContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginContainerView.swift; path = "Avalon-print/LoginContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4B48FB191F06504700A0E353 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Avalon-print/RegistrationViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B48FB1B1F06506400A0E353 /* RegistrationContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationContainerView.swift; path = "Avalon-print/RegistrationContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4B48FB1D1F0650A600A0E353 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetViewController.swift; path = "Avalon-print/PasswordResetViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B48FB1F1F0650BF00A0E353 /* PasswordResetContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetContainerView.swift; path = "Avalon-print/PasswordResetContainerView.swift"; sourceTree = SOURCE_ROOT; };
 		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		4B894DF31E3E3137008D694D /* PasswordResetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetVC.swift; path = "Avalon-print/PasswordResetVC.swift"; sourceTree = SOURCE_ROOT; };
-		4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoshiTextField.swift; path = "Avalon-print/textfieldEffects/HoshiTextField.swift"; sourceTree = SOURCE_ROOT; };
-		4B9E4DB81E4B517A00FB1591 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldEffects.h; path = "Avalon-print/textfieldEffects/TextFieldEffects.h"; sourceTree = SOURCE_ROOT; };
-		4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldsEffects.swift; path = "Avalon-print/textfieldEffects/TextFieldsEffects.swift"; sourceTree = SOURCE_ROOT; };
+		4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenteredCollectionViewFlowLayout.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/CenteredCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
+		4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMaterialsCollectionViewCell.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/AboutMaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B78B8651F1290D7000689B3 /* AboutMaterialsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMaterialsViewController.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/AboutMaterialsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B7E58FF1F0E19C5003945D5 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = "Avalon-print/EditProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4B7E59011F0E1A13003945D5 /* EditProfileContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileContainerView.swift; path = "Avalon-print/EditProfileContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4B916E831F0A8344007F1A23 /* AvalonPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvalonPalette.swift; path = "Avalon-print/AvalonPalette.swift"; sourceTree = SOURCE_ROOT; };
+		4B9466151F0FF3C100B595A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B9466161F0FF3CB00B595A1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B94661D1F12415100B595A1 /* HomeViewControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewControllerCell.xib; path = "Avalon-print/HomeViewControllerCell.xib"; sourceTree = SOURCE_ROOT; };
 		4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceCalculation.swift; path = "Avalon-print/PriceCalculation.swift"; sourceTree = SOURCE_ROOT; };
-		4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVCCell.swift; path = "Avalon-print/HomeVCCell.swift"; sourceTree = SOURCE_ROOT; };
-		4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVCCell.xib; path = "Avalon-print/HomeVCCell.xib"; sourceTree = SOURCE_ROOT; };
+		4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewControllerCell.swift; path = "Avalon-print/HomeViewControllerCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchingMaterialsAndPostPrintFromFIrebase.swift; path = "Avalon-print/FetchingMaterialsAndPostPrintFromFIrebase.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartVC.swift; path = "Avalon-print/ShoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartTableViewCell.swift; path = "Avalon-print/ShoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutButtonView.swift; path = "Avalon-print/CheckoutButtonView.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCellContainerView.swift; path = "Avalon-print/ShoppingCellContainerView.swift"; sourceTree = SOURCE_ROOT; };
-		4BBDDE841EF5695E000CF3BE /* ModalNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalNavigationBarView.swift; path = "Avalon-print/ModalNavigationBarView.swift"; sourceTree = SOURCE_ROOT; };
 		4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoSizingCollectionViewFlowLayout.swift; path = "Avalon-print/Messenger/AutoSizingCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
-		4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialsCollectionViewCell.swift; path = "Avalon-print/MaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialsCollectionViewCell.xib; path = "Avalon-print/MaterialsCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
-		4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersTableVC.swift; path = "Avalon-print/MyOrdersTableVC.swift"; sourceTree = SOURCE_ROOT; };
-		4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOrdersDetailTableVC.swift; path = "Avalon-print/MyOrdersDetailTableVC.swift"; sourceTree = SOURCE_ROOT; };
 		4BC903B51E9AFA9D00061FB4 /* Avalon-Print.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Avalon-Print.entitlements"; path = "Avalon-Print/Avalon-Print.entitlements"; sourceTree = "<group>"; };
+		4BCC4E731EFD37A000085A9A /* StickersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickersViewController.swift; path = "Avalon-print/StickersViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BCC4E751EFD438000085A9A /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanvasViewController.swift; path = "Avalon-print/CanvasViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BCC4E771EFD507700085A9A /* BannersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersViewController.swift; path = "Avalon-print/BannersViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BCC4E791EFD601B00085A9A /* BannersPostprintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersPostprintView.swift; path = "Avalon-print/BannersPostprintView.swift"; sourceTree = SOURCE_ROOT; };
+		4BCC4E7C1EFD9B9F00085A9A /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsTableViewController.swift; path = "Avalon-print/ContactsTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BCC4E7E1EFDA4DC00085A9A /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsTableViewCell.swift; path = "Avalon-print/ContactsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4BDBFD201EFE6D6400010AEA /* InformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationTableViewController.swift; path = "Avalon-print/InformationTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BDBFD221EFE762700010AEA /* DetailInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailInformationViewController.swift; path = "Avalon-print/DetailInformationViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailLayoutTableViewCell.swift; path = "Avalon-print/ShoppingCartDetailLayoutTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BDC374D1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailTextTableViewCell.swift; path = "Avalon-print/ShoppingCartDetailTextTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BDC37501F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailTableViewController.swift; path = "Avalon-print/ShoppingCartDetailTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BE0C3601F13A87E00E6ED02 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
+		4BE0C3621F13A88700E6ED02 /* ResetPasswordContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordContainerView.swift; sourceTree = SOURCE_ROOT; };
+		4BE3DBA51EFAC2DA00DADA39 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = "Avalon-print/MainNavigationController.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBA71EFAC37600DADA39 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "Avalon-print/HomeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBAA1EFAC53400DADA39 /* public.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = public.swift; path = "Avalon-print/public.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBAD1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostersStickersCanvasTopBlockView.swift; path = "Avalon-print/PostersStickersCanvasTopBlockView.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBAF1EFAD31300DADA39 /* LayoutSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutSelectionView.swift; path = "Avalon-print/LayoutSelectionView.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBB11EFAD33300DADA39 /* PriceAndAddToCartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceAndAddToCartView.swift; path = "Avalon-print/PriceAndAddToCartView.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBB31EFAD37200DADA39 /* PostersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostersViewController.swift; path = "Avalon-print/PostersViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BE3DBB51EFB120000DADA39 /* AvalonUIButtonLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvalonUIButtonLight.swift; path = "Avalon-print/AvalonUIButtonLight.swift"; sourceTree = SOURCE_ROOT; };
+		4BF0AAAB1F0AB67100140C55 /* WorksDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorksDetailTableViewController.swift; path = "Avalon-print/WorksDetailTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BF0AAAD1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorksDetailTextTableViewCell.swift; path = "Avalon-print/WorksDetailTextTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BF0AAAF1F0AB76200140C55 /* WorksDetailImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorksDetailImageTableViewCell.swift; path = "Avalon-print/WorksDetailImageTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BF0AAB31F0AC2C000140C55 /* OrdersDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersDetailTableViewCell.swift; path = "Avalon-print/OrdersDetailTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BF0AAB51F0AC2D900140C55 /* OrdersDetailContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersDetailContainerView.swift; path = "Avalon-print/OrdersDetailContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4BF0C5121F0C0FFD001C3EA1 /* StorageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageTableViewController.swift; path = "Avalon-print/StorageTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BF3D4381EF6DE6D0061D337 /* CheckoutVCOrderSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutVCOrderSender.swift; path = "Avalon-print/CheckoutVCOrderSender.swift"; sourceTree = SOURCE_ROOT; };
 		4BF718781EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckDismissingAnimationController.swift; path = "Avalon-print/deckTransition/DeckDismissingAnimationController.swift"; sourceTree = SOURCE_ROOT; };
 		4BF718791EBF1BCC00D079D9 /* DeckPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckPresentationController.swift; path = "Avalon-print/deckTransition/DeckPresentationController.swift"; sourceTree = SOURCE_ROOT; };
@@ -195,13 +230,12 @@
 		4BFD11C41E841F520026E152 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "Avalon-print/Messenger/Message.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11C51E841F520026E152 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Avalon-print/Messenger/User.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11C91E841F6F0026E152 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Avalon-print/Messenger/Extensions.swift"; sourceTree = SOURCE_ROOT; };
-		4BFD11CB1E841F910026E152 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatLogController.swift; path = "Avalon-print/Messenger/ChatLogController.swift"; sourceTree = SOURCE_ROOT; };
+		4BFD11CB1E841F910026E152 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatLogController.swift; path = "Avalon-print/Messenger/ChatLogController.swift"; sourceTree = SOURCE_ROOT; tabWidth = 2; };
 		4BFD11CE1E841F910026E152 /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesController.swift; path = "Avalon-print/Messenger/MessagesController.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11CF1E841F910026E152 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMessageController.swift; path = "Avalon-print/Messenger/NewMessageController.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11D51E841FA50026E152 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatInputContainerView.swift; path = "Avalon-print/Messenger/ChatInputContainerView.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11D61E841FA50026E152 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatMessageCell.swift; path = "Avalon-print/Messenger/ChatMessageCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11D71E841FA50026E152 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCell.swift; path = "Avalon-print/Messenger/UserCell.swift"; sourceTree = SOURCE_ROOT; };
-		4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateUserProfile.swift; path = "Avalon-print/UpdateUserProfile.swift"; sourceTree = SOURCE_ROOT; };
 		657B8B5C724347DD5F22983B /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
 		B5EA1A241B7B383300E1C1C3 /* Avalon-Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avalon-Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4FDA446405594BCDEC69EC /* Pods-Avalon-Print.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.release.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,20 +288,31 @@
 			name = BagedBarButton;
 			sourceTree = "<group>";
 		};
+		4B25E4211F06AFC6007A10E1 /* HidingNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4B25E41D1F06AFC3007A10E1 /* HidingNavigationBarManager.swift */,
+				4B25E41E1F06AFC3007A10E1 /* HidingViewController.swift */,
+			);
+			name = HidingNavigationBar;
+			sourceTree = "<group>";
+		};
 		4B2D03B21DF78E5C00BF0B23 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				4B9465E01F0FE01500B595A1 /* Localization */,
+				4B25E4211F06AFC6007A10E1 /* HidingNavigationBar */,
 				4BF7186E1EBF1B0500D079D9 /* DeckTransition */,
-				4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */,
 				4B3FE86C1E44E57000852A2A /* progressLoader */,
 				4B0055231EF661D3002EAE4E /* BagedBarButton */,
 				4B0055221EF661B6002EAE4E /* InitialImageView */,
-				4B3008AA1E2F888E0044654E /* customNavigationController.swift */,
-				4B3F81C01E22706100034E3E /* customNavigationBar.swift */,
-				4B3F81BF1E22706100034E3E /* ButtonMockup.swift */,
+				4B916E831F0A8344007F1A23 /* AvalonPalette.swift */,
 				4B3DFEE01E3178CD00F508F7 /* HelpingFunctions.swift */,
 				4B0055261EF67461002EAE4E /* AvalonUITextField.swift */,
 				4B00552A1EF68EC8002EAE4E /* AvalonUIButton.swift */,
+				4BE3DBA51EFAC2DA00DADA39 /* MainNavigationController.swift */,
+				4BE3DBB51EFB120000DADA39 /* AvalonUIButtonLight.swift */,
+				4B0E8BBC1F02AEA100DF8580 /* PictureZoomHandling.swift */,
 			);
 			name = Support;
 			path = CustomSlideMenu;
@@ -290,147 +335,260 @@
 			name = progressLoader;
 			sourceTree = "<group>";
 		};
-		4B4288831EF5D99D0058B0C8 /* shoppingCartViews */ = {
+		4B4288831EF5D99D0058B0C8 /* ShoppingCartViews */ = {
 			isa = PBXGroup;
 			children = (
 				4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */,
 				4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */,
-				4BBDDE841EF5695E000CF3BE /* ModalNavigationBarView.swift */,
 			);
-			name = shoppingCartViews;
+			name = ShoppingCartViews;
 			sourceTree = "<group>";
 		};
-		4B4288841EF5D9E00058B0C8 /* support */ = {
+		4B47F17D1F08FF1A00172176 /* UserProfileViews */ = {
 			isa = PBXGroup;
 			children = (
-				4B17AA011EEE87D10096F562 /* PreviewZoomHandling.swift */,
+				4B47F17E1F08FF4400172176 /* UserProfileHeaderView.swift */,
+				4B47F1821F09092700172176 /* UserProfileTableViewCell.swift */,
 			);
-			name = support;
+			name = UserProfileViews;
+			sourceTree = "<group>";
+		};
+		4B47F1841F0935C600172176 /* OrdersViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B47F18B1F0936AA00172176 /* OrdersViewController.swift */,
+				4B47F18A1F09368F00172176 /* OrdersViews */,
+				4BF0AAB21F0AC29000140C55 /* OrderDetailViewControllers */,
+				4BF0AAB11F0AC27100140C55 /* WorkDetailViewControllers */,
+			);
+			name = OrdersViewControllers;
+			sourceTree = "<group>";
+		};
+		4B47F1861F09366400172176 /* EditProfileViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B7E58FF1F0E19C5003945D5 /* EditProfileViewController.swift */,
+				4B7E59011F0E1A13003945D5 /* EditProfileContainerView.swift */,
+				4BE0C3601F13A87E00E6ED02 /* ResetPasswordViewController.swift */,
+				4BE0C3621F13A88700E6ED02 /* ResetPasswordContainerView.swift */,
+			);
+			name = EditProfileViewControllers;
+			sourceTree = "<group>";
+		};
+		4B47F1871F09366A00172176 /* OnlineSupportViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OnlineSupportViewControllers;
+			sourceTree = "<group>";
+		};
+		4B47F1881F09367700172176 /* LanguageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LanguageViewControllers;
+			sourceTree = "<group>";
+		};
+		4B47F18A1F09368F00172176 /* OrdersViews */ = {
+			isa = PBXGroup;
+			children = (
+				4B47F18D1F0936C000172176 /* OrdersHeaderVIew.swift */,
+				4B47F18F1F0936D100172176 /* OrdersTableViewCell.swift */,
+			);
+			name = OrdersViews;
+			sourceTree = "<group>";
+		};
+		4B47F19C1F097C0D00172176 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4B47F1841F0935C600172176 /* OrdersViewControllers */,
+				4B47F1861F09366400172176 /* EditProfileViewControllers */,
+				4B47F1871F09366A00172176 /* OnlineSupportViewControllers */,
+				4B47F1881F09367700172176 /* LanguageViewControllers */,
+				4BF0C5111F0C0E1C001C3EA1 /* StorageViewControllers */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		4B48FB211F06914200A0E353 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B48FB171F0644B200A0E353 /* LoginContainerView.swift */,
+				4B48FB1B1F06506400A0E353 /* RegistrationContainerView.swift */,
+				4B48FB1F1F0650BF00A0E353 /* PasswordResetContainerView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		4B5FCE831DF0DB350080B034 /* pages */ = {
 			isa = PBXGroup;
 			children = (
-				4BFD11C81E841F600026E152 /* Helpers */,
-				4BF1D6B41E83F19B0027C82B /* MessengerViews */,
-				4BF1D6B21E83F1810027C82B /* Model */,
-				4BF1D6B11E83F1600027C82B /* MessengerControllers */,
-				4BBED8CC1E33ECD500A62636 /* MaterialInfoVC */,
-				4B8D1C191DF2F2C7001A97F2 /* PostersStickersCanvas */,
-				4B7BFF501E0C392700E72E8A /* banners */,
-				4B8F69301E37C9B400F0C91D /* information */,
-				4BB42CB01E37E014008CA109 /* contacts */,
-				4B8F692F1E37C96300F0C91D /* home */,
-				4B894DF51E3E3145008D694D /* authentication */,
-				4BFFD84D1E3E383D00710282 /* userProfile */,
-				4BFFD84E1E3E385100710282 /* shoppingCart */,
-				4BF3D43A1EF6E1310061D337 /* CheckoutForm */,
+				4B78B8621F1290AA000689B3 /* AboutMaterialsVIewControllers */,
+				4BF1D6B11E83F1600027C82B /* MessengerViewControllers */,
+				4B8D1C191DF2F2C7001A97F2 /* OrderingViewControllers */,
+				4B8F69301E37C9B400F0C91D /* InformationViewControllers */,
+				4BB42CB01E37E014008CA109 /* ContactsViewControllers */,
+				4B8F692F1E37C96300F0C91D /* HomePageViewControllers */,
+				4B894DF51E3E3145008D694D /* AuthenticationViewControllers */,
+				4BFFD84D1E3E383D00710282 /* UserProfileViewControllers */,
+				4BFFD84E1E3E385100710282 /* ShoppingCartViewControllers */,
+				4BF3D43A1EF6E1310061D337 /* CheckoutFormViewControllers */,
 				4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */,
 			);
 			name = pages;
 			sourceTree = "<group>";
 		};
-		4B7BFF501E0C392700E72E8A /* banners */ = {
+		4B78B8621F1290AA000689B3 /* AboutMaterialsVIewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4B3F819D1E226F4000034E3E /* bannersComputing.swift */,
-				4B3F819E1E226F4000034E3E /* BannersVC.swift */,
-			);
-			name = banners;
-			sourceTree = "<group>";
-		};
-		4B894DF51E3E3145008D694D /* authentication */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81A71E226FC300034E3E /* LoginViewController.swift */,
-				4B3F81A91E226FC300034E3E /* RegistrationViewController.swift */,
-				4B894DF31E3E3137008D694D /* PasswordResetVC.swift */,
-			);
-			name = authentication;
-			sourceTree = "<group>";
-		};
-		4B8D1BD81DF1FF39001A97F2 /* TextFieldEffects */ = {
-			isa = PBXGroup;
-			children = (
-				4B9E4DB71E4B517A00FB1591 /* HoshiTextField.swift */,
-				4B9E4DB81E4B517A00FB1591 /* TextFieldEffects.h */,
-				4B9E4DB91E4B517A00FB1591 /* TextFieldsEffects.swift */,
-			);
-			name = TextFieldEffects;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		4B8D1C191DF2F2C7001A97F2 /* PostersStickersCanvas */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81921E226EE900034E3E /* PostersVC.swift */,
-				4B3F81961E226F0800034E3E /* StickersVC.swift */,
-				4B3F819A1E226F2D00034E3E /* CanvasVC.swift */,
-				4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */,
-				4B17AA031EEE9B0A0096F562 /* LayoutZoomHandling.swift */,
-			);
-			name = PostersStickersCanvas;
-			sourceTree = "<group>";
-		};
-		4B8F692F1E37C96300F0C91D /* home */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81AB1E226FC300034E3E /* HomeVC.swift */,
-				4BB66EEA1E3793AF006D9447 /* HomeVCCell.swift */,
-				4BB66EEB1E3793AF006D9447 /* HomeVCCell.xib */,
-			);
-			name = home;
-			sourceTree = "<group>";
-		};
-		4B8F69301E37C9B400F0C91D /* information */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81A51E226FC300034E3E /* InformationDetail.swift */,
-				4B3F81A61E226FC300034E3E /* InformationPageController.swift */,
-			);
-			name = information;
-			sourceTree = "<group>";
-		};
-		4B98B1461E217FD1003D725C /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F818B1E226E8D00034E3E /* Exo2-ExtraLight.ttf */,
-				4B3F818C1E226E8D00034E3E /* Exo2-Light.ttf */,
-				4B3F818D1E226E8D00034E3E /* Exo2-Regular.ttf */,
-			);
-			name = Fonts;
-			path = CustomSlideMenu;
-			sourceTree = "<group>";
-		};
-		4BB42CB01E37E014008CA109 /* contacts */ = {
-			isa = PBXGroup;
-			children = (
-				4B3F81A41E226FC300034E3E /* ContactsPageController.swift */,
-				4B3F81A81E226FC300034E3E /* Map.swift */,
-			);
-			name = contacts;
-			sourceTree = "<group>";
-		};
-		4BBED8CC1E33ECD500A62636 /* MaterialInfoVC */ = {
-			isa = PBXGroup;
-			children = (
-				4BBED8CD1E33EDC300A62636 /* MaterialsCollectionViewCell.swift */,
-				4BBED8CE1E33EDC300A62636 /* MaterialsCollectionViewCell.xib */,
-				4B17D3241E33F2790070DE27 /* ExpandingMaterialViewController.swift */,
+				4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */,
+				4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */,
+				4B78B8651F1290D7000689B3 /* AboutMaterialsViewController.swift */,
 				4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */,
 			);
-			name = MaterialInfoVC;
+			name = AboutMaterialsVIewControllers;
 			sourceTree = "<group>";
 		};
-		4BF1D6B11E83F1600027C82B /* MessengerControllers */ = {
+		4B894DF51E3E3145008D694D /* AuthenticationViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4B48FB211F06914200A0E353 /* Views */,
+				4B48FB151F06446900A0E353 /* LoginViewController.swift */,
+				4B48FB191F06504700A0E353 /* RegistrationViewController.swift */,
+				4B48FB1D1F0650A600A0E353 /* PasswordResetViewController.swift */,
+			);
+			name = AuthenticationViewControllers;
+			sourceTree = "<group>";
+		};
+		4B8D1C191DF2F2C7001A97F2 /* OrderingViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BCC4E7B1EFD73C300085A9A /* Support */,
+				4BE3DBAC1EFAD2B200DADA39 /* Views */,
+				4BE3DBB31EFAD37200DADA39 /* PostersViewController.swift */,
+				4BCC4E731EFD37A000085A9A /* StickersViewController.swift */,
+				4BCC4E751EFD438000085A9A /* CanvasViewController.swift */,
+				4BCC4E771EFD507700085A9A /* BannersViewController.swift */,
+			);
+			name = OrderingViewControllers;
+			sourceTree = "<group>";
+		};
+		4B8F692F1E37C96300F0C91D /* HomePageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BE3DBA91EFAC44900DADA39 /* Support */,
+				4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */,
+				4B94661D1F12415100B595A1 /* HomeViewControllerCell.xib */,
+				4BE3DBA71EFAC37600DADA39 /* HomeViewController.swift */,
+			);
+			name = HomePageViewControllers;
+			sourceTree = "<group>";
+		};
+		4B8F69301E37C9B400F0C91D /* InformationViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BDBFD201EFE6D6400010AEA /* InformationTableViewController.swift */,
+				4BDBFD221EFE762700010AEA /* DetailInformationViewController.swift */,
+			);
+			name = InformationViewControllers;
+			sourceTree = "<group>";
+		};
+		4B9465E01F0FE01500B595A1 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4B9466141F0FF3B800B595A1 /* Localizable.strings */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
+		4BB42CB01E37E014008CA109 /* ContactsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B3F81A81E226FC300034E3E /* MapViewController.swift */,
+				4BCC4E7C1EFD9B9F00085A9A /* ContactsTableViewController.swift */,
+				4BCC4E7E1EFDA4DC00085A9A /* ContactsTableViewCell.swift */,
+			);
+			name = ContactsViewControllers;
+			sourceTree = "<group>";
+		};
+		4BCC4E7B1EFD73C300085A9A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */,
+				4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		4BDC374F1F012B28009F6E47 /* ShoppingCartDetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BDC37501F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift */,
+				4BDC374D1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift */,
+				4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */,
+			);
+			name = ShoppingCartDetailViewControllers;
+			sourceTree = "<group>";
+		};
+		4BE3DBA91EFAC44900DADA39 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4BE3DBAA1EFAC53400DADA39 /* public.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		4BE3DBAC1EFAD2B200DADA39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BE3DBAD1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift */,
+				4BE3DBAF1EFAD31300DADA39 /* LayoutSelectionView.swift */,
+				4BE3DBB11EFAD33300DADA39 /* PriceAndAddToCartView.swift */,
+				4BCC4E791EFD601B00085A9A /* BannersPostprintView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4BF0AAB11F0AC27100140C55 /* WorkDetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0AAAB1F0AB67100140C55 /* WorksDetailTableViewController.swift */,
+				4BF0AAAD1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift */,
+				4BF0AAAF1F0AB76200140C55 /* WorksDetailImageTableViewCell.swift */,
+			);
+			name = WorkDetailViewControllers;
+			sourceTree = "<group>";
+		};
+		4BF0AAB21F0AC29000140C55 /* OrderDetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B47F1931F094D3600172176 /* OrdersDetailViewController.swift */,
+				4BF0AAB31F0AC2C000140C55 /* OrdersDetailTableViewCell.swift */,
+				4BF0AAB51F0AC2D900140C55 /* OrdersDetailContainerView.swift */,
+			);
+			name = OrderDetailViewControllers;
+			sourceTree = "<group>";
+		};
+		4BF0C5111F0C0E1C001C3EA1 /* StorageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0C5121F0C0FFD001C3EA1 /* StorageTableViewController.swift */,
+			);
+			name = StorageViewControllers;
+			sourceTree = "<group>";
+		};
+		4BF1D6B11E83F1600027C82B /* MessengerViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD11C81E841F600026E152 /* Helpers */,
+				4BF1D6B41E83F19B0027C82B /* MessengerViews */,
+				4BF1D6B21E83F1810027C82B /* Model */,
 				4BFD11CB1E841F910026E152 /* ChatLogController.swift */,
 				4BFD11CE1E841F910026E152 /* MessagesController.swift */,
 				4BFD11CF1E841F910026E152 /* NewMessageController.swift */,
 				4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */,
 			);
-			name = MessengerControllers;
+			name = MessengerViewControllers;
 			sourceTree = "<group>";
 		};
 		4BF1D6B21E83F1810027C82B /* Model */ = {
@@ -452,14 +610,14 @@
 			name = MessengerViews;
 			sourceTree = "<group>";
 		};
-		4BF3D43A1EF6E1310061D337 /* CheckoutForm */ = {
+		4BF3D43A1EF6E1310061D337 /* CheckoutFormViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				4B0055241EF666E0002EAE4E /* CheckoutVC.swift */,
 				4B0055281EF67804002EAE4E /* CheckoutVCContainer.swift */,
 				4BF3D4381EF6DE6D0061D337 /* CheckoutVCOrderSender.swift */,
 			);
-			name = CheckoutForm;
+			name = CheckoutFormViewControllers;
 			sourceTree = "<group>";
 		};
 		4BF7186E1EBF1B0500D079D9 /* DeckTransition */ = {
@@ -481,31 +639,29 @@
 			children = (
 				4BFD11C91E841F6F0026E152 /* Extensions.swift */,
 				4BFB58ED1E8579FC0048E0C6 /* Avalon-Print-Bridging-Header.h */,
-				4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		4BFFD84D1E3E383D00710282 /* userProfile */ = {
+		4BFFD84D1E3E383D00710282 /* UserProfileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4B3F81AA1E226FC300034E3E /* UserProfile.swift */,
-				4BFFD84B1E3E383300710282 /* UpdateUserProfile.swift */,
-				4BC8241C1E3F8582004B6DCE /* MyOrdersTableVC.swift */,
-				4BC8241E1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift */,
+				4B47F17B1F08FEF600172176 /* UserProfileViewController.swift */,
+				4B47F17D1F08FF1A00172176 /* UserProfileViews */,
+				4B47F19C1F097C0D00172176 /* Menu */,
 			);
-			name = userProfile;
+			name = UserProfileViewControllers;
 			sourceTree = "<group>";
 		};
-		4BFFD84E1E3E385100710282 /* shoppingCart */ = {
+		4BFFD84E1E3E385100710282 /* ShoppingCartViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4B4288841EF5D9E00058B0C8 /* support */,
-				4B4288831EF5D99D0058B0C8 /* shoppingCartViews */,
+				4B4288831EF5D99D0058B0C8 /* ShoppingCartViews */,
+				4BDC374F1F012B28009F6E47 /* ShoppingCartDetailViewControllers */,
 				4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */,
 				4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */,
 			);
-			name = shoppingCart;
+			name = ShoppingCartViewControllers;
 			sourceTree = "<group>";
 		};
 		B5EA1A1B1B7B383300E1C1C3 = {
@@ -514,7 +670,6 @@
 				4BC903B51E9AFA9D00061FB4 /* Avalon-Print.entitlements */,
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
 				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
-				4B98B1461E217FD1003D725C /* Fonts */,
 				4B2D03B21DF78E5C00BF0B23 /* Support */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
 				2E2B9315D2A9134FFCED2CEF /* Frameworks */,
@@ -535,9 +690,6 @@
 			children = (
 				4B5FCE831DF0DB350080B034 /* pages */,
 				4B3F81B71E22702300034E3E /* AppDelegate.swift */,
-				4B3F81B81E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift */,
-				4B3F81B91E22702300034E3E /* Main.storyboard */,
-				4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */,
 				4B3F81BA1E22702300034E3E /* Assets.xcassets */,
 			);
 			name = "Avalon-print";
@@ -600,8 +752,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
+				ru,
 			);
 			mainGroup = B5EA1A1B1B7B383300E1C1C3;
 			productRefGroup = B5EA1A251B7B383300E1C1C3 /* Products */;
@@ -618,15 +771,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B3F81901E226E8D00034E3E /* Exo2-Regular.ttf in Resources */,
-				4BB66EED1E3793AF006D9447 /* HomeVCCell.xib in Resources */,
-				4BBED8D01E33EDC300A62636 /* MaterialsCollectionViewCell.xib in Resources */,
-				4B3F81CD1E2271D300034E3E /* LaunchScreen.storyboard in Resources */,
-				4B3F81BD1E22702300034E3E /* Main.storyboard in Resources */,
-				4B3F818F1E226E8D00034E3E /* Exo2-Light.ttf in Resources */,
+				4B9466121F0FF3B800B595A1 /* Localizable.strings in Resources */,
+				4B94661E1F12415100B595A1 /* HomeViewControllerCell.xib in Resources */,
 				4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */,
 				4B3F81BE1E22702300034E3E /* Assets.xcassets in Resources */,
-				4B3F818E1E226E8D00034E3E /* Exo2-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,91 +833,115 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B47F1901F0936D100172176 /* OrdersTableViewCell.swift in Sources */,
 				4B3FE8A11E44F34D00852A2A /* ARSProgressLoader.swift in Sources */,
-				4B3F81981E226F0800034E3E /* StickersVC.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
+				4BE3DBA81EFAC37600DADA39 /* HomeViewController.swift in Sources */,
 				4BF718801EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift in Sources */,
-				4B3F819F1E226F4000034E3E /* bannersComputing.swift in Sources */,
 				4B0055251EF666E0002EAE4E /* CheckoutVC.swift in Sources */,
-				4B3F81941E226EE900034E3E /* PostersVC.swift in Sources */,
-				4B3F81B51E226FC300034E3E /* UserProfile.swift in Sources */,
-				4B3F81A01E226F4000034E3E /* BannersVC.swift in Sources */,
-				4B3008AB1E2F888E0044654E /* customNavigationController.swift in Sources */,
+				4BE0C3611F13A87E00E6ED02 /* ResetPasswordViewController.swift in Sources */,
+				4BF0C5131F0C0FFD001C3EA1 /* StorageTableViewController.swift in Sources */,
+				4BDBFD231EFE762700010AEA /* DetailInformationViewController.swift in Sources */,
 				4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */,
-				4BC8241D1E3F8582004B6DCE /* MyOrdersTableVC.swift in Sources */,
-				4B3F81B31E226FC300034E3E /* Map.swift in Sources */,
-				4B894DF41E3E3137008D694D /* PasswordResetVC.swift in Sources */,
-				4BBED8CF1E33EDC300A62636 /* MaterialsCollectionViewCell.swift in Sources */,
-				4B3F81C41E22706100034E3E /* customNavigationBar.swift in Sources */,
+				4BE3DBA61EFAC2DA00DADA39 /* MainNavigationController.swift in Sources */,
+				4B3F81B31E226FC300034E3E /* MapViewController.swift in Sources */,
+				4BE3DBB21EFAD33300DADA39 /* PriceAndAddToCartView.swift in Sources */,
+				4BE3DBAB1EFAC53400DADA39 /* public.swift in Sources */,
+				4B47F17F1F08FF4400172176 /* UserProfileHeaderView.swift in Sources */,
+				4BDC374E1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift in Sources */,
 				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
-				4B9E4DBA1E4B517A00FB1591 /* HoshiTextField.swift in Sources */,
+				4BF0AAAE1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift in Sources */,
+				4B48FB1E1F0650A600A0E353 /* PasswordResetViewController.swift in Sources */,
 				4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */,
-				4BB66EEC1E3793AF006D9447 /* HomeVCCell.swift in Sources */,
+				4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */,
+				4B47F1831F09092700172176 /* UserProfileTableViewCell.swift in Sources */,
+				4B916E841F0A8344007F1A23 /* AvalonPalette.swift in Sources */,
+				4BF0AAB61F0AC2D900140C55 /* OrdersDetailContainerView.swift in Sources */,
+				4B78B8671F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift in Sources */,
 				4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */,
 				4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */,
 				4BFD11D91E841FA50026E152 /* ChatMessageCell.swift in Sources */,
+				4B48FB161F06446900A0E353 /* LoginViewController.swift in Sources */,
 				4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */,
+				4BE3DBB01EFAD31300DADA39 /* LayoutSelectionView.swift in Sources */,
 				4B3F81C51E22706100034E3E /* ENMBadgedBarButtonItem.swift in Sources */,
 				4B3FE89A1E44F34D00852A2A /* ARSInfiniteLoader.swift in Sources */,
+				4B25E4201F06AFC3007A10E1 /* HidingViewController.swift in Sources */,
 				4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */,
 				4B3DFEE11E3178CD00F508F7 /* HelpingFunctions.swift in Sources */,
-				4BFFD84C1E3E383300710282 /* UpdateUserProfile.swift in Sources */,
-				4B3F81B61E226FC300034E3E /* HomeVC.swift in Sources */,
 				4BFD11D31E841F910026E152 /* MessagesController.swift in Sources */,
 				4BFD11D01E841F910026E152 /* ChatLogController.swift in Sources */,
+				4B78B8681F1290D7000689B3 /* AboutMaterialsViewController.swift in Sources */,
+				4BDC37511F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift in Sources */,
 				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
-				4B3F81B41E226FC300034E3E /* RegistrationViewController.swift in Sources */,
-				4B17AA041EEE9B0A0096F562 /* LayoutZoomHandling.swift in Sources */,
 				4BBDDE831EF52975000CF3BE /* ShoppingCellContainerView.swift in Sources */,
-				4B17AA021EEE87D10096F562 /* PreviewZoomHandling.swift in Sources */,
 				4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */,
+				4BF0AAAC1F0AB67100140C55 /* WorksDetailTableViewController.swift in Sources */,
+				4BCC4E741EFD37A000085A9A /* StickersViewController.swift in Sources */,
 				4BFD11C61E841F520026E152 /* Message.swift in Sources */,
+				4BF0AAB01F0AB76200140C55 /* WorksDetailImageTableViewCell.swift in Sources */,
+				4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */,
 				4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */,
 				4BFD11C71E841F520026E152 /* User.swift in Sources */,
 				4BBDDE811EF51CB4000CF3BE /* CheckoutButtonView.swift in Sources */,
 				4BFD11D41E841F910026E152 /* NewMessageController.swift in Sources */,
 				4B3FE89F1E44F34D00852A2A /* ARSLineProgressProtocols.swift in Sources */,
-				4B3F81AF1E226FC300034E3E /* ContactsPageController.swift in Sources */,
 				4BFD11CA1E841F6F0026E152 /* Extensions.swift in Sources */,
+				4B48FB181F0644B200A0E353 /* LoginContainerView.swift in Sources */,
+				4B47F18E1F0936C000172176 /* OrdersHeaderVIew.swift in Sources */,
+				4BE0C3631F13A88700E6ED02 /* ResetPasswordContainerView.swift in Sources */,
 				4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */,
 				4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */,
-				4BBFC9C61E3A8738002090B1 /* LoginViewController.swift in Sources */,
+				4BE3DBAE1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift in Sources */,
+				4BCC4E7D1EFD9B9F00085A9A /* ContactsTableViewController.swift in Sources */,
 				4B00552B1EF68EC8002EAE4E /* AvalonUIButton.swift in Sources */,
-				4BC8241F1E3FB84C004B6DCE /* MyOrdersDetailTableVC.swift in Sources */,
 				4B0055291EF67804002EAE4E /* CheckoutVCContainer.swift in Sources */,
 				4B3FE89B1E44F34D00852A2A /* ARSLineProgress.swift in Sources */,
-				4B3F819C1E226F2D00034E3E /* CanvasVC.swift in Sources */,
-				4BBFC9C41E3A8179002090B1 /* ButtonMockup.swift in Sources */,
-				4B17D3251E33F2790070DE27 /* ExpandingMaterialViewController.swift in Sources */,
+				4BCC4E781EFD507700085A9A /* BannersViewController.swift in Sources */,
+				4B7E59021F0E1A13003945D5 /* EditProfileContainerView.swift in Sources */,
 				4B3FE89E1E44F34D00852A2A /* ARSLineProgressExtensions.swift in Sources */,
+				4B47F18C1F0936AA00172176 /* OrdersViewController.swift in Sources */,
 				4BF3D4391EF6DE6D0061D337 /* CheckoutVCOrderSender.swift in Sources */,
-				4BBDDE851EF5695E000CF3BE /* ModalNavigationBarView.swift in Sources */,
+				4B48FB201F0650BF00A0E353 /* PasswordResetContainerView.swift in Sources */,
+				4BE3DBB41EFAD37200DADA39 /* PostersViewController.swift in Sources */,
 				4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */,
 				4B0055271EF67461002EAE4E /* AvalonUITextField.swift in Sources */,
 				4BF718811EBF1BCC00D079D9 /* DeckSegue.swift in Sources */,
 				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
+				4B47F17C1F08FEF600172176 /* UserProfileViewController.swift in Sources */,
 				4BF718831EBF1BCC00D079D9 /* Utilities.swift in Sources */,
-				4B3F81BC1E22702300034E3E /* FirebaseCalculationsDataRetrieving.swift in Sources */,
-				4B3F81B01E226FC300034E3E /* InformationDetail.swift in Sources */,
-				4B3F81B11E226FC300034E3E /* InformationPageController.swift in Sources */,
+				4B78B8661F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift in Sources */,
+				4B25E41F1F06AFC3007A10E1 /* HidingNavigationBarManager.swift in Sources */,
+				4BCC4E761EFD438000085A9A /* CanvasViewController.swift in Sources */,
+				4BE3DBB61EFB120000DADA39 /* AvalonUIButtonLight.swift in Sources */,
 				4BF7187F1EBF1BCC00D079D9 /* DeckPresentationController.swift in Sources */,
+				4BDBFD211EFE6D6400010AEA /* InformationTableViewController.swift in Sources */,
 				4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */,
-				4B9E4DBB1E4B517A00FB1591 /* TextFieldsEffects.swift in Sources */,
+				4B48FB1A1F06504700A0E353 /* RegistrationViewController.swift in Sources */,
+				4BCC4E7A1EFD601B00085A9A /* BannersPostprintView.swift in Sources */,
+				4B7E59001F0E19C5003945D5 /* EditProfileViewController.swift in Sources */,
+				4BF0AAB41F0AC2C000140C55 /* OrdersDetailTableViewCell.swift in Sources */,
 				4B3FE8671E44B59200852A2A /* InitialImageView.swift in Sources */,
 				4BF718821EBF1BCC00D079D9 /* DeckTransitioningDelegate.swift in Sources */,
+				4B0E8BBD1F02AEA100DF8580 /* PictureZoomHandling.swift in Sources */,
+				4B48FB1C1F06506400A0E353 /* RegistrationContainerView.swift in Sources */,
+				4B47F1941F094D3600172176 /* OrdersDetailViewController.swift in Sources */,
+				4BCC4E7F1EFDA4DC00085A9A /* ContactsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4B3F81CB1E2271D300034E3E /* LaunchScreen.storyboard */ = {
+		4B9466141F0FF3B800B595A1 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4B3F81CC1E2271D300034E3E /* Base */,
+				4B9466151F0FF3C100B595A1 /* en */,
+				4B9466161F0FF3CB00B595A1 /* ru */,
 			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
+			name = Localizable.strings;
+			path = "Avalon-print/Localization";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
@@ -779,6 +951,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -827,6 +1000,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

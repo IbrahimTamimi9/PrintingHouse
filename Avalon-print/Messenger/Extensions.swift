@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import SDWebImage
 
 let imageCache = NSCache<NSString, UIImage>()
 
@@ -18,7 +18,14 @@ extension UIImageView {
         
         //self.image = nil
        // let placeholderIMG = UIImage(named: "placeholderProfileImage.png")
-      self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .continueInBackground])
+      
+//      if SDWebImageManager.shared().cachedImageExists(for: URL(string: urlString)) {
+//        
+//      }
+      DispatchQueue.main.async {
+          self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .lowPriority])
+      }
+  
       
     //  sd_setImage(with: URL(string: urlString))
      // let sss = UIImageView.self

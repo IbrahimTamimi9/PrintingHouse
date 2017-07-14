@@ -16,11 +16,15 @@ import FirebaseStorage
 
 extension CheckoutVC { /* handling sending order to firebase */
   
+ 
   
   func orderSent () {
     
-    let alert = UIAlertController(title: "Ваш заказ успешно отправлен",
-                                  message: "Наш менеджер свяжется с вами в ближайшее время, спасибо за доверие.",
+    let localizableOrderPlacedAlertTitle = NSLocalizedString("CheckoutVCOrderSender.orderSent.alert.title", comment: "")
+    let localizableOrderPlacedAlertMessage = NSLocalizedString("CheckoutVCOrderSender.orderSent.alert.message", comment: "")
+    
+    let alert = UIAlertController(title: localizableOrderPlacedAlertTitle,
+                                  message: localizableOrderPlacedAlertMessage,
                                   preferredStyle: UIAlertControllerStyle.alert)
     
     alert.addAction(UIAlertAction(title: "Oк", style: UIAlertActionStyle.default) { UIAlertAction in
@@ -37,6 +41,7 @@ extension CheckoutVC { /* handling sending order to firebase */
     
     print("tapped")
     self.view.isUserInteractionEnabled = false
+    
     ARSLineProgress.showWithProgress(initialValue: 0) {
       self.view.isUserInteractionEnabled = true
       self.orderSent()
@@ -51,24 +56,41 @@ extension CheckoutVC { /* handling sending order to firebase */
     
     var monthString = String()
     
-    if month == 1 { monthString = "января" }
-    if month == 2 { monthString = "февраля" }
-    if month == 3 { monthString = "марта" }
-    if month == 4 { monthString = "апреля" }
-    if month == 5 { monthString = "мая" }
-    if month == 6 { monthString = "июня" }
-    if month == 7 { monthString = "июля" }
-    if month == 8 { monthString = "августа" }
-    if month == 9 { monthString = "сентября" }
-    if month == 10 { monthString = "октября" }
-    if month == 11 { monthString = "ноября" }
-    if month == 12 { monthString = "декабря" }
+//    if month == 1 { monthString = "января" }
+//    if month == 2 { monthString = "февраля" }
+//    if month == 3 { monthString = "марта" }
+//    if month == 4 { monthString = "апреля" }
+//    if month == 5 { monthString = "мая" }
+//    if month == 6 { monthString = "июня" }
+//    if month == 7 { monthString = "июля" }
+//    if month == 8 { monthString = "августа" }
+//    if month == 9 { monthString = "сентября" }
+//    if month == 10 { monthString = "октября" }
+//    if month == 11 { monthString = "ноября" }
+//    if month == 12 { monthString = "декабря" }
+    
+    if month == 1 { monthString = "01" }
+    if month == 2 { monthString = "02" }
+    if month == 3 { monthString = "03" }
+    if month == 4 { monthString = "04" }
+    if month == 5 { monthString = "05" }
+    if month == 6 { monthString = "06" }
+    if month == 7 { monthString = "07" }
+    if month == 8 { monthString = "08" }
+    if month == 9 { monthString = "09" }
+    if month == 10 { monthString = "10" }
+    if month == 11 { monthString = "11" }
+    if month == 12 { monthString = "12" }
+
     
     
     //order info
-    var orderInfoBlock: FIRDatabaseReference!
+    var orderInfoBlock: DatabaseReference!
     
-    orderInfoBlock = FIRDatabase.database().reference().child("orders").child("Заказ № \(ordersCount + 1)")
+   //  let orderId = FIRDatabase.database().reference().child("orders").childByAutoId()
+    orderInfoBlock = Database.database().reference().child("orders").childByAutoId()//.child("Заказ \(orderId.key))")
+   
+    
     
     let orderInfoLabel = "orderInfo"
     let createdAtLabel = "createdAt"
@@ -87,7 +109,7 @@ extension CheckoutVC { /* handling sending order to firebase */
     
     let orderInfoContent: NSDictionary = [
       "orderStatus": "Новый заказ",
-      "dateOfPlacement": ("\(day) \(monthString) \(year)"),
+      "dateOfPlacement": ("\(day).\(monthString).\(year)"),
       "fullPrice": totalprice,
       "fullNDSPrice": totalNDSprice,
       "comments": containerView.comments.text!,
@@ -105,7 +127,7 @@ extension CheckoutVC { /* handling sending order to firebase */
     let userInfoToOrderInfoContent: NSDictionary = [ "userEmail": containerView.email.text!,
                                                      "userName": containerView.name.text!,
                                                      "userPhone": containerView.phone.text!,
-                                                     "userUniqueID": FIRAuth.auth()?.currentUser?.uid as Any ]
+                                                     "userUniqueID": Auth.auth().currentUser?.uid as Any ]
     
     let userInfoToOrderInfo = orderInfoBlock.child(userInfoToOrderInfoLabel)
     userInfoToOrderInfo.setValue(userInfoToOrderInfoContent)
@@ -118,7 +140,7 @@ extension CheckoutVC { /* handling sending order to firebase */
     
     for i in(0..<addedItems.count) {
       
-      let exactOrderID = "work\(i)"
+      let exactOrderID = orderInfoBlock.childByAutoId().key
       
       let works = addedItems[i]
       
@@ -126,7 +148,9 @@ extension CheckoutVC { /* handling sending order to firebase */
       
       if works.layoutLink != "" { /* means if it is a shopping card with layout link (without image) */
         
-        contentOfWork =  [ "mainData": works.list!,
+        contentOfWork =  [ "productionType": works.productType!,
+                           "mainData": works.list!,
+                           "postprint": works.postprint!,
                            "price": works.price!,
                            "ndsprice": works.ndsPrice!,
                            "printLayoutURL": works.layoutLink! ]
@@ -145,7 +169,9 @@ extension CheckoutVC { /* handling sending order to firebase */
         
         uploadToFirebaseStorageUsingImage(layoutForRow!, completion: { (imageUrl) in
           
-          contentOfWork =  [ "mainData": works.list!,
+          contentOfWork =  [ "productionType": works.productType!,
+                             "mainData": works.list!,
+                             "postprint": works.postprint!,
                              "price": works.price!,
                              "ndsprice": works.ndsPrice!,
                              "printLayoutURL": imageUrl ]
@@ -179,11 +205,11 @@ extension CheckoutVC { /* handling sending order to firebase */
   fileprivate func uploadToFirebaseStorageUsingImage(_ image: UIImage, completion: @escaping (_ imageUrl: String) -> ()) {
     
     let imageName = UUID().uuidString
-    let ref = FIRStorage.storage().reference().child("print_Layouts").child(imageName)
+    let ref = Storage.storage().reference().child("print_Layouts").child(imageName)
     
     if let uploadData = UIImageJPEGRepresentation(image, 1.0) {
       
-      let uploadTask = ref.put(uploadData, metadata: nil, completion: { (metadata, error) in
+      let uploadTask = ref.putData(uploadData, metadata: nil, completion: { (metadata, error) in
         
         if error != nil {
           print("Failed to upload image:", error as Any)

@@ -46,11 +46,11 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
             let scale: CGFloat = 1 - (40/presentingViewController.view.frame.height)
             presentingViewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
             presentingViewController.view.alpha = 0.8
-            presentingViewController.view.layer.cornerRadius = 8
+            presentingViewController.view.layer.cornerRadius = 7
 			presentingViewController.view.layer.masksToBounds = true
             
             presentedViewController.view.frame = frameOfPresentedViewInContainerView
-            presentedViewController.view.round(corners: [.topLeft, .topRight], withRadius: 8)
+            presentedViewController.view.round(corners: [.topLeft, .topRight], withRadius: 10)
             
             pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
             pan!.delegate = self

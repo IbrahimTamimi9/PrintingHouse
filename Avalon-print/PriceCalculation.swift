@@ -20,21 +20,43 @@ extension String {
   }
 }
 
+ let priceLocalizedLabel = NSLocalizedString("PriceCalculation.priceLocalizedLabel", comment: "")
+ let ndsPriceLocalizedLabel = NSLocalizedString("PriceCalculation.ndsPriceLocalizedLabel", comment: "")
+ let currencyTypeLocalizedLabel = NSLocalizedString("PriceCalculation.currencyTypeLocalizedLabel", comment: "")
 
 var currentPageData = currentPageDataStatus()
 
+
+
 struct currentPageDataStatus {
   
-  var amountIsEmpty = true
-  var widthOrHeightIsEmpty = true
+  //var amountIsEmpty = true
+  //var widthOrHeightIsEmpty = true
+  var viewControllersPriceBlock = PriceAndAddToCartView()
+  var viewControllersLayoutBlock = LayoutSelectionView()
   var withUnderframe = false
+  
+  var luversAmount = ""
+  var pocketsLength = ""
+  
   var amount = ""
   var width = ""
   var height = ""
-  var price = "0"
-  var ndsPrice = "0"
   
-  mutating func resetDataBeforeChangingPage() {
+  var price = "0" {
+        didSet {
+        viewControllersPriceBlock.price.text = "\(priceLocalizedLabel): \(price) \(currencyTypeLocalizedLabel).\n\(ndsPriceLocalizedLabel): \(ndsPrice) \(currencyTypeLocalizedLabel)."
+        }
+      }
+  
+  var ndsPrice = "0" {
+    didSet {
+      viewControllersPriceBlock.price.text = "\(priceLocalizedLabel): \(price) \(currencyTypeLocalizedLabel).\n\(ndsPriceLocalizedLabel): \(ndsPrice) \(currencyTypeLocalizedLabel)."
+    }
+  }
+
+  
+mutating func resetDataBeforeChangingPage() {
     
     self = currentPageDataStatus()
     
@@ -52,16 +74,12 @@ func calculatePriceOfSelectedProduct() {
   let postPrintMaterialPrice = priceData.postPrintMaterialPrice
   let postPrintWorkPrice = priceData.postPrintWorkPrice
   
-  if( currentPageData.amountIsEmpty == true || currentPageData.widthOrHeightIsEmpty == true )  {
-    
-    currentPageData.price = "0"
-    currentPageData.ndsPrice = "0"
+if (materialPrice == 0.0 || printPrice == 0.0) && (postPrintMaterialPrice != 0.0 || postPrintWorkPrice != 0.0) {
    
-  } else if (materialPrice == 0.0 || printPrice == 0.0) && (postPrintMaterialPrice != 0.0 || postPrintWorkPrice != 0.0) {
-    
     currentPageData.price = "0"
     currentPageData.ndsPrice = "0"
   } else {
+  
     getPosterStickerPrice (materialPrice: materialPrice, materialPrintPrice: printPrice,
                             postprint: postPrintMaterialPrice, workPostprint: postPrintWorkPrice )
     
@@ -76,11 +94,30 @@ func getPosterStickerPrice (materialPrice: Double , materialPrintPrice: Double, 
   var amount = Double()
   var custom_wi = Double()
   var custom_he = Double()
+  
+ 
+  
+  
+  
 
   amount = currentPageData.amount.doubleValue //количество
   custom_wi = currentPageData.width.convertToDemicalIfItIsNot
   custom_he = currentPageData.height.convertToDemicalIfItIsNot
   
+  // for banners
+  let pocketsLength = currentPageData.pocketsLength.convertToDemicalIfItIsNot //
+  let luversAmount = currentPageData.luversAmount.convertToDemicalIfItIsNot//
+  let luversPrice = priceData.luversPrice
+  let pocketsPrice = priceData.pocketsPrice
+  var bannersPostPrintSum = Double()
+  
+  if custom_he == 0.0 || custom_wi == 0.0 {
+    bannersPostPrintSum = 0.0
+  } else {
+    bannersPostPrintSum = ((pocketsLength * pocketsPrice) + (luversAmount * luversPrice)) * amount
+  }
+  
+  //
   
 // if selected page is canvas page ======================================
   let underframePriceLengthMeter = 120.0
@@ -105,9 +142,9 @@ func getPosterStickerPrice (materialPrice: Double , materialPrintPrice: Double, 
   
   let squareMeters = custom_he * custom_wi
 
-  let currency_course = JSONVariables.USD
-  let NDS = JSONVariables.NDS
-  let overprice1 = JSONVariables.OVERPRICE1
+  let currency_course = generalDataForCalculations.USD
+  let NDS = generalDataForCalculations.NDS
+  let overprice1 = generalDataForCalculations.OVERPRICE1
   let maxPercentOfDiscount = 19
   
   
@@ -127,7 +164,7 @@ func getPosterStickerPrice (materialPrice: Double , materialPrintPrice: Double, 
   let materialSum = materialPrintPriceM2 + materialPriceM2 * overprice1
   let postprintSum = postprintMaterial + postprintWork
   
-  price = Int((currency_course * ( (postprintSum) + amount * materialSum * squareMeters)) + underframeSum )
+  price = Int((currency_course * ( (postprintSum) + amount * materialSum * squareMeters)) + underframeSum + bannersPostPrintSum)
   
   //MARK: DISCOUNT
   if(price >= 150)  { price = (price - (price * 5)/100); }
@@ -137,5 +174,44 @@ func getPosterStickerPrice (materialPrice: Double , materialPrintPrice: Double, 
   
   currentPageData.price =  String(price)
   currentPageData.ndsPrice = String((price + ((price * NDS)/100) ))
+  chooseAddToCartButtonState()
 }
+
+
+func chooseAddToCartButtonState () {
+  
+  let priceBlock = currentPageData.viewControllersPriceBlock
+  let layoutBlock = currentPageData.viewControllersLayoutBlock
+  
+  
+  if priceBlock.addToCart.titleLabel?.text == priceBlock.addToCartButtonTitleAfterTapping {
+    priceBlock.addToCart.setTitle(priceBlock.addToCartButtonTitleBeforeTapping, for: .normal)
+  }
+  
+
+  if currentPageData.price == "0" {
+    
+    priceBlock.addToCart.isEnabled = false
+  
+  } else {
+    
+    if layoutBlock.layout.image == nil &&
+      !layoutBlock.layoutDevSwitch.isOn &&
+       layoutBlock.layoutLinkField.text == "" {
+      
+       priceBlock.addToCart.isEnabled  = false
+      
+    } else {
+    
+      priceBlock.addToCart.isEnabled = true
+    }
+  }
+ 
+}
+
+
+
+
+
+
 

@@ -13,6 +13,9 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let presentingViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         let presentedViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+    
+
         
         let containerView = transitionContext.containerView
         
@@ -20,7 +23,7 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
         
         containerView.addSubview(presentedViewController.view)
         presentedViewController.view.frame = offScreenFrame
-        
+         rootViewController?.view.alpha = 0
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,
@@ -29,11 +32,13 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
                 let scale: CGFloat = 1 - (40/presentingViewController.view.frame.height)
                 presentingViewController.view.transform = CGAffineTransform(scaleX: scale, y: scale)
                 presentingViewController.view.alpha = 0.8
-				presentingViewController.view.layer.cornerRadius = 8
-				presentingViewController.view.layer.masksToBounds = true
+                presentingViewController.view.layer.cornerRadius = 7
+                presentingViewController.view.layer.masksToBounds = true
+                UIApplication.shared.statusBarStyle = .lightContent
+        
 				
                 presentedViewController.view.frame = transitionContext.finalFrame(for: presentedViewController)
-                presentedViewController.view.round(corners: [.topLeft, .topRight], withRadius: 8)
+                presentedViewController.view.round(corners: [.topLeft, .topRight], withRadius: 10)
             }, completion: { _ in
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }

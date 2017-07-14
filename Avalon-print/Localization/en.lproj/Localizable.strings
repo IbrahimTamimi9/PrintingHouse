@@ -1,0 +1,150 @@
+/* 
+  Localizable.strings
+  Avalon-Print
+
+  Created by Roman Mizin on 7/7/17.
+  Copyright © 2017 Roman Mizin. All rights reserved.
+*/
+
+
+//Homepage and titles
+"HomeViewController.NavigationItem.title" = "Home";
+
+"HomeViewController.items.posters" = "Posters";
+"HomeViewController.items.banners" = "Banners";
+"HomeViewController.items.stickers" = "Stickers";
+"HomeViewController.items.canvas" = "Canvas";
+"HomeViewController.items.contacts" = "Contacts";
+"HomeViewController.items.information" = "Information";
+
+//production ordering view controllers
+"PostersStickersCanvasTopBlockView.amountField.placeholder" = "Quantity";
+"PostersStickersCanvasTopBlockView.materialField.placeholder" = "Choose material";
+"PostersStickersCanvasTopBlockView.widthField.placeholder" = "Width (m)";
+"PostersStickersCanvasTopBlockView.heightField.placeholder" = "Height (m)";
+"PostersStickersCanvasTopBlockView.postprintField.placeholder" = "Without post-printing works";
+
+"PostersStickersCanvasTopBlockView.oversizeAlertTitle" = "Maximum size exceeded";
+"PostersStickersCanvasTopBlockView.oversizeAlertMessage" = "Maximum width";
+
+//banners postprint
+"BannersPostprintView.luversTitle.text" = "Installation of eyelets";
+"BannersPostprintView.luversAmountField.placeholder" = "Number of eyelets in one product";
+"BannersPostprintView.pocketsTitle.text" = "Welding of pockets, seams";
+"BannersPostprintView.pocketsLengthField.placeholder" = "The total length of the pocket (m)";
+
+//layout selection
+"LayoutSelectionView.attachLayoutTitleBeforeTapping" = "Attach";
+"LayoutSelectionView.attachLayoutTitleAfterTapping" = "Delete";
+"LayoutSelectionView.layoutTitle.text" = "Layout";
+"LayoutSelectionView.layoutDevelopmentTitle.text" = "Develop layout design";
+"LayoutSelectionView.layoutLinkField.text" = "Link to the Layout";
+
+//price and add to cart
+"PriceAndAddToCartView.addToCartButtonTitleAfterTapping" = "Open cart";
+"PriceAndAddToCartView.addToCartButtonTitleBeforeTapping" = "Add to cart";
+"PriceAndAddToCartView.price.text" = "Price: 0 uah.\nPrice with VAT: 0 uah.";
+
+//price calculation labels
+"PriceCalculation.priceLocalizedLabel" = "Price";
+"PriceCalculation.ndsPriceLocalizedLabel" = "Price with VAT";
+"PriceCalculation.currencyTypeLocalizedLabel" = "uah";
+
+
+//ordering general
+"OrderingViewControllers.SelectedLayoutDevelopment" = "layout design development";
+
+
+//shopping cart
+"ShoppingCartVC.editButtonItem.basicTitle" = "Edit";
+"ShoppingCartVC.editButtonItem.doneTitle" = "Done";
+"ShoppingCartVC.sumLocalizedLabel" = "Total";
+"ShoppingCartVC.ndsSumLocalizedLabel" = "with VAT";
+"ShoppingCartVC.titleForDeleteConfirmationButtonForRowAt" = "Delete";
+"ShoppingCartVC.header.textLabel.text" = "Shopping cart";
+"CheckoutButtonView.checkout.title" = "Checkout";
+
+//shoppingCart detail
+"ShoppingCartDetailTableViewController.title" = "Information";
+
+//information
+"InformationTableViewController.cellTitle.paymentAndDelivery" = "Payment and delivery";
+"InformationTableViewController.cellTitle.requirementsToLayouts" = "Requirements to layouts";
+"InformationTableViewController.cellTitle.layoutDesignDevlopment" = "Layout design development";
+"InformationTableViewController.forAdvertisingAgencies" = "For advertising agencies";
+
+//map
+"MapViewController.title" = "Map";
+
+
+//contacts
+"ContactsTableViewController.navigationItem.rightBarButtonItem.title" = "Adress and map";
+
+//checkoutForm
+"CheckoutVCContainer.placeOdredLocalizableTitle" = "Place order";
+"CheckoutVCContainer.viewLocalizableTitle" = "Checkout";
+"CheckoutVCContainer.deliveryLocalizableTitle" = "Delivery (+50 UAH)";
+"CheckoutVCContainer.commentsLocalizableTitle" = "Comments";
+
+"CheckoutVCContainer.namePlaceholderLocalizableTitle" = "Name";
+"CheckoutVCContainer.phonePlaceholderLocalizableTitle" = "Phone number";
+"CheckoutVCContainer.emailPlaceholderLocalizableTitle" = "E-mail";
+"CheckoutVCContainer.adressPlaceholderLocalizableTitle" = "Delivery adress";
+
+//order sender
+"CheckoutVCOrderSender.orderSent.alert.title" = "Your order has successfully been placed";
+"CheckoutVCOrderSender.orderSent.alert.message" = "Our manager will contact you soon, thank you for your trust.";
+
+
+//contacts
+"ContactsTableViewController.headerText" = "Working hours: 10.00 - 18.00 on weekdays\n\nWeb-site: avalon-print.com\n\nE-mail: print@avalon-print.com";
+
+"ContactsTableViewController.officeNumbers.officeNumberLocalizable" = "Office: (044) 503-06-60";
+"ContactsTableViewController.officeNumbers.mtsNumberLocalizable" = "MTS: (050) 814-83-33";
+"ContactsTableViewController.officeNumbers.lifecellNumberLocalizable" = "Lifecell: (093) 000-18-64";
+
+"ContactsTableViewController.mobileNumbers.managerEvgeniyLocalizable" = "Evgeniy: (067) 214-34-04";
+"ContactsTableViewController.mobileNumbers.managerYriyNumberLocalizable" = "Yuriy: (067) 327-94-92";
+"ContactsTableViewController.mobileNumbers.managerAlexeyNumberLocalizable" = "Aleksey: (067) 441-16-44";
+
+"ContactsTableViewController.titleForHeaderInSection.one" = "Office phone numbers";
+"ContactsTableViewController.titleForHeaderInSection.two" = "Manager phone numbers";
+
+
+
+//map
+"MapViewController.annotation.title" = "Avalon-print";
+"MapViewController.annotation.subtitle" = "41/22, Ivana Kudri str.";
+
+//info about materials
+"AboutMaterialsViewController.viewTitle.text" = "Materials";
+"ExpandingMaterialTableViewController.titleForHeaderInSection.one" = "Characteristics";
+"ExpandingMaterialTableViewController.titleForHeaderInSection.two" = "Description";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

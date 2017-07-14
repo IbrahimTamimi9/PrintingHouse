@@ -7,69 +7,118 @@
 //
 
 import UIKit
-import expanding_collection
 
- var dataArray = ["Плотность: 140","Покрытие меловка","макс ширина 1000"]
+ var dataArray = ["Название: Material", "Плотность: 140","Покрытие меловка","макс ширина 1000"]
+
  var secondSection = ["Быстросохнущая микропористая постерная бумага с белой поверхностью, сатиновым покрытием для печати сольвентными и экосольвентными чернилами. Печатная поверхность может принять большое количество чернил, обеспечивая хорошее качество печати рекламных плакатов, чернила не растекаются. Рекомендуется для интерьерной и наружной рекламы. Бумагу можно защищать как горячей, так и холодной ламинацией."]
 
-
-
-class ExpandingMaterialTableViewController: ExpandingTableViewController {
+class ExpandingMaterialTableViewController: UITableViewController {
   
     fileprivate var scrollOffsetY: CGFloat = 0
 
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        }
+      self.title = items[currentSelectedMaterialInfoCell].title
+      
+      tableView.backgroundColor = UIColor.white
+      view.backgroundColor = UIColor.white
+ 
+      tableView.separatorStyle = .none
+      
+      let leftButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft"), style: .plain, target: self, action: #selector(back(sender:)))
+    
+      navigationItem.leftBarButtonItem = leftButton
+    }
+  
+  
+  func back(sender: UIBarButtonItem) {
+    dismiss(animated: true, completion: nil)
+  }
+  
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return 3
   }
+  
   
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    
-    if section == 0 {
-      return "Характеристики"
+    if section == 0 { return ""}
+    if section == 1 {
+      return NSLocalizedString("ExpandingMaterialTableViewController.titleForHeaderInSection.one", comment: "")//"Характеристики"
+    } else {
+    return NSLocalizedString("ExpandingMaterialTableViewController.titleForHeaderInSection.two", comment: "") //"Описание"
     }
-    return "Описание"
   }
   
+
+  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    
+    if section == 0 {
+      let header = view as! UITableViewHeaderFooterView
+      header.textLabel?.textColor = UIColor.white
+      let headerImage = UIImage(named: items[currentSelectedMaterialInfoCell].imageName)
+      let headerImageView = UIImageView(image: headerImage)
+      headerImageView.contentMode = .scaleAspectFill
+      header.backgroundView = headerImageView
+      
+    } else {
+    
+    let header = view as! UITableViewHeaderFooterView
+    header.textLabel?.font = UIFont.systemFont(ofSize: 20)
+    header.textLabel?.textColor = UIColor.black
+    }
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    if section == 0 {
+      return 300
+    }
+    
+      return 60
+  }
+  
+ 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    if section == 0 {
+    if section == 1 {
       return dataArray.count
     }
-      
-      return secondSection.count
     
-  }
-  
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == 1 {
-      return 180
+    if section == 2 {
+      return secondSection.count
     }
     
-      return 44
+      return 0
+  }
+  
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    if indexPath.section == 1 { return 44 }
+    
+    if indexPath.section == 2 { return 180 }
+      return 0
     }
   
  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-     cell.textLabel?.numberOfLines = 10
+    let identifier = "cell"
+    
+    let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: .default, reuseIdentifier: identifier)
+    
+     cell.textLabel?.numberOfLines = 0
      cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
     
-    if indexPath.section == 0 {
+    if indexPath.section == 1 {
        cell.textLabel?.text = dataArray[indexPath.row]
     }
     
-    if indexPath.section == 1 {
+    if indexPath.section == 2 {
       
       cell.textLabel?.text = secondSection[indexPath.row]
     }
-    
-    
     
     return cell
   }
@@ -79,24 +128,7 @@ class ExpandingMaterialTableViewController: ExpandingTableViewController {
             scrollOffsetY = scrollView.contentOffset.y
         }
     
-   
-        
-    @IBAction func dismiss(_ sender: Any) {
-        popTransitionAnimation()
-        
-       }
-    }
+}
     
     
-    
-//    @IBAction func dismissTBV(_ sender: Any) {
-//        let viewControllers: [ExpandingMaterialViewController?] = navigationController?.viewControllers.map { $0 as? ExpandingMaterialViewController } ?? []
-//        
-//        popTransitionAnimation()
-//    }
-
-//}
-
-// MARK: UIScrollViewDelegate
-
-
+ 

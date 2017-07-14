@@ -14,20 +14,31 @@ import FirebaseStorage
 
 class CheckoutVCContainer: UIView {
   
+  let placeOdredLocalizableTitle = NSLocalizedString("CheckoutVCContainer.placeOdredLocalizableTitle", comment: "")
+  let viewLocalizableTitle = NSLocalizedString("CheckoutVCContainer.viewLocalizableTitle", comment: "")
+  let deliveryLocalizableTitle = NSLocalizedString("CheckoutVCContainer.deliveryLocalizableTitle", comment: "")
+  let commentsLocalizableTitle = NSLocalizedString("CheckoutVCContainer.commentsLocalizableTitle", comment: "")
+  
+  let namePlaceholderLocalizableTitle = NSLocalizedString("CheckoutVCContainer.namePlaceholderLocalizableTitle", comment: "")
+  let phonePlaceholderLocalizableTitle = NSLocalizedString("CheckoutVCContainer.phonePlaceholderLocalizableTitle", comment: "")
+  let emailPlaceholderLocalizableTitle = NSLocalizedString("CheckoutVCContainer.emailPlaceholderLocalizableTitle", comment: "")
+  let adressPlaceholderLocalizableTitle = NSLocalizedString("CheckoutVCContainer.adressPlaceholderLocalizableTitle", comment: "")
+  
+  
   
   let dismiss: UIButton = {
     let dismiss = UIButton()
     // dismiss.addTarget(self, action: #selector(ShoppingCartVC.rightBarButtonTapped), for: .touchUpInside)
     dismiss.translatesAutoresizingMaskIntoConstraints = false
     dismiss.contentMode = .scaleAspectFit
-    dismiss.setImage(UIImage(named: "Arrow-DownWhite"), for: .normal)
+    dismiss.setImage(UIImage(named: "ArrowDown"), for: .normal)
     
     return dismiss
   }()
   
   let placeOrder: AvalonUIButton = {
     let placeOrder = AvalonUIButton()
-    placeOrder.setTitle("Заказать", for: .normal)
+   
     placeOrder.addTarget(self, action: #selector(CheckoutVC.placeOrderTapped), for: .touchUpInside)
     placeOrder.translatesAutoresizingMaskIntoConstraints = false
     placeOrder.isEnabled = false
@@ -37,9 +48,8 @@ class CheckoutVCContainer: UIView {
   
   let viewTitle: UILabel = {
     let title = UILabel()
-    title.text = "Оформление заказа"
-    title.font =  UIFont.systemFont(ofSize: 18, weight: 21)
-    title.textColor = UIColor.white
+   
+    title.font =  UIFont.systemFont(ofSize: 24)
     title.translatesAutoresizingMaskIntoConstraints = false
     
     return title
@@ -47,9 +57,8 @@ class CheckoutVCContainer: UIView {
   
   let deliveryTitle: UILabel = {
     let deliveryTitle = UILabel()
-    deliveryTitle.text = "Доставка (+50грн)"
-    deliveryTitle.font =  UIFont.systemFont(ofSize: 17, weight: 21)
-    deliveryTitle.textColor = UIColor.white
+   
+    deliveryTitle.font =  UIFont.systemFont(ofSize: 17)
     deliveryTitle.translatesAutoresizingMaskIntoConstraints = false
     
     return deliveryTitle
@@ -57,9 +66,8 @@ class CheckoutVCContainer: UIView {
   
   let commentsTitle: UILabel = {
     let commentsTitle = UILabel()
-    commentsTitle.text = "Коментарий к заказу..."
-    commentsTitle.font =  UIFont.systemFont(ofSize: 17, weight: 21)
-    commentsTitle.textColor = UIColor.white
+    
+    commentsTitle.font =  UIFont.systemFont(ofSize: 17)
     commentsTitle.translatesAutoresizingMaskIntoConstraints = false
     
     return commentsTitle
@@ -67,7 +75,7 @@ class CheckoutVCContainer: UIView {
   
   let name: AvalonUITextField = {
     let name = AvalonUITextField()
-    name.placeholder = "Имя"
+   
     name.translatesAutoresizingMaskIntoConstraints = false
     name.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     
@@ -76,18 +84,21 @@ class CheckoutVCContainer: UIView {
   
   let phone: AvalonUITextField = {
     let phone = AvalonUITextField()
-    phone.placeholder = "Номер телефона"
+   
     phone.translatesAutoresizingMaskIntoConstraints = false
     phone.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    phone.keyboardType = .numberPad
     
     return phone
   }()
   
   let email: AvalonUITextField = {
     let email = AvalonUITextField()
-    email.placeholder = "Эл. почта"
+   
     email.translatesAutoresizingMaskIntoConstraints = false
     email.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    email.keyboardType = .emailAddress
+    
     
     return email
   }()
@@ -95,7 +106,7 @@ class CheckoutVCContainer: UIView {
   let deliveryAdress: AvalonUITextField = {
     let deliveryAdress = AvalonUITextField()
     deliveryAdress.isEnabled = false
-    deliveryAdress.placeholder = "Адрес доставки"
+   
     deliveryAdress.translatesAutoresizingMaskIntoConstraints = false
     
     return deliveryAdress
@@ -105,7 +116,9 @@ class CheckoutVCContainer: UIView {
     let comments = UITextView()
     comments.translatesAutoresizingMaskIntoConstraints = false
     comments.layer.cornerRadius = 10
-    
+    comments.backgroundColor = AvalonPalette.avalonTextFieldBackground
+  //  comments.addTarget(self, action: #selector(CheckoutVC.textViewDidBeginEditing(textView:notification:)), for: .editingChanged)
+   
     return comments
   }()
   
@@ -114,13 +127,29 @@ class CheckoutVCContainer: UIView {
     deliverySelector.translatesAutoresizingMaskIntoConstraints = false
     deliverySelector.addTarget(self, action: #selector(switchValueDidChange(sender:)), for: .valueChanged)
     
+    
     return deliverySelector
   }()
-  
+
 
   override init(frame: CGRect) {
     super.init(frame: frame)
     
+    backgroundColor = UIColor.white
+    viewTitle.backgroundColor = backgroundColor
+    
+    placeOrder.setTitle(placeOdredLocalizableTitle, for: .normal)
+    viewTitle.text = viewLocalizableTitle
+    deliveryTitle.text = deliveryLocalizableTitle
+    commentsTitle.text = commentsLocalizableTitle
+    name.placeholder = namePlaceholderLocalizableTitle
+    phone.placeholder = phonePlaceholderLocalizableTitle
+    email.placeholder = emailPlaceholderLocalizableTitle
+    deliveryAdress.placeholder = adressPlaceholderLocalizableTitle
+    
+    // title.text = "Оформление заказа"
+    
+  
      addSubview(dismiss)
      dismiss.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
      dismiss.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -236,10 +265,10 @@ extension CheckoutVCContainer { /* firebase user data observing */
   
   func localyRetrieveUserData () {  /* fills name phone and email text fields if user is logged in  */
     
-    if FIRAuth.auth()?.currentUser != nil && FIRAuth.auth()?.currentUser?.isEmailVerified == true {
+    if Auth.auth().currentUser != nil && Auth.auth().currentUser?.isEmailVerified == true {
       
-      var ref: FIRDatabaseReference!
-      ref = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
+      var ref: DatabaseReference!
+      ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!)
       
       ref.observeSingleEvent(of: .value, with: { snapshot in
         
@@ -256,7 +285,7 @@ extension CheckoutVCContainer { /* firebase user data observing */
           self.phone.text = userPhoneNumber
         }
         
-        self.email.text = FIRAuth.auth()!.currentUser!.email!
+        self.email.text = Auth.auth().currentUser!.email!
         self.validateRegistraionData()
       })
       

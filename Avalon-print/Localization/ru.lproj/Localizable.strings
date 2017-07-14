@@ -1,0 +1,124 @@
+/* 
+  Localizable.strings
+  Avalon-Print
+
+  Created by Roman Mizin on 7/7/17.
+  Copyright © 2017 Roman Mizin. All rights reserved.
+*/
+
+
+//Homepage and titles
+"HomeViewController.NavigationItem.title" = "Главная страница";
+
+"HomeViewController.items.posters" = "Плакаты";
+"HomeViewController.items.banners" = "Баннеры";
+"HomeViewController.items.stickers" = "Наклейки";
+"HomeViewController.items.canvas" = "Холсты";
+"HomeViewController.items.contacts" = "Контакты";
+"HomeViewController.items.information" = "Информация";
+
+//production ordering view controllers
+"PostersStickersCanvasTopBlockView.amountField.placeholder" = "Тираж";
+"PostersStickersCanvasTopBlockView.materialField.placeholder" = "Виберите материал";
+"PostersStickersCanvasTopBlockView.widthField.placeholder" = "Ширина (м)";
+"PostersStickersCanvasTopBlockView.heightField.placeholder" = "Высота (м)";
+"PostersStickersCanvasTopBlockView.postprintField.placeholder" = "Без постпечати";
+
+"PostersStickersCanvasTopBlockView.oversizeAlertTitle" = "Maximum size exceeded";
+"PostersStickersCanvasTopBlockView.oversizeAlertMessage" = "Maximum width";
+
+//banners postprint
+"BannersPostprintView.luversTitle.text" = "Установка люверсов";
+"BannersPostprintView.luversAmountField.placeholder" = "Количество люверсов в одном изделии";
+"BannersPostprintView.pocketsTitle.text" = "Проварка карманов, швов";
+"BannersPostprintView.pocketsLengthField.placeholder" = "Общая длинна кармана, шва (м)";
+
+//layout selection
+"LayoutSelectionView.attachLayoutTitleBeforeTapping" = "Прикрепить";
+"LayoutSelectionView.attachLayoutTitleAfterTapping" = "Удалить";
+"LayoutSelectionView.layoutTitle.text" = "Макет";
+"LayoutSelectionView.layoutDevelopmentTitle.text" = "Разроботка макета";
+"LayoutSelectionView.layoutLinkField.text" = "Ссылка на макет";
+
+//price and add to cart
+"PriceAndAddToCartView.addToCartButtonTitleAfterTapping" = "Открыть корзину";
+"PriceAndAddToCartView.addToCartButtonTitleBeforeTapping" = "Добавить в корзину";
+"PriceAndAddToCartView.price.text" = "Цена: 0 грн.\nЦена с НДС: 0 грн.";
+
+//price calculation labels
+"PriceCalculation.priceLocalizedLabel" = "Цена";
+"PriceCalculation.ndsPriceLocalizedLabel" = "Цена с НДС";
+"PriceCalculation.currencyTypeLocalizedLabel" = "грн";
+
+//ordering general
+"OrderingViewControllers.SelectedLayoutDevelopment" = "разработка макета в дизайн студии";
+
+
+//shopping cart
+"ShoppingCartVC.editButtonItem.basicTitle" = "Изменить";
+"ShoppingCartVC.editButtonItem.doneTitle" = "Готово";
+"ShoppingCartVC.sumLocalizedLabel" = "Всего";
+"ShoppingCartVC.ndsSumLocalizedLabel" = "с НДС";
+"ShoppingCartVC.titleForDeleteConfirmationButtonForRowAt" = "Удалить";
+"ShoppingCartVC.header.textLabel.text" = "Корзина";
+"CheckoutButtonView.checkout.title" = "Оформить заказ";
+
+//shoppingCart detail
+"ShoppingCartDetailTableViewController.title" = "Информация";
+
+//information
+"InformationTableViewController.cellTitle.paymentAndDelivery" = "Оплата и доставка";
+"InformationTableViewController.cellTitle.requirementsToLayouts" = "Требования к макетам";
+"InformationTableViewController.cellTitle.layoutDesignDevlopment" = "Разработка макетов";
+"InformationTableViewController.forAdvertisingAgencies" = "РА и посредникамы";
+
+//map
+"MapViewController.title" = "Карта";
+
+//contacts
+"ContactsTableViewController.navigationItem.rightBarButtonItem.title" = "Адрес и карта";
+
+//checkoutForm
+"CheckoutVCContainer.placeOdredLocalizableTitle" = "Заказать";
+"CheckoutVCContainer.viewLocalizableTitle" = "Оформление заказа";
+"CheckoutVCContainer.deliveryLocalizableTitle" = "Доставка (+50 грн)";
+"CheckoutVCContainer.commentsLocalizableTitle" = "Коментарий к заказу";
+
+"CheckoutVCContainer.namePlaceholderLocalizableTitle" = "Имя";
+"CheckoutVCContainer.phonePlaceholderLocalizableTitle" = "Номер телефона";
+"CheckoutVCContainer.emailPlaceholderLocalizableTitle" = "Эл. почта";
+"CheckoutVCContainer.adressPlaceholderLocalizableTitle" = "Адрес доставки";
+
+//order sender
+"CheckoutVCOrderSender.orderSent.alert.title" = "Ваш заказ успешно отправлен";
+"CheckoutVCOrderSender.orderSent.alert.message" = "Наш менеджер свяжется с вами в ближайшее время, спасибо за доверие.";
+
+
+
+//contacts
+"ContactsTableViewController.headerText" = "Режим работы: 10.00 - 18.00 по будним\n\nСайт: avalon-print.com\n\nE-mail: print@avalon-print.com";
+
+"ContactsTableViewController.officeNumbers.officeNumberLocalizable" = "Офис: (044) 503-06-60";
+"ContactsTableViewController.officeNumbers.mtsNumberLocalizable" = "МТС: (050) 814-83-33";
+"ContactsTableViewController.officeNumbers.lifecellNumberLocalizable" = "Lifecell: (093) 000-18-64";
+
+"ContactsTableViewController.mobileNumbers.managerEvgeniyLocalizable" = "Евгений: (067) 214-34-04";
+"ContactsTableViewController.mobileNumbers.managerYriyNumberLocalizable" = "Юрий: (067) 327-94-92";
+"ContactsTableViewController.mobileNumbers.managerAlexeyNumberLocalizable" = "Алексей: (067) 441-16-44";
+
+"ContactsTableViewController.titleForHeaderInSection.one" = "Офисные телефоны";
+"ContactsTableViewController.titleForHeaderInSection.two" = "Телефоны менеджеров";
+
+//map
+"MapViewController.annotation.title" = "Авалон-принт";
+"MapViewController.annotation.subtitle" = "ул. Ивана Кудри 41/22";
+
+//info about materials
+"AboutMaterialsViewController.viewTitle.text" = "Материалы";
+"ExpandingMaterialTableViewController.titleForHeaderInSection.one" = "Характеристики";
+"ExpandingMaterialTableViewController.titleForHeaderInSection.two" = "Описание";
+
+
+
+
+

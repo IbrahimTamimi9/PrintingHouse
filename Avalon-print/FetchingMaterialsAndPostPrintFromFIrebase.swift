@@ -14,14 +14,22 @@ var priceData = priceDataStatus()
 
 struct priceDataStatus {
   
-   var materialsDictionary = [(title: "Выберите материал...", maxMaterialWidth: 0.0, matPrice: 0.0, printPrice: 0.0)]
-   var postPrintDictionary = [(title: "Без постпечати", materialCost: 0.0, costOfWork: 0.0)]
+   var materialsDictionary = [(title: NSLocalizedString("PostersStickersCanvasTopBlockView.materialField.placeholder", comment: ""),
+                               maxMaterialWidth: 0.0, matPrice: 0.0, printPrice: 0.0)]
+  
+   var postPrintDictionary = [(title:  NSLocalizedString("PostersStickersCanvasTopBlockView.postprintField.placeholder", comment: ""),
+                               materialCost: 0.0, costOfWork: 0.0)]
+  
+  var bannersPostPrintDictionary = [()]
   
    var materialPrice = Double()
    var printPrice = Double()
   
    var underframePrice = 0.0// Double()
    var setupWorkPrice = 0.0//Double()
+  
+    var luversPrice = 0.0
+    var pocketsPrice = 0.0
 
   
    var postPrintMaterialPrice = Double()
@@ -34,54 +42,207 @@ struct priceDataStatus {
   
 }
 
+struct generalDataForCalculations {
+  static var USD = Double()
+  static var NDS = Int()
+  static var OVERPRICE1 = Double()
+}
 
-func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, onlyDefaultPrepressAllowed: Bool) {
+
+func fetchGeneralDataForCalculations () {
   
-     priceData.resetMaterialsAndPostprintDictionaries()
+  var ref: DatabaseReference!
+  ref = Database.database().reference()
   
-  var ref: FIRDatabaseReference!
-      ref = FIRDatabase.database().reference()
-  
-  // Materials
-  
-  ref.child("Materials").observe(.childAdded, with: { (snapshot) in
+  ref.child("GeneralData").observe(.value, with: { (snapshot) in
     
-    if snapshot.key == productType {
-        observeMaterialsData(snapshot: snapshot)
-    }
+    let generalBlock = snapshot.value as? NSDictionary
+    
+    let USDBlock = generalBlock?["USD"] as? NSDictionary
+    let NDSBlock = generalBlock?["NDS"] as? NSDictionary
+    let Overprice1Block = generalBlock?["Overprice1"] as? NSDictionary
+    
+    generalDataForCalculations.USD = (USDBlock?["Value"] as? String ?? "").doubleValue
+    generalDataForCalculations.NDS = Int((NDSBlock?["Value"] as? String ?? "").intValue)
+    generalDataForCalculations.OVERPRICE1 = (Overprice1Block?["Value"] as? String ?? "").doubleValue
     
   }) { (error) in
     print(error.localizedDescription)
   }
   
-  // Post Print
-  ref.child("Postprint").observe(.childAdded, with: { (snapshot) in
-    
-    if onlyColdLamAllowed == true && onlyDefaultPrepressAllowed == true {
-      print("error: impossible value in picker view")
-    }
-    
-    if onlyDefaultPrepressAllowed == true {
-      
-        if snapshot.key != "prepressCold" && snapshot.key != "underframeSetup" {
-            observePostrpintData(snapshot: snapshot)
-       }
-    }
-    
-    if onlyColdLamAllowed == true {
-      
-      if snapshot.key == "prepressCold" {
-             observePostrpintData(snapshot: snapshot)
-      }
-    }
+}
+
+
+
+func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, onlyDefaultPrepressAllowed: Bool) {
   
-    if onlyColdLamAllowed == false && onlyDefaultPrepressAllowed == false {
+     priceData.resetMaterialsAndPostprintDictionaries()
+  
+  var ref: DatabaseReference!
+      ref = Database.database().reference()
+  
+  // Materials
+  print(preferredLanguage!)
+   if preferredLanguage == russianLanguage {
+    
+    ref.child("MaterialsRUS").observe(.childAdded, with: { (snapshot) in
       
-      if  snapshot.key == "underframeSetup" {
-        observePostrpintData(snapshot: snapshot)
+      if snapshot.key == productType {
+        observeMaterialsData(snapshot: snapshot)
+      }
+      
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+   } else {
+    
+    ref.child("MaterialsENG").observe(.childAdded, with: { (snapshot) in
+      
+      if snapshot.key == productType {
+        observeMaterialsData(snapshot: snapshot)
+      }
+      
+    }) { (error) in
+      print(error.localizedDescription)
     }
     
+  }
+  
+  // Post Print
+  if preferredLanguage == russianLanguage {
+        
+    ref.child("PostprintRUS").observe(.childAdded, with: { (snapshot) in
+      
+      if onlyColdLamAllowed == true && onlyDefaultPrepressAllowed == true {
+        print("error: impossible value in picker view")
+      }
+      
+      if onlyDefaultPrepressAllowed == true {
+        
+        if snapshot.key != "prepressCold" && snapshot.key != "underframeSetup" {
+          observePostrpintData(snapshot: snapshot)
+        }
+      }
+      
+      if onlyColdLamAllowed == true {
+        
+        if snapshot.key == "prepressCold" {
+          observePostrpintData(snapshot: snapshot)
+        }
+      }
+      
+      if onlyColdLamAllowed == false && onlyDefaultPrepressAllowed == false {
+        
+        if  snapshot.key == "underframeSetup" {
+          observePostrpintData(snapshot: snapshot)
+        }
+        
+      }
+      
+    }) { (error) in
+      print(error.localizedDescription)
     }
+  } else {
+    
+    ref.child("PostprintENG").observe(.childAdded, with: { (snapshot) in
+      
+      if onlyColdLamAllowed == true && onlyDefaultPrepressAllowed == true {
+        print("error: impossible value in picker view")
+      }
+      
+      if onlyDefaultPrepressAllowed == true {
+        
+        if snapshot.key != "prepressCold" && snapshot.key != "underframeSetup" {
+          observePostrpintData(snapshot: snapshot)
+        }
+      }
+      
+      if onlyColdLamAllowed == true {
+        
+        if snapshot.key == "prepressCold" {
+          observePostrpintData(snapshot: snapshot)
+        }
+      }
+      
+      if onlyColdLamAllowed == false && onlyDefaultPrepressAllowed == false {
+        
+        if  snapshot.key == "underframeSetup" {
+          observePostrpintData(snapshot: snapshot)
+        }
+        
+      }
+      
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+    
+  }
+  
+}
+
+
+func fetchMaterialsForBanners(productType: String) {
+  
+  priceData.resetMaterialsAndPostprintDictionaries()
+  
+  var ref: DatabaseReference!
+  ref = Database.database().reference()
+  
+  // Materials
+  if preferredLanguage == russianLanguage {
+
+    ref.child("MaterialsRUS").observe(.childAdded, with: { (snapshot) in
+      
+      if snapshot.key == productType {
+        observeMaterialsData(snapshot: snapshot)
+      }
+      
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+    
+  } else {
+    
+    ref.child("MaterialsENG").observe(.childAdded, with: { (snapshot) in
+      
+      if snapshot.key == productType {
+        observeMaterialsData(snapshot: snapshot)
+      }
+      
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+  }
+
+}
+
+
+func fetchPostprintForBanners () {
+  
+  priceData.resetMaterialsAndPostprintDictionaries()
+  
+  var ref: DatabaseReference!
+  ref = Database.database().reference()
+  
+  // Materials
+  ref.child("BannersPostprint").observe(.childAdded, with: { (snapshot) in
+    
+    guard let dictionary = snapshot.value as? [String: AnyObject] else {
+      return
+    }
+    
+    for (_, value) in dictionary {
+   //   print(value)
+          if snapshot.key == "Luvers" {
+            priceData.luversPrice = value.doubleValue
+          }
+      
+          if snapshot.key == "Pockets" {
+             priceData.pocketsPrice = value.doubleValue
+      }
+    
+    }
+
     
   }) { (error) in
     print(error.localizedDescription)
@@ -89,7 +250,7 @@ func fetchMaterialsAndPostprint(productType: String, onlyColdLamAllowed: Bool, o
 }
 
 
-func observeMaterialsData(snapshot: FIRDataSnapshot) {
+func observeMaterialsData(snapshot: DataSnapshot) {
   
   guard let dictionary = snapshot.value as? [String: AnyObject] else {
     return
@@ -105,7 +266,7 @@ func observeMaterialsData(snapshot: FIRDataSnapshot) {
 }
 
 
-func observePostrpintData(snapshot: FIRDataSnapshot) {
+func observePostrpintData(snapshot: DataSnapshot) {
   
   guard let dictionary = snapshot.value as? [String: AnyObject] else {
     return

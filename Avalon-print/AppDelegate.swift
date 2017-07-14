@@ -18,11 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
      
-        FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+      
+      window = UIWindow(frame: UIScreen.main.bounds)
+      let mainController = HomeViewController() as UIViewController
+      let navigationController = MainNavigationController(rootViewController: mainController)
+      
+      UINavigationBar.appearance().shadowImage = UIImage()
+      UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+      
+      navigationController.navigationBar.isTranslucent = false
+      self.window?.rootViewController = navigationController
+      self.window?.makeKeyAndVisible()
   
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-     
         return true
     }
   
@@ -93,13 +102,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
     
-       getVariablesFromJSON()
+      fetchGeneralDataForCalculations()
     
     if shortcutItem.type == "com.mizin.Avalon-print.posters" {
       
       if let navController = self.window?.rootViewController as? UINavigationController {
-         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "postersVC")
-             reset(page: "posters")
+         let vc = PostersViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "postersVC")
+           //  reset(page: "posters")
              navController.pushViewController(vc, animated: false)
       }
     }
@@ -107,8 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if shortcutItem.type == "com.mizin.Avalon-print.stickers" {
       
       if let navController = self.window?.rootViewController as? UINavigationController {
-         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "stickersVC")
-             reset(page: "stickers")
+         let vc = StickersViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "stickersVC")
+            // reset(page: "stickers")
              navController.pushViewController(vc, animated: false)
       }
     }
@@ -116,8 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if shortcutItem.type == "com.mizin.Avalon-print.canvas" {
       
       if let navController = self.window?.rootViewController as? UINavigationController {
-         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "canvasVC")
-             reset(page: "canvas")
+         let vc = CanvasViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "canvasVC")
+            // reset(page: "canvas")
              navController.pushViewController(vc, animated: false)
       }
     }
@@ -125,8 +134,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if shortcutItem.type == "com.mizin.Avalon-print.banners" {
       
       if let navController = self.window?.rootViewController as? UINavigationController {
-         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bannersVC")
-             reset(page: "banners")
+         let vc = BannersViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bannersVC")
+           //  reset(page: "banners")
              navController.pushViewController(vc, animated: false)
       }
     }

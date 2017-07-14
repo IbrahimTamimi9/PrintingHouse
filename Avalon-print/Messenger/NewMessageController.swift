@@ -20,9 +20,9 @@ class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      navigationController?.navigationBar.tintColor = UIColor.white
-      navigationController?.navigationBar.barStyle = UIBarStyle.black
-      navigationController?.navigationBar.isTranslucent = false
+    //  navigationController?.navigationBar.tintColor = UIColor.white
+    //  navigationController?.navigationBar.barStyle = UIBarStyle.black
+    //  navigationController?.navigationBar.isTranslucent = false
       //tableView.separatorInset = .init(top: 0, left: 35, bottom: 0, right: 0)
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain , target: self, action: #selector(handleCancel))
@@ -35,7 +35,7 @@ class NewMessageController: UITableViewController {
   
     func fetchUser() {
       
-        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User()
@@ -76,7 +76,7 @@ class NewMessageController: UITableViewController {
         let user = users[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = user.name
         cell.detailTextLabel?.text = user.email
-        cell.disclosureIndicator.isHidden = true
+       // cell.disclosureIndicator.isHidden = true
         
         if let profileImageUrl = user.profileImageUrl {            
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
