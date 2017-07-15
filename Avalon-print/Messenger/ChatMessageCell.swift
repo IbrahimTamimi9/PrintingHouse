@@ -19,8 +19,8 @@ class ChatMessageCell: UICollectionViewCell {
     var playerLayer: AVPlayerLayer?
     var player: AVPlayer?
   
-    static let grayBubbleImage = UIImage(named: "AvalonBubbleIncomingFull")!.resizableImage(withCapInsets: UIEdgeInsetsMake(15, 20, 15, 20)).withRenderingMode(.alwaysOriginal)
-    static let blueBubbleImage = UIImage(named: "AvalonBubbleOutgoingFull")!.resizableImage(withCapInsets: UIEdgeInsetsMake(15, 20, 15, 20)).withRenderingMode(.alwaysOriginal)
+    static let grayBubbleImage = UIImage(named: "AvalonBubbleIncomingFull")?.resizableImage(withCapInsets: UIEdgeInsetsMake(15, 20, 15, 20))
+    static let blueBubbleImage = UIImage(named: "AvalonBubbleOutgoingFull")!.resizableImage(withCapInsets: UIEdgeInsetsMake(15, 20, 15, 20))
   
   
     let activityIndicatorView: UIActivityIndicatorView = {
@@ -45,11 +45,17 @@ class ChatMessageCell: UICollectionViewCell {
     let textView: UITextView = {
         let tv = UITextView()
         tv.font = UIFont.systemFont(ofSize: 14)
-        tv.translatesAutoresizingMaskIntoConstraints = false
+       // tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
+      
+     // tv.isOpaque = true
+     // tv.layer.backgroundColor = UIColor.white.cgColor
+      
         tv.textColor = .white
         tv.isEditable = false
         tv.isScrollEnabled = false
+        //tv.layer.drawsAsynchronously = true
+        tv.textContainerInset = UIEdgeInsetsMake(10, 7, 10, 7)
       
         return tv
     }()
@@ -57,7 +63,9 @@ class ChatMessageCell: UICollectionViewCell {
      let bubbleView: UIImageView = {
         let view = UIImageView()
         view.backgroundColor = UIColor.white
-        view.translatesAutoresizingMaskIntoConstraints = false
+     // view.layer.drawsAsynchronously = true
+       // view.translatesAutoresizingMaskIntoConstraints = false
+   //   view.image = ChatMessageCell.blueBubbleImage
         view.isUserInteractionEnabled = true
 
         return view
@@ -65,6 +73,7 @@ class ChatMessageCell: UICollectionViewCell {
  
     lazy var messageImageView: UIImageView = {
         let messageImageView = UIImageView()
+       // messageImageView.layer.drawsAsynchronously = true
         messageImageView.translatesAutoresizingMaskIntoConstraints = false
         messageImageView.layer.cornerRadius = 15
         messageImageView.layer.masksToBounds = true
@@ -85,20 +94,25 @@ class ChatMessageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
       
+     
+     // layer.shouldRasterize = true
+     // layer.rasterizationScale = UIScreen.main.scale
+      
         backgroundColor = AvalonPalette.avalonControllerBackground
+        contentView.backgroundColor = AvalonPalette.avalonControllerBackground
  
         addSubview(bubbleView)
-        bubbleView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10)
-        bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)//; bubbleViewRightAnchor?.isActive = true
-        bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 0); bubbleWidthAnchor?.isActive = true
-        bubbleView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-      
+//        bubbleView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+//        bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10)
+//        bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)//; bubbleViewRightAnchor?.isActive = true
+//        bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 0); bubbleWidthAnchor?.isActive = true
+//        bubbleView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+//      
         bubbleView.addSubview(textView)
-        textView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
-        textViewCenterXAnchor = textView.centerXAnchor.constraint(equalTo: bubbleView.centerXAnchor, constant: 0); textViewCenterXAnchor?.isActive = true
-        textView.widthAnchor.constraint(equalTo: bubbleView.widthAnchor).isActive = true
-        textView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
+//        textView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
+//        textViewCenterXAnchor = textView.centerXAnchor.constraint(equalTo: bubbleView.centerXAnchor, constant: 0); textViewCenterXAnchor?.isActive = true
+//        textView.widthAnchor.constraint(equalTo: bubbleView.widthAnchor).isActive = true
+//        textView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
       
         bubbleView.addSubview(messageImageView)
         messageImageView.topAnchor.constraint(equalTo: bubbleView.topAnchor).isActive = true

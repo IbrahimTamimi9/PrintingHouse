@@ -184,14 +184,12 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                 print("in end")
                 
                 self.messages = self.appendingMessages
-                
-                DispatchQueue.main.async {
+            
                   self.collectionView?.reloadData()
                   self.startCollectionViewAtBottom()
                   self.newInboxMessage = true
                   self.observeTyping()
-                }
-          
+            
                break
               }
           }
@@ -432,16 +430,25 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         setupCallBarButtonItem()
       
         collectionView?.addSubview(refreshControl)
-      
+     
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 20, right: 0)
         collectionView?.alwaysBounceVertical = true
       
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.keyboardDismissMode = .interactive
         collectionView?.backgroundColor = UIColor.white
-      
     }
+ 
   
+  lazy var inputContainerView: ChatInputContainerView = {
+    var chatInputContainerView = ChatInputContainerView(frame: CGRect.zero)
+    
+    let height = chatInputContainerView.inputTextView.frame.height
+    chatInputContainerView = ChatInputContainerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+    chatInputContainerView.chatLogController = self
+    
+    return chatInputContainerView
+  }()
   
     var canRefresh = true
   
@@ -469,14 +476,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         }
       
     }
-
-
-    lazy var inputContainerView: ChatInputContainerView = {
-        let chatInputContainerView = ChatInputContainerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
-        chatInputContainerView.chatLogController = self
-      
-        return chatInputContainerView
-    }()
+  
   
     let refreshControl: UIRefreshControl = {
       let refreshControl = UIRefreshControl()
@@ -628,7 +628,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         dismiss(animated: true, completion: nil)
     }
   
-  
     override var inputAccessoryView: UIView? {
         get {
             return inputContainerView
@@ -640,69 +639,60 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         return true
     }
   
-  
-    func setupKeyboardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-    }
-  
-  
-    func handleKeyboardDidShow() {
-        if messages.count > 0 {
-            let indexPath = IndexPath(item: messages.count - 1, section: 0)
-            collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
-        }
-    }
+  func setupKeyboardObservers() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+  }
   
   
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        NotificationCenter.default.removeObserver(self)
-    }
-  
- 
-    func handleKeyboardWillShow(_ notification: Notification) {
-        let keyboardFrame = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
-        let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
+  func handleKeyboardDidShow() {
+    if messages.count > 0 {
       
-        containerViewBottomAnchor?.constant = -keyboardFrame!.height
-
-        UIView.animate(withDuration: keyboardDuration!, animations: {
-            self.view.layoutIfNeeded()
-        })
+    let indexPath = IndexPath(item: messages.count - 1, section: 0)
+      collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
     }
+  }
   
   
-    func handleKeyboardWillHide(_ notification: Notification) {
-        let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
-      
-        containerViewBottomAnchor?.constant = 0
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
     
-        UIView.animate(withDuration: keyboardDuration!, animations: {
-            self.view.layoutIfNeeded()
-        }) 
-    }
+    NotificationCenter.default.removeObserver(self)
+  }
   
   
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  func handleKeyboardWillShow(_ notification: Notification) {
+    let keyboardFrame = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+    let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
+    
+    containerViewBottomAnchor?.constant = -keyboardFrame!.height
+   
+    UIView.animate(withDuration: keyboardDuration!, animations: {
+      self.view.layoutIfNeeded()
+    })
+  }
+  
+  
+  func handleKeyboardWillHide(_ notification: Notification) {
+    let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
+    
+    containerViewBottomAnchor?.constant = 0
+    
+    UIView.animate(withDuration: keyboardDuration!, animations: {
+      self.view.layoutIfNeeded()
+    })
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
-    }
+  }
   
- 
   
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     let cell = cell as! ChatMessageCell
-    
     let message = messages[(indexPath as IndexPath).item]
     
-    
-    DispatchQueue.main.async {
-      cell.chatLogController = self
-      cell.message = message
-    }
-    
-     cell.textView.text = message.text
-     setupCell(cell, message: message)
+    cell.textView.text = message.text
+    cell.playButton.isHidden = message.videoUrl == nil
   }
   
   
@@ -710,86 +700,101 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
     
     let message = messages[(indexPath as IndexPath).item]
-  
-    if let text = message.text {
-     
-      //a text message
-      cell.bubbleWidthAnchor?.constant = estimateFrameForText(text).width + 15//cell.textView.frame.width//contentSize.width//estimateFrameForText(text).width //+ 20
-      cell.textView.isHidden = false
-      
-    } else if message.imageUrl != nil {
-      
-      //fall in here if its an image message
-      cell.bubbleWidthAnchor?.constant = 200
-      cell.textView.isHidden = true
-    }
     
-    cell.playButton.isHidden = message.videoUrl == nil
+    setupCell(cell, message: message)
+    
+    DispatchQueue.main.async {
+      cell.chatLogController = self
+      cell.message = message
+    }
     
     return cell
   }
-  
+
   
   fileprivate func setupCell(_ cell: ChatMessageCell, message: Message) {
-    
+   
      if message.fromId == Auth.auth().currentUser?.uid {
       
       //outgoing blue
-      cell.textViewCenterXAnchor?.constant = 0
       cell.bubbleView.image = ChatMessageCell.blueBubbleImage
+     
       cell.textView.textColor = UIColor.white
-      cell.bubbleViewRightAnchor?.isActive = true
-      cell.bubbleViewLeftAnchor?.isActive = false
+      
+      if let messageText = message.text {
+        
+        cell.textView.isHidden = false
+     
+        cell.textView.textContainerInset.left = 7
+        
+        cell.bubbleView.frame = CGRect(x: view.frame.width - estimateFrameForText(messageText).width - 35, y: 0,
+                                        width: estimateFrameForText(messageText).width + 30, height: estimateFrameForText(messageText).height + 20).integral
+      
+        cell.textView.frame = CGRect(x: 0, y: 0, width: cell.bubbleView.frame.width, height: cell.bubbleView.frame.height).integral
+        
+      } else if message.imageUrl != nil {
+        
+        cell.textView.isHidden = true
+        cell.bubbleView.frame = CGRect(x: view.frame.width - 210, y: 0, width: 200, height: cell.frame.size.height).integral
+      }
       
     } else {
       
       //incoming gray
-      cell.textViewCenterXAnchor?.constant = 5
       cell.bubbleView.image = ChatMessageCell.grayBubbleImage
+    
       cell.textView.textColor = UIColor.darkText
-      cell.bubbleViewRightAnchor?.isActive = false
-      cell.bubbleViewLeftAnchor?.isActive = true
-    }
-  
-    if let messageImageUrl = message.imageUrl {
       
-      DispatchQueue.main.async {
+      if let messageText = message.text {
+        
+        cell.textView.isHidden = false
+        
+        cell.textView.textContainerInset.left = 12
+        
+        cell.bubbleView.frame = CGRect(x: 10, y: 0, width: estimateFrameForText(messageText).width + 30, height: estimateFrameForText(messageText).height + 20).integral
+      
+        cell.textView.frame = CGRect(x: 0, y: 0, width: cell.bubbleView.frame.width, height: cell.bubbleView.frame.height).integral
+
+      } else if message.imageUrl != nil {
+        
+        cell.textView.isHidden = true
+        cell.bubbleView.frame = CGRect(x: 10, y: 0, width: 200, height: cell.frame.size.height).integral
+      }
+    }
+    
+    DispatchQueue.main.async {
+      if let messageImageUrl = message.imageUrl {
         cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
         cell.messageImageView.isHidden = false
         cell.bubbleView.image = nil
+      } else {
+        cell.messageImageView.isHidden = true
       }
-    
-    } else {
-      cell.messageImageView.isHidden = true
     }
-  }
+    
+ }
  
 //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 //        collectionView?.collectionViewLayout.invalidateLayout()
 //    }
   
   
+    fileprivate var cellHeight: CGFloat = 80
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        var height: CGFloat = 80
-        let message = messages[(indexPath as NSIndexPath).item]
+      
+      let message = messages[(indexPath as NSIndexPath).item]
+      
       
       if let text = message.text {
     
-            height = estimateFrameForText(text).height + 20
+          cellHeight = estimateFrameForText(text).height + 20
         
       } else if let imageWidth = message.imageWidth?.floatValue, let imageHeight = message.imageHeight?.floatValue {
             
-            // h1 / w1 = h2 / w2
-            // solve for h1
-            // h1 = h2 / w2 * w1
-            
-            height = CGFloat(imageHeight / imageWidth * 200)
-            
-        }
-        
-        let width = UIScreen.main.bounds.width
-        return CGSize(width: width, height: height)
+            cellHeight = CGFloat(imageHeight / imageWidth * 200)
+      }
+  
+      return CGSize(width: screenSize.width, height: cellHeight)
     }
   
     

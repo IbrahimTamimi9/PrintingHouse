@@ -6,21 +6,17 @@
     },
     {
       "idiom" : "iphone",
-      "filename" : "Fill 184AvalonBubbleIncomingFull@2x.png",
+      "filename" : "AvalonBubbleIncomingFull@2x.png",
+      "compression-type" : "gpu-optimized-smallest",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "Fill 184AvalonBubbleIncomingFull@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "compression-type" : "gpu-optimized-smallest",
-    "template-rendering-intent" : "original"
   }
 }
