@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import SDWebImage
 
 let imageCache = NSCache<NSString, UIImage>()
@@ -23,7 +22,7 @@ extension UIImageView {
 //        
 //      }
       DispatchQueue.main.async {
-          self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .lowPriority])
+          self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .lowPriority, .continueInBackground])
       }
   
       

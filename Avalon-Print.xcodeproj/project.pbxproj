@@ -45,6 +45,9 @@
 		4B48FB1C1F06506400A0E353 /* RegistrationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB1B1F06506400A0E353 /* RegistrationContainerView.swift */; };
 		4B48FB1E1F0650A600A0E353 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB1D1F0650A600A0E353 /* PasswordResetViewController.swift */; };
 		4B48FB201F0650BF00A0E353 /* PasswordResetContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48FB1F1F0650BF00A0E353 /* PasswordResetContainerView.swift */; };
+		4B4BE6CD1F1B64BD0054C441 /* PhotoMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BE6CC1F1B64BD0054C441 /* PhotoMessageCell.swift */; };
+		4B4BE6CF1F1B655E0054C441 /* BaseMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BE6CE1F1B655E0054C441 /* BaseMessageCell.swift */; };
+		4B4BE6D11F1B66550054C441 /* TextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BE6D01F1B66550054C441 /* TextMessageCell.swift */; };
 		4B78B8661F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */; };
 		4B78B8671F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */; };
 		4B78B8681F1290D7000689B3 /* AboutMaterialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8651F1290D7000689B3 /* AboutMaterialsViewController.swift */; };
@@ -103,7 +106,6 @@
 		4BFD11D31E841F910026E152 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11CE1E841F910026E152 /* MessagesController.swift */; };
 		4BFD11D41E841F910026E152 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11CF1E841F910026E152 /* NewMessageController.swift */; };
 		4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11D51E841FA50026E152 /* ChatInputContainerView.swift */; };
-		4BFD11D91E841FA50026E152 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11D61E841FA50026E152 /* ChatMessageCell.swift */; };
 		4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11D71E841FA50026E152 /* UserCell.swift */; };
 		E3A771AD5BE84BBD89BE16E0 /* Pods_Avalon_Print.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0428C93784D8F1D699100807 /* Pods_Avalon_Print.framework */; };
 /* End PBXBuildFile section */
@@ -172,6 +174,9 @@
 		4B48FB1B1F06506400A0E353 /* RegistrationContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationContainerView.swift; path = "Avalon-print/RegistrationContainerView.swift"; sourceTree = SOURCE_ROOT; };
 		4B48FB1D1F0650A600A0E353 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetViewController.swift; path = "Avalon-print/PasswordResetViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B48FB1F1F0650BF00A0E353 /* PasswordResetContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetContainerView.swift; path = "Avalon-print/PasswordResetContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4B4BE6CC1F1B64BD0054C441 /* PhotoMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoMessageCell.swift; path = "Avalon-print/Messenger/PhotoMessageCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B4BE6CE1F1B655E0054C441 /* BaseMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseMessageCell.swift; path = "Avalon-print/Messenger/BaseMessageCell.swift"; sourceTree = SOURCE_ROOT; };
+		4B4BE6D01F1B66550054C441 /* TextMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextMessageCell.swift; path = "Avalon-print/Messenger/TextMessageCell.swift"; sourceTree = SOURCE_ROOT; };
 		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenteredCollectionViewFlowLayout.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/CenteredCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
 		4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMaterialsCollectionViewCell.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/AboutMaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -190,7 +195,6 @@
 		4BBDDE801EF51CB4000CF3BE /* CheckoutButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutButtonView.swift; path = "Avalon-print/CheckoutButtonView.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE821EF52975000CF3BE /* ShoppingCellContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCellContainerView.swift; path = "Avalon-print/ShoppingCellContainerView.swift"; sourceTree = SOURCE_ROOT; };
 		4BBE51981EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoSizingCollectionViewFlowLayout.swift; path = "Avalon-print/Messenger/AutoSizingCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
-		4BC903B51E9AFA9D00061FB4 /* Avalon-Print.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Avalon-Print.entitlements"; path = "Avalon-Print/Avalon-Print.entitlements"; sourceTree = "<group>"; };
 		4BCC4E731EFD37A000085A9A /* StickersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StickersViewController.swift; path = "Avalon-print/StickersViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BCC4E751EFD438000085A9A /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanvasViewController.swift; path = "Avalon-print/CanvasViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BCC4E771EFD507700085A9A /* BannersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersViewController.swift; path = "Avalon-print/BannersViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -234,7 +238,6 @@
 		4BFD11CE1E841F910026E152 /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesController.swift; path = "Avalon-print/Messenger/MessagesController.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11CF1E841F910026E152 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMessageController.swift; path = "Avalon-print/Messenger/NewMessageController.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11D51E841FA50026E152 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatInputContainerView.swift; path = "Avalon-print/Messenger/ChatInputContainerView.swift"; sourceTree = SOURCE_ROOT; };
-		4BFD11D61E841FA50026E152 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatMessageCell.swift; path = "Avalon-print/Messenger/ChatMessageCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11D71E841FA50026E152 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCell.swift; path = "Avalon-print/Messenger/UserCell.swift"; sourceTree = SOURCE_ROOT; };
 		657B8B5C724347DD5F22983B /* Pods-Avalon-Print.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avalon-Print.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Avalon-Print/Pods-Avalon-Print.debug.xcconfig"; sourceTree = "<group>"; };
 		B5EA1A241B7B383300E1C1C3 /* Avalon-Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avalon-Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -604,8 +607,10 @@
 			isa = PBXGroup;
 			children = (
 				4BFD11D51E841FA50026E152 /* ChatInputContainerView.swift */,
-				4BFD11D61E841FA50026E152 /* ChatMessageCell.swift */,
 				4BFD11D71E841FA50026E152 /* UserCell.swift */,
+				4B4BE6CE1F1B655E0054C441 /* BaseMessageCell.swift */,
+				4B4BE6CC1F1B64BD0054C441 /* PhotoMessageCell.swift */,
+				4B4BE6D01F1B66550054C441 /* TextMessageCell.swift */,
 			);
 			name = MessengerViews;
 			sourceTree = "<group>";
@@ -667,7 +672,6 @@
 		B5EA1A1B1B7B383300E1C1C3 = {
 			isa = PBXGroup;
 			children = (
-				4BC903B51E9AFA9D00061FB4 /* Avalon-Print.entitlements */,
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
 				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
 				4B2D03B21DF78E5C00BF0B23 /* Support */,
@@ -738,9 +742,18 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
 							};
 							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
 								enabled = 0;
 							};
 						};
@@ -849,6 +862,7 @@
 				4BE3DBAB1EFAC53400DADA39 /* public.swift in Sources */,
 				4B47F17F1F08FF4400172176 /* UserProfileHeaderView.swift in Sources */,
 				4BDC374E1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift in Sources */,
+				4B4BE6CF1F1B655E0054C441 /* BaseMessageCell.swift in Sources */,
 				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
 				4BF0AAAE1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift in Sources */,
 				4B48FB1E1F0650A600A0E353 /* PasswordResetViewController.swift in Sources */,
@@ -860,7 +874,6 @@
 				4B78B8671F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift in Sources */,
 				4B3FE89C1E44F34D00852A2A /* ARSLineProgressConstants.swift in Sources */,
 				4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */,
-				4BFD11D91E841FA50026E152 /* ChatMessageCell.swift in Sources */,
 				4B48FB161F06446900A0E353 /* LoginViewController.swift in Sources */,
 				4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */,
 				4BE3DBB01EFAD31300DADA39 /* LayoutSelectionView.swift in Sources */,
@@ -879,6 +892,7 @@
 				4BF0AAAC1F0AB67100140C55 /* WorksDetailTableViewController.swift in Sources */,
 				4BCC4E741EFD37A000085A9A /* StickersViewController.swift in Sources */,
 				4BFD11C61E841F520026E152 /* Message.swift in Sources */,
+				4B4BE6D11F1B66550054C441 /* TextMessageCell.swift in Sources */,
 				4BF0AAB01F0AB76200140C55 /* WorksDetailImageTableViewCell.swift in Sources */,
 				4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */,
 				4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */,
@@ -907,6 +921,7 @@
 				4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */,
 				4B0055271EF67461002EAE4E /* AvalonUITextField.swift in Sources */,
 				4BF718811EBF1BCC00D079D9 /* DeckSegue.swift in Sources */,
+				4B4BE6CD1F1B64BD0054C441 /* PhotoMessageCell.swift in Sources */,
 				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
 				4B47F17C1F08FEF600172176 /* UserProfileViewController.swift in Sources */,
 				4BF718831EBF1BCC00D079D9 /* Utilities.swift in Sources */,
@@ -1045,7 +1060,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Avalon-Print/Avalon-Print.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X9LK79XJU6;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
@@ -1069,7 +1083,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Avalon-Print/Avalon-Print.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X9LK79XJU6;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";

@@ -26,6 +26,7 @@ extension Double {
   }
 }
 
+/*
 extension Array {
   
   func filterDuplicates( includeElement: @escaping (_ lhs:Element, _ rhs:Element) -> Bool) -> [Element]{
@@ -42,7 +43,7 @@ extension Array {
     
     return results
   }
-}
+}*/
 
 extension Array {
   
@@ -91,11 +92,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
           navigationItem.title = user?.name
         }
     }
-
-  let cellId = "cellId"
   
-  //let incomingCellID = "incomingCellID"
-  //let outgoingCellID = "outgoingCellID"
+    let photoMessageCellID = "photoMessageCellID"
+  
+    let textMessageCellID = "textMessageCellID"
   
     var messages = [Message]()
   
@@ -142,13 +142,12 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     userMessagesRef.queryLimited(toLast: UInt(50)).observe( .childAdded, with: { (snapshot) in
     self.messagesIds.append(snapshot.key)
     print(self.messagesIds)
-      
      
        let messagesRef = Database.database().reference().child("messages").child(snapshot.key)
        messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
           
         guard let dictionary = snapshot.value as? [String: AnyObject] else {
-          print("returninggggg")
+        print("returninggggg")
             return
         }
         
@@ -434,7 +433,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 20, right: 0)
         collectionView?.alwaysBounceVertical = true
       
-        collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(TextMessageCell.self, forCellWithReuseIdentifier: textMessageCellID)
+        collectionView?.register(PhotoMessageCell.self, forCellWithReuseIdentifier: photoMessageCellID)
+      
         collectionView?.keyboardDismissMode = .interactive
         collectionView?.backgroundColor = UIColor.white
     }
@@ -687,99 +688,105 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }
   
   
-  override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    let cell = cell as! ChatMessageCell
-    let message = messages[(indexPath as IndexPath).item]
-    
-    cell.textView.text = message.text
-    cell.playButton.isHidden = message.videoUrl == nil
-  }
-  
-  
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
-    
-    let message = messages[(indexPath as IndexPath).item]
-    
-    setupCell(cell, message: message)
-    
-    DispatchQueue.main.async {
-      cell.chatLogController = self
-      cell.message = message
-    }
-    
-    return cell
-  }
-
   
-  fileprivate func setupCell(_ cell: ChatMessageCell, message: Message) {
-   
-     if message.fromId == Auth.auth().currentUser?.uid {
-      
-      //outgoing blue
-      cell.bubbleView.image = ChatMessageCell.blueBubbleImage
-     
-      cell.textView.textColor = UIColor.white
-      
-      if let messageText = message.text {
-        
-        cell.textView.isHidden = false
-     
-        cell.textView.textContainerInset.left = 7
-        
-        cell.bubbleView.frame = CGRect(x: view.frame.width - estimateFrameForText(messageText).width - 35, y: 0,
-                                        width: estimateFrameForText(messageText).width + 30, height: estimateFrameForText(messageText).height + 20).integral
-      
-        cell.textView.frame = CGRect(x: 0, y: 0, width: cell.bubbleView.frame.width, height: cell.bubbleView.frame.height).integral
-        
-      } else if message.imageUrl != nil {
-        
-        cell.textView.isHidden = true
-        cell.bubbleView.frame = CGRect(x: view.frame.width - 210, y: 0, width: 200, height: cell.frame.size.height).integral
-      }
-      
-    } else {
-      
-      //incoming gray
-      cell.bubbleView.image = ChatMessageCell.grayBubbleImage
+    return selectCell(for: indexPath)!
+  }
+  
+  
+  fileprivate func selectCell(for indexPath: IndexPath) -> UICollectionViewCell? {
     
-      cell.textView.textColor = UIColor.darkText
+     let message = messages[indexPath.item]
+    
+      if let messageText = message.text { /* If current message is a text message */
+        
+        let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: textMessageCellID, for: indexPath) as! TextMessageCell
+        
+          cell.textView.text = messageText
+        
       
-      if let messageText = message.text {
-        
-        cell.textView.isHidden = false
-        
-        cell.textView.textContainerInset.left = 12
-        
-        cell.bubbleView.frame = CGRect(x: 10, y: 0, width: estimateFrameForText(messageText).width + 30, height: estimateFrameForText(messageText).height + 20).integral
-      
-        cell.textView.frame = CGRect(x: 0, y: 0, width: cell.bubbleView.frame.width, height: cell.bubbleView.frame.height).integral
+          if message.fromId == Auth.auth().currentUser?.uid { /* Outgoing message with blue bubble */
+            
+            cell.bubbleView.image = BaseMessageCell.blueBubbleImage
+            
+            cell.textView.textColor = UIColor.white
+            
+            cell.textView.textContainerInset.left = 7
+            
+            cell.bubbleView.frame = CGRect(x: view.frame.width - estimateFrameForText(messageText).width - 35,
+                                           y: 0,
+                                           width: estimateFrameForText(messageText).width + 30,
+                                           height: cell.frame.size.height).integral
+            
+            
+            cell.textView.frame.size = CGSize(width: cell.bubbleView.frame.width,
+                                              height: cell.bubbleView.frame.height)
 
-      } else if message.imageUrl != nil {
+            
+            
+          } else { /* Incoming message with grey bubble */
+            
+            cell.bubbleView.image = BaseMessageCell.grayBubbleImage
+            
+            cell.textView.textColor = UIColor.darkText
+            
+            cell.textView.textContainerInset.left = 12
+            
+          
+            cell.bubbleView.frame = CGRect(x: 10,
+                                           y: 0,
+                                           width: estimateFrameForText(messageText).width + 30,
+                                           height: cell.frame.size.height).integral
+            
+             cell.textView.frame.size = CGSize(width: cell.bubbleView.frame.width,
+                                               height: cell.bubbleView.frame.height)
+          }
         
-        cell.textView.isHidden = true
-        cell.bubbleView.frame = CGRect(x: 10, y: 0, width: 200, height: cell.frame.size.height).integral
-      }
-    }
-    
-    DispatchQueue.main.async {
-      if let messageImageUrl = message.imageUrl {
-        cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
-        cell.messageImageView.isHidden = false
-        cell.bubbleView.image = nil
+        
+        return cell
+        
+      } else if message.imageUrl != nil { /* If current message is a photo/video message */
+        
+        let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: photoMessageCellID, for: indexPath) as! PhotoMessageCell
+        
+        DispatchQueue.main.async {
+          cell.chatLogController = self
+          cell.message = message
+        }
+        
+          if message.fromId == Auth.auth().currentUser?.uid { /* Outgoing message with blue bubble */
+
+            cell.bubbleView.frame = CGRect(x: view.frame.width - 210, y: 0, width: 200, height: cell.frame.size.height).integral
+            
+          } else { /* Incoming message with grey bubble */
+            
+             cell.bubbleView.frame = CGRect(x: 10, y: 0, width: 200, height: cell.frame.size.height).integral
+          }
+
+        
+        DispatchQueue.main.async {
+          if let messageImageUrl = message.imageUrl {
+            cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
+          }
+        }
+        
+        cell.playButton.isHidden = message.videoUrl == nil
+        
+       
+        return cell
       } else {
-        cell.messageImageView.isHidden = true
-      }
+        return nil
     }
     
- }
- 
-//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        collectionView?.collectionViewLayout.invalidateLayout()
-//    }
+  }
+  
+    /* override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+      collectionView?.collectionViewLayout.invalidateLayout()
+    }*/
   
   
     fileprivate var cellHeight: CGFloat = 80
+  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       
       let message = messages[(indexPath as NSIndexPath).item]
@@ -798,7 +805,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
     
-    fileprivate func estimateFrameForText(_ text: String) -> CGRect {
+    func estimateFrameForText(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
@@ -942,7 +949,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                 zoomingImageView.center = keyWindow.center
                 
                 }, completion: { (completed) in
-//                    do nothing
+                  // do nothing
             })
         }
     }
