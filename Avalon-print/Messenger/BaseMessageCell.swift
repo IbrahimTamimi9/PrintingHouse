@@ -30,15 +30,16 @@ class BaseMessageCell: UICollectionViewCell {
     setupViews()
   }
   
+  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
   
   func setupViews() {
     
     backgroundColor = AvalonPalette.avalonControllerBackground
     contentView.backgroundColor = AvalonPalette.avalonControllerBackground
-    
   }
   
   
@@ -47,10 +48,6 @@ class BaseMessageCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    
     prepareViewsForReuse()
   }
-
-
-
 }

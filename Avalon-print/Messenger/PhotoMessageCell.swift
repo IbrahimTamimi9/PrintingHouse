@@ -52,11 +52,9 @@ class PhotoMessageCell: BaseMessageCell {
   }()
   
   
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    
+  override func setupViews() {
+  
     addSubview(bubbleView)
-    
     bubbleView.addSubview(messageImageView)
     messageImageView.topAnchor.constraint(equalTo: bubbleView.topAnchor).isActive = true
     messageImageView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor).isActive = true
@@ -77,10 +75,6 @@ class PhotoMessageCell: BaseMessageCell {
   }
   
   
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
   override func prepareViewsForReuse() {
     playerLayer?.removeFromSuperlayer()
     player?.pause()
@@ -88,6 +82,7 @@ class PhotoMessageCell: BaseMessageCell {
     messageImageView.image = nil
     bubbleView.image = nil
   }
+  
   
   func handlePlay() {
     if let videoUrlString = message?.videoUrl, let url = URL(string: videoUrlString) {

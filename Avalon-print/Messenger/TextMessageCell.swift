@@ -17,7 +17,8 @@ class TextMessageCell: BaseMessageCell {
     textView.isEditable = false
     textView.isScrollEnabled = false
     textView.textContainerInset = UIEdgeInsetsMake(10, 7, 10, 7)
-    
+    textView.dataDetectorTypes = .all
+    textView.linkTextAttributes = [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
     return textView
   }()
   
@@ -27,7 +28,6 @@ class TextMessageCell: BaseMessageCell {
     addSubview(bubbleView)
     bubbleView.addSubview(textView)
   }
-  
   
   override func prepareViewsForReuse() {
     textView.text = nil

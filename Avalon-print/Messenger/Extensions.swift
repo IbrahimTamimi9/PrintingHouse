@@ -21,9 +21,9 @@ extension UIImageView {
 //      if SDWebImageManager.shared().cachedImageExists(for: URL(string: urlString)) {
 //        
 //      }
-      DispatchQueue.main.async {
+       DispatchQueue.global(qos: .default).async(execute: {() -> Void in
           self.sd_setImage(with: URL(string: urlString), placeholderImage: nil, options: [.progressiveDownload, .lowPriority, .continueInBackground])
-      }
+      })
   
       
     //  sd_setImage(with: URL(string: urlString))

@@ -34,15 +34,21 @@ class MessagesController: UITableViewController {
 
     let cellId = "cellId"
   
+    var timer: Timer?
+  
+    var messages = [Message]()
+  
+    var messagesDictionary = [String: Message]()
+  
   
      override func viewDidLoad() {
         super.viewDidLoad()
       
+        observeUserMessages()
+      
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
       
         tableView.allowsMultipleSelectionDuringEditing = true
-    
-        observeUserMessages()
       
         navigationItem.title = "Сообщения"
       
@@ -74,97 +80,10 @@ class MessagesController: UITableViewController {
                 }
                 
                 self.messagesDictionary.removeValue(forKey: chatPartnerId)
-                self.attemptReloadOfTable()
-                
-//                //this is one way of updating the table, but its actually not that safe..
-//                self.messages.removeAtIndex(indexPath.row)
-//                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                
+                self.handleReloadTable()
+              
             })
         }
-    }
-  
-  
-    var messages = [Message]()
-    var messagesDictionary = [String: Message]()
-  
-  
-    func observeUserMessages() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let ref = Database.database().reference().child("user-messages").child(uid)
-      
-        ref.observe(.childAdded, with: { (snapshot) in
-            
-            let userId = snapshot.key
-          
-            Database.database().reference().child("user-messages").child(uid).child(userId).queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
-              
-                print("new message")
-                let messageId = snapshot.key
-              
-                self.fetchMessageWithMessageId(messageId)
-                
-                }, withCancel: nil)
-            
-            }, withCancel: nil)
-      
-      
-      
-        ref.observe(.childRemoved, with: { (snapshot) in
-            print(snapshot.key)
-            print(self.messagesDictionary)
-            
-            self.messagesDictionary.removeValue(forKey: snapshot.key)
-            self.attemptReloadOfTable()
-            
-            }, withCancel: nil)
-    }                            
-  
-  
-    fileprivate func fetchMessageWithMessageId(_ messageId: String) {
-      
-        let messagesReference = Database.database().reference().child("messages").child(messageId)
-        
-        messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-              
-                let message = Message(dictionary: dictionary)
-                
-                if let chatPartnerId = message.chatPartnerId() {
-                    self.messagesDictionary[chatPartnerId] = message
-                }
-                
-                self.attemptReloadOfTable()
-            }
-            
-            }, withCancel: nil)
-         }
-  
-  
-    var timer: Timer?
-    fileprivate func attemptReloadOfTable() {
-        self.timer?.invalidate()
-        
-        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
-    }
-  
-    
-    func handleReloadTable() {
-        messages = Array(self.messagesDictionary.values)
-      
-        messages.sort(by: { (message1, message2) -> Bool in
-            
-            return message1.timestamp?.int32Value > message2.timestamp?.int32Value
-        })
-        
-        //this will crash because of background thread, so lets call this on dispatch_async main thread
-        DispatchQueue.main.async(execute: {
-            self.tableView.reloadData()
-        })
     }
   
   
@@ -189,6 +108,7 @@ class MessagesController: UITableViewController {
   
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
         let message = messages[indexPath.row]
         
         guard let chatPartnerId = message.chatPartnerId() else {
@@ -199,6 +119,7 @@ class MessagesController: UITableViewController {
         let ref = Database.database().reference().child("users").child(chatPartnerId)
       
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
+          
             guard let dictionary = snapshot.value as? [String: AnyObject] else {
                 return
             }
@@ -207,9 +128,8 @@ class MessagesController: UITableViewController {
             user.id = chatPartnerId
             user.setValuesForKeys(dictionary)
             self.showChatControllerForUser(user)
-          
             
-            }, withCancel: nil)
+        }, withCancel: nil)
     }
   
     
@@ -219,16 +139,7 @@ class MessagesController: UITableViewController {
         let navController = UINavigationController(rootViewController: newMessageController)
         present(navController, animated: true, completion: nil)
     }
-    
-//    func checkIfUserIsLoggedIn() {
-//        if Auth.auth().currentUser?.uid == nil {
-//           // perform(#selector(handleLogout), with: nil, afterDelay: 0)
-//          print("USER IS LOGGED OUT")
-//        } else {
-//          
-//           // fetchUserAndSetupNavBarTitle()
-//        }
-//    }
+
  
   
     func showChatControllerForUser(_ user: User) {
@@ -237,4 +148,86 @@ class MessagesController: UITableViewController {
             self.navigationController?.pushViewController(chatLogController, animated: true)
      
     }
+}
+
+
+extension MessagesController {  /* firebase */
+  
+  func observeUserMessages() {
+    guard let uid = Auth.auth().currentUser?.uid else {
+      return
+    }
+    
+    let ref = Database.database().reference().child("user-messages").child(uid)
+    
+    ref.observe(.childAdded, with: { (snapshot) in
+      
+      let userId = snapshot.key
+      
+      Database.database().reference().child("user-messages").child(uid).child(userId).queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
+        
+        print("new message")
+        let messageId = snapshot.key
+        
+        self.fetchMessageWithMessageId(messageId)
+        
+      }, withCancel: nil)
+      
+    }, withCancel: nil)
+    
+    
+    
+    ref.observe(.childRemoved, with: { (snapshot) in
+      print(snapshot.key)
+      print(self.messagesDictionary)
+      
+      self.messagesDictionary.removeValue(forKey: snapshot.key)
+     // self.attemptReloadOfTable()
+      self.handleReloadTable()
+      
+    }, withCancel: nil)
+  }
+  
+  
+  func fetchMessageWithMessageId(_ messageId: String) {
+    
+    let messagesReference = Database.database().reference().child("messages").child(messageId)
+    
+    messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
+      
+      if let dictionary = snapshot.value as? [String: AnyObject] {
+        
+        let message = Message(dictionary: dictionary)
+        
+        if let chatPartnerId = message.chatPartnerId() {
+          self.messagesDictionary[chatPartnerId] = message
+        }
+        
+       // self.attemptReloadOfTable()
+        self.handleReloadTable()
+      }
+      
+    }, withCancel: nil)
+  }
+  
+//  fileprivate func attemptReloadOfTable() {
+//    self.timer?.invalidate()
+//    
+//    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+//  }
+  
+  
+  func handleReloadTable() {
+    messages = Array(self.messagesDictionary.values)
+    
+    messages.sort(by: { (message1, message2) -> Bool in
+      
+      return message1.timestamp?.int32Value > message2.timestamp?.int32Value
+    })
+    
+    //this will crash because of background thread, so lets call this on dispatch_async main thread
+    DispatchQueue.main.async(execute: {
+      self.tableView.reloadData()
+    })
+  }
 }

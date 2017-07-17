@@ -180,15 +180,17 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
               print(self.messagesIds.count, " " ,self.messages.count)
               
               if self.appendingMessages.count == self.messagesIds.count {
-                print("in end")
-                
+
                 self.messages = self.appendingMessages
-            
+                
                   self.collectionView?.reloadData()
                   self.startCollectionViewAtBottom()
                   self.newInboxMessage = true
+                
                   self.observeTyping()
-            
+                  self.updateMessageStatus(messagesRef: messagesRef)
+                  self.observeMessageStatus(messageId: snapshot.key)
+                
                break
               }
           }
@@ -202,11 +204,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     })
  }
   
- 
+  
   var queryStartingID = String()
   var queryEndingID = String()
   var messagesFromHistory = 50
- 
   
   func loadPreviousMessages() {
     
@@ -376,12 +377,11 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
           messagesRef.updateChildValues(["status" : "Прочитано"])
           
         } else {
-          
+          print("delivered")
           messagesRef.updateChildValues(["status" : "Доставлено"])
         }
         
       } else {
-        
         sentMessageDataToId = ""
       }
       
@@ -397,11 +397,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         if snapshot.value != nil {
           snapStatus = snapshot.value as! String
-          
-          DispatchQueue.main.async(execute: {
             messageStatus.text = snapStatus
-          })
-          
         }
       }
       
@@ -452,7 +448,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }()
   
     var canRefresh = true
-  
+
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
     
         
@@ -475,9 +471,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         } else if scrollView.contentOffset.y >= 0 {
           canRefresh = true
         }
-      
     }
-  
+
   
     let refreshControl: UIRefreshControl = {
       let refreshControl = UIRefreshControl()
@@ -535,7 +530,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         dismiss(animated: true, completion: nil)
     }
   
-  //---=====
+ 
     fileprivate func handleVideoSelectedForUrl(_ url: URL) {
         let filename = UUID().uuidString + ".mov"
         let uploadTask = Storage.storage().reference().child("message_movies").child(filename).putFile(from: url, metadata: nil, completion: { (metadata, error) in
@@ -704,7 +699,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
           cell.textView.text = messageText
         
-      
+  
           if message.fromId == Auth.auth().currentUser?.uid { /* Outgoing message with blue bubble */
             
             cell.bubbleView.image = BaseMessageCell.blueBubbleImage
@@ -721,8 +716,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             
             cell.textView.frame.size = CGSize(width: cell.bubbleView.frame.width,
                                               height: cell.bubbleView.frame.height)
-
-            
             
           } else { /* Incoming message with grey bubble */
             
@@ -732,7 +725,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             
             cell.textView.textContainerInset.left = 12
             
-          
             cell.bubbleView.frame = CGRect(x: 10,
                                            y: 0,
                                            width: estimateFrameForText(messageText).width + 30,
@@ -742,18 +734,15 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                                                height: cell.bubbleView.frame.height)
           }
         
-        
         return cell
         
       } else if message.imageUrl != nil { /* If current message is a photo/video message */
         
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: photoMessageCellID, for: indexPath) as! PhotoMessageCell
         
-        DispatchQueue.main.async {
           cell.chatLogController = self
           cell.message = message
-        }
-        
+    
           if message.fromId == Auth.auth().currentUser?.uid { /* Outgoing message with blue bubble */
 
             cell.bubbleView.frame = CGRect(x: view.frame.width - 210, y: 0, width: 200, height: cell.frame.size.height).integral
@@ -763,12 +752,11 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
              cell.bubbleView.frame = CGRect(x: 10, y: 0, width: 200, height: cell.frame.size.height).integral
           }
 
-        
-        DispatchQueue.main.async {
+          DispatchQueue.global(qos: .default).async(execute: {() -> Void in
           if let messageImageUrl = message.imageUrl {
             cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
           }
-        }
+        })
         
         cell.playButton.isHidden = message.videoUrl == nil
         
@@ -780,9 +768,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     
   }
   
-    /* override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
       collectionView?.collectionViewLayout.invalidateLayout()
-    }*/
+    }
   
   
     fileprivate var cellHeight: CGFloat = 80
@@ -896,13 +884,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             print("\n\n",snapshot.value!, "\n\n")
     
-            DispatchQueue.main.async(execute: {
-              
-              if snapshot.value != nil {
+            if snapshot.value != nil {
                 messageStatus.text = (snapshot.value as! String)
-              }
-              
-            })
+            }
         })
     }
   
