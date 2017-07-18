@@ -62,6 +62,12 @@ extension Array {
   
 }
 
+ let userMessagesFirebaseFolder = "userMessages"
+
+ let typingIndicatorID = "typingIndicator"
+
+ let typingIndicatorKeyID = "Is typing"
+
  private var sentMessageDataToId = ""
 
  private var snapStatus = ""
@@ -73,14 +79,9 @@ extension Array {
       messageStatus.text = "working on it"
       messageStatus.font = UIFont.systemFont(ofSize: 10)
       messageStatus.textColor = UIColor.darkGray
-      //messageStatus.translatesAutoresizingMaskIntoConstraints = false
-      //messageStatus.backgroundColor = UIColor.clear
-      //messageStatus.textAlignment = .right
   
     return messageStatus
 }()
-
-
 
 
 class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -97,7 +98,11 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     let textMessageCellID = "textMessageCellID"
   
+    let typingIndicatorID = "typingIndicatorID"
+  
     var messages = [Message]()
+  
+    var sections = ["Messages"]
   
     var finishKey = [String]()
   
@@ -138,7 +143,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       return
     }
     
-    let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId)
+    let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId).child(userMessagesFirebaseFolder)
     userMessagesRef.queryLimited(toLast: UInt(50)).observe( .childAdded, with: { (snapshot) in
     self.messagesIds.append(snapshot.key)
     print(self.messagesIds)
@@ -147,7 +152,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
        messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
           
         guard let dictionary = snapshot.value as? [String: AnyObject] else {
-        print("returninggggg")
+        print("returning")
             return
         }
         
@@ -187,10 +192,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                   self.startCollectionViewAtBottom()
                   self.newInboxMessage = true
                 
-                  self.observeTyping()
+                  self.observeTypingIndicator()
                   self.updateMessageStatus(messagesRef: messagesRef)
                   self.observeMessageStatus(messageId: snapshot.key)
-                
+ 
                break
               }
           }
@@ -218,7 +223,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       return
     }
     
-    let startingIDRef = Database.database().reference().child("user-messages").child(uid).child(toId).queryLimited(toLast: UInt(numberOfMessagesToLoad))
+    let startingIDRef = Database.database().reference().child("user-messages").child(uid).child(toId).child(userMessagesFirebaseFolder).queryLimited(toLast: UInt(numberOfMessagesToLoad))
     startingIDRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
    
       if snapshot.exists() {
@@ -226,7 +231,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         print(self.queryStartingID)
       }
       
-        let endingIDRef = Database.database().reference().child("user-messages").child(uid).child(toId).queryLimited(toLast: UInt(nextMessageIndex))
+        let endingIDRef = Database.database().reference().child("user-messages").child(uid).child(toId).child(userMessagesFirebaseFolder).queryLimited(toLast: UInt(nextMessageIndex))
         endingIDRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
         self.queryEndingID = snapshot.key
           print(self.queryEndingID)
@@ -236,7 +241,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             print("ALL messages downloaded")
             return
           }
-            let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId).queryOrderedByKey()
+            let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId).child(userMessagesFirebaseFolder).queryOrderedByKey()
             userMessagesRef.queryStarting(atValue: self.queryStartingID).queryEnding(atValue: self.queryEndingID).observe(.childAdded, with: { (snapshot) in
               self.messagesIds.append(snapshot.key)
               print(self.messagesIds.count)
@@ -286,9 +291,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     })  // startingIDRef
  }
   
-  
-  var userIsTypingRef = Database.database().reference().child("user-messages").child("typingIndicator").child((Auth.auth().currentUser?.uid)!)
-  
+
   private var localTyping = false
   
   var isTyping: Bool {
@@ -297,68 +300,56 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
     
     set {
-      var currentInterlocutorId = String()
-      
-      if newValue {
-        currentInterlocutorId = (user?.id)!
-      } else {
-        currentInterlocutorId = ""
-      }
-      
       localTyping = newValue
       
-      let typingData: NSDictionary = ["Is typing" : newValue,
-                                      "Typing to" : currentInterlocutorId ]
-      userIsTypingRef.setValue(typingData)
+      let typingData: NSDictionary = [typingIndicatorKeyID : newValue]
+      
+      sendTypingStatus(data: typingData)
     }
   }
   
   
-  private lazy var usersTypingQuery = DatabaseQuery()
-  
-  func observeTyping() {
+  func sendTypingStatus(data: NSDictionary) {
     
-    let typingIndicatorRef = Database.database().reference().child("user-messages").child("typingIndicator")
-    
-    userIsTypingRef = typingIndicatorRef.child((Auth.auth().currentUser?.uid)!)
-    userIsTypingRef.onDisconnectRemoveValue()
-    
-    usersTypingQuery.observe(.value) { (data: DataSnapshot) in
-      
-      if data.childrenCount == 1 && self.isTyping  {
-        return
-      }
-      
-        
-    let interlocutorRef = Database.database().reference().child("user-messages").child("typingIndicator").child((self.user?.id!)!).child("Typing to")
-        
-        interlocutorRef.observe(.value, with: { (interlocutorId) in
-          
-        let currentInterlocutor = Auth.auth().currentUser?.uid
-          
-            if let interlocutorIdValue = interlocutorId.value as? String {
-              print("\n", interlocutorIdValue, "\n", currentInterlocutor! , "\n")
-            
-              if interlocutorIdValue == currentInterlocutor! {
-                print("interlocutorIdValue == currentInterlocutor!")
-                self.inputContainerView.istypingLabel.isHidden = false
-              
-              } else {
-              
-                print("interlocutorIdValue != currentInterlocutor!")
-                self.inputContainerView.istypingLabel.isHidden = true
-              }
-            
-            } else {
-            
-              print("interlocutorIdValue !!= currentInterlocutor!")
-              self.inputContainerView.istypingLabel.isHidden = true
-            }
-        })
-     }
+    guard let uid = Auth.auth().currentUser?.uid, let toId = user?.id else {
+      return
+    }
+
+    let userIsTypingRef = Database.database().reference().child("user-messages").child(uid).child(toId).child(typingIndicatorID)
+    userIsTypingRef.setValue(data)
   }
   
   
+  func observeTypingIndicator () {
+    
+    guard let uid = Auth.auth().currentUser?.uid, let toId = user?.id else {
+      return
+    }
+    
+    let typingIndicatorRef = Database.database().reference().child("user-messages").child(uid).child(toId).child(typingIndicatorID)
+    typingIndicatorRef.onDisconnectRemoveValue()
+    
+    let userTypingToRef = Database.database().reference().child("user-messages").child(toId).child(uid).child(typingIndicatorID).child(typingIndicatorKeyID)
+    userTypingToRef.observe( .value, with: { (isTyping) in
+   
+      if let isUserTypingToYou = isTyping.value! as? Bool {
+        
+        if isUserTypingToYou {
+          self.sections = ["Messages", "TypingIndicator"]
+          self.collectionView?.reloadData()
+          self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 1), at: .bottom, animated: true)
+        } else {
+          self.sections = ["Messages"]
+          self.collectionView?.reloadData()
+        }
+      } else { /* if typing indicator not exist */
+        self.sections = ["Messages"]
+        self.collectionView?.reloadData()
+      }
+    })
+  }
+  
+
   fileprivate func updateMessageStatus(messagesRef: DatabaseReference) {
     
     messagesRef.child("toId").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -410,12 +401,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        inputContainerView.istypingLabel.text = "\(String(describing: (user?.name)!)) печатает..."
-      
-        let currentInterlocutor = user?.id
-      
-        usersTypingQuery = Database.database().reference().child("user-messages").child("typingIndicator").child(currentInterlocutor!).queryOrderedByValue().queryEqual(toValue: true)
-      
         autoSizingCollectionViewFlowLayout.minimumLineSpacing = 6
      
         collectionView?.collectionViewLayout = autoSizingCollectionViewFlowLayout
@@ -431,10 +416,12 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       
         collectionView?.register(TextMessageCell.self, forCellWithReuseIdentifier: textMessageCellID)
         collectionView?.register(PhotoMessageCell.self, forCellWithReuseIdentifier: photoMessageCellID)
-      
+        collectionView?.register(TypingIndicatorCell.self, forCellWithReuseIdentifier: typingIndicatorID)
         collectionView?.keyboardDismissMode = .interactive
         collectionView?.backgroundColor = UIColor.white
-    }
+      
+        }
+  
  
   
   lazy var inputContainerView: ChatInputContainerView = {
@@ -653,6 +640,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     super.viewDidDisappear(animated)
     
     NotificationCenter.default.removeObserver(self)
+    isTyping = false
   }
   
   
@@ -678,14 +666,34 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     })
   }
   
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return sections.count
+  }
+  
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+    
+    if section == 0 {
+       return messages.count
+    } else {
+      return 1
+    }
+    
   }
   
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if indexPath.section == 0 {
+       return selectCell(for: indexPath)!
+    } else {
+      return showTypingIndicator(indexPath: indexPath)!
+    }
+   
+  }
   
-    return selectCell(for: indexPath)!
+  
+ fileprivate func showTypingIndicator(indexPath: IndexPath) -> UICollectionViewCell? {
+     let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: typingIndicatorID, for: indexPath) as! TypingIndicatorCell
+    return cell
   }
   
   
@@ -777,19 +785,26 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       
-      let message = messages[(indexPath as NSIndexPath).item]
       
-      
-      if let text = message.text {
-    
-          cellHeight = estimateFrameForText(text).height + 20
+      if indexPath.section == 0 {
+        let message = messages[(indexPath as NSIndexPath).item]
         
-      } else if let imageWidth = message.imageWidth?.floatValue, let imageHeight = message.imageHeight?.floatValue {
-            
-            cellHeight = CGFloat(imageHeight / imageWidth * 200)
+        
+        if let text = message.text {
+          
+          cellHeight = estimateFrameForText(text).height + 20
+          
+        } else if let imageWidth = message.imageWidth?.floatValue, let imageHeight = message.imageHeight?.floatValue {
+          
+          cellHeight = CGFloat(imageHeight / imageWidth * 200)
+        }
+        
+        return CGSize(width: screenSize.width, height: cellHeight)
+
+        
+      } else {
+         return CGSize(width: screenSize.width, height: 40)
       }
-  
-      return CGSize(width: screenSize.width, height: cellHeight)
     }
   
     
@@ -859,7 +874,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                 return
             }
             
-            let userMessagesRef = Database.database().reference().child("user-messages").child(fromId).child(toId)
+            let userMessagesRef = Database.database().reference().child("user-messages").child(fromId).child(toId).child(userMessagesFirebaseFolder)
             
             let messageId = childRef.key
           
@@ -867,9 +882,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
           
             userMessagesRef.updateChildValues([messageId: 1])
           
-           // self.messagesIds.append(childRef.key)
-          
-            let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId).child(fromId)
+            let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId).child(fromId).child(userMessagesFirebaseFolder)
           
             recipientUserMessagesRef.updateChildValues([messageId: 1])
   
@@ -895,8 +908,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     var blackBackgroundView: UIView?
     var startingImageView: UIImageView?
   
-  
-    //my custom zooming logic
+
     func performZoomInForStartingImageView(_ startingImageView: UIImageView) {
         print("tapped")
         self.startingImageView = startingImageView
@@ -906,7 +918,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         let zoomingImageView = UIImageView(frame: startingFrame!)
         zoomingImageView.backgroundColor = UIColor.red
-        zoomingImageView.image = startingImageView.image
+        zoomingImageView.image  = startingImageView.image
         zoomingImageView.isUserInteractionEnabled = true
         zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomOut)))
         
@@ -915,7 +927,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             blackBackgroundView?.backgroundColor = UIColor.black
             blackBackgroundView?.alpha = 0
             keyWindow.addSubview(blackBackgroundView!)
-            
             keyWindow.addSubview(zoomingImageView)
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {

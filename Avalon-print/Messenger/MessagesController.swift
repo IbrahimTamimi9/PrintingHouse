@@ -72,7 +72,7 @@ class MessagesController: UITableViewController {
         let message = self.messages[(indexPath as NSIndexPath).row]
         
         if let chatPartnerId = message.chatPartnerId() {
-            Database.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
+            Database.database().reference().child("user-messages").child(uid).child(chatPartnerId).child(userMessagesFirebaseFolder).removeValue(completionBlock: { (error, ref) in
                 
                 if error != nil {
                     print("Failed to delete message:", error as Any)
@@ -164,7 +164,7 @@ extension MessagesController {  /* firebase */
       
       let userId = snapshot.key
       
-      Database.database().reference().child("user-messages").child(uid).child(userId).queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
+      Database.database().reference().child("user-messages").child(uid).child(userId).child(userMessagesFirebaseFolder).queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
         
         print("new message")
         let messageId = snapshot.key

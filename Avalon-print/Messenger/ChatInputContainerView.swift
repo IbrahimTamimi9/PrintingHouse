@@ -35,18 +35,6 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
     }
   }
   
-  
-  let istypingLabel: UILabel = {
-    let istypingLabel = UILabel()
-     istypingLabel.isHidden = true
-    istypingLabel.text = ""
-    istypingLabel.translatesAutoresizingMaskIntoConstraints = false
-    istypingLabel.font = UIFont.systemFont(ofSize: 11)
-    istypingLabel.textColor = UIColor.gray
-    
-    return istypingLabel
-  }()
-  
   lazy var inputTextView: UITextView = {
     let textView = UITextView()
       
@@ -93,7 +81,7 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
         super.init(frame: frame)
     
         backgroundColor = .white
-
+      
         sendButton.setImage(UIImage(named: "send"), for: UIControlState())
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.isEnabled = false
@@ -131,12 +119,6 @@ class ChatInputContainerView: UIView, UITextViewDelegate {
         separatorLineView.topAnchor.constraint(lessThanOrEqualTo: topAnchor).isActive = true
         separatorLineView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         separatorLineView.heightAnchor.constraint(equalToConstant: 0).isActive = true
-     
-      addSubview(istypingLabel)
-      self.istypingLabel.bottomAnchor.constraint(equalTo: separatorLineView.topAnchor, constant: -2).isActive = true
-      self.istypingLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
-      self.istypingLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-      self.istypingLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
