@@ -12,21 +12,16 @@ class TypingIndicatorCell: UICollectionViewCell {
   
   var typingIndicator: UIImageView = {
     var typingIndicator = UIImageView()
-    typingIndicator.image = UIImage.sd_animatedGIFNamed("typingIndicator")
-    typingIndicator.translatesAutoresizingMaskIntoConstraints = false
-    typingIndicator.backgroundColor = .clear
+    typingIndicator.image =  UIImage.sd_animatedGIFNamed("typingIndicator")
+    typingIndicator.frame = CGRect(x: 10, y: 0, width: 65, height: 40)
+    typingIndicator.backgroundColor = .white
     return typingIndicator
   }()
   
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
     addSubview(typingIndicator)
-    typingIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-    typingIndicator.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-    typingIndicator.widthAnchor.constraint(equalToConstant: 60).isActive = true
-    typingIndicator.heightAnchor.constraint(equalToConstant: 40).isActive = true
   }
   
   
@@ -37,7 +32,6 @@ class TypingIndicatorCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-       typingIndicator.image = UIImage.sd_animatedGIFNamed("typingIndicator")
+    typingIndicator.image =  UIImage.sd_animatedGIFNamed("typingIndicator")
   }
-    
 }

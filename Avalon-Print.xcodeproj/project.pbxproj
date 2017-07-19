@@ -58,6 +58,8 @@
 		4B94661E1F12415100B595A1 /* HomeViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B94661D1F12415100B595A1 /* HomeViewControllerCell.xib */; };
 		4B9E30CD1F1E316A00FF03C1 /* TypingIndicatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E30CC1F1E316A00FF03C1 /* TypingIndicatorCell.swift */; };
 		4B9E30D81F1E92E000FF03C1 /* typingIndicator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4B9E30D71F1E92E000FF03C1 /* typingIndicator.gif */; };
+		4B9E30DB1F1E9B1500FF03C1 /* ResetPasswordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E30D91F1E9B1500FF03C1 /* ResetPasswordContainerView.swift */; };
+		4B9E30DC1F1E9B1500FF03C1 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */; };
 		4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */; };
 		4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */; };
 		4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */; };
@@ -78,8 +80,6 @@
 		4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */; };
 		4BDC374E1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC374D1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift */; };
 		4BDC37511F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC37501F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift */; };
-		4BE0C3611F13A87E00E6ED02 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE0C3601F13A87E00E6ED02 /* ResetPasswordViewController.swift */; };
-		4BE0C3631F13A88700E6ED02 /* ResetPasswordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE0C3621F13A88700E6ED02 /* ResetPasswordContainerView.swift */; };
 		4BE3DBA61EFAC2DA00DADA39 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBA51EFAC2DA00DADA39 /* MainNavigationController.swift */; };
 		4BE3DBA81EFAC37600DADA39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBA71EFAC37600DADA39 /* HomeViewController.swift */; };
 		4BE3DBAB1EFAC53400DADA39 /* public.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE3DBAA1EFAC53400DADA39 /* public.swift */; };
@@ -191,6 +191,8 @@
 		4B94661D1F12415100B595A1 /* HomeViewControllerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewControllerCell.xib; path = "Avalon-print/HomeViewControllerCell.xib"; sourceTree = SOURCE_ROOT; };
 		4B9E30CC1F1E316A00FF03C1 /* TypingIndicatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypingIndicatorCell.swift; path = "Avalon-print/Messenger/TypingIndicatorCell.swift"; sourceTree = SOURCE_ROOT; };
 		4B9E30D71F1E92E000FF03C1 /* typingIndicator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = typingIndicator.gif; path = "Avalon-print/Messenger/Media/typingIndicator.gif"; sourceTree = SOURCE_ROOT; };
+		4B9E30D91F1E9B1500FF03C1 /* ResetPasswordContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordContainerView.swift; path = "Avalon-print/ResetPasswordContainerView.swift"; sourceTree = SOURCE_ROOT; };
+		4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = "Avalon-print/ResetPasswordViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceCalculation.swift; path = "Avalon-print/PriceCalculation.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewControllerCell.swift; path = "Avalon-print/HomeViewControllerCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchingMaterialsAndPostPrintFromFIrebase.swift; path = "Avalon-print/FetchingMaterialsAndPostPrintFromFIrebase.swift"; sourceTree = SOURCE_ROOT; };
@@ -211,8 +213,6 @@
 		4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailLayoutTableViewCell.swift; path = "Avalon-print/ShoppingCartDetailLayoutTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BDC374D1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailTextTableViewCell.swift; path = "Avalon-print/ShoppingCartDetailTextTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BDC37501F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailTableViewController.swift; path = "Avalon-print/ShoppingCartDetailTableViewController.swift"; sourceTree = SOURCE_ROOT; };
-		4BE0C3601F13A87E00E6ED02 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
-		4BE0C3621F13A88700E6ED02 /* ResetPasswordContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordContainerView.swift; sourceTree = SOURCE_ROOT; };
 		4BE3DBA51EFAC2DA00DADA39 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = "Avalon-print/MainNavigationController.swift"; sourceTree = SOURCE_ROOT; };
 		4BE3DBA71EFAC37600DADA39 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "Avalon-print/HomeViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BE3DBAA1EFAC53400DADA39 /* public.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = public.swift; path = "Avalon-print/public.swift"; sourceTree = SOURCE_ROOT; };
@@ -376,8 +376,8 @@
 			children = (
 				4B7E58FF1F0E19C5003945D5 /* EditProfileViewController.swift */,
 				4B7E59011F0E1A13003945D5 /* EditProfileContainerView.swift */,
-				4BE0C3601F13A87E00E6ED02 /* ResetPasswordViewController.swift */,
-				4BE0C3621F13A88700E6ED02 /* ResetPasswordContainerView.swift */,
+				4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */,
+				4B9E30D91F1E9B1500FF03C1 /* ResetPasswordContainerView.swift */,
 			);
 			name = EditProfileViewControllers;
 			sourceTree = "<group>";
@@ -864,11 +864,11 @@
 				4B47F1901F0936D100172176 /* OrdersTableViewCell.swift in Sources */,
 				4B3FE8A11E44F34D00852A2A /* ARSProgressLoader.swift in Sources */,
 				4B9E30CD1F1E316A00FF03C1 /* TypingIndicatorCell.swift in Sources */,
+				4B9E30DC1F1E9B1500FF03C1 /* ResetPasswordViewController.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
 				4BE3DBA81EFAC37600DADA39 /* HomeViewController.swift in Sources */,
 				4BF718801EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift in Sources */,
 				4B0055251EF666E0002EAE4E /* CheckoutVC.swift in Sources */,
-				4BE0C3611F13A87E00E6ED02 /* ResetPasswordViewController.swift in Sources */,
 				4BF0C5131F0C0FFD001C3EA1 /* StorageTableViewController.swift in Sources */,
 				4BDBFD231EFE762700010AEA /* DetailInformationViewController.swift in Sources */,
 				4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */,
@@ -919,7 +919,6 @@
 				4BFD11CA1E841F6F0026E152 /* Extensions.swift in Sources */,
 				4B48FB181F0644B200A0E353 /* LoginContainerView.swift in Sources */,
 				4B47F18E1F0936C000172176 /* OrdersHeaderVIew.swift in Sources */,
-				4BE0C3631F13A88700E6ED02 /* ResetPasswordContainerView.swift in Sources */,
 				4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */,
 				4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */,
 				4BE3DBAE1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift in Sources */,
@@ -957,6 +956,7 @@
 				4B0E8BBD1F02AEA100DF8580 /* PictureZoomHandling.swift in Sources */,
 				4B48FB1C1F06506400A0E353 /* RegistrationContainerView.swift in Sources */,
 				4B47F1941F094D3600172176 /* OrdersDetailViewController.swift in Sources */,
+				4B9E30DB1F1E9B1500FF03C1 /* ResetPasswordContainerView.swift in Sources */,
 				4BCC4E7F1EFDA4DC00085A9A /* ContactsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
