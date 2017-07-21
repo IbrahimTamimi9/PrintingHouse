@@ -16,8 +16,6 @@ import FirebaseStorage
 
 extension CheckoutVC { /* handling sending order to firebase */
   
- 
-  
   func orderSent () {
     
     let localizableOrderPlacedAlertTitle = NSLocalizedString("CheckoutVCOrderSender.orderSent.alert.title", comment: "")
@@ -40,12 +38,13 @@ extension CheckoutVC { /* handling sending order to firebase */
   func placeOrderTapped () {
     
     print("tapped")
-    self.view.isUserInteractionEnabled = false
-    
-    ARSLineProgress.showWithProgress(initialValue: 0) {
+   
+    ARSLineProgress.showWithProgress(initialValue: 0.0, onView: self.view) {
       self.view.isUserInteractionEnabled = true
       self.orderSent()
     }
+
+     self.view.isUserInteractionEnabled = false
     
     let date = Date()
     let calendar = Calendar.current
@@ -55,19 +54,6 @@ extension CheckoutVC { /* handling sending order to firebase */
     let year = calendar.component(.year, from: date)
     
     var monthString = String()
-    
-//    if month == 1 { monthString = "января" }
-//    if month == 2 { monthString = "февраля" }
-//    if month == 3 { monthString = "марта" }
-//    if month == 4 { monthString = "апреля" }
-//    if month == 5 { monthString = "мая" }
-//    if month == 6 { monthString = "июня" }
-//    if month == 7 { monthString = "июля" }
-//    if month == 8 { monthString = "августа" }
-//    if month == 9 { monthString = "сентября" }
-//    if month == 10 { monthString = "октября" }
-//    if month == 11 { monthString = "ноября" }
-//    if month == 12 { monthString = "декабря" }
     
     if month == 1 { monthString = "01" }
     if month == 2 { monthString = "02" }
@@ -245,6 +231,7 @@ extension CheckoutVC { /* handling sending order to firebase */
         
         if self.attachedImagesNumber == 0 {
           ARSLineProgress.updateWithProgress(100)
+          self.view.isUserInteractionEnabled = true
         }
       }
       

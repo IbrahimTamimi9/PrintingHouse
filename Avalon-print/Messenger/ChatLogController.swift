@@ -90,7 +90,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     var user: User? {
         didSet {
           loadMessages()
-          navigationItem.title = user?.name
+          setNavifationTitle(username: user?.name)
         }
     }
   
@@ -117,26 +117,28 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     let messagesToLoad = 50
   
 
-  fileprivate func startCollectionViewAtBottom () {
+  func startCollectionViewAtBottom () {
     
-    let collectionViewInsets: CGFloat = (collectionView?.contentInset.bottom)! + inputContainerView.inputTextView.frame.height
+    let collectionViewInsets: CGFloat = (collectionView!.contentInset.bottom + collectionView!.contentInset.top)// + inputContainerView.inputTextView.frame.height
     
     let contentSize = self.collectionView?.collectionViewLayout.collectionViewContentSize
-    if Double((contentSize?.height)!) > Double((self.collectionView?.bounds.size.height)!) {
-      let targetContentOffset = CGPoint(x: 0.0, y: (contentSize?.height)! - (((self.collectionView?.bounds.size.height)! - collectionViewInsets)))
+    if Double(contentSize!.height) > Double(self.collectionView!.bounds.size.height) {
+      let targetContentOffset = CGPoint(x: 0.0, y: contentSize!.height - (self.collectionView!.bounds.size.height - collectionViewInsets))
       self.collectionView?.contentOffset = targetContentOffset
     }
   }
   
-  
+
   var messagesIds = [String]()
   var appendingMessages = [Message]()
   
   var newOutboxMessage = false
   var newInboxMessage = false
   
-  func loadMessages() {
+  typealias CompletionHandler = (_ success: Bool) -> Void
   
+  func loadMessages() {
+    
     guard let uid = Auth.auth().currentUser?.uid,let toId = user?.id else {
       return
     }
@@ -188,15 +190,20 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
 
                 self.messages = self.appendingMessages
               
+                self.messages.sort(by: { (message1, message2) -> Bool in
+                  
+                  return message1.timestamp!.int32Value < message2.timestamp!.int32Value
+                })
+                
                   self.collectionView?.reloadData()
                   self.startCollectionViewAtBottom()
                   self.newInboxMessage = true
-   
-                DispatchQueue.global(qos: .background).async {
-                  self.observeTypingIndicator()
-                  self.updateMessageStatus(messagesRef: messagesRef)
-                  self.observeMessageStatus(messageId: snapshot.key)
-                }
+              
+                  DispatchQueue.global(qos: .background).async {
+                    self.observeTypingIndicator()
+                    self.updateMessageStatus(messagesRef: messagesRef)
+                    self.observeMessageStatus(messageId: snapshot.key)
+                  }
                 
                break
               }
@@ -449,39 +456,49 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       }
     })
   }
-
+  
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        setupKeyboardObservers()
+        setupCollectionView()
       
         setupCallBarButtonItem()
       
-        setupCollectionView()
+        setupKeyboardObservers()
     }
   
   
   fileprivate func setupCollectionView () {
     
     let autoSizingCollectionViewFlowLayout = AutoSizingCollectionViewFlowLayout()
-    
+    collectionView?.collectionViewLayout = autoSizingCollectionViewFlowLayout
     autoSizingCollectionViewFlowLayout.minimumLineSpacing = 6
     
-    collectionView?.collectionViewLayout = autoSizingCollectionViewFlowLayout
+    collectionView?.keyboardDismissMode = .interactive
+    collectionView?.backgroundColor = UIColor.white
+    collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 20, right: 0)
+    collectionView?.alwaysBounceVertical = true
     
     collectionView?.addSubview(refreshControl)
     
     collectionView?.register(TextMessageCell.self, forCellWithReuseIdentifier: textMessageCellID)
     collectionView?.register(PhotoMessageCell.self, forCellWithReuseIdentifier: photoMessageCellID)
     collectionView?.register(TypingIndicatorCell.self, forCellWithReuseIdentifier: typingIndicatorID)
-    
-    collectionView?.keyboardDismissMode = .interactive
-    collectionView?.backgroundColor = UIColor.white
-    collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 20, right: 0)
-    collectionView?.alwaysBounceVertical = true
   }
   
+  
+  fileprivate func setNavifationTitle (username: String?) {
+    let titleLabel = UILabel(frame: CGRect(x:0, y:0, width: 200, height: 40))
+    titleLabel.text = username
+    titleLabel.textColor = UIColor.black
+    titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+    titleLabel.backgroundColor = UIColor.clear
+    titleLabel.adjustsFontSizeToFitWidth = true
+    titleLabel.textAlignment = .center
+    self.navigationItem.titleView = titleLabel
+  }
+
   
   lazy var inputContainerView: ChatInputContainerView = {
     var chatInputContainerView = ChatInputContainerView(frame: CGRect.zero)

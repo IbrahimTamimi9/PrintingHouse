@@ -14,6 +14,4 @@ target 'Avalon-Print' do
   pod 'Firebase/Storage'
   pod 'SDWebImage', '~>3.8'
 
- 
-
 end

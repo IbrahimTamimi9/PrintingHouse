@@ -30,13 +30,13 @@ class OrdersViewController: UIViewController {
   
   var orderPrices = [String]()
   
-  
   let ordersHeaderView = OrdersHeaderVIew()
   
   let ordersTableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
   
   let ordersCellId = "ordersCell"
-
+  
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +59,7 @@ class OrdersViewController: UIViewController {
       ordersTableView.register(OrdersTableViewCell.self, forCellReuseIdentifier: ordersCellId)
       
       checkInternetConnectionForFutureActivityIndicatorBehavior()
+      
       observeOrders()
     }
   

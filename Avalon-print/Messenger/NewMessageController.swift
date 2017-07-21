@@ -19,17 +19,14 @@ class NewMessageController: UITableViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-    //  navigationController?.navigationBar.tintColor = UIColor.white
-    //  navigationController?.navigationBar.barStyle = UIBarStyle.black
-    //  navigationController?.navigationBar.isTranslucent = false
-      //tableView.separatorInset = .init(top: 0, left: 35, bottom: 0, right: 0)
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain , target: self, action: #selector(handleCancel))
+    
+      navigationController?.navigationBar.barStyle = UIBarStyle.default
+      navigationController?.navigationBar.isTranslucent = false
+      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain , target: self, action: #selector(handleCancel))
         
-        tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
+      tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
-        fetchUser()
+      fetchUser()
     }
   
   

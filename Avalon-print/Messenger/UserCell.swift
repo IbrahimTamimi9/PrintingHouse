@@ -54,18 +54,31 @@ class UserCell: UITableViewCell {
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 32
+        imageView.layer.cornerRadius = 27
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "UserpicIcon")
+    
         return imageView
     }()
-
+  
+  let newMessageIndicator: UIImageView = {
+    let newMessageIndicator = UIImageView()
+    newMessageIndicator.translatesAutoresizingMaskIntoConstraints = false
+    newMessageIndicator.layer.masksToBounds = true
+    newMessageIndicator.contentMode = .scaleAspectFill
+    newMessageIndicator.isHidden = true
+    newMessageIndicator.image = UIImage(named: "Oval")
+    
+    return newMessageIndicator
+  }()
+  
     let timeLabel: UILabel = {
         let label = UILabel()
         //label.text = "HH:MM:SS"
-        label.font = UIFont.systemFont(ofSize: 11)
+        label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor.lightGray
-        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
   
@@ -74,16 +87,17 @@ class UserCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
      
         addSubview(profileImageView)
+        addSubview(newMessageIndicator)
         addSubview(timeLabel)
-        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
+        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 26).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 63).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 63).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 54).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 54).isActive = true
       
-        timeLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        timeLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor, constant: 3).isActive = true
-        timeLabel.widthAnchor.constraint(equalToConstant: 58).isActive = true
-        timeLabel.heightAnchor.constraint(equalTo: (textLabel?.heightAnchor)!).isActive = true
+        newMessageIndicator.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 7).isActive = true
+        newMessageIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        newMessageIndicator.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        newMessageIndicator.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
   
   
@@ -96,14 +110,17 @@ class UserCell: UITableViewCell {
         super.layoutSubviews()
       
       let tlWidth = screenSize.width - profileImageView.frame.width - timeLabel.frame.width - 45
-      let detailTLWidth = screenSize.width - profileImageView.frame.width - 40
-      textLabel?.frame = CGRect(x: 90, y: textLabel!.frame.origin.y - 15, width: tlWidth , height: textLabel!.frame.height)
-      textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-      detailTextLabel?.font = UIFont.systemFont(ofSize: 12)
+      let detailTLWidth = screenSize.width - profileImageView.frame.width - 50
+      
+      textLabel?.frame = CGRect(x: 92, y: 12, width: tlWidth , height: textLabel!.frame.height)
+      
+      detailTextLabel?.frame = CGRect(x: 92, y: 35, width: detailTLWidth, height: detailTextLabel!.frame.height)
+      
+      timeLabel.frame = CGRect(x: frame.width - 70, y: 12, width: 70 , height: textLabel!.frame.height)
+      
+      textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+      detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
       detailTextLabel?.textColor = UIColor.lightGray
-      detailTextLabel?.frame = CGRect(x: 90, y: textLabel!.frame.origin.y + 20, width: detailTLWidth, height: detailTextLabel!.frame.height)
+      detailTextLabel?.numberOfLines = 2
   }
-  
-  
-
 }

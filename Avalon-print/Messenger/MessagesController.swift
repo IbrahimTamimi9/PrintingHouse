@@ -97,8 +97,20 @@ class MessagesController: UITableViewController {
      
         let message = messages[indexPath.row]
             cell.message = message
+      
+      if message.status != "Прочитано" && message.fromId != Auth.auth().currentUser?.uid {
+        cell.newMessageIndicator.isHidden = false
+      } else {
+        cell.newMessageIndicator.isHidden = true
+      }
    
         return cell
+    }
+  
+  
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      observeUserMessages()
     }
 
   
@@ -145,8 +157,8 @@ class MessagesController: UITableViewController {
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
             chatLogController.user = user
-            self.navigationController?.pushViewController(chatLogController, animated: true)
-     
+      
+        self.navigationController?.pushViewController(chatLogController, animated: true)
     }
 }
 
@@ -166,7 +178,6 @@ extension MessagesController {  /* firebase */
       
       Database.database().reference().child("user-messages").child(uid).child(userId).child(userMessagesFirebaseFolder).queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
         
-        print("new message")
         let messageId = snapshot.key
         
         self.fetchMessageWithMessageId(messageId)
