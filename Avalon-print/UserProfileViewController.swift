@@ -50,7 +50,6 @@ class UserProfileViewController: UIViewController {
       
       userProfileTableView.backgroundColor = UIColor.white
       userProfileTableView.isScrollEnabled = false
-      userProfileTableView.alpha = 0
       userProfileTableView.separatorStyle = .none
       
       let leftButton = UIBarButtonItem(image: UIImage(named: "ChevronLeft"), style: .plain, target: self, action: #selector(leftBarButtonTapped))
@@ -60,6 +59,9 @@ class UserProfileViewController: UIViewController {
       userProfileTableView.tableFooterView = UIView(frame: CGRect.zero)
       
       setConstraints()
+    
+      scrollView.alpha = 0
+      checkInternetConnectionForFutureActivityIndicatorBehavior()
     }
   
   func leftBarButtonTapped () {
@@ -73,12 +75,14 @@ class UserProfileViewController: UIViewController {
   }
   
   
+  var headerViewHeightAnchor: NSLayoutConstraint?
   fileprivate func setConstraints() {
     
     headerView.translatesAutoresizingMaskIntoConstraints = false
     headerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
     headerView.widthAnchor.constraint(equalToConstant: screenSize.width).isActive = true
-    headerView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+    headerViewHeightAnchor = headerView.heightAnchor.constraint(equalToConstant: 70)
+    headerViewHeightAnchor?.isActive = true
     
     userProfileTableView.translatesAutoresizingMaskIntoConstraints = false
     userProfileTableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10).isActive = true
@@ -92,8 +96,18 @@ class UserProfileViewController: UIViewController {
     if  currentReachabilityStatus != .notReachable {
       //connected
       ARSLineProgress.show()
+      setHeaderView()
     } else {
       //not connected
+      
+      headerViewHeightAnchor?.constant = 0
+      
+      UIView.animate(withDuration: 0.1, animations: {
+        
+        self.scrollView.alpha = 1
+        ARSLineProgress.hide()
+      })
+      
       let alertController = UIAlertController(title: "Ошибка подключения к интернету", message: "Пожалуйста, подключитесь к интернету.", preferredStyle: .alert)
       
       let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -101,9 +115,7 @@ class UserProfileViewController: UIViewController {
       alertController.addAction(defaultAction)
       
       self.present(alertController, animated: true, completion: nil)
-      
     }
-    
   }
   
   func logoutButtonTapped () {
@@ -238,25 +250,7 @@ extension UserProfileViewController: UITableViewDataSource {
   }
   
   
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    
-    if headerView.name.text?.isEmpty == true {
-      ARSLineProgress.hide()
-      
-      UIView.animate(withDuration: 0.1, animations: {
-        self.headerView.alpha = 1
-        self.userProfileTableView.alpha = 1
-      })
-      
-    } else {
-      
-      self.headerView.alpha = 0
-      self.userProfileTableView.alpha = 0
-  
-      checkInternetConnectionForFutureActivityIndicatorBehavior()
-
-    }
-    
+  func setHeaderView () {
     
     var ref: DatabaseReference!
     ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!)
@@ -268,14 +262,11 @@ extension UserProfileViewController: UITableViewDataSource {
       let mainUserData = snapshot.value as? NSDictionary
       
       if let userNameSurname = mainUserData?["name"] as? String  {
-   
+        
         self.headerView.name.text = userNameSurname
         
         UIView.animate(withDuration: 0.1, animations: {
-        
-          self.headerView.alpha = 1
-          self.userProfileTableView.alpha = 1
-      
+          self.scrollView.alpha = 1
           ARSLineProgress.hide()
         })
       }
@@ -284,7 +275,7 @@ extension UserProfileViewController: UITableViewDataSource {
         self.headerView.email.text = userEmail
       }
     })
+    
   }
-
 }
 

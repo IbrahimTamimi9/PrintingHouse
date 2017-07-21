@@ -44,7 +44,9 @@ class UserCell: UITableViewCell {
                     
                     if let profileImageUrl = dictionary["profileImageUrl"] as? String {
                    
-                         self.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
+                      self.profileImageView.sd_setImage(with: URL(string: profileImageUrl),
+                                                        placeholderImage: UIImage(named:"UserpicIcon"),
+                                                        options: [ .lowPriority, .continueInBackground])
                     }
                 }
             }, withCancel: nil)

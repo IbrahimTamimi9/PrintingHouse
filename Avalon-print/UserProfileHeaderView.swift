@@ -32,8 +32,7 @@ class UserProfileHeaderView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    alpha = 0
+  
     backgroundColor = UIColor.white
     name.backgroundColor = backgroundColor
     email.backgroundColor = backgroundColor
