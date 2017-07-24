@@ -128,19 +128,16 @@ class MessagesController: UITableViewController {
         }
       
     
-        let ref = Database.database().reference().child("users").child(chatPartnerId)
-      
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-          
-            guard let dictionary = snapshot.value as? [String: AnyObject] else {
-                return
-            }
-            
-            let user = User()
-            user.id = chatPartnerId
-            user.setValuesForKeys(dictionary)
-            self.showChatControllerForUser(user)
-            
+      let ref = Database.database().reference().child("users").child(chatPartnerId)
+      ref.observeSingleEvent(of: .value, with: { (snapshot) in
+        guard let dictionary = snapshot.value as? [String: AnyObject] else {
+          return
+        }
+        
+        let user = User(dictionary: dictionary)
+        user.id = chatPartnerId
+        self.showChatControllerForUser(user)
+        
         }, withCancel: nil)
     }
   

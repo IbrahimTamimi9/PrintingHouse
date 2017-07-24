@@ -29,32 +29,25 @@ class NewMessageController: UITableViewController {
       fetchUser()
     }
   
-  
-    func fetchUser() {
-      
+
+      func fetchUser() {
         Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+          
+          if let dictionary = snapshot.value as? [String: AnyObject] {
+            let user = User(dictionary: dictionary)
+            user.id = snapshot.key
             
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = User()
-                user.id = snapshot.key
-                
-                //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
-                user.setValuesForKeys(dictionary)
-              
-              if user.type != "user" {
-                self.users.append(user)
-              }
-              
-                //this will crash because of background thread, so lets use dispatch_async to fix
-                DispatchQueue.main.async(execute: { 
-                    self.tableView.reloadData()
-                })
-                
-//                user.name = dictionary["name"]
+            if user.type != "user" {
+              self.users.append(user)
             }
-            
-            }, withCancel: nil)
-    }
+          
+            DispatchQueue.main.async(execute: {
+              self.tableView.reloadData()
+            })
+          }
+          
+        }, withCancel: nil)
+      }
   
   
     func handleCancel() {
@@ -66,14 +59,13 @@ class NewMessageController: UITableViewController {
         return users.count
     }
   
-    
+  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         
-        let user = users[(indexPath as NSIndexPath).row]
+        let user = users[indexPath.row]
         cell.textLabel?.text = user.name
         cell.detailTextLabel?.text = user.email
-       // cell.disclosureIndicator.isHidden = true
         
         if let profileImageUrl = user.profileImageUrl {            
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)

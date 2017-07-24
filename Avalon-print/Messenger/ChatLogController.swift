@@ -337,6 +337,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     typingIndicatorRef.onDisconnectRemoveValue()
     
     let userTypingToRef = Database.database().reference().child("user-messages").child(toId).child(uid).child(typingIndicatorID).child(typingIndicatorKeyID)
+    userTypingToRef.onDisconnectRemoveValue()
     userTypingToRef.observe( .value, with: { (isTyping) in
    
       if let isUserTypingToYou = isTyping.value! as? Bool {
@@ -867,7 +868,6 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       
-      
       if indexPath.section == 0 {
         let message = messages[(indexPath as NSIndexPath).item]
         
@@ -907,7 +907,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       
       isTyping = false
       inputContainerView.placeholderLabel.isHidden = false
-      
+      inputContainerView.invalidateIntrinsicContentSize()
     }
   
   

@@ -22,7 +22,6 @@ class TextMessageCell: BaseMessageCell {
     return textView
   }()
   
-  
   override func setupViews() {
     
     addSubview(bubbleView)

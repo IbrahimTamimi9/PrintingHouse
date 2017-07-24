@@ -25,8 +25,19 @@ class BaseMessageCell: UICollectionViewCell {
   }()
   
   
+  let timeLabel: UILabel = {
+    let timeLabel = UILabel()
+    timeLabel.text = "2:08 PM"
+    timeLabel.textColor = UIColor.gray
+    timeLabel.translatesAutoresizingMaskIntoConstraints = false
+    timeLabel.font = UIFont.systemFont(ofSize: 10)
+    return timeLabel
+  }()
+
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
+    
     setupViews()
   }
   

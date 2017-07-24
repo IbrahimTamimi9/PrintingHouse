@@ -16,4 +16,14 @@ class User: NSObject {
     var profileImageUrl: String?
     var phoneNumber: String?
     var type: String?
+  
+  init(dictionary: [String: AnyObject]) {
+    self.id = dictionary["id"] as? String
+    self.name = dictionary["name"] as? String
+    self.email = dictionary["email"] as? String
+    self.profileImageUrl = dictionary["profileImageUrl"] as? String
+    self.phoneNumber = dictionary["PhoneNumber"] as? String
+    self.type = dictionary["type"] as? String
+  }
+  
 }
