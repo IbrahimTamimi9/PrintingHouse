@@ -190,7 +190,7 @@ extension OrdersViewController {
     
     if  currentReachabilityStatus != .notReachable {
       //connected
-      ARSLineProgress.show()
+      ARSLineProgress.ars_showOnView(self.view)
     } else {
       //not connected
     }

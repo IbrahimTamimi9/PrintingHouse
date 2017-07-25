@@ -124,8 +124,8 @@ extension RegistrationViewController {
         Auth.auth().currentUser!.sendEmailVerification(completion: { (error) in
         })
         
-        
-        let alert = UIAlertController(title: "Регистрация прошла успешно", message: "Вам было выслано письмо для подтверждения вашего e-mail.", preferredStyle: UIAlertControllerStyle.alert)
+     
+        let alert = UIAlertController(title: NSLocalizedString("RegistrationViewController.alert.title", comment: ""), message: NSLocalizedString("RegistrationViewController.alert.message", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
           UIAlertAction in
           
@@ -141,7 +141,7 @@ extension RegistrationViewController {
         
         
       } else {
-        let alert = UIAlertController(title: "Пользователь с таким e-mail уже существует", message: "Пожалуйста, используйте другой e-mail, или выполните вход.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: NSLocalizedString("RegistrationViewController.alertEmailAlreadyExist.title", comment: ""), message: NSLocalizedString("RegistrationViewController.alertEmailAlreadyExist.message", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         
         ARSLineProgress.hide()

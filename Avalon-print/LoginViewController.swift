@@ -64,9 +64,9 @@ extension LoginViewController {
       
       if error != nil  {
         //Tells the user that there is an error and then gets firebase to tell them the error
-        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("LoginViewController.alertVC.title", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
         
-        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         
         
@@ -77,15 +77,16 @@ extension LoginViewController {
         self.present(alertController, animated: true, completion: nil)
       }
       
-      
       if let user = Auth.auth().currentUser {
         if !user.isEmailVerified {
-          let alertVC = UIAlertController(title: "Ошибка", message: "Извините. Ваш email еще небыл подтвержден.Хотите чтобы мы отправлили вам письмо с подтверждением повторно? \(self.loginContainerView.emailField.text!).", preferredStyle: .alert)
-          let alertActionOkay = UIAlertAction(title: "Отправить", style: .default) {
+          let alertVC = UIAlertController(title: NSLocalizedString("LoginViewController.alertVC.title", comment: ""), message: "\(NSLocalizedString("LoginViewController.alertVC.message", comment: "")) \(self.loginContainerView.emailField.text!).", preferredStyle: .alert)
+          
+          let alertActionOkay = UIAlertAction(
+          title: NSLocalizedString("LoginViewController.alertActionOkay.title", comment: ""), style: .default) {
             (_) in
             user.sendEmailVerification(completion: nil)
           }
-          let alertActionCancel = UIAlertAction(title: "Отмена", style: .default, handler: nil)
+          let alertActionCancel = UIAlertAction(title: NSLocalizedString("LoginViewController.alertActionCancel.title", comment: ""), style: .default, handler: nil)
           
           alertVC.addAction(alertActionOkay)
           alertVC.addAction(alertActionCancel)

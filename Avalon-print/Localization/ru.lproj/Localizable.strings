@@ -119,6 +119,46 @@
 "ExpandingMaterialTableViewController.titleForHeaderInSection.two" = "Описание";
 
 
+//authentication
+//LoginContainerView
+"LoginContainerView.emailField.placeholder" = "Эл. почта";
+"LoginContainerView.passwordField.placeholder" = "Пароль";
+"LoginContainerView.loginButton.title" = "Войти";
+"LoginContainerView.registraionButton.title" = "Регистрация";
+"LoginContainerView.passwordResetButton.title" = "Забыли пароль?";
+
+//RegistrationContainerView
+"RegistrationContainerView.viewTitle.text" = "Регистрация";
+"RegistrationContainerView.name.placeholder" = "Имя и фамилия";
+"RegistrationContainerView.phone.placeholder" = "Номер телефона";
+"RegistrationContainerView.email.placeholder" = "Эл. почта";
+"RegistrationContainerView.password.placeholder" = "Пароль";
+"RegistrationContainerView.passwordAgain.placeholder" = "Пароль повторно";
+"RegistrationContainerView.registerButton.title" = "Зарегистрироваться";
+
+//PasswordResetContainerView
+"PasswordResetContainerView.viewTitle.text" = "Восстановление пароля";
+"PasswordResetContainerView.email.placeholder" = "Эл. почта";
+"PasswordResetContainerView.resetButton.title" = "Восстановить пароль";
+
+//login view controller alerts
+"LoginViewController.alertVC.title" = "Ошибка";
+"LoginViewController.alertVC.message" = "Ваш email еще не подтвержден. Хотите чтобы мы отправлили вам письмо с подтверждением повторно?";
+"LoginViewController.alertActionOkay.title" = "Отправить";
+"LoginViewController.alertActionCancel.title" = "Отмена";
+
+//registration view controller alerts
+"RegistrationViewController.alert.title" = "Регистрация прошла успешно";
+"RegistrationViewController.alert.message" = "Вам было выслано письмо для подтверждения вашего e-mail.";
+"RegistrationViewController.alertEmailAlreadyExist.title" = "Пользователь с таким e-mail уже существует";
+"RegistrationViewController.alertEmailAlreadyExist.message" = "Пожалуйста, используйте другой e-mail.";
+
+//password reset view controller alerts
+"PasswordResetViewController.alert.message" = "Письмо для восстановления было отправлено на ваш e-mail адрес.";
+
+
+
+
 
 
 

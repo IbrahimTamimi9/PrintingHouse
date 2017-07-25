@@ -111,7 +111,6 @@
 "ContactsTableViewController.titleForHeaderInSection.two" = "Manager phone numbers";
 
 
-
 //map
 "MapViewController.annotation.title" = "Avalon-print";
 "MapViewController.annotation.subtitle" = "41/22, Ivana Kudri str.";
@@ -122,13 +121,43 @@
 "ExpandingMaterialTableViewController.titleForHeaderInSection.two" = "Description";
 
 
+//authentication
+//LoginContainerView
+"LoginContainerView.emailField.placeholder" = "E-mail";
+"LoginContainerView.passwordField.placeholder" = "Password";
+"LoginContainerView.loginButton.title" = "Sign in";
+"LoginContainerView.registraionButton.title" = "Sign up";
+"LoginContainerView.passwordResetButton.title" = "Forgot password?";
+
+//RegistrationContainerView
+"RegistrationContainerView.viewTitle.text" = "Sign up";
+"RegistrationContainerView.name.placeholder" = "Name and surname";
+"RegistrationContainerView.phone.placeholder" = "Phone number";
+"RegistrationContainerView.email.placeholder" = "E-mail";
+"RegistrationContainerView.password.placeholder" = "Password";
+"RegistrationContainerView.passwordAgain.placeholder" = "Repeat password";
+"RegistrationContainerView.registerButton.title" = "Sign up";
+
+//PasswordResetContainerView
+"PasswordResetContainerView.viewTitle.text" = "Password recovery";
+"PasswordResetContainerView.email.placeholder" = "E-mail";
+"PasswordResetContainerView.resetButton.title" = "Recover password";
+
+//login view controller alerts
+"LoginViewController.alertVC.title" = "Error";
+"LoginViewController.alertVC.message" = "Your email has not been confirmed yet. Do you want us to send you a confirmation email again?";
+"LoginViewController.alertActionOkay.title" = "Send";
+"LoginViewController.alertActionCancel.title" = "Cancel";
+
+//registration view controller alerts
+"RegistrationViewController.alert.title" = "Registration completed successfully";
+"RegistrationViewController.alert.message" = "Confirmation letter has been sent to your email address.";
+"RegistrationViewController.alertEmailAlreadyExist.title" = "A user with this e-mail already exists";
+"RegistrationViewController.alertEmailAlreadyExist.message" = "Please use a different email address";
 
 
-
-
-
-
-
+//password reset view controller alerts
+"PasswordResetViewController.alert.message" = "A recovery letter has been sent to your e-mail address.";
 
 
 

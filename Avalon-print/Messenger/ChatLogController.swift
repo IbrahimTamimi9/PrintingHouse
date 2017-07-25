@@ -474,7 +474,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     
     let autoSizingCollectionViewFlowLayout = AutoSizingCollectionViewFlowLayout()
     collectionView?.collectionViewLayout = autoSizingCollectionViewFlowLayout
-    autoSizingCollectionViewFlowLayout.minimumLineSpacing = 6
+    autoSizingCollectionViewFlowLayout.minimumLineSpacing = 5
     
     collectionView?.keyboardDismissMode = .interactive
     collectionView?.backgroundColor = UIColor.white

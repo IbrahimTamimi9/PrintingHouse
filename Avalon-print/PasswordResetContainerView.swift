@@ -22,7 +22,7 @@ class PasswordResetContainerView: UIView {
   
   let viewTitle: UILabel = {
     let viewTitle = UILabel()
-    viewTitle.text = "Восстановление пароля"
+    viewTitle.text = NSLocalizedString("PasswordResetContainerView.viewTitle.text", comment: "")
     viewTitle.font =  UIFont.systemFont(ofSize: 24)
     viewTitle.translatesAutoresizingMaskIntoConstraints = false
     
@@ -31,7 +31,7 @@ class PasswordResetContainerView: UIView {
   
   let email: AvalonUITextField = {
     let email = AvalonUITextField()
-    email.placeholder = "Эл. почта"
+    email.placeholder = NSLocalizedString("PasswordResetContainerView.email.placeholder", comment: "")
     email.translatesAutoresizingMaskIntoConstraints = false
     email.addTarget(self, action: #selector(PasswordResetViewController.recoverEmailTextFieldEditingChanged(_:)), for: .editingChanged)
     email.keyboardType = .emailAddress
@@ -41,7 +41,7 @@ class PasswordResetContainerView: UIView {
   
   let reset: AvalonUIButton = {
     let reset = AvalonUIButton()
-    reset.setTitle("Восстановить пароль", for: .normal)
+    reset.setTitle( NSLocalizedString("PasswordResetContainerView.resetButton.title", comment: ""), for: .normal)
     reset.addTarget(self, action: #selector(PasswordResetViewController.recoverPasswordButtonDidTap(_:)), for: .touchUpInside)
     reset.translatesAutoresizingMaskIntoConstraints = false
     reset.isEnabled = false

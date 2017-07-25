@@ -10,7 +10,6 @@ import UIKit
 
 class LoginContainerView: UIView {
   
-  
   let logo: UIImageView = {
     let logo = UIImageView()
     logo.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +22,7 @@ class LoginContainerView: UIView {
   
   let emailField: AvalonUITextField = {
     let emailField = AvalonUITextField()
-    emailField.placeholder = "Эл. почта"
+    emailField.placeholder =  NSLocalizedString("LoginContainerView.emailField.placeholder", comment: "")
     emailField.translatesAutoresizingMaskIntoConstraints = false
     emailField.addTarget(self, action: #selector(LoginViewController.fieldsValidation(_:)), for: .editingChanged)
     emailField.keyboardType = .emailAddress
@@ -33,7 +32,7 @@ class LoginContainerView: UIView {
   
   let passwordField: AvalonUITextField = {
     let passwordField = AvalonUITextField()
-    passwordField.placeholder = "Пароль"
+    passwordField.placeholder = NSLocalizedString("LoginContainerView.passwordField.placeholder", comment: "")
     passwordField.isSecureTextEntry = true
     passwordField.translatesAutoresizingMaskIntoConstraints = false
     passwordField.addTarget(self, action: #selector(LoginViewController.fieldsValidation(_:)), for: .editingChanged)
@@ -43,7 +42,8 @@ class LoginContainerView: UIView {
   
   let login: AvalonUIButton = {
     let login = AvalonUIButton()
-    login.setTitle("Войти", for: .normal)
+    
+    login.setTitle(NSLocalizedString("LoginContainerView.loginButton.title", comment: ""), for: .normal)
     login.addTarget(self, action: #selector(LoginViewController.onLogInButtonClicked(_:)), for: .touchUpInside)
     login.translatesAutoresizingMaskIntoConstraints = false
     login.isEnabled = false
@@ -52,9 +52,9 @@ class LoginContainerView: UIView {
   }()
   
   let registraion: AvalonUIButtonLight = {
-    let registraion = AvalonUIButtonLight()//..(type: UIButtonType.infoDark )
+    let registraion = AvalonUIButtonLight()
     registraion.translatesAutoresizingMaskIntoConstraints = false
-    registraion.setTitle("Регистрация", for: .normal)
+    registraion.setTitle(NSLocalizedString("LoginContainerView.registraionButton.title", comment: ""), for: .normal)
     registraion.contentHorizontalAlignment = .left
     registraion.addTarget(self, action: #selector(LoginViewController.registerButtonTapped), for: .touchUpInside)
     
@@ -62,9 +62,9 @@ class LoginContainerView: UIView {
   }()
   
   let passwordReset: AvalonUIButtonLight = {
-    let passwordReset = AvalonUIButtonLight()//..(type: UIButtonType.infoDark )
+    let passwordReset = AvalonUIButtonLight()
     passwordReset.translatesAutoresizingMaskIntoConstraints = false
-    passwordReset.setTitle("Забыли пароль?", for: .normal)
+    passwordReset.setTitle( NSLocalizedString("LoginContainerView.passwordResetButton.title", comment: "") , for: .normal)
     passwordReset.contentHorizontalAlignment = .left
     passwordReset.addTarget(self, action: #selector(LoginViewController.resetPasswordButtonTapped), for: .touchUpInside)
     
@@ -73,9 +73,7 @@ class LoginContainerView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
-   // logo.backgroundColor = backgroundColor
-    
+  
     addSubview(logo)
     logo.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
     logo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
@@ -102,13 +100,11 @@ class LoginContainerView: UIView {
     addSubview(registraion)
     registraion.topAnchor.constraint(equalTo: login.bottomAnchor, constant: 36).isActive = true
     registraion.leadingAnchor.constraint(equalTo: login.leadingAnchor).isActive = true
-   // registraion.trailingAnchor.constraint(equalTo: login.trailingAnchor).isActive = true
     registraion.heightAnchor.constraint(equalToConstant: 21).isActive = true
     
     addSubview(passwordReset)
     passwordReset.topAnchor.constraint(equalTo: registraion.bottomAnchor, constant: 16).isActive = true
     passwordReset.leadingAnchor.constraint(equalTo: registraion.leadingAnchor).isActive = true
-  //  passwordReset.trailingAnchor.constraint(equalTo: registraion.trailingAnchor).isActive = true
     passwordReset.heightAnchor.constraint(equalToConstant: 21).isActive = true
 
   }

@@ -23,7 +23,7 @@ class RegistrationContainerView: UIView {
  
   let viewTitle: UILabel = {
     let viewTitle = UILabel()
-    viewTitle.text = "Регистрация"
+    viewTitle.text = NSLocalizedString("RegistrationContainerView.viewTitle.text", comment: "")
     viewTitle.font =  UIFont.systemFont(ofSize: 24)
     viewTitle.translatesAutoresizingMaskIntoConstraints = false
     
@@ -32,7 +32,7 @@ class RegistrationContainerView: UIView {
 
   let name: AvalonUITextField = {
     let name = AvalonUITextField()
-    name.placeholder = "Имя и фамилия"
+    name.placeholder = NSLocalizedString("RegistrationContainerView.name.placeholder", comment: "")
     name.translatesAutoresizingMaskIntoConstraints = false
     name.addTarget(self, action: #selector(RegistrationViewController.textFieldEditingChanged(_:)), for: .editingChanged)
     
@@ -41,7 +41,7 @@ class RegistrationContainerView: UIView {
   
   let phone: AvalonUITextField = {
     let phone = AvalonUITextField()
-    phone.placeholder = "Номер телефона"
+    phone.placeholder = NSLocalizedString("RegistrationContainerView.phone.placeholder", comment: "")
     phone.translatesAutoresizingMaskIntoConstraints = false
     phone.addTarget(self, action: #selector(RegistrationViewController.textFieldEditingChanged(_:)), for: .editingChanged)
     phone.keyboardType = .numberPad
@@ -51,7 +51,7 @@ class RegistrationContainerView: UIView {
   
   let email: AvalonUITextField = {
     let email = AvalonUITextField()
-    email.placeholder = "Эл. почта"
+    email.placeholder = NSLocalizedString("RegistrationContainerView.email.placeholder", comment: "")
     email.translatesAutoresizingMaskIntoConstraints = false
     email.addTarget(self, action: #selector(RegistrationViewController.textFieldEditingChanged(_:)), for: .editingChanged)
     email.keyboardType = .emailAddress
@@ -61,7 +61,7 @@ class RegistrationContainerView: UIView {
   
   let password: AvalonUITextField = {
     let password = AvalonUITextField()
-    password.placeholder = "Пароль"
+    password.placeholder = NSLocalizedString("RegistrationContainerView.password.placeholder", comment: "")
     password.isSecureTextEntry = true
     password.translatesAutoresizingMaskIntoConstraints = false
     password.addTarget(self, action: #selector(RegistrationViewController.textFieldEditingChanged(_:)), for: .editingChanged)
@@ -71,7 +71,7 @@ class RegistrationContainerView: UIView {
   
   let passwordAgain: AvalonUITextField = {
     let passwordAgain = AvalonUITextField()
-    passwordAgain.placeholder = "Пароль повторно"
+    passwordAgain.placeholder = NSLocalizedString("RegistrationContainerView.passwordAgain.placeholder", comment: "")
     passwordAgain.isSecureTextEntry = true
     passwordAgain.translatesAutoresizingMaskIntoConstraints = false
     passwordAgain.addTarget(self, action: #selector(RegistrationViewController.textFieldEditingChanged(_:)), for: .editingChanged)
@@ -82,7 +82,7 @@ class RegistrationContainerView: UIView {
   
   let register: AvalonUIButton = {
     let register = AvalonUIButton()
-    register.setTitle("Зарегистрироваться", for: .normal)
+    register.setTitle( NSLocalizedString("RegistrationContainerView.registerButton.title", comment: ""), for: .normal)
     register.addTarget(self, action: #selector(RegistrationViewController.registerButtonDidTap(_:)), for: .touchUpInside)
     register.translatesAutoresizingMaskIntoConstraints = false
     register.isEnabled = false

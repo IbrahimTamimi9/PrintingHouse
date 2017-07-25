@@ -27,20 +27,25 @@ class PostersStickersCanvasTopBlockView: UIView {
   
   let amountField: AvalonUITextField = {
     let amountField = AvalonUITextField()
-    amountField.placeholder =  NSLocalizedString("PostersStickersCanvasTopBlockView.amountField.placeholder", comment: "")//"Тираж"
+    amountField.placeholder =  NSLocalizedString("PostersStickersCanvasTopBlockView.amountField.placeholder", comment: "")
     amountField.translatesAutoresizingMaskIntoConstraints = false
     amountField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     amountField.keyboardType = .numberPad
-  
+    amountField.isPasteEnabled = false
    
     return amountField
   }()
   
   let materialField: AvalonUITextField = {
      let materialField = AvalonUITextField()
-     materialField.placeholder =  NSLocalizedString("PostersStickersCanvasTopBlockView.materialField.placeholder", comment: "")//"Выберите материал"
+     materialField.placeholder =  NSLocalizedString("PostersStickersCanvasTopBlockView.materialField.placeholder", comment: "")
      materialField.translatesAutoresizingMaskIntoConstraints = false
      materialField.clearButtonMode = .never
+     materialField.isCutEnabled = false
+     materialField.isPasteEnabled = false
+     materialField.isDeleteEnabled = false
+     materialField.autocorrectionType = .no
+     materialField.tintColor = .clear
     
      return materialField
   }()
@@ -54,36 +59,42 @@ class PostersStickersCanvasTopBlockView: UIView {
   
   let widthField: AvalonUITextField = {
      let widthField = AvalonUITextField()
-     widthField.placeholder = NSLocalizedString("PostersStickersCanvasTopBlockView.widthField.placeholder", comment: "")//"Ширина (м)"
+     widthField.placeholder = NSLocalizedString("PostersStickersCanvasTopBlockView.widthField.placeholder", comment: "")
      widthField.translatesAutoresizingMaskIntoConstraints = false
      widthField.textAlignment = .center
      widthField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
-      widthField.keyboardType = .decimalPad
+     widthField.keyboardType = .decimalPad
+     widthField.isPasteEnabled = false
     
      return widthField
   }()
 
   let heightField: AvalonUITextField = {
      let heightField = AvalonUITextField()
-     heightField.placeholder = NSLocalizedString("PostersStickersCanvasTopBlockView.heightField.placeholder", comment: "")//"Высота (м)"
+     heightField.placeholder = NSLocalizedString("PostersStickersCanvasTopBlockView.heightField.placeholder", comment: "")
      heightField.translatesAutoresizingMaskIntoConstraints = false
      heightField.textAlignment = .center
      heightField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
      heightField.keyboardType = .decimalPad
+     heightField.isPasteEnabled = false
     
      return heightField
   }()
 
   let postprintField: AvalonUITextField = {
      let postprintField = AvalonUITextField()
-     postprintField.placeholder = NSLocalizedString("PostersStickersCanvasTopBlockView.postprintField.placeholder", comment: "")//"Без постпечати"
+     postprintField.placeholder = NSLocalizedString("PostersStickersCanvasTopBlockView.postprintField.placeholder", comment: "")
      postprintField.translatesAutoresizingMaskIntoConstraints = false
      postprintField.clearButtonMode = .never
+     postprintField.isCutEnabled = false
+     postprintField.isPasteEnabled = false
+     postprintField.isDeleteEnabled = false
+     postprintField.autocorrectionType = .no
+     postprintField.tintColor = .clear
 
-    
      return postprintField
   }()
-  
+    
   
   let inset: CGFloat = 8
   
@@ -146,10 +157,8 @@ class PostersStickersCanvasTopBlockView: UIView {
     postprintField.leadingAnchor.constraint(equalTo: title.leadingAnchor).isActive = true
     postprintField.trailingAnchor.constraint(equalTo: title.trailingAnchor).isActive = true
     postprintField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    
-   
-
   }
+  
   
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)!

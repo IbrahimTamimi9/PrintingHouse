@@ -36,15 +36,15 @@ extension CheckoutVC { /* handling sending order to firebase */
 
   
   func placeOrderTapped () {
-    
+   
     print("tapped")
    
-    ARSLineProgress.showWithProgress(initialValue: 0.0, onView: self.view) {
+    ARSLineProgress.showWithProgress(initialValue: 0.0, onView: view) { 
       self.view.isUserInteractionEnabled = true
       self.orderSent()
     }
-
-     self.view.isUserInteractionEnabled = false
+    
+     view.isUserInteractionEnabled = false
     
     let date = Date()
     let calendar = Calendar.current
@@ -67,8 +67,6 @@ extension CheckoutVC { /* handling sending order to firebase */
     if month == 10 { monthString = "10" }
     if month == 11 { monthString = "11" }
     if month == 12 { monthString = "12" }
-
-    
     
     //order info
     var orderInfoBlock: DatabaseReference!

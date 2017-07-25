@@ -36,6 +36,24 @@ class AvalonUITextField: UITextField, UITextFieldDelegate {
   }
 
   
+  var isPasteEnabled: Bool = true
+  
+  var isCutEnabled: Bool = true
+  
+  var isDeleteEnabled: Bool = true
+  
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    switch action {
+    case #selector(UIResponderStandardEditActions.paste(_:)) where !isPasteEnabled,
+         #selector(UIResponderStandardEditActions.cut(_:)) where !isCutEnabled,
+         #selector(UIResponderStandardEditActions.delete(_:)) where !isDeleteEnabled:
+      return false
+    default:
+      return super.canPerformAction(action, withSender: sender)
+    }
+  }
+  
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     

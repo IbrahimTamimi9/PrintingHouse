@@ -47,7 +47,7 @@ extension PasswordResetViewController {
     Auth.auth().sendPasswordReset(withEmail: passwordResetContainerView.email.text!) { (error) in
       // ...
       if error != nil {
-        let alertController = UIAlertController(title: "Ошибка", message: error?.localizedDescription, preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("LoginViewController.alertVC.title", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
@@ -59,7 +59,9 @@ extension PasswordResetViewController {
         
       } else {
         
-        let alert = UIAlertController(title: "", message: "Письмо для восстановления было отправлено на ваш e-mail адрес.", preferredStyle: UIAlertControllerStyle.alert)
+        // "Письмо для восстановления было отправлено на ваш e-mail адрес."
+        
+        let alert = UIAlertController(title: "", message: NSLocalizedString("PasswordResetViewController.alert.message", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
           UIAlertAction in
           
