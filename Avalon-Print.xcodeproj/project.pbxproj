@@ -62,6 +62,7 @@
 		4B9E30DC1F1E9B1500FF03C1 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */; };
 		4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */; };
 		4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */; };
+		4BBBABC71F28B2B8003CFFCC /* HomepageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBABC61F28B2B8003CFFCC /* HomepageMenu.swift */; };
 		4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */; };
 		4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */; };
 		4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */; };
@@ -195,6 +196,7 @@
 		4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = "Avalon-print/ResetPasswordViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceCalculation.swift; path = "Avalon-print/PriceCalculation.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewControllerCell.swift; path = "Avalon-print/HomeViewControllerCell.swift"; sourceTree = SOURCE_ROOT; };
+		4BBBABC61F28B2B8003CFFCC /* HomepageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageMenu.swift; path = "Avalon-print/HomepageMenu.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDBE6C1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchingMaterialsAndPostPrintFromFIrebase.swift; path = "Avalon-print/FetchingMaterialsAndPostPrintFromFIrebase.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE7C1EF51BAE000CF3BE /* ShoppingCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartVC.swift; path = "Avalon-print/ShoppingCartVC.swift"; sourceTree = SOURCE_ROOT; };
 		4BBDDE7E1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartTableViewCell.swift; path = "Avalon-print/ShoppingCartTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -484,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				4BE3DBA91EFAC44900DADA39 /* Support */,
+				4BBBABC81F28B329003CFFCC /* Model */,
 				4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */,
 				4B94661D1F12415100B595A1 /* HomeViewControllerCell.xib */,
 				4BE3DBA71EFAC37600DADA39 /* HomeViewController.swift */,
@@ -524,6 +527,14 @@
 				4BCC4E7E1EFDA4DC00085A9A /* ContactsTableViewCell.swift */,
 			);
 			name = ContactsViewControllers;
+			sourceTree = "<group>";
+		};
+		4BBBABC81F28B329003CFFCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BBBABC61F28B2B8003CFFCC /* HomepageMenu.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		4BCC4E7B1EFD73C300085A9A /* Support */ = {
@@ -881,6 +892,7 @@
 				4B4BE6CF1F1B655E0054C441 /* BaseMessageCell.swift in Sources */,
 				4B3FE89D1E44F34D00852A2A /* ARSLineProgressCustomization.swift in Sources */,
 				4BF0AAAE1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift in Sources */,
+				4BBBABC71F28B2B8003CFFCC /* HomepageMenu.swift in Sources */,
 				4B48FB1E1F0650A600A0E353 /* PasswordResetViewController.swift in Sources */,
 				4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */,

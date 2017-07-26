@@ -19,10 +19,7 @@ let screenSize: CGRect = UIScreen.main.bounds
 let statusBarSize = UIApplication.shared.statusBarFrame.size
 
 
-
-protocol Utilities {
-  
-}
+protocol Utilities {}
 
 extension NSObject: Utilities {
   
@@ -76,9 +73,6 @@ extension NSObject: Utilities {
 }
 
 
-
-
-
 class HomeViewController: UIViewController {
   
   let shoppingCartButton = UIButton(type: .custom)
@@ -89,46 +83,30 @@ class HomeViewController: UIViewController {
   
   var profileTransition = JTMaterialTransition()
   
-  
-  
-  typealias ItemInfo = (imageName: String, title: String)
-  
-  var items: [ItemInfo] = [("Posters", NSLocalizedString("HomeViewController.items.posters", comment: "")),
-                           ("Banners", NSLocalizedString("HomeViewController.items.banners", comment: "")),
-                           ("Stickers", NSLocalizedString("HomeViewController.items.stickers", comment: "")),
-                           ("Canvas", NSLocalizedString("HomeViewController.items.canvas", comment: "")),
-                           ("Contacts", NSLocalizedString("HomeViewController.items.contacts", comment: "")),
-                           ("Information", NSLocalizedString("HomeViewController.items.information", comment: ""))]
+  var menu = HomepageMenu()
   
   var startCollectionView: UICollectionView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.title =  NSLocalizedString("HomeViewController.NavigationItem.title", comment: "")
-   
       
+      title = NSLocalizedString("HomeViewController.NavigationItem.title", comment: "")
       let backButton = UIBarButtonItem(title: "", style:.plain, target: nil, action: nil)
       navigationItem.backBarButtonItem = backButton
-     
-      setUpRightBarButton()
       
-      setUpLeftBarButton()
+      shoppingCartTransition = JTMaterialTransition(animatedView: self.shoppingCartButton)
+      profileTransition = JTMaterialTransition(animatedView: self.profileButton)
       
       registerCell()
+      setUpRightBarButton()
+      setUpLeftBarButton()
+      updateBadgeValue()
       
-      DispatchQueue.main.async {
-        
-        updateBadgeValue()
-        
+      DispatchQueue.global(qos: .background).async(execute: {() -> Void in
         self.checkInternetConnection()
-        
         fetchGeneralDataForCalculations()
-      }
-      
-       self.shoppingCartTransition = JTMaterialTransition(animatedView: self.shoppingCartButton)
-       self.profileTransition = JTMaterialTransition(animatedView: self.profileButton)
-
+      })
     }
   
   
@@ -149,7 +127,6 @@ class HomeViewController: UIViewController {
       
     }
   }
-
 }
 
 
@@ -184,7 +161,6 @@ extension HomeViewController { /* setting up bar buttons */
     
     profileButton.setBackgroundImage(image, for: UIControlState())
     profileButton.tintColor = UIColor.white
-    
     profileButton.addTarget(self, action: #selector(HomeViewController.leftButtonPressed(_:)), for: UIControlEvents.touchUpInside)
     
     let newBarButton = ENMBadgedBarButtonItem(customView: profileButton, value: "0")
@@ -193,7 +169,6 @@ extension HomeViewController { /* setting up bar buttons */
   }
 
   
-  
   func rightButtonPressed(_ sender: UIButton) {
     
     let refactoredController = ShoppingCartVC()
@@ -201,7 +176,6 @@ extension HomeViewController { /* setting up bar buttons */
     navigationController.modalPresentationStyle = .custom
     navigationController.transitioningDelegate = self.shoppingCartTransition
     self.present(navigationController, animated: true, completion: nil)
-    
   }
   
   
@@ -229,7 +203,6 @@ extension HomeViewController { /* setting up bar buttons */
       }
     }
   }
-  
 }
 
 
@@ -247,7 +220,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     startCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
     startCollectionView.dataSource = self
     startCollectionView.delegate = self
-    
     startCollectionView.backgroundColor = UIColor.white
     startCollectionView.isOpaque = true
     
@@ -257,13 +229,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
   }
 
   
-  
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
     let cell = collectionView.cellForItem(at: indexPath)
     
     UIView.animate(withDuration: 0.1, animations: {
       cell?.alpha = 0.6})
-    
   }
   
   
@@ -276,74 +246,31 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
   
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return items.count
+    return menu.menuItems.count
   }
   
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
     return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HomeViewControllerCell.self), for: indexPath)
   }
   
   
   func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    
     guard let cell = cell as? HomeViewControllerCell else { return }
-    
-    let index = (indexPath as NSIndexPath).row % items.count
-    
-    let info = items[index]
-    
-    //cell.backgroundColor = UIColor.white
+  
+    let info = menu.menuItems[indexPath.row]
     cell.startImage.image = UIImage(named: info.imageName)
     cell.startLabel.text = info.title
- 
-    
   }
   
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
     currentPageData.resetDataBeforeChangingPage()
+    menu = HomepageMenu.init()
     
-    if indexPath.row == 0 {
-      let destination = PostersViewController()// UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostersVC") as! PostersVC   
-      navigationController?.pushViewController(destination, animated: true)
-    }
-    
-    
-    if indexPath.row == 1 {
-      let destination = BannersViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BannersVC") as! BannersVC//storyboard?.instantiateViewController(withIdentifier: "BannersVC") as! BannersVC
-      navigationController?.pushViewController(destination, animated: true)
-      //UNCHECKING CHECKED VALUES. IN POSTERS COMPUTING (postersComputing.swift)
-    // reset(page: "banners")
-    }
-    
-    
-    if indexPath.row == 2 {
-      let destination = StickersViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StickersVC") as! StickersVC//storyboard?.instantiateViewController(withIdentifier: "StickersVC") as! StickersVC
-      navigationController?.pushViewController(destination, animated: true)
-    }
-    
-    
-    if indexPath.row == 3 {
-      let destination = CanvasViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CanvasVC") as! CanvasVC//storyboard?.instantiateViewController(withIdentifier: "CanvasVC") as! CanvasVC
-      navigationController?.pushViewController(destination, animated: true)
-    }
-    
-    
-    if indexPath.row == 4 {
-      let destination = ContactsTableViewController()// UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContactsPageController") as! ContactsPageController//storyboard?.instantiateViewController(withIdentifier: "ContactsPageController") as! ContactsPageController
-      navigationController?.pushViewController(destination, animated: true)
-    }
-    
-    
-    if indexPath.row == 5 {
-      let destination = InformationTableViewController()//UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InformationPageController") as! InformationPageController//storyboard?.instantiateViewController(withIdentifier: "InformationPageController") as! InformationPageController
-      navigationController?.pushViewController(destination, animated: true)
-    }
-    
-    
+    let destination = menu.menuItems[indexPath.row].viewController
+    navigationController?.pushViewController(destination, animated: true)
   }
   
 }
