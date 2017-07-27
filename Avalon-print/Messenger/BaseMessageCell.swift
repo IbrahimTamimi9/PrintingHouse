@@ -24,7 +24,6 @@ class BaseMessageCell: UICollectionViewCell {
     return bubbleView
   }()
   
-  
   let timeLabel: UILabel = {
     let timeLabel = UILabel()
     timeLabel.text = "2:08 PM"
@@ -32,6 +31,16 @@ class BaseMessageCell: UICollectionViewCell {
     timeLabel.translatesAutoresizingMaskIntoConstraints = false
     timeLabel.font = UIFont.systemFont(ofSize: 10)
     return timeLabel
+  }()
+  
+  var deliveryStatus: UILabel = {
+    var deliveryStatus = UILabel()
+    deliveryStatus.text = "status"
+    deliveryStatus.font = UIFont.boldSystemFont(ofSize: 10)
+    deliveryStatus.textColor = UIColor.lightGray
+    deliveryStatus.translatesAutoresizingMaskIntoConstraints = false
+    deliveryStatus.isHidden = true
+    return deliveryStatus
   }()
 
   
@@ -48,7 +57,6 @@ class BaseMessageCell: UICollectionViewCell {
   
   
   func setupViews() {
-    
     backgroundColor = AvalonPalette.avalonControllerBackground
     contentView.backgroundColor = AvalonPalette.avalonControllerBackground
   }

@@ -26,6 +26,13 @@ class TextMessageCell: BaseMessageCell {
     
     addSubview(bubbleView)
     bubbleView.addSubview(textView)
+    bubbleView.addSubview(deliveryStatus)
+    
+    NSLayoutConstraint.activate([
+      deliveryStatus.topAnchor.constraint(equalTo: bottomAnchor),
+      deliveryStatus.heightAnchor.constraint(equalToConstant: 20),
+      deliveryStatus.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)
+    ])
   }
   
   override func prepareViewsForReuse() {

@@ -76,7 +76,7 @@ extension Array {
     let messageStatus = UILabel()
   
       messageStatus.frame = CGRect(x: 10, y: 10, width: 200, height: 20)
-      messageStatus.text = "working on it"
+      messageStatus.text = ""
       messageStatus.font = UIFont.systemFont(ofSize: 10)
       messageStatus.textColor = UIColor.darkGray
   
@@ -158,6 +158,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
           switch true {
                 
             case self.newOutboxMessage:
+              self.updateMessageStatus(messagesRef: messagesRef)
+              self.observeMessageStatus(messageId: snapshot.key)
               self.newOutboxMessage = false
             
               break
@@ -170,8 +172,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                  let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
                  self.collectionView?.insertItems(at: [indexPath])
                 
+                if self.messages.count - 2 >= 0 {
+                  self.collectionView?.reloadItems(at: [IndexPath(row: self.messages.count-2 ,section:0)])
+                }
+                
               }, completion: { (true) in
                 self.updateMessageStatus(messagesRef: messagesRef)
+                self.observeMessageStatus(messageId: snapshot.key)
                 let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
                 
                 if self.messages.count - 1 > 0 && self.isScrollViewAtTheBottom {
@@ -402,13 +409,12 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   
 
   fileprivate func updateMessageStatus(messagesRef: DatabaseReference) {
-    
+   if currentReachabilityStatus != .notReachable {
     messagesRef.child("toId").observeSingleEvent(of: .value, with: { (snapshot) in
       
       if snapshot.value != nil {
         sentMessageDataToId = snapshot.value as! String
       }
-      
       
       if (Auth.auth().currentUser?.uid)! == sentMessageDataToId {
         
@@ -436,26 +442,32 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         print("\n\n\n child CHANGED")
         print("\n\n\\n",snapshot.value!)
         
+        
         if snapshot.value != nil {
           snapStatus = snapshot.value as! String
             messageStatus.text = snapStatus
+          self.collectionView?.reloadItems(at: [IndexPath(row: self.messages.count-1 ,section:0)])
         }
       }
       
    })
+  }
  }
   
   
   func observeMessageStatus(messageId: String) {
-    let messagesRef = Database.database().reference().child("messages").child(messageId).child("status")
-    
-    messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
-      print("\n\n",snapshot.value!, "\n\n")
+    if currentReachabilityStatus != .notReachable {
+      let messagesRef = Database.database().reference().child("messages").child(messageId).child("status")
       
-      if snapshot.value != nil {
-        messageStatus.text = (snapshot.value as! String)
-      }
-    })
+      messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        print("\n\n",snapshot.value!, "\n\n")
+        
+        if snapshot.value != nil {
+          messageStatus.text = (snapshot.value as! String)
+          self.collectionView?.reloadItems(at: [IndexPath(row: self.messages.count-1 ,section:0)])
+        }
+      })
+    }
   }
   
   
@@ -783,15 +795,24 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   fileprivate func selectCell(for indexPath: IndexPath) -> UICollectionViewCell? {
     
      let message = messages[indexPath.item]
-    
+  
       if let messageText = message.text { /* If current message is a text message */
         
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: textMessageCellID, for: indexPath) as! TextMessageCell
         
           cell.textView.text = messageText
-        
   
           if message.fromId == Auth.auth().currentUser?.uid { /* Outgoing message with blue bubble */
+            
+            
+            if indexPath.row == messages.count-1  {
+              
+              cell.deliveryStatus.isHidden = false
+              cell.deliveryStatus.text = messageStatus.text
+            } else {
+            
+              cell.deliveryStatus.isHidden = true
+            }
             
             cell.bubbleView.image = BaseMessageCell.blueBubbleImage
             
@@ -809,6 +830,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                                               height: cell.bubbleView.frame.height)
             
           } else { /* Incoming message with grey bubble */
+            
+            cell.deliveryStatus.isHidden = true
             
             cell.bubbleView.image = BaseMessageCell.grayBubbleImage
             
@@ -835,10 +858,21 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
           cell.message = message
     
           if message.fromId == Auth.auth().currentUser?.uid { /* Outgoing message with blue bubble */
+            
+            if indexPath.row == messages.count-1  {
+              
+              cell.deliveryStatus.isHidden = false
+              cell.deliveryStatus.text = messageStatus.text
+            } else {
+              
+              cell.deliveryStatus.isHidden = true
+            }
 
             cell.bubbleView.frame = CGRect(x: view.frame.width - 210, y: 0, width: 200, height: cell.frame.size.height).integral
             
           } else { /* Incoming message with grey bubble */
+            
+             cell.deliveryStatus.isHidden = true
             
              cell.bubbleView.frame = CGRect(x: 10, y: 0, width: 200, height: cell.frame.size.height).integral
           }
@@ -869,8 +903,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       
       if indexPath.section == 0 {
-        let message = messages[(indexPath as NSIndexPath).item]
-        
+        let message = messages[indexPath.row]
         
         if let text = message.text {
           
@@ -924,6 +957,12 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       self.messages.append(Message(dictionary: values ))
       let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
       self.collectionView?.insertItems(at: [indexPath])
+      
+      if self.messages.count - 2 >= 0 {
+        self.collectionView?.reloadItems(at: [IndexPath(row: self.messages.count-2 ,section:0)])
+      }
+      messageStatus.text = ""
+      
     }, completion: { (true) in
       let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
       self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
@@ -963,9 +1002,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
       }
       
       let messageId = childRef.key
-    
-      self.observeMessageStatus(messageId: messageId)
-      
+  
       let userMessagesRef = Database.database().reference().child("user-messages").child(fromId).child(toId).child(userMessagesFirebaseFolder)
       
       self.newOutboxMessage = true
@@ -993,7 +1030,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         let zoomingImageView = UIImageView(frame: startingFrame!)
         zoomingImageView.backgroundColor = UIColor.red
-        zoomingImageView.image  = startingImageView.image
+        zoomingImageView.image = startingImageView.image
         zoomingImageView.isUserInteractionEnabled = true
         zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomOut)))
         

@@ -72,6 +72,14 @@ class PhotoMessageCell: BaseMessageCell {
     activityIndicatorView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
     activityIndicatorView.widthAnchor.constraint(equalToConstant: 50).isActive = true
     activityIndicatorView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    
+    bubbleView.addSubview(deliveryStatus)
+    
+    NSLayoutConstraint.activate([
+      deliveryStatus.topAnchor.constraint(equalTo: bottomAnchor),
+      deliveryStatus.heightAnchor.constraint(equalToConstant: 20),
+      deliveryStatus.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)
+      ])
   }
   
   
