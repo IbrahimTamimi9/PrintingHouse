@@ -1,2 +1,2 @@
 # ios-polygraphy
-Bachelor's diploma project
+Bachelor's degree project
