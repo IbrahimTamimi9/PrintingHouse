@@ -893,9 +893,10 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     
   }
   
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-      collectionView?.collectionViewLayout.invalidateLayout()
-    }
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+    collectionView?.collectionViewLayout.invalidateLayout()
+  }
   
   
     fileprivate var cellHeight: CGFloat = 80
