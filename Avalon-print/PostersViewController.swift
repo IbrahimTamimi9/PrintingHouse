@@ -114,7 +114,7 @@ extension PostersViewController: UIScrollViewDelegate {
 
 extension PostersViewController {
   
-  func pickTheLayout(_ sender: Any) {
+ @objc func pickTheLayout(_ sender: Any) {
     
     if (layoutBlock.layout.image == nil) {
       //no image set
@@ -132,7 +132,7 @@ extension PostersViewController {
   }
 
   
-  func materialsInfoTapped(_ sender: Any) {
+  @objc func materialsInfoTapped(_ sender: Any) {
     resetTableView()
     
     let controller = ViewController()//ExpandingMaterialViewController()
@@ -149,7 +149,7 @@ extension PostersViewController {
 
 extension PostersViewController {
   
-  func AddToCart(_ sender: Any) {
+  @objc func AddToCart(_ sender: Any) {
     
     if priceBlock.addToCart.titleLabel?.text == priceBlock.addToCartButtonTitleAfterTapping {
 
@@ -199,11 +199,11 @@ extension PostersViewController {
         newItem.layoutLink = ""
         
         if let imageData = UIImageJPEGRepresentation(layoutBlock.fullSizeOpeningImage, 1.0) as NSData? {
-          newItem.layoutImage = imageData
+          newItem.layoutImage = imageData as Data
         }
         
         if let imageData = UIImageJPEGRepresentation(layoutBlock.layout.image!, 1.0) as NSData? {
-          newItem.layoutImagePreview = imageData
+          newItem.layoutImagePreview = imageData as Data
         }
       }
       

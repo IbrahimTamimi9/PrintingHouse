@@ -64,7 +64,7 @@ class UserProfileViewController: UIViewController {
       checkInternetConnectionForFutureActivityIndicatorBehavior()
     }
   
-  func leftBarButtonTapped () {
+  @objc func leftBarButtonTapped () {
     dismiss(animated: true, completion: nil)
   }
   

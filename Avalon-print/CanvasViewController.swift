@@ -126,7 +126,7 @@ extension CanvasViewController {
     }
   }
   
-  func materialsInfoTapped(_ sender: Any) {
+  @objc func materialsInfoTapped(_ sender: Any) {
     resetTableView()
     
     let controller = ViewController()
@@ -147,7 +147,7 @@ extension CanvasViewController {
 
 extension CanvasViewController {
   
-  func AddToCart(_ sender: Any) {
+  @objc func AddToCart(_ sender: Any) {
     
     if priceBlock.addToCart.titleLabel?.text == priceBlock.addToCartButtonTitleAfterTapping {
       
@@ -196,11 +196,11 @@ extension CanvasViewController {
         newItem.layoutLink = ""
         
         if let imageData = UIImageJPEGRepresentation(layoutBlock.fullSizeOpeningImage, 1.0) as NSData? {
-          newItem.layoutImage = imageData
+          newItem.layoutImage = imageData as Data
         }
         
         if let imageData = UIImageJPEGRepresentation(layoutBlock.layout.image!, 1.0) as NSData? {
-          newItem.layoutImagePreview = imageData
+          newItem.layoutImagePreview = imageData as Data
         }
       }
       

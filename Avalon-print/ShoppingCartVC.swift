@@ -126,12 +126,12 @@ class ShoppingCartVC: UIViewController {
 
 extension ShoppingCartVC /* custom Navigation bar functions + onTapped function for checkout button */ {
   
-  func leftBarButtonTapped () {
+  @objc func leftBarButtonTapped () {
     dismiss(animated: true, completion: nil)
   }
 
   
-  func moreButtonTapped (_ sender: UIButton) {
+ @objc func moreButtonTapped (_ sender: UIButton) {
     
     guard let cell = sender.superview?.superview?.superview as? ShoppingCartTableViewCell else {
         return
@@ -149,7 +149,7 @@ extension ShoppingCartVC /* custom Navigation bar functions + onTapped function 
   }
   
   
-  func checkoutButtonTapped () {
+ @objc func checkoutButtonTapped () {
     
     let controller = CheckoutVC()
     let transitionDelegate = DeckTransitioningDelegate()

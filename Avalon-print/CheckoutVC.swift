@@ -50,7 +50,7 @@ extension CheckoutVC {/* keyboard */
   }
   
   
-  func handleKeyboardWillShow(_ notification: Notification) {
+  @objc func handleKeyboardWillShow(_ notification: Notification) {
     let keyboardFrame = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
     let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
     
@@ -64,7 +64,7 @@ extension CheckoutVC {/* keyboard */
   }
   
   
-  func handleKeyboardWillHide(_ notification: Notification) {
+  @objc func handleKeyboardWillHide(_ notification: Notification) {
     let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
     
   

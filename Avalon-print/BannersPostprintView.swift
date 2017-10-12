@@ -80,7 +80,7 @@ class BannersPostprintView: UIView {
   }()
   
   
-  func textFielDidChange(_ sender: Any) {
+  @objc func textFielDidChange(_ sender: Any) {
     
     currentPageData.luversAmount = luversAmountField.text!
     currentPageData.pocketsLength = pocketsLengthField.text!
@@ -88,7 +88,7 @@ class BannersPostprintView: UIView {
   }
   
   
-  func luversSwitchValueDidChange() {
+  @objc func luversSwitchValueDidChange() {
     
     if luversSwitch.isOn {
       luversAmountField.isEnabled = true
@@ -99,7 +99,7 @@ class BannersPostprintView: UIView {
   }
   
   
-  func pocketsSwitchValueDidChange() {
+  @objc func pocketsSwitchValueDidChange() {
       
       if pocketsSwitch.isOn {
         pocketsLengthField.isEnabled = true

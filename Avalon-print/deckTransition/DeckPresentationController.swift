@@ -100,7 +100,7 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
         )
     }
     
-    func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
+    @objc func handlePan(gestureRecognizer: UIPanGestureRecognizer) {
         guard gestureRecognizer.isEqual(pan) else {
             return
         }

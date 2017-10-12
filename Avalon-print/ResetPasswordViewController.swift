@@ -38,10 +38,10 @@ class ResetPasswordViewController: UIViewController {
 
 extension ResetPasswordViewController {
   
-  func recoverEmailTextFieldEditingChanged(_ sender: Any) { validateEmailTextField () }
+ @objc func recoverEmailTextFieldEditingChanged(_ sender: Any) { validateEmailTextField () }
   
   
-  func recoverPasswordButtonDidTap(_ sender: Any) {
+ @objc func recoverPasswordButtonDidTap(_ sender: Any) {
     
     ARSLineProgress.show()
     
@@ -105,7 +105,7 @@ extension ResetPasswordViewController {
   }
   
   
-  func validateEmailTextField () {
+ @objc func validateEmailTextField () {
     let characterSetEmail = NSCharacterSet(charactersIn: "@")
     let characterSetEmail1 = NSCharacterSet(charactersIn: ".")
     let badCharacterSetEmail = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")

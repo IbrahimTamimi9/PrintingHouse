@@ -169,7 +169,7 @@ extension HomeViewController { /* setting up bar buttons */
   }
 
   
-  func rightButtonPressed(_ sender: UIButton) {
+  @objc func rightButtonPressed(_ sender: UIButton) {
     
     let refactoredController = ShoppingCartVC()
     let navigationController = MainNavigationController(rootViewController: refactoredController)
@@ -179,7 +179,7 @@ extension HomeViewController { /* setting up bar buttons */
   }
   
   
-  func leftButtonPressed(_ sender: UIButton) {
+  @objc func leftButtonPressed(_ sender: UIButton) {
     
     Auth.auth().addStateDidChangeListener { auth, user in
       if Auth.auth().currentUser != nil && Auth.auth().currentUser?.isEmailVerified == true {

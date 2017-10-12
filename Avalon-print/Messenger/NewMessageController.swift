@@ -50,7 +50,7 @@ class NewMessageController: UITableViewController {
       }
   
   
-    func handleCancel() {
+    @objc func handleCancel() {
         dismiss(animated: true, completion: nil)
     }
   

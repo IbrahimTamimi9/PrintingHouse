@@ -29,7 +29,7 @@ class AvalonUITextField: UITextField, UITextFieldDelegate {
     
       let textRange = NSMakeRange(0, tmpText.characters.count)
       let attributedText = NSMutableAttributedString(string: tmpText)
-      attributedText.addAttribute(NSForegroundColorAttributeName , value: AvalonPalette.avalonPlaceholder, range: textRange)
+      attributedText.addAttribute(NSAttributedStringKey.foregroundColor , value: AvalonPalette.avalonPlaceholder, range: textRange)
       
       self.attributedPlaceholder = attributedText
     }

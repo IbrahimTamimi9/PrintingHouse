@@ -166,7 +166,7 @@ class PostersStickersCanvasTopBlockView: UIView {
   }
   
 
-  func textFieldDidChange(textField: AvalonUITextField) {
+  @objc func textFieldDidChange(textField: AvalonUITextField) {
     
       currentPageData.amount = amountField.text!
       currentPageData.width = widthField.text!

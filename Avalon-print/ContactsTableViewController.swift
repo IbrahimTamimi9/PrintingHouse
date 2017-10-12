@@ -40,7 +40,7 @@ class ContactsTableViewController: UITableViewController {
 //                       "Алексей: (067) 441-16-44"]
 // 
   
-  func showMapDidTap() {
+  @objc func showMapDidTap() {
     let destination = MapViewController()
     navigationController?.pushViewController(destination, animated: true)
   }

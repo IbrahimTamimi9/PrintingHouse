@@ -36,7 +36,7 @@ class OrdersDetailContainerView: UIView {
   let price : UILabel = {
     let price = UILabel()
     
-    price.font = UIFont.systemFont(ofSize: 15, weight: 21)
+    price.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(rawValue: 21))
     price.translatesAutoresizingMaskIntoConstraints = false
     price.numberOfLines = 0
     price.lineBreakMode = .byWordWrapping

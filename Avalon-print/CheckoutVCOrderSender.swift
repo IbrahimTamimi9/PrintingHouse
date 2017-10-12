@@ -35,7 +35,7 @@ extension CheckoutVC { /* handling sending order to firebase */
   }
 
   
-  func placeOrderTapped () {
+ @objc func placeOrderTapped () {
    
     print("tapped")
    

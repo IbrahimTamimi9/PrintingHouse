@@ -217,7 +217,7 @@ class CheckoutVCContainer: UIView {
 
 extension CheckoutVCContainer { /* handling text fields */
   
-  func textFieldDidChange(_ textField: UITextField) {
+  @objc func textFieldDidChange(_ textField: UITextField) {
     validateRegistraionData()
   }
   
@@ -250,7 +250,7 @@ extension CheckoutVCContainer { /* handling text fields */
 
 extension CheckoutVCContainer { /* handling switch */
   
-  func switchValueDidChange(sender: UISwitch!) {
+  @objc func switchValueDidChange(sender: UISwitch!) {
     if sender.isOn {
       deliveryAdress.isEnabled = true
     } else {

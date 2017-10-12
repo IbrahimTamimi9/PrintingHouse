@@ -68,9 +68,9 @@ class DetailInformationViewController: UIViewController {
   
     fileprivate func setTextToTextView () {
       
-      let titleAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 34) ]
-      let bodyAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 17) ]
-      let bodyAttributesBold = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17) ]
+      let titleAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 34) ]
+      let bodyAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17) ]
+      let bodyAttributesBold = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17) ]
       
       let title = NSMutableAttributedString(string: informationTitle, attributes: titleAttributes)
       let combination = NSMutableAttributedString()

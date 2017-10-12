@@ -54,9 +54,9 @@ public class InitialImageView : UIImageView {
     
   }
   
-  func createFontAttribute() -> [String: AnyObject] {
+  func createFontAttribute() -> [NSAttributedStringKey: AnyObject] {
     let fontSize = self.bounds.width * fontResizeValue;
-    let fontAttribute:[String:AnyObject] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font!.withSize(fontSize)]
+    let fontAttribute:[NSAttributedStringKey: AnyObject] = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white, NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue): font!.withSize(fontSize)]
     return fontAttribute
   }
   

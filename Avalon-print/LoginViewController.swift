@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     }
   
   
-  func leftBarButtonTapped () {
+  @objc func leftBarButtonTapped () {
     dismiss(animated: true, completion: nil)
   }
 }
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
   
-  func resetPasswordButtonTapped () {
+ @objc func resetPasswordButtonTapped () {
     
     let controller = PasswordResetViewController()
     let transitionDelegate = DeckTransitioningDelegate()
@@ -44,7 +44,7 @@ extension LoginViewController {
   }
 
   
-  func registerButtonTapped () {
+ @objc func registerButtonTapped () {
     
     let controller = RegistrationViewController()
     let transitionDelegate = DeckTransitioningDelegate()
@@ -54,7 +54,7 @@ extension LoginViewController {
   }
 
   
-  func onLogInButtonClicked(_ sender: Any) {
+@objc func onLogInButtonClicked(_ sender: Any) {
     ARSLineProgress.show()
     view.isUserInteractionEnabled = false
     
@@ -111,7 +111,7 @@ extension LoginViewController {
   }
   
   
-  func fieldsValidation(_ sender: Any) { validation() }
+ @objc func fieldsValidation(_ sender: Any) { validation() }
   
   func validation () {
     let characterSet = NSCharacterSet(charactersIn: "@")

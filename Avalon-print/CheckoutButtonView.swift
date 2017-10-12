@@ -26,7 +26,7 @@ class CheckoutButtonView: UIView {
     let totalPrice = UILabel()
     
     totalPrice.text = ""
-    totalPrice.font =  UIFont.systemFont(ofSize: 13, weight: 21)
+    totalPrice.font =  UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(rawValue: 21))
     totalPrice.textColor = UIColor.black
     totalPrice.translatesAutoresizingMaskIntoConstraints = false
     totalPrice.textAlignment = .right

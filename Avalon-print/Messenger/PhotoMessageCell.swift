@@ -92,7 +92,7 @@ class PhotoMessageCell: BaseMessageCell {
   }
   
   
-  func handlePlay() {
+  @objc func handlePlay() {
     if let videoUrlString = message?.videoUrl, let url = URL(string: videoUrlString) {
       player = AVPlayer(url: url)
       
@@ -107,7 +107,7 @@ class PhotoMessageCell: BaseMessageCell {
   }
   
   
-  func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
+  @objc func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
     if message?.videoUrl != nil {
       return
     }

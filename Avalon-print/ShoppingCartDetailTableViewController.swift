@@ -108,11 +108,11 @@ class ShoppingCartDetailTableViewController: UITableViewController {
   
   fileprivate func attributedOrderInfo( titleFromCell: String, mainDataFromCell: String, priceFromCell: String ) -> NSMutableAttributedString {
     
-    let titleAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.boldSystemFont(ofSize: 20) ]
+    let titleAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20) ]
     
-    let bodyAttributes = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 17) ]
+    let bodyAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17) ]
     
-    let bodyAttributesBold = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 17, weight: 17) ]
+    let bodyAttributesBold = [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17, weight: UIFont.Weight(rawValue: 17)) ]
     
     let combination = NSMutableAttributedString()
     

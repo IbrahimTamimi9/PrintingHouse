@@ -26,7 +26,7 @@ func imageWithImage (sourceImage:UIImage, scaledToWidth: CGFloat) -> UIImage {
 
 extension LayoutSelectionView {
   
-  func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
+ @objc func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
     if let imageView = tapGesture.view as? UIImageView {
       //PRO Tip: don't perform a lot of custom logic inside of a view class
       
@@ -82,7 +82,7 @@ extension LayoutSelectionView {
   }
   
   
-  func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
+  @objc func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
     if let zoomOutImageView = tapGesture.view {
       //need to animate back out to controller
       zoomOutImageView.clipsToBounds = true
@@ -108,7 +108,7 @@ extension LayoutSelectionView {
 
 extension ShoppingCartDetailTableViewController {
   
-  func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
+ @objc func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
     if let imageView = tapGesture.view as? UIImageView {
       print("tapped")
       //PRO Tip: don't perform a lot of custom logic inside of a view class
@@ -161,7 +161,7 @@ extension ShoppingCartDetailTableViewController {
   }
   
   
-  func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
+  @objc func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
     if let zoomOutImageView = tapGesture.view {
       //need to animate back out to controller
       zoomOutImageView.clipsToBounds = true
@@ -188,7 +188,7 @@ extension ShoppingCartDetailTableViewController {
 
 extension WorksDetailTableViewController {
   
-  func handleLayoutLoading(_ tapGesture: UITapGestureRecognizer) {
+@objc func handleLayoutLoading(_ tapGesture: UITapGestureRecognizer) {
     var progressView = UIProgressView()
     var progressLabel = UILabel()
     
@@ -262,7 +262,7 @@ extension WorksDetailTableViewController {
   
   
   
-  func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
+ @objc func handleZoomTap(_ tapGesture: UITapGestureRecognizer) {
     if let imageView = tapGesture.view as? UIImageView {
       print("tapped")
       //PRO Tip: don't perform a lot of custom logic inside of a view class
@@ -315,7 +315,7 @@ extension WorksDetailTableViewController {
   }
   
   
-  func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
+  @objc func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
     if let zoomOutImageView = tapGesture.view {
       //need to animate back out to controller
       zoomOutImageView.clipsToBounds = true

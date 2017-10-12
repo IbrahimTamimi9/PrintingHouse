@@ -193,12 +193,12 @@ class LayoutSelectionView: UIView {
   }
   
   
-  func layoutLinkTextFielDidChange(_ sender: Any) {
+  @objc func layoutLinkTextFielDidChange(_ sender: Any) {
     chooseAddToCartButtonState()
   }
 
 
-  func layoutDevSwitchValueDidChange(_ sender: Any) {
+  @objc func layoutDevSwitchValueDidChange(_ sender: Any) {
     
     if layoutDevSwitch.isOn {
     

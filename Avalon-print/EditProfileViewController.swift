@@ -39,9 +39,9 @@ class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController {
   
-  func textfieldEditingChanged(_ sender: Any) { validateData () }
+ @objc func textfieldEditingChanged(_ sender: Any) { validateData () }
   
-  func saveButtonDidTap(_ sender: Any) {
+ @objc func saveButtonDidTap(_ sender: Any) {
     
     ARSLineProgress.show()
     
@@ -136,7 +136,7 @@ extension EditProfileViewController {
     }
   }
   
-  func resetPasswordButtonTapped () {
+ @objc func resetPasswordButtonTapped () {
     
     let controller = ResetPasswordViewController()
     let transitionDelegate = DeckTransitioningDelegate()

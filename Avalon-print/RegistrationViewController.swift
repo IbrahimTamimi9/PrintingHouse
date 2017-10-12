@@ -46,7 +46,7 @@ extension RegistrationViewController {/* keyboard */
   }
   
   
-  func handleKeyboardWillShow(_ notification: Notification) {
+  @objc func handleKeyboardWillShow(_ notification: Notification) {
     let keyboardFrame = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
     let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
     
@@ -61,7 +61,7 @@ extension RegistrationViewController {/* keyboard */
   }
   
   
-  func handleKeyboardWillHide(_ notification: Notification) {
+  @objc func handleKeyboardWillHide(_ notification: Notification) {
     let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
     
      containerTopAnchor?.constant = 0
@@ -75,7 +75,7 @@ extension RegistrationViewController {/* keyboard */
 
 extension RegistrationViewController {
   
-  func textFieldEditingChanged(_ sender: Any) { validateRegistraionData() }
+ @objc func textFieldEditingChanged(_ sender: Any) { validateRegistraionData() }
   
   func validateRegistraionData () {
     
@@ -105,7 +105,7 @@ extension RegistrationViewController {
   }
   
   
-  func registerButtonDidTap(_ sender: Any) {
+ @objc func registerButtonDidTap(_ sender: Any) {
     
     ARSLineProgress.show()
     view.isUserInteractionEnabled = false

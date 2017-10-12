@@ -37,9 +37,9 @@ class PasswordResetViewController: UIViewController {
 
 extension PasswordResetViewController {
   
-  func recoverEmailTextFieldEditingChanged(_ sender: Any) { validateEmailTextField () }
+ @objc func recoverEmailTextFieldEditingChanged(_ sender: Any) { validateEmailTextField () }
   
-  func recoverPasswordButtonDidTap(_ sender: Any) {
+ @objc func recoverPasswordButtonDidTap(_ sender: Any) {
     
     ARSLineProgress.show()
     view.isUserInteractionEnabled = false

@@ -567,7 +567,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }()
   
   
-    func performRefresh () {
+    @objc func performRefresh () {
       loadPreviousMessages()
     }
 
@@ -579,7 +579,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
   
-    func makeACall () {
+    @objc func makeACall () {
     
         let number = user?.phoneNumber
         let phoneCallURL:URL = URL(string: "tel://\(number!)")!
@@ -587,7 +587,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
   
-    func handleUploadTap() {
+   @objc func handleUploadTap() {
       
         let imagePickerController = UIImagePickerController()
         
@@ -722,7 +722,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
   }
   
   
-  func handleKeyboardDidShow() {
+  @objc func handleKeyboardDidShow() {
     if messages.count > 0 {
       
     let indexPath = IndexPath(item: messages.count - 1, section: 0)
@@ -927,13 +927,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     func estimateFrameForText(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)], context: nil)
     }
   
   
     var containerViewBottomAnchor: NSLayoutConstraint?
   
-    func handleSend() {
+   @objc func handleSend() {
       
       inputContainerView.sendButton.isEnabled = false
         let properties = ["text": inputContainerView.inputTextView.text!]
@@ -1063,7 +1063,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
   
     
-    func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
+    @objc func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
         if let zoomOutImageView = tapGesture.view {
             //need to animate back out to controller
             zoomOutImageView.layer.cornerRadius = 16

@@ -83,7 +83,7 @@ class OrdersDetailViewController: UIViewController {
     ordersDetailTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
   }
   
-  func moreButtonTapped (_ sender: UIButton) {
+ @objc func moreButtonTapped (_ sender: UIButton) {
     
     guard let cell = sender.superview?.superview?.superview as? OrdersDetailTableViewCell else {
       return

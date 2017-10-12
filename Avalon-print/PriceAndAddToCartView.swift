@@ -23,7 +23,7 @@ class PriceAndAddToCartView: UIView {
     var price = UILabel()
 
     price.translatesAutoresizingMaskIntoConstraints = false
-    price.font =  UIFont.systemFont(ofSize: 15, weight: 1)
+    price.font =  UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(rawValue: 1))
     price.text = NSLocalizedString("PriceAndAddToCartView.price.text", comment: "")
     //"Цена: 0 грн.\nЦена с НДС: 0 грн."
     price.numberOfLines = 2

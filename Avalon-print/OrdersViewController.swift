@@ -94,7 +94,7 @@ extension OrdersViewController {
   }
   
   
- func segmentedControlValueChanged() {
+ @objc func segmentedControlValueChanged() {
   
     switch ordersHeaderView.segmentedControl.selectedSegmentIndex {
     case 0:
