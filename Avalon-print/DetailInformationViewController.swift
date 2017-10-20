@@ -10,12 +10,10 @@ import UIKit
 
 class DetailInformationViewController: UIViewController {
 
-  
   let textView = UITextView()
   
   var informationTitle = String()
   
-  var hidingNavigationBarManager: HidingNavigationBarManager?
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,31 +22,14 @@ class DetailInformationViewController: UIViewController {
       
       navigationItem.title = ""
       
-      
       view.addSubview(textView)
       
       setTextToTextView()
       
       textViewInit()
-      
-       hidingNavigationBarManager = HidingNavigationBarManager(viewController: self, scrollView: textView)
-      
-      
     }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    hidingNavigationBarManager?.viewWillAppear(animated)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    hidingNavigationBarManager?.viewWillDisappear(animated)
-  }
 
-  
   fileprivate func textViewInit () {
 
     textView.isEditable = false

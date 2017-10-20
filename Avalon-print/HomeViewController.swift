@@ -94,7 +94,6 @@ class HomeViewController: UIViewController {
       title = NSLocalizedString("HomeViewController.NavigationItem.title", comment: "")
       let backButton = UIBarButtonItem(title: "", style:.plain, target: nil, action: nil)
       navigationItem.backBarButtonItem = backButton
-      
       shoppingCartTransition = JTMaterialTransition(animatedView: self.shoppingCartButton)
       profileTransition = JTMaterialTransition(animatedView: self.profileButton)
       

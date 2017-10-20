@@ -21,7 +21,7 @@ class MainNavigationController: UINavigationController {
       
       var backImage =  UIImage(named: "ChevronLeft")
       
-      backImage = backImage?.imageWithInsets(insets: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0))
+      backImage = backImage?.imageWithInsets(insets: UIEdgeInsets(top: 0, left: 8, bottom: 11, right: 0))
       
       self.navigationBar.backIndicatorImage = backImage
       

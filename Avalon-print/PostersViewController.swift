@@ -24,7 +24,6 @@ class PostersViewController: UIViewController {
 
   var materialInfoTransition = JTMaterialTransition()
   
-  var hidingNavigationBarManager: HidingNavigationBarManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +31,7 @@ class PostersViewController: UIViewController {
       view.backgroundColor = UIColor.white
       scrollView.backgroundColor = view.backgroundColor
       topBlock.title.text = postersTitle
+      extendedLayoutIncludesOpaqueBars = true
       
       //  currentPageData.viewControllersTopBlock = topBlock
         currentPageData.viewControllersPriceBlock = priceBlock /* necessary!!!! for displaying calculated price */
@@ -54,21 +54,8 @@ class PostersViewController: UIViewController {
         topBlock.materialsInfo.addTarget(self, action: #selector(materialsInfoTapped), for: .touchUpInside)
       
         setConstraints()
-      
-        hidingNavigationBarManager = HidingNavigationBarManager(viewController: self, scrollView: scrollView)
     }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    hidingNavigationBarManager?.viewWillAppear(animated)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    hidingNavigationBarManager?.viewWillDisappear(animated)
-  }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
@@ -76,8 +63,6 @@ class PostersViewController: UIViewController {
     let height = topBlockHeightAnchor!.constant + layoutBlockHeightAnchor!.constant + priceBlocHeightAnchor!.constant - 20
      scrollView.contentSize = CGSize(width: screenSize.width, height: height)
   }
-  
- 
   
   
   fileprivate func setConstraints () {

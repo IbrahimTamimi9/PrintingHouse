@@ -23,14 +23,13 @@ class BannersViewController: UIViewController {
   
   var materialInfoTransition = JTMaterialTransition()
   
-  var hidingNavigationBarManager: HidingNavigationBarManager?
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.white
     topBlock.title.text = bannersTitle
+    extendedLayoutIncludesOpaqueBars = true
     
     currentPageData.viewControllersPriceBlock = priceBlock  /* necessary!!!! for displaying calculated price */
     currentPageData.viewControllersLayoutBlock = layoutBlock
@@ -55,23 +54,8 @@ class BannersViewController: UIViewController {
     topBlock.postprintField.isEnabled = false
     
     setConstraints()
-    
-    hidingNavigationBarManager = HidingNavigationBarManager(viewController: self, scrollView: scrollView)
-    
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    hidingNavigationBarManager?.viewWillAppear(animated)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    hidingNavigationBarManager?.viewWillDisappear(animated)
-  }
-
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
