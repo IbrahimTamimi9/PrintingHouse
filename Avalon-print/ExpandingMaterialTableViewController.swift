@@ -24,6 +24,7 @@ class ExpandingMaterialTableViewController: UITableViewController {
       
       tableView.backgroundColor = UIColor.white
       view.backgroundColor = UIColor.white
+      extendedLayoutIncludesOpaqueBars = true
  
       tableView.separatorStyle = .none
       
@@ -52,24 +53,33 @@ class ExpandingMaterialTableViewController: UITableViewController {
     }
   }
   
-
+  
   override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     
-    if section == 0 {
+    if section != 0 {
       let header = view as! UITableViewHeaderFooterView
-      header.textLabel?.textColor = UIColor.white
+      header.textLabel?.font = UIFont.systemFont(ofSize: 20)
+      header.textLabel?.textColor = UIColor.black
+    }
+  }
+  
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    
+    if section == 0 {
+      let header = UIView()
       let headerImage = UIImage(named: items[currentSelectedMaterialInfoCell].imageName)
       let headerImageView = UIImageView(image: headerImage)
       headerImageView.contentMode = .scaleAspectFill
-      header.backgroundView = headerImageView
+      header.addSubview(headerImageView)
+      headerImageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: 300)
       
-    } else {
-    
-    let header = view as! UITableViewHeaderFooterView
-    header.textLabel?.font = UIFont.systemFont(ofSize: 20)
-    header.textLabel?.textColor = UIColor.black
+      return header
     }
+
+    return nil
   }
+  
   
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     if section == 0 {
