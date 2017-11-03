@@ -117,7 +117,7 @@ extension LoginViewController {
     let characterSet = NSCharacterSet(charactersIn: "@")
     let badCharacterSet = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")
     
-    if (loginContainerView.emailField.text?.characters.count)! < 5 || loginContainerView.emailField.text?.rangeOfCharacter(from: characterSet as CharacterSet, options: .caseInsensitive ) == nil || loginContainerView.emailField.text?.rangeOfCharacter(from: badCharacterSet as CharacterSet, options: .caseInsensitive ) != nil || (loginContainerView.passwordField.text?.characters.count)! < 6 {
+    if (loginContainerView.emailField.text?.count)! < 5 || loginContainerView.emailField.text?.rangeOfCharacter(from: characterSet as CharacterSet, options: .caseInsensitive ) == nil || loginContainerView.emailField.text?.rangeOfCharacter(from: badCharacterSet as CharacterSet, options: .caseInsensitive ) != nil || (loginContainerView.passwordField.text?.count)! < 6 {
       
       loginContainerView.login.isEnabled = false
   

@@ -43,10 +43,10 @@ public class InitialImageView : UIImageView {
     let fullName = name.components(separatedBy: " ") //componentsSeparatedByString(" ")
     var initial = String()
     
-    if let firstChar = fullName[safe: 0]?.characters.first {
+    if let firstChar = fullName[safe: 0]?.first {
       initial.append(firstChar)
     }
-    if let secondChar = fullName[safe: 1]?.characters.first {
+    if let secondChar = fullName[safe: 1]?.first {
       initial.append(secondChar)
     }
     

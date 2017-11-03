@@ -110,7 +110,7 @@ extension ResetPasswordViewController {
     let characterSetEmail1 = NSCharacterSet(charactersIn: ".")
     let badCharacterSetEmail = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")
     
-    if (passwordResetContainerView.email.text?.characters.count)! < 5 ||
+    if (passwordResetContainerView.email.text?.count)! < 5 ||
       
       passwordResetContainerView.email.text?.rangeOfCharacter(from: characterSetEmail as CharacterSet,
                                                               options: .caseInsensitive ) == nil ||

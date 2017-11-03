@@ -124,9 +124,9 @@ extension EditProfileViewController {
     let badCharacterSetPhoneNumber = NSCharacterSet(charactersIn: "@$%.><!`~,/?|'\'';:#^&*=_+{}[]")
   
     
-    if (editProfileContainerView.nameField.text?.characters.count)! < 2 ||
-       (editProfileContainerView.phoneField.text?.characters.count)! < 10 ||
-       (editProfileContainerView.phoneField.text?.characters.count)! > 12 ||
+    if (editProfileContainerView.nameField.text?.count)! < 2 ||
+       (editProfileContainerView.phoneField.text?.count)! < 10 ||
+       (editProfileContainerView.phoneField.text?.count)! > 12 ||
         editProfileContainerView.phoneField.text?.rangeOfCharacter(from: badCharacterSetPhoneNumber as CharacterSet, options: .caseInsensitive ) != nil  {
       
         editProfileContainerView.save.isEnabled = false

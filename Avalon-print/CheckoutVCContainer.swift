@@ -228,11 +228,11 @@ extension CheckoutVCContainer { /* handling text fields */
     let badCharacterSetEmail = NSCharacterSet(charactersIn: "!`~,/?|'\'';:#^&*=")
     let badCharacterSetPhoneNumber = NSCharacterSet(charactersIn: "@$%.><!`~,/?|'\'';:#^&*=_+{}[]")
     
-    if (name.text?.characters.count)! < 2 ||
-      (phone.text?.characters.count)! < 10 ||
-      (phone.text?.characters.count)! > 20 ||
+    if (name.text?.count)! < 2 ||
+      (phone.text?.count)! < 10 ||
+      (phone.text?.count)! > 20 ||
       phone.text?.rangeOfCharacter(from: badCharacterSetPhoneNumber as CharacterSet, options: .caseInsensitive ) != nil ||
-      (email.text?.characters.count)! < 5 ||
+      (email.text?.count)! < 5 ||
       email.text?.rangeOfCharacter(from: characterSetEmail as CharacterSet, options: .caseInsensitive ) == nil ||
       email.text?.rangeOfCharacter(from: characterSetEmail1 as CharacterSet, options: .caseInsensitive ) == nil ||
       email.text?.rangeOfCharacter(from: badCharacterSetEmail as CharacterSet, options: .caseInsensitive ) != nil  {

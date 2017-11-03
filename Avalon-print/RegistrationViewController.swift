@@ -85,15 +85,15 @@ extension RegistrationViewController {
     let badCharacterSetPhoneNumber = NSCharacterSet(charactersIn: "@$%.><!`~,/?|'\'';:#^&*=_+{}[]")
     
     
-    if (registrationContainerView.name.text?.characters.count)! < 2 ||
-      (registrationContainerView.phone.text?.characters.count)! < 10 ||
-      (registrationContainerView.phone.text?.characters.count)! > 12 ||
+    if (registrationContainerView.name.text?.count)! < 2 ||
+      (registrationContainerView.phone.text?.count)! < 10 ||
+      (registrationContainerView.phone.text?.count)! > 12 ||
       registrationContainerView.phone.text?.rangeOfCharacter(from: badCharacterSetPhoneNumber as CharacterSet, options: .caseInsensitive ) != nil ||
-      (registrationContainerView.email.text?.characters.count)! < 5 ||
+      (registrationContainerView.email.text?.count)! < 5 ||
       registrationContainerView.email.text?.rangeOfCharacter(from: characterSetEmail as CharacterSet, options: .caseInsensitive ) == nil ||
       registrationContainerView.email.text?.rangeOfCharacter(from: characterSetEmail1 as CharacterSet, options: .caseInsensitive ) == nil ||
       registrationContainerView.email.text?.rangeOfCharacter(from: badCharacterSetEmail as CharacterSet, options: .caseInsensitive ) != nil ||
-      (registrationContainerView.password.text?.characters.count)! < 6 ||
+      (registrationContainerView.password.text?.count)! < 6 ||
       (registrationContainerView.password.text != registrationContainerView.passwordAgain.text) {
       
       registrationContainerView.register.isEnabled = false
