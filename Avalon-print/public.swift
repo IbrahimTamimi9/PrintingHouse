@@ -6,7 +6,7 @@
 //  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
   let postersTitle = NSLocalizedString("HomeViewController.items.posters", comment: "")

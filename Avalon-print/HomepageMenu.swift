@@ -6,7 +6,7 @@
 //  Copyright © 2017 Roman Mizin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class HomepageMenu: NSObject {
   
