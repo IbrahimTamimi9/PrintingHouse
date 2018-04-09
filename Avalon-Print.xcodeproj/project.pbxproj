@@ -11,6 +11,7 @@
 		4B0055271EF67461002EAE4E /* AvalonUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0055261EF67461002EAE4E /* AvalonUITextField.swift */; };
 		4B0055291EF67804002EAE4E /* CheckoutVCContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0055281EF67804002EAE4E /* CheckoutVCContainer.swift */; };
 		4B00552B1EF68EC8002EAE4E /* AvalonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B00552A1EF68EC8002EAE4E /* AvalonUIButton.swift */; };
+		4B01672B207A8B0B0099C252 /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B016729207A8B0B0099C252 /* Bucket.xcdatamodeld */; };
 		4B0E8BBD1F02AEA100DF8580 /* PictureZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E8BBC1F02AEA100DF8580 /* PictureZoomHandling.swift */; };
 		4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */; };
 		4B25E41F1F06AFC3007A10E1 /* HidingNavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B25E41D1F06AFC3007A10E1 /* HidingNavigationBarManager.swift */; };
@@ -31,7 +32,6 @@
 		4B3FE8A11E44F34D00852A2A /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8981E44F34D00852A2A /* ARSProgressLoader.swift */; };
 		4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8991E44F34D00852A2A /* ARSStatus.swift */; };
 		4B3FE8A41E44F3DA00852A2A /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */; };
-		4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */; };
 		4B47F17C1F08FEF600172176 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F17B1F08FEF600172176 /* UserProfileViewController.swift */; };
 		4B47F17F1F08FF4400172176 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F17E1F08FF4400172176 /* UserProfileHeaderView.swift */; };
 		4B47F1831F09092700172176 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47F1821F09092700172176 /* UserProfileTableViewCell.swift */; };
@@ -96,12 +96,6 @@
 		4BF0AAB61F0AC2D900140C55 /* OrdersDetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0AAB51F0AC2D900140C55 /* OrdersDetailContainerView.swift */; };
 		4BF0C5131F0C0FFD001C3EA1 /* StorageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0C5121F0C0FFD001C3EA1 /* StorageTableViewController.swift */; };
 		4BF3D4391EF6DE6D0061D337 /* CheckoutVCOrderSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF3D4381EF6DE6D0061D337 /* CheckoutVCOrderSender.swift */; };
-		4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF718781EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift */; };
-		4BF7187F1EBF1BCC00D079D9 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF718791EBF1BCC00D079D9 /* DeckPresentationController.swift */; };
-		4BF718801EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7187A1EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift */; };
-		4BF718811EBF1BCC00D079D9 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7187B1EBF1BCC00D079D9 /* DeckSegue.swift */; };
-		4BF718821EBF1BCC00D079D9 /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7187C1EBF1BCC00D079D9 /* DeckTransitioningDelegate.swift */; };
-		4BF718831EBF1BCC00D079D9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7187D1EBF1BCC00D079D9 /* Utilities.swift */; };
 		4BFD11C61E841F520026E152 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11C41E841F520026E152 /* Message.swift */; };
 		4BFD11C71E841F520026E152 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11C51E841F520026E152 /* User.swift */; };
 		4BFD11CA1E841F6F0026E152 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFD11C91E841F6F0026E152 /* Extensions.swift */; };
@@ -142,6 +136,7 @@
 		4B0055261EF67461002EAE4E /* AvalonUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvalonUITextField.swift; path = "Avalon-print/AvalonUITextField.swift"; sourceTree = SOURCE_ROOT; };
 		4B0055281EF67804002EAE4E /* CheckoutVCContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutVCContainer.swift; path = "Avalon-print/CheckoutVCContainer.swift"; sourceTree = SOURCE_ROOT; };
 		4B00552A1EF68EC8002EAE4E /* AvalonUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvalonUIButton.swift; path = "Avalon-print/AvalonUIButton.swift"; sourceTree = SOURCE_ROOT; };
+		4B01672A207A8B0B0099C252 /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
 		4B0E8BBC1F02AEA100DF8580 /* PictureZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureZoomHandling.swift; path = "Avalon-print/PictureZoomHandling.swift"; sourceTree = SOURCE_ROOT; };
 		4B17D3261E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingMaterialTableViewController.swift; path = "Avalon-print/ExpandingMaterialTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B25E41D1F06AFC3007A10E1 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HidingNavigationBarManager.swift; path = "Avalon-print/HidingNavigationBar/HidingNavigationBarManager.swift"; sourceTree = SOURCE_ROOT; };
@@ -163,7 +158,6 @@
 		4B3FE8981E44F34D00852A2A /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSProgressLoader.swift; path = "Avalon-print/progressIndicator/ARSProgressLoader.swift"; sourceTree = SOURCE_ROOT; };
 		4B3FE8991E44F34D00852A2A /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSStatus.swift; path = "Avalon-print/progressIndicator/ARSStatus.swift"; sourceTree = SOURCE_ROOT; };
 		4B3FE8A31E44F3DA00852A2A /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARSLineProgressHelpers.swift; path = "Avalon-print/progressIndicator/ARSLineProgressHelpers.swift"; sourceTree = SOURCE_ROOT; };
-		4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bucket.xcdatamodel; sourceTree = "<group>"; };
 		4B47F17B1F08FEF600172176 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = "Avalon-print/UserProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4B47F17E1F08FF4400172176 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileHeaderView.swift; path = "Avalon-print/UserProfileHeaderView.swift"; sourceTree = SOURCE_ROOT; };
 		4B47F1821F09092700172176 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileTableViewCell.swift; path = "Avalon-print/UserProfileTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -230,12 +224,6 @@
 		4BF0AAB51F0AC2D900140C55 /* OrdersDetailContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrdersDetailContainerView.swift; path = "Avalon-print/OrdersDetailContainerView.swift"; sourceTree = SOURCE_ROOT; };
 		4BF0C5121F0C0FFD001C3EA1 /* StorageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageTableViewController.swift; path = "Avalon-print/StorageTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BF3D4381EF6DE6D0061D337 /* CheckoutVCOrderSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutVCOrderSender.swift; path = "Avalon-print/CheckoutVCOrderSender.swift"; sourceTree = SOURCE_ROOT; };
-		4BF718781EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckDismissingAnimationController.swift; path = "Avalon-print/deckTransition/DeckDismissingAnimationController.swift"; sourceTree = SOURCE_ROOT; };
-		4BF718791EBF1BCC00D079D9 /* DeckPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckPresentationController.swift; path = "Avalon-print/deckTransition/DeckPresentationController.swift"; sourceTree = SOURCE_ROOT; };
-		4BF7187A1EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckPresentingAnimationController.swift; path = "Avalon-print/deckTransition/DeckPresentingAnimationController.swift"; sourceTree = SOURCE_ROOT; };
-		4BF7187B1EBF1BCC00D079D9 /* DeckSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckSegue.swift; path = "Avalon-print/deckTransition/DeckSegue.swift"; sourceTree = SOURCE_ROOT; };
-		4BF7187C1EBF1BCC00D079D9 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeckTransitioningDelegate.swift; path = "Avalon-print/deckTransition/DeckTransitioningDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		4BF7187D1EBF1BCC00D079D9 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "Avalon-print/deckTransition/Utilities.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11C41E841F520026E152 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "Avalon-print/Messenger/Message.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11C51E841F520026E152 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Avalon-print/Messenger/User.swift"; sourceTree = SOURCE_ROOT; };
 		4BFD11C91E841F6F0026E152 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Avalon-print/Messenger/Extensions.swift"; sourceTree = SOURCE_ROOT; };
@@ -296,6 +284,15 @@
 			name = BagedBarButton;
 			sourceTree = "<group>";
 		};
+		4B016728207A8B0B0099C252 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4B016729207A8B0B0099C252 /* Bucket.xcdatamodeld */,
+			);
+			name = CoreData;
+			path = "Avalon-print/CoreData";
+			sourceTree = "<group>";
+		};
 		4B25E4211F06AFC6007A10E1 /* HidingNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,7 +307,6 @@
 			children = (
 				4B9465E01F0FE01500B595A1 /* Localization */,
 				4B25E4211F06AFC6007A10E1 /* HidingNavigationBar */,
-				4BF7186E1EBF1B0500D079D9 /* DeckTransition */,
 				4B3FE86C1E44E57000852A2A /* progressLoader */,
 				4B0055231EF661D3002EAE4E /* BagedBarButton */,
 				4B0055221EF661B6002EAE4E /* InitialImageView */,
@@ -649,20 +645,6 @@
 			name = CheckoutFormViewControllers;
 			sourceTree = "<group>";
 		};
-		4BF7186E1EBF1B0500D079D9 /* DeckTransition */ = {
-			isa = PBXGroup;
-			children = (
-				4BF718781EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift */,
-				4BF718791EBF1BCC00D079D9 /* DeckPresentationController.swift */,
-				4BF7187A1EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift */,
-				4BF7187B1EBF1BCC00D079D9 /* DeckSegue.swift */,
-				4BF7187C1EBF1BCC00D079D9 /* DeckTransitioningDelegate.swift */,
-				4BF7187D1EBF1BCC00D079D9 /* Utilities.swift */,
-			);
-			name = DeckTransition;
-			path = Pods/DeckTransition;
-			sourceTree = "<group>";
-		};
 		4BFD11C81E841F600026E152 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,7 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
-				4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */,
+				4B016728207A8B0B0099C252 /* CoreData */,
 				4B2D03B21DF78E5C00BF0B23 /* Support */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
 				2E2B9315D2A9134FFCED2CEF /* Frameworks */,
@@ -876,7 +858,6 @@
 				4B9E30DC1F1E9B1500FF03C1 /* ResetPasswordViewController.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
 				4BE3DBA81EFAC37600DADA39 /* HomeViewController.swift in Sources */,
-				4BF718801EBF1BCC00D079D9 /* DeckPresentingAnimationController.swift in Sources */,
 				4B0055251EF666E0002EAE4E /* CheckoutVC.swift in Sources */,
 				4BF0C5131F0C0FFD001C3EA1 /* StorageTableViewController.swift in Sources */,
 				4BDBFD231EFE762700010AEA /* DetailInformationViewController.swift in Sources */,
@@ -911,8 +892,8 @@
 				4BFD11D31E841F910026E152 /* MessagesController.swift in Sources */,
 				4BFD11D01E841F910026E152 /* ChatLogController.swift in Sources */,
 				4B78B8681F1290D7000689B3 /* AboutMaterialsViewController.swift in Sources */,
+				4B01672B207A8B0B0099C252 /* Bucket.xcdatamodeld in Sources */,
 				4BDC37511F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift in Sources */,
-				4B4028AB1E23AA37006E703B /* Bucket.xcdatamodeld in Sources */,
 				4BBDDE831EF52975000CF3BE /* ShoppingCellContainerView.swift in Sources */,
 				4B3FE8A21E44F34D00852A2A /* ARSStatus.swift in Sources */,
 				4BF0AAAC1F0AB67100140C55 /* WorksDetailTableViewController.swift in Sources */,
@@ -921,7 +902,6 @@
 				4B4BE6D11F1B66550054C441 /* TextMessageCell.swift in Sources */,
 				4BF0AAB01F0AB76200140C55 /* WorksDetailImageTableViewCell.swift in Sources */,
 				4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */,
-				4BF7187E1EBF1BCC00D079D9 /* DeckDismissingAnimationController.swift in Sources */,
 				4BFD11C71E841F520026E152 /* User.swift in Sources */,
 				4BBDDE811EF51CB4000CF3BE /* CheckoutButtonView.swift in Sources */,
 				4BFD11D41E841F910026E152 /* NewMessageController.swift in Sources */,
@@ -945,16 +925,13 @@
 				4BE3DBB41EFAD37200DADA39 /* PostersViewController.swift in Sources */,
 				4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */,
 				4B0055271EF67461002EAE4E /* AvalonUITextField.swift in Sources */,
-				4BF718811EBF1BCC00D079D9 /* DeckSegue.swift in Sources */,
 				4B4BE6CD1F1B64BD0054C441 /* PhotoMessageCell.swift in Sources */,
 				4B3FE8A01E44F34D00852A2A /* ARSLineProgressTypeAliases.swift in Sources */,
 				4B47F17C1F08FEF600172176 /* UserProfileViewController.swift in Sources */,
-				4BF718831EBF1BCC00D079D9 /* Utilities.swift in Sources */,
 				4B78B8661F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift in Sources */,
 				4B25E41F1F06AFC3007A10E1 /* HidingNavigationBarManager.swift in Sources */,
 				4BCC4E761EFD438000085A9A /* CanvasViewController.swift in Sources */,
 				4BE3DBB61EFB120000DADA39 /* AvalonUIButtonLight.swift in Sources */,
-				4BF7187F1EBF1BCC00D079D9 /* DeckPresentationController.swift in Sources */,
 				4BDBFD211EFE6D6400010AEA /* InformationTableViewController.swift in Sources */,
 				4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */,
 				4B48FB1A1F06504700A0E353 /* RegistrationViewController.swift in Sources */,
@@ -962,7 +939,6 @@
 				4B7E59001F0E19C5003945D5 /* EditProfileViewController.swift in Sources */,
 				4BF0AAB41F0AC2C000140C55 /* OrdersDetailTableViewCell.swift in Sources */,
 				4B3FE8671E44B59200852A2A /* InitialImageView.swift in Sources */,
-				4BF718821EBF1BCC00D079D9 /* DeckTransitioningDelegate.swift in Sources */,
 				4B0E8BBD1F02AEA100DF8580 /* PictureZoomHandling.swift in Sources */,
 				4B48FB1C1F06506400A0E353 /* RegistrationContainerView.swift in Sources */,
 				4B47F1941F094D3600172176 /* OrdersDetailViewController.swift in Sources */,
@@ -1162,12 +1138,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4B4028A91E23AA37006E703B /* Bucket.xcdatamodeld */ = {
+		4B016729207A8B0B0099C252 /* Bucket.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */,
+				4B01672A207A8B0B0099C252 /* Bucket.xcdatamodel */,
 			);
-			currentVersion = 4B4028AA1E23AA37006E703B /* Bucket.xcdatamodel */;
+			currentVersion = 4B01672A207A8B0B0099C252 /* Bucket.xcdatamodel */;
 			path = Bucket.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
