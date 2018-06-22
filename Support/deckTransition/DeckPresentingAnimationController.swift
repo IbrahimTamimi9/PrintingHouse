@@ -35,8 +35,6 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
                 presentingViewController.view.layer.cornerRadius = 7
                 presentingViewController.view.layer.masksToBounds = true
                 UIApplication.shared.statusBarStyle = .lightContent
-        
-				
                 presentedViewController.view.frame = transitionContext.finalFrame(for: presentedViewController)
                 presentedViewController.view.round(corners: [.topLeft, .topRight], withRadius: 10)
             }, completion: { _ in
@@ -44,6 +42,7 @@ final class DeckPresentingAnimationController: NSObject, UIViewControllerAnimate
             }
         )
     }
+  
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3

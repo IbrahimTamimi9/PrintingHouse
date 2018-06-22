@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseAuth
-import FirebaseStorage
+import Firebase
 
 
 
@@ -200,9 +198,13 @@ extension CheckoutVC { /* handling sending order to firebase */
           return
         }
         
-        if let imageUrl = metadata?.downloadURL()?.absoluteString {
-          completion(imageUrl)
-        }
+//        if let imageUrl = metadata?.downloadURL()?.absoluteString {
+//          completion(imageUrl)
+//        }
+        ref.downloadURL(completion: { (url, error) in
+          guard let downloadURL = url else { return }
+          completion(downloadURL.absoluteString)
+        })
         
       })
       

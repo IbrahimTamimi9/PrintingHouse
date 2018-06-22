@@ -9,8 +9,7 @@
 import UIKit
 import CoreData
 import JTMaterialTransition
-import FirebaseAuth
-import FirebaseDatabase
+import Firebase
 import SystemConfiguration
 
 var rightBarButton: ENMBadgedBarButtonItem?

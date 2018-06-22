@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-import FirebaseAuth
+//import FirebaseAuth
 
 class BaseMessageCell: UICollectionViewCell {
   

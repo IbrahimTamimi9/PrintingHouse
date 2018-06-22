@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MobileCoreServices
 import AVFoundation
-import FirebaseStorage
+//import FirebaseStorage
 
 
 
@@ -622,16 +622,30 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                 return
             }
             
-            if let videoUrl = metadata?.downloadURL()?.absoluteString {
-                if let thumbnailImage = self.thumbnailImageForFileUrl(url) {
-                    
-                    self.uploadToFirebaseStorageUsingImage(thumbnailImage, completion: { (imageUrl) in
-                        let properties: [String: AnyObject] = ["imageUrl": imageUrl as AnyObject, "imageWidth": thumbnailImage.size.width as AnyObject, "imageHeight": thumbnailImage.size.height as AnyObject, "videoUrl": videoUrl as AnyObject]
-                        self.sendMessageWithProperties(properties)
-                        
-                    })
-                }
+//            if let videoUrl = metadata?.downloadURL()?.absoluteString {
+//                if let thumbnailImage = self.thumbnailImageForFileUrl(url) {
+//                    
+//                    self.uploadToFirebaseStorageUsingImage(thumbnailImage, completion: { (imageUrl) in
+//                        let properties: [String: AnyObject] = ["imageUrl": imageUrl as AnyObject, "imageWidth": thumbnailImage.size.width as AnyObject, "imageHeight": thumbnailImage.size.height as AnyObject, "videoUrl": videoUrl as AnyObject]
+//                        self.sendMessageWithProperties(properties)
+//                        
+//                    })
+//                }
+//            }
+          
+          Storage.storage().reference().child("message_movies").child(filename).downloadURL(completion: { (url1, error) in
+            guard let videoUrl = url1 else { return }
+            if let thumbnailImage = self.thumbnailImageForFileUrl(url) {
+              
+              self.uploadToFirebaseStorageUsingImage(thumbnailImage, completion: { (imageUrl) in
+                let properties: [String: AnyObject] = ["imageUrl": imageUrl as AnyObject, "imageWidth": thumbnailImage.size.width as AnyObject, "imageHeight": thumbnailImage.size.height as AnyObject, "videoUrl": videoUrl as AnyObject]
+                self.sendMessageWithProperties(properties)
+              })
             }
+          })
+          
+          
+          
         })
         
         uploadTask.observe(.progress) { (snapshot) in
@@ -693,10 +707,14 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
                     return
                 }
                 
-                if let imageUrl = metadata?.downloadURL()?.absoluteString {
-                    completion(imageUrl)
-                }
-                
+//                if let imageUrl = metadata?.downloadURL()?.absoluteString {
+//                    completion(imageUrl)
+//                }
+              ref.downloadURL(completion: { (url, error) in
+                guard let downloadURL = url else { return }
+                completion(downloadURL.absoluteString)
+              })
+              
             })
         }
     }

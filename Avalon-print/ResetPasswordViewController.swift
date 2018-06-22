@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseCore
+import Firebase
+
 
 class ResetPasswordViewController: UIViewController {
 
@@ -51,57 +51,62 @@ extension ResetPasswordViewController {
     
     
     
-    Auth.auth().currentUser?.reauthenticate(with: credential) { error in
-      if error != nil {
+  Auth.auth().currentUser?.reauthenticateAndRetrieveData(with: credential, completion: { (result, error) in
+    if error != nil {
+      
+      let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
+      
+      alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+        UIAlertAction in })
+      
+      ARSLineProgress.hide()
+      self.view.isUserInteractionEnabled = true
+      
+      self.present(alert, animated: true, completion: nil)
+      
+    } else {
+      
+      Auth.auth().currentUser?.updatePassword(to: self.passwordResetContainerView.newPassword.text!, completion: { (error) in
         
-        let alert = UIAlertController(title: "Error", message: error?.localizedDescription , preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-          UIAlertAction in })
-        
-        ARSLineProgress.hide()
-        self.view.isUserInteractionEnabled = true
-        
-        self.present(alert, animated: true, completion: nil)
-
-      } else {
-        
-        Auth.auth().currentUser?.updatePassword(to: self.passwordResetContainerView.newPassword.text!, completion: { (error) in
-        
-          if error != nil {
+        if error != nil {
+          
+          let alertController = UIAlertController(title: "Ошибка", message: error?.localizedDescription, preferredStyle: .alert)
+          
+          let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+          
+          alertController.addAction(defaultAction)
+          
+          ARSLineProgress.hide()
+          
+          self.view.isUserInteractionEnabled = true
+          
+          self.present(alertController, animated: true, completion: nil)
+          
+        } else {
+          
+          let alert = UIAlertController(title: "", message: "Password successfuly changed.", preferredStyle: UIAlertControllerStyle.alert)
+          
+          alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+            UIAlertAction in
             
-            let alertController = UIAlertController(title: "Ошибка", message: error?.localizedDescription, preferredStyle: .alert)
-            
-            let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            
-            ARSLineProgress.hide()
-            
-            self.view.isUserInteractionEnabled = true
-            
-            self.present(alertController, animated: true, completion: nil)
-            
-          } else {
-            
-            let alert = UIAlertController(title: "", message: "Password successfuly changed.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-              UIAlertAction in
-              
-              self.dismiss(animated: true, completion: nil)
-            })
-            
-            ARSLineProgress.hide()
-            
-            self.view.isUserInteractionEnabled = true
-            
-            self.present(alert, animated: true, completion: nil)
-            
-          }
-        })
-      }
+            self.dismiss(animated: true, completion: nil)
+          })
+          
+          ARSLineProgress.hide()
+          
+          self.view.isUserInteractionEnabled = true
+          
+          self.present(alert, animated: true, completion: nil)
+          
+        }
+      })
     }
+  })
+  
+//  reauthenticate(with: credential) { error in
+// 
+//    }
+  
   }
   
   

@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseAuth
-import FirebaseStorage
+import Firebase
 
 
 class CheckoutVCContainer: UIView {

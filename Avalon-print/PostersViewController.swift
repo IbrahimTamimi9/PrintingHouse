@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import JTMaterialTransition
-import FirebaseDatabase
 
 
 class PostersViewController: UIViewController {

@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
+import Firebase
 
 class RegistrationViewController: UIViewController {
   
@@ -109,7 +108,7 @@ extension RegistrationViewController {
     
     ARSLineProgress.show()
     view.isUserInteractionEnabled = false
-    
+
     Auth.auth().createUser(withEmail: registrationContainerView.email.text!, password: registrationContainerView.password.text!, completion: { authData, error  in
       if error == nil {
         let userData = ["name": self.registrationContainerView.name.text!,
@@ -118,7 +117,7 @@ extension RegistrationViewController {
                         "type": "user" ]
         
         let ref = Database.database().reference()
-        ref.child("users").child(authData!.uid).setValue(userData)
+        ref.child("users").child(authData!.user.uid).setValue(userData)
         print("Successfuly registered")
         
         Auth.auth().currentUser!.sendEmailVerification(completion: { (error) in
