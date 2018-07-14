@@ -1,5 +1,5 @@
-# Print Shop (Bachelor's degree project)
-An app for ordering printing products, written in swift.
+# Printing House (Bachelor's degree project)
+Printing House is an app for ordering large format printing products.
 
 
 ## Features
@@ -19,3 +19,17 @@ An app for ordering printing products, written in swift.
 - Russian and English localizations;
 
 - Cache handling (Possibility to clear the app cache).
+
+<p align="center">
+ <img src="https://raw.githubusercontent.com/RMizin/PrintingHouse/master/Screenshots/Group%206.png" />
+</p> 
+
+
+## Compatibility
+Printing House is written in Swift 4 and requires iOS 10.0 or later.
+
+
+## License
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](https://github.com/RMizin/PrintingHouse/blob/master/LICENSE) file for details
+
+Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
