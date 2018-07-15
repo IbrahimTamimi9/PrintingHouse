@@ -31,34 +31,6 @@
 		4B4BE6CF1F1B655E0054C441 /* BaseMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BE6CE1F1B655E0054C441 /* BaseMessageCell.swift */; };
 		4B4BE6D11F1B66550054C441 /* TextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BE6D01F1B66550054C441 /* TextMessageCell.swift */; };
 		4B67613F20DCE799001F0986 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B67613E20DCE799001F0986 /* Launch Screen.storyboard */; };
-		4B67616620DCEBFF001F0986 /* AvalonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614120DCEBFF001F0986 /* AvalonUIButton.swift */; };
-		4B67616720DCEBFF001F0986 /* PictureZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614220DCEBFF001F0986 /* PictureZoomHandling.swift */; };
-		4B67616820DCEBFF001F0986 /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614420DCEBFF001F0986 /* ENMBadgedBarButtonItem.swift */; };
-		4B67616920DCEBFF001F0986 /* HelpingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614620DCEBFF001F0986 /* HelpingFunctions.swift */; };
-		4B67616A20DCEBFF001F0986 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614820DCEBFF001F0986 /* Utilities.swift */; };
-		4B67616B20DCEBFF001F0986 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614920DCEBFF001F0986 /* DeckDismissingAnimationController.swift */; };
-		4B67616C20DCEBFF001F0986 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614A20DCEBFF001F0986 /* DeckPresentationController.swift */; };
-		4B67616D20DCEBFF001F0986 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614B20DCEBFF001F0986 /* DeckSegue.swift */; };
-		4B67616E20DCEBFF001F0986 /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614C20DCEBFF001F0986 /* DeckTransitioningDelegate.swift */; };
-		4B67616F20DCEBFF001F0986 /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614D20DCEBFF001F0986 /* DeckPresentingAnimationController.swift */; };
-		4B67617020DCEBFF001F0986 /* InitialImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67614F20DCEBFF001F0986 /* InitialImageView.swift */; };
-		4B67617120DCEBFF001F0986 /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615120DCEBFF001F0986 /* ARSLineProgressHelpers.swift */; };
-		4B67617220DCEBFF001F0986 /* ARSLineProgressTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615220DCEBFF001F0986 /* ARSLineProgressTypeAliases.swift */; };
-		4B67617320DCEBFF001F0986 /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615320DCEBFF001F0986 /* ARSInfiniteLoader.swift */; };
-		4B67617420DCEBFF001F0986 /* ARSLineProgressConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615420DCEBFF001F0986 /* ARSLineProgressConstants.swift */; };
-		4B67617520DCEBFF001F0986 /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615520DCEBFF001F0986 /* ARSLineProgress.swift */; };
-		4B67617620DCEBFF001F0986 /* ARSLineProgressExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615620DCEBFF001F0986 /* ARSLineProgressExtensions.swift */; };
-		4B67617720DCEBFF001F0986 /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615720DCEBFF001F0986 /* ARSLineProgressCustomization.swift */; };
-		4B67617820DCEBFF001F0986 /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615820DCEBFF001F0986 /* ARSStatus.swift */; };
-		4B67617920DCEBFF001F0986 /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615920DCEBFF001F0986 /* ARSProgressLoader.swift */; };
-		4B67617A20DCEBFF001F0986 /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615A20DCEBFF001F0986 /* ARSLineProgressProtocols.swift */; };
-		4B67617B20DCEBFF001F0986 /* AvalonUIButtonLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615B20DCEBFF001F0986 /* AvalonUIButtonLight.swift */; };
-		4B67617C20DCEBFF001F0986 /* HidingNavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615D20DCEBFF001F0986 /* HidingNavigationBarManager.swift */; };
-		4B67617D20DCEBFF001F0986 /* HidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615E20DCEBFF001F0986 /* HidingViewController.swift */; };
-		4B67617E20DCEBFF001F0986 /* AvalonPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67615F20DCEBFF001F0986 /* AvalonPalette.swift */; };
-		4B67617F20DCEBFF001F0986 /* AvalonUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67616020DCEBFF001F0986 /* AvalonUITextField.swift */; };
-		4B67618020DCEBFF001F0986 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B67616120DCEBFF001F0986 /* MainNavigationController.swift */; };
-		4B67618120DCEBFF001F0986 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B67616320DCEBFF001F0986 /* Localizable.strings */; };
 		4B78B8661F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */; };
 		4B78B8671F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */; };
 		4B78B8681F1290D7000689B3 /* AboutMaterialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78B8651F1290D7000689B3 /* AboutMaterialsViewController.swift */; };
@@ -69,6 +41,35 @@
 		4B9E30D81F1E92E000FF03C1 /* typingIndicator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4B9E30D71F1E92E000FF03C1 /* typingIndicator.gif */; };
 		4B9E30DB1F1E9B1500FF03C1 /* ResetPasswordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E30D91F1E9B1500FF03C1 /* ResetPasswordContainerView.swift */; };
 		4B9E30DC1F1E9B1500FF03C1 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */; };
+		4BA54F3D20FA77F8007CCD80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BA54F3C20FA77F7007CCD80 /* GoogleService-Info.plist */; };
+		4BA54F6420FA787B007CCD80 /* AvalonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F3F20FA787B007CCD80 /* AvalonUIButton.swift */; };
+		4BA54F6520FA787B007CCD80 /* PictureZoomHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4020FA787B007CCD80 /* PictureZoomHandling.swift */; };
+		4BA54F6620FA787B007CCD80 /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4220FA787B007CCD80 /* ENMBadgedBarButtonItem.swift */; };
+		4BA54F6720FA787B007CCD80 /* HelpingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4420FA787B007CCD80 /* HelpingFunctions.swift */; };
+		4BA54F6820FA787B007CCD80 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4620FA787B007CCD80 /* Utilities.swift */; };
+		4BA54F6920FA787B007CCD80 /* DeckDismissingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4720FA787B007CCD80 /* DeckDismissingAnimationController.swift */; };
+		4BA54F6A20FA787B007CCD80 /* DeckPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4820FA787B007CCD80 /* DeckPresentationController.swift */; };
+		4BA54F6B20FA787B007CCD80 /* DeckSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4920FA787B007CCD80 /* DeckSegue.swift */; };
+		4BA54F6C20FA787B007CCD80 /* DeckTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4A20FA787B007CCD80 /* DeckTransitioningDelegate.swift */; };
+		4BA54F6D20FA787B007CCD80 /* DeckPresentingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4B20FA787B007CCD80 /* DeckPresentingAnimationController.swift */; };
+		4BA54F6E20FA787B007CCD80 /* InitialImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4D20FA787B007CCD80 /* InitialImageView.swift */; };
+		4BA54F6F20FA787B007CCD80 /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F4F20FA787B007CCD80 /* ARSLineProgressHelpers.swift */; };
+		4BA54F7020FA787B007CCD80 /* ARSLineProgressTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5020FA787B007CCD80 /* ARSLineProgressTypeAliases.swift */; };
+		4BA54F7120FA787B007CCD80 /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5120FA787B007CCD80 /* ARSInfiniteLoader.swift */; };
+		4BA54F7220FA787B007CCD80 /* ARSLineProgressConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5220FA787B007CCD80 /* ARSLineProgressConstants.swift */; };
+		4BA54F7320FA787B007CCD80 /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5320FA787B007CCD80 /* ARSLineProgress.swift */; };
+		4BA54F7420FA787B007CCD80 /* ARSLineProgressExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5420FA787B007CCD80 /* ARSLineProgressExtensions.swift */; };
+		4BA54F7520FA787B007CCD80 /* HidingNavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5620FA787B007CCD80 /* HidingNavigationBarManager.swift */; };
+		4BA54F7620FA787B007CCD80 /* HidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5720FA787B007CCD80 /* HidingViewController.swift */; };
+		4BA54F7720FA787B007CCD80 /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5820FA787B007CCD80 /* ARSLineProgressCustomization.swift */; };
+		4BA54F7820FA787B007CCD80 /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5920FA787B007CCD80 /* ARSStatus.swift */; };
+		4BA54F7920FA787B007CCD80 /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5A20FA787B007CCD80 /* ARSProgressLoader.swift */; };
+		4BA54F7A20FA787B007CCD80 /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5B20FA787B007CCD80 /* ARSLineProgressProtocols.swift */; };
+		4BA54F7B20FA787B007CCD80 /* AvalonUIButtonLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5C20FA787B007CCD80 /* AvalonUIButtonLight.swift */; };
+		4BA54F7C20FA787B007CCD80 /* AvalonPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5D20FA787B007CCD80 /* AvalonPalette.swift */; };
+		4BA54F7D20FA787B007CCD80 /* AvalonUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5E20FA787B007CCD80 /* AvalonUITextField.swift */; };
+		4BA54F7E20FA787B007CCD80 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA54F5F20FA787B007CCD80 /* MainNavigationController.swift */; };
+		4BA54F7F20FA787B007CCD80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BA54F6120FA787B007CCD80 /* Localizable.strings */; };
 		4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */; };
 		4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */; };
 		4BBBABC71F28B2B8003CFFCC /* HomepageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBABC61F28B2B8003CFFCC /* HomepageMenu.swift */; };
@@ -84,7 +85,6 @@
 		4BCC4E7A1EFD601B00085A9A /* BannersPostprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E791EFD601B00085A9A /* BannersPostprintView.swift */; };
 		4BCC4E7D1EFD9B9F00085A9A /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E7C1EFD9B9F00085A9A /* ContactsTableViewController.swift */; };
 		4BCC4E7F1EFDA4DC00085A9A /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC4E7E1EFDA4DC00085A9A /* ContactsTableViewCell.swift */; };
-		4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */; };
 		4BDBFD211EFE6D6400010AEA /* InformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBFD201EFE6D6400010AEA /* InformationTableViewController.swift */; };
 		4BDBFD231EFE762700010AEA /* DetailInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDBFD221EFE762700010AEA /* DetailInformationViewController.swift */; };
 		4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */; };
@@ -163,36 +163,6 @@
 		4B4BE6D01F1B66550054C441 /* TextMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextMessageCell.swift; path = "Avalon-print/Messenger/TextMessageCell.swift"; sourceTree = SOURCE_ROOT; };
 		4B5A3D881E2FDF6D00E10A17 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4B67613E20DCE799001F0986 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Avalon-print/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
-		4B67614120DCEBFF001F0986 /* AvalonUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonUIButton.swift; sourceTree = "<group>"; };
-		4B67614220DCEBFF001F0986 /* PictureZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureZoomHandling.swift; sourceTree = "<group>"; };
-		4B67614420DCEBFF001F0986 /* ENMBadgedBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENMBadgedBarButtonItem.swift; sourceTree = "<group>"; };
-		4B67614520DCEBFF001F0986 /* ENMBadgedBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENMBadgedBarButton.h; sourceTree = "<group>"; };
-		4B67614620DCEBFF001F0986 /* HelpingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpingFunctions.swift; sourceTree = "<group>"; };
-		4B67614820DCEBFF001F0986 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		4B67614920DCEBFF001F0986 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
-		4B67614A20DCEBFF001F0986 /* DeckPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckPresentationController.swift; sourceTree = "<group>"; };
-		4B67614B20DCEBFF001F0986 /* DeckSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckSegue.swift; sourceTree = "<group>"; };
-		4B67614C20DCEBFF001F0986 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
-		4B67614D20DCEBFF001F0986 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
-		4B67614F20DCEBFF001F0986 /* InitialImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialImageView.swift; sourceTree = "<group>"; };
-		4B67615120DCEBFF001F0986 /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressHelpers.swift; sourceTree = "<group>"; };
-		4B67615220DCEBFF001F0986 /* ARSLineProgressTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressTypeAliases.swift; sourceTree = "<group>"; };
-		4B67615320DCEBFF001F0986 /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSInfiniteLoader.swift; sourceTree = "<group>"; };
-		4B67615420DCEBFF001F0986 /* ARSLineProgressConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressConstants.swift; sourceTree = "<group>"; };
-		4B67615520DCEBFF001F0986 /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgress.swift; sourceTree = "<group>"; };
-		4B67615620DCEBFF001F0986 /* ARSLineProgressExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressExtensions.swift; sourceTree = "<group>"; };
-		4B67615720DCEBFF001F0986 /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressCustomization.swift; sourceTree = "<group>"; };
-		4B67615820DCEBFF001F0986 /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSStatus.swift; sourceTree = "<group>"; };
-		4B67615920DCEBFF001F0986 /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSProgressLoader.swift; sourceTree = "<group>"; };
-		4B67615A20DCEBFF001F0986 /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressProtocols.swift; sourceTree = "<group>"; };
-		4B67615B20DCEBFF001F0986 /* AvalonUIButtonLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonUIButtonLight.swift; sourceTree = "<group>"; };
-		4B67615D20DCEBFF001F0986 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingNavigationBarManager.swift; sourceTree = "<group>"; };
-		4B67615E20DCEBFF001F0986 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingViewController.swift; sourceTree = "<group>"; };
-		4B67615F20DCEBFF001F0986 /* AvalonPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonPalette.swift; sourceTree = "<group>"; };
-		4B67616020DCEBFF001F0986 /* AvalonUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonUITextField.swift; sourceTree = "<group>"; };
-		4B67616120DCEBFF001F0986 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
-		4B67616420DCEBFF001F0986 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4B67616520DCEBFF001F0986 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B78B8631F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenteredCollectionViewFlowLayout.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/CenteredCollectionViewFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
 		4B78B8641F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMaterialsCollectionViewCell.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/AboutMaterialsCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4B78B8651F1290D7000689B3 /* AboutMaterialsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMaterialsViewController.swift; path = "Avalon-print/InfoAboutMaterialViewControllers/AboutMaterialsViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -203,6 +173,37 @@
 		4B9E30D71F1E92E000FF03C1 /* typingIndicator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = typingIndicator.gif; path = "Avalon-print/Messenger/Media/typingIndicator.gif"; sourceTree = SOURCE_ROOT; };
 		4B9E30D91F1E9B1500FF03C1 /* ResetPasswordContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordContainerView.swift; path = "Avalon-print/ResetPasswordContainerView.swift"; sourceTree = SOURCE_ROOT; };
 		4B9E30DA1F1E9B1500FF03C1 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = "Avalon-print/ResetPasswordViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4BA54F3C20FA77F7007CCD80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Avalon-print/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4BA54F3F20FA787B007CCD80 /* AvalonUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonUIButton.swift; sourceTree = "<group>"; };
+		4BA54F4020FA787B007CCD80 /* PictureZoomHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureZoomHandling.swift; sourceTree = "<group>"; };
+		4BA54F4220FA787B007CCD80 /* ENMBadgedBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENMBadgedBarButtonItem.swift; sourceTree = "<group>"; };
+		4BA54F4320FA787B007CCD80 /* ENMBadgedBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENMBadgedBarButton.h; sourceTree = "<group>"; };
+		4BA54F4420FA787B007CCD80 /* HelpingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpingFunctions.swift; sourceTree = "<group>"; };
+		4BA54F4620FA787B007CCD80 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4BA54F4720FA787B007CCD80 /* DeckDismissingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDismissingAnimationController.swift; sourceTree = "<group>"; };
+		4BA54F4820FA787B007CCD80 /* DeckPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckPresentationController.swift; sourceTree = "<group>"; };
+		4BA54F4920FA787B007CCD80 /* DeckSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckSegue.swift; sourceTree = "<group>"; };
+		4BA54F4A20FA787B007CCD80 /* DeckTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTransitioningDelegate.swift; sourceTree = "<group>"; };
+		4BA54F4B20FA787B007CCD80 /* DeckPresentingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckPresentingAnimationController.swift; sourceTree = "<group>"; };
+		4BA54F4D20FA787B007CCD80 /* InitialImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialImageView.swift; sourceTree = "<group>"; };
+		4BA54F4F20FA787B007CCD80 /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressHelpers.swift; sourceTree = "<group>"; };
+		4BA54F5020FA787B007CCD80 /* ARSLineProgressTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressTypeAliases.swift; sourceTree = "<group>"; };
+		4BA54F5120FA787B007CCD80 /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSInfiniteLoader.swift; sourceTree = "<group>"; };
+		4BA54F5220FA787B007CCD80 /* ARSLineProgressConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressConstants.swift; sourceTree = "<group>"; };
+		4BA54F5320FA787B007CCD80 /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgress.swift; sourceTree = "<group>"; };
+		4BA54F5420FA787B007CCD80 /* ARSLineProgressExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressExtensions.swift; sourceTree = "<group>"; };
+		4BA54F5620FA787B007CCD80 /* HidingNavigationBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingNavigationBarManager.swift; sourceTree = "<group>"; };
+		4BA54F5720FA787B007CCD80 /* HidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingViewController.swift; sourceTree = "<group>"; };
+		4BA54F5820FA787B007CCD80 /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressCustomization.swift; sourceTree = "<group>"; };
+		4BA54F5920FA787B007CCD80 /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSStatus.swift; sourceTree = "<group>"; };
+		4BA54F5A20FA787B007CCD80 /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSProgressLoader.swift; sourceTree = "<group>"; };
+		4BA54F5B20FA787B007CCD80 /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressProtocols.swift; sourceTree = "<group>"; };
+		4BA54F5C20FA787B007CCD80 /* AvalonUIButtonLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonUIButtonLight.swift; sourceTree = "<group>"; };
+		4BA54F5D20FA787B007CCD80 /* AvalonPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonPalette.swift; sourceTree = "<group>"; };
+		4BA54F5E20FA787B007CCD80 /* AvalonUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvalonUITextField.swift; sourceTree = "<group>"; };
+		4BA54F5F20FA787B007CCD80 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		4BA54F6220FA787B007CCD80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4BA54F6320FA787B007CCD80 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4BB129CE1EA21B1900E44037 /* PriceCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriceCalculation.swift; path = "Avalon-print/PriceCalculation.swift"; sourceTree = SOURCE_ROOT; };
 		4BB66EEA1E3793AF006D9447 /* HomeViewControllerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewControllerCell.swift; path = "Avalon-print/HomeViewControllerCell.swift"; sourceTree = SOURCE_ROOT; };
 		4BBBABC61F28B2B8003CFFCC /* HomepageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageMenu.swift; path = "Avalon-print/HomepageMenu.swift"; sourceTree = SOURCE_ROOT; };
@@ -218,7 +219,6 @@
 		4BCC4E791EFD601B00085A9A /* BannersPostprintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannersPostprintView.swift; path = "Avalon-print/BannersPostprintView.swift"; sourceTree = SOURCE_ROOT; };
 		4BCC4E7C1EFD9B9F00085A9A /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsTableViewController.swift; path = "Avalon-print/ContactsTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BCC4E7E1EFDA4DC00085A9A /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsTableViewCell.swift; path = "Avalon-print/ContactsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CustomSlideMenu/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4BDBFD201EFE6D6400010AEA /* InformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationTableViewController.swift; path = "Avalon-print/InformationTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BDBFD221EFE762700010AEA /* DetailInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailInformationViewController.swift; path = "Avalon-print/DetailInformationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		4BDC37491F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingCartDetailLayoutTableViewCell.swift; path = "Avalon-print/ShoppingCartDetailLayoutTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -375,7 +375,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		4B5FCE831DF0DB350080B034 /* pages */ = {
+		4B5FCE831DF0DB350080B034 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				4B78B8621F1290AA000689B3 /* AboutMaterialsVIewControllers */,
@@ -389,91 +389,7 @@
 				4BFFD84E1E3E385100710282 /* ShoppingCartViewControllers */,
 				4BF3D43A1EF6E1310061D337 /* CheckoutFormViewControllers */,
 			);
-			name = pages;
-			sourceTree = "<group>";
-		};
-		4B67614020DCEBFF001F0986 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				4B67614320DCEBFF001F0986 /* BagedBarButton */,
-				4B67614720DCEBFF001F0986 /* deckTransition */,
-				4B67614E20DCEBFF001F0986 /* InitialImageView */,
-				4B67615020DCEBFF001F0986 /* progressLoader */,
-				4B67616220DCEBFF001F0986 /* Localization */,
-				4B67614120DCEBFF001F0986 /* AvalonUIButton.swift */,
-				4B67614220DCEBFF001F0986 /* PictureZoomHandling.swift */,
-				4B67614620DCEBFF001F0986 /* HelpingFunctions.swift */,
-				4B67615B20DCEBFF001F0986 /* AvalonUIButtonLight.swift */,
-				4B67615F20DCEBFF001F0986 /* AvalonPalette.swift */,
-				4B67616020DCEBFF001F0986 /* AvalonUITextField.swift */,
-				4B67616120DCEBFF001F0986 /* MainNavigationController.swift */,
-			);
-			path = Support;
-			sourceTree = SOURCE_ROOT;
-		};
-		4B67614320DCEBFF001F0986 /* BagedBarButton */ = {
-			isa = PBXGroup;
-			children = (
-				4B67614420DCEBFF001F0986 /* ENMBadgedBarButtonItem.swift */,
-				4B67614520DCEBFF001F0986 /* ENMBadgedBarButton.h */,
-			);
-			path = BagedBarButton;
-			sourceTree = "<group>";
-		};
-		4B67614720DCEBFF001F0986 /* deckTransition */ = {
-			isa = PBXGroup;
-			children = (
-				4B67614820DCEBFF001F0986 /* Utilities.swift */,
-				4B67614920DCEBFF001F0986 /* DeckDismissingAnimationController.swift */,
-				4B67614A20DCEBFF001F0986 /* DeckPresentationController.swift */,
-				4B67614B20DCEBFF001F0986 /* DeckSegue.swift */,
-				4B67614C20DCEBFF001F0986 /* DeckTransitioningDelegate.swift */,
-				4B67614D20DCEBFF001F0986 /* DeckPresentingAnimationController.swift */,
-			);
-			path = deckTransition;
-			sourceTree = "<group>";
-		};
-		4B67614E20DCEBFF001F0986 /* InitialImageView */ = {
-			isa = PBXGroup;
-			children = (
-				4B67614F20DCEBFF001F0986 /* InitialImageView.swift */,
-			);
-			path = InitialImageView;
-			sourceTree = "<group>";
-		};
-		4B67615020DCEBFF001F0986 /* progressLoader */ = {
-			isa = PBXGroup;
-			children = (
-				4B67615C20DCEBFF001F0986 /* HidingNavigationBar */,
-				4B67615120DCEBFF001F0986 /* ARSLineProgressHelpers.swift */,
-				4B67615220DCEBFF001F0986 /* ARSLineProgressTypeAliases.swift */,
-				4B67615320DCEBFF001F0986 /* ARSInfiniteLoader.swift */,
-				4B67615420DCEBFF001F0986 /* ARSLineProgressConstants.swift */,
-				4B67615520DCEBFF001F0986 /* ARSLineProgress.swift */,
-				4B67615620DCEBFF001F0986 /* ARSLineProgressExtensions.swift */,
-				4B67615720DCEBFF001F0986 /* ARSLineProgressCustomization.swift */,
-				4B67615820DCEBFF001F0986 /* ARSStatus.swift */,
-				4B67615920DCEBFF001F0986 /* ARSProgressLoader.swift */,
-				4B67615A20DCEBFF001F0986 /* ARSLineProgressProtocols.swift */,
-			);
-			path = progressLoader;
-			sourceTree = "<group>";
-		};
-		4B67615C20DCEBFF001F0986 /* HidingNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				4B67615D20DCEBFF001F0986 /* HidingNavigationBarManager.swift */,
-				4B67615E20DCEBFF001F0986 /* HidingViewController.swift */,
-			);
-			path = HidingNavigationBar;
-			sourceTree = "<group>";
-		};
-		4B67616220DCEBFF001F0986 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				4B67616320DCEBFF001F0986 /* Localizable.strings */,
-			);
-			path = Localization;
+			name = Pages;
 			sourceTree = "<group>";
 		};
 		4B78B8621F1290AA000689B3 /* AboutMaterialsVIewControllers */ = {
@@ -538,6 +454,91 @@
 				4B9E30D71F1E92E000FF03C1 /* typingIndicator.gif */,
 			);
 			name = Media;
+			sourceTree = "<group>";
+		};
+		4BA54F3E20FA787B007CCD80 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F3F20FA787B007CCD80 /* AvalonUIButton.swift */,
+				4BA54F4020FA787B007CCD80 /* PictureZoomHandling.swift */,
+				4BA54F4120FA787B007CCD80 /* BagedBarButton */,
+				4BA54F4420FA787B007CCD80 /* HelpingFunctions.swift */,
+				4BA54F4520FA787B007CCD80 /* deckTransition */,
+				4BA54F4C20FA787B007CCD80 /* InitialImageView */,
+				4BA54F4E20FA787B007CCD80 /* progressLoader */,
+				4BA54F5C20FA787B007CCD80 /* AvalonUIButtonLight.swift */,
+				4BA54F5D20FA787B007CCD80 /* AvalonPalette.swift */,
+				4BA54F5E20FA787B007CCD80 /* AvalonUITextField.swift */,
+				4BA54F5F20FA787B007CCD80 /* MainNavigationController.swift */,
+				4BA54F6020FA787B007CCD80 /* Localization */,
+			);
+			name = Support;
+			path = "Avalon-print/Support";
+			sourceTree = SOURCE_ROOT;
+		};
+		4BA54F4120FA787B007CCD80 /* BagedBarButton */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F4220FA787B007CCD80 /* ENMBadgedBarButtonItem.swift */,
+				4BA54F4320FA787B007CCD80 /* ENMBadgedBarButton.h */,
+			);
+			path = BagedBarButton;
+			sourceTree = "<group>";
+		};
+		4BA54F4520FA787B007CCD80 /* deckTransition */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F4620FA787B007CCD80 /* Utilities.swift */,
+				4BA54F4720FA787B007CCD80 /* DeckDismissingAnimationController.swift */,
+				4BA54F4820FA787B007CCD80 /* DeckPresentationController.swift */,
+				4BA54F4920FA787B007CCD80 /* DeckSegue.swift */,
+				4BA54F4A20FA787B007CCD80 /* DeckTransitioningDelegate.swift */,
+				4BA54F4B20FA787B007CCD80 /* DeckPresentingAnimationController.swift */,
+			);
+			path = deckTransition;
+			sourceTree = "<group>";
+		};
+		4BA54F4C20FA787B007CCD80 /* InitialImageView */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F4D20FA787B007CCD80 /* InitialImageView.swift */,
+			);
+			path = InitialImageView;
+			sourceTree = "<group>";
+		};
+		4BA54F4E20FA787B007CCD80 /* progressLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F4F20FA787B007CCD80 /* ARSLineProgressHelpers.swift */,
+				4BA54F5020FA787B007CCD80 /* ARSLineProgressTypeAliases.swift */,
+				4BA54F5120FA787B007CCD80 /* ARSInfiniteLoader.swift */,
+				4BA54F5220FA787B007CCD80 /* ARSLineProgressConstants.swift */,
+				4BA54F5320FA787B007CCD80 /* ARSLineProgress.swift */,
+				4BA54F5420FA787B007CCD80 /* ARSLineProgressExtensions.swift */,
+				4BA54F5520FA787B007CCD80 /* HidingNavigationBar */,
+				4BA54F5820FA787B007CCD80 /* ARSLineProgressCustomization.swift */,
+				4BA54F5920FA787B007CCD80 /* ARSStatus.swift */,
+				4BA54F5A20FA787B007CCD80 /* ARSProgressLoader.swift */,
+				4BA54F5B20FA787B007CCD80 /* ARSLineProgressProtocols.swift */,
+			);
+			path = progressLoader;
+			sourceTree = "<group>";
+		};
+		4BA54F5520FA787B007CCD80 /* HidingNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F5620FA787B007CCD80 /* HidingNavigationBarManager.swift */,
+				4BA54F5720FA787B007CCD80 /* HidingViewController.swift */,
+			);
+			path = HidingNavigationBar;
+			sourceTree = "<group>";
+		};
+		4BA54F6020FA787B007CCD80 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4BA54F6120FA787B007CCD80 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		4BB42CB01E37E014008CA109 /* ContactsViewControllers */ = {
@@ -704,7 +705,6 @@
 			isa = PBXGroup;
 			children = (
 				B5EA1A261B7B383300E1C1C3 /* Avalon-print */,
-				4B67614020DCEBFF001F0986 /* Support */,
 				4B016728207A8B0B0099C252 /* CoreData */,
 				B5EA1A251B7B383300E1C1C3 /* Products */,
 				2E2B9315D2A9134FFCED2CEF /* Frameworks */,
@@ -723,9 +723,10 @@
 		B5EA1A261B7B383300E1C1C3 /* Avalon-print */ = {
 			isa = PBXGroup;
 			children = (
-				4B5FCE831DF0DB350080B034 /* pages */,
+				4B5FCE831DF0DB350080B034 /* Pages */,
+				4BA54F3E20FA787B007CCD80 /* Support */,
 				4B3F81B71E22702300034E3E /* AppDelegate.swift */,
-				4BD8DB9E1E3BB0450080EEAB /* GoogleService-Info.plist */,
+				4BA54F3C20FA77F7007CCD80 /* GoogleService-Info.plist */,
 				4B67613E20DCE799001F0986 /* Launch Screen.storyboard */,
 				4B3F81BA1E22702300034E3E /* Assets.xcassets */,
 			);
@@ -816,11 +817,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B67613F20DCE799001F0986 /* Launch Screen.storyboard in Resources */,
-				4B67618120DCEBFF001F0986 /* Localizable.strings in Resources */,
 				4B94661E1F12415100B595A1 /* HomeViewControllerCell.xib in Resources */,
-				4BD8DB9F1E3BB0450080EEAB /* GoogleService-Info.plist in Resources */,
+				4BA54F7F20FA787B007CCD80 /* Localizable.strings in Resources */,
 				4B3F81BE1E22702300034E3E /* Assets.xcassets in Resources */,
 				4B9E30D81F1E92E000FF03C1 /* typingIndicator.gif in Resources */,
+				4BA54F3D20FA77F8007CCD80 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,9 +853,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA54F7220FA787B007CCD80 /* ARSLineProgressConstants.swift in Sources */,
+				4BA54F7320FA787B007CCD80 /* ARSLineProgress.swift in Sources */,
 				4B47F1901F0936D100172176 /* OrdersTableViewCell.swift in Sources */,
 				4B9E30CD1F1E316A00FF03C1 /* TypingIndicatorCell.swift in Sources */,
-				4B67617B20DCEBFF001F0986 /* AvalonUIButtonLight.swift in Sources */,
 				4B9E30DC1F1E9B1500FF03C1 /* ResetPasswordViewController.swift in Sources */,
 				4B3F81BB1E22702300034E3E /* AppDelegate.swift in Sources */,
 				4BE3DBA81EFAC37600DADA39 /* HomeViewController.swift in Sources */,
@@ -862,105 +864,104 @@
 				4BF0C5131F0C0FFD001C3EA1 /* StorageTableViewController.swift in Sources */,
 				4BDBFD231EFE762700010AEA /* DetailInformationViewController.swift in Sources */,
 				4BBDDE7F1EF51BEB000CF3BE /* ShoppingCartTableViewCell.swift in Sources */,
-				4B67617A20DCEBFF001F0986 /* ARSLineProgressProtocols.swift in Sources */,
 				4B3F81B31E226FC300034E3E /* MapViewController.swift in Sources */,
 				4BE3DBB21EFAD33300DADA39 /* PriceAndAddToCartView.swift in Sources */,
 				4BE3DBAB1EFAC53400DADA39 /* public.swift in Sources */,
 				4B47F17F1F08FF4400172176 /* UserProfileHeaderView.swift in Sources */,
-				4B67617120DCEBFF001F0986 /* ARSLineProgressHelpers.swift in Sources */,
 				4BDC374E1F012AFC009F6E47 /* ShoppingCartDetailTextTableViewCell.swift in Sources */,
+				4BA54F6C20FA787B007CCD80 /* DeckTransitioningDelegate.swift in Sources */,
+				4BA54F7E20FA787B007CCD80 /* MainNavigationController.swift in Sources */,
 				4B4BE6CF1F1B655E0054C441 /* BaseMessageCell.swift in Sources */,
-				4B67617720DCEBFF001F0986 /* ARSLineProgressCustomization.swift in Sources */,
-				4B67617220DCEBFF001F0986 /* ARSLineProgressTypeAliases.swift in Sources */,
+				4BA54F6D20FA787B007CCD80 /* DeckPresentingAnimationController.swift in Sources */,
+				4BA54F7120FA787B007CCD80 /* ARSInfiniteLoader.swift in Sources */,
 				4BF0AAAE1F0AB74900140C55 /* WorksDetailTextTableViewCell.swift in Sources */,
 				4BBBABC71F28B2B8003CFFCC /* HomepageMenu.swift in Sources */,
 				4B48FB1E1F0650A600A0E353 /* PasswordResetViewController.swift in Sources */,
+				4BA54F7920FA787B007CCD80 /* ARSProgressLoader.swift in Sources */,
+				4BA54F6F20FA787B007CCD80 /* ARSLineProgressHelpers.swift in Sources */,
+				4BA54F7620FA787B007CCD80 /* HidingViewController.swift in Sources */,
+				4BA54F6420FA787B007CCD80 /* AvalonUIButton.swift in Sources */,
 				4BBE51991EB2924C00A1F79E /* AutoSizingCollectionViewFlowLayout.swift in Sources */,
 				4BB66EEC1E3793AF006D9447 /* HomeViewControllerCell.swift in Sources */,
-				4B67616F20DCEBFF001F0986 /* DeckPresentingAnimationController.swift in Sources */,
-				4B67617820DCEBFF001F0986 /* ARSStatus.swift in Sources */,
-				4B67616920DCEBFF001F0986 /* HelpingFunctions.swift in Sources */,
 				4B47F1831F09092700172176 /* UserProfileTableViewCell.swift in Sources */,
 				4BF0AAB61F0AC2D900140C55 /* OrdersDetailContainerView.swift in Sources */,
-				4B67617920DCEBFF001F0986 /* ARSProgressLoader.swift in Sources */,
 				4B78B8671F1290D7000689B3 /* AboutMaterialsCollectionViewCell.swift in Sources */,
 				4BBDDE7D1EF51BAE000CF3BE /* ShoppingCartVC.swift in Sources */,
-				4B67616B20DCEBFF001F0986 /* DeckDismissingAnimationController.swift in Sources */,
-				4B67617C20DCEBFF001F0986 /* HidingNavigationBarManager.swift in Sources */,
+				4BA54F7C20FA787B007CCD80 /* AvalonPalette.swift in Sources */,
 				4B48FB161F06446900A0E353 /* LoginViewController.swift in Sources */,
 				4BFD11D81E841FA50026E152 /* ChatInputContainerView.swift in Sources */,
 				4BE3DBB01EFAD31300DADA39 /* LayoutSelectionView.swift in Sources */,
 				4BB129CF1EA21B1900E44037 /* PriceCalculation.swift in Sources */,
 				4BFD11D31E841F910026E152 /* MessagesController.swift in Sources */,
 				4BFD11D01E841F910026E152 /* ChatLogController.swift in Sources */,
-				4B67617020DCEBFF001F0986 /* InitialImageView.swift in Sources */,
-				4B67617320DCEBFF001F0986 /* ARSInfiniteLoader.swift in Sources */,
 				4B78B8681F1290D7000689B3 /* AboutMaterialsViewController.swift in Sources */,
 				4B01672B207A8B0B0099C252 /* Bucket.xcdatamodeld in Sources */,
 				4BDC37511F012B73009F6E47 /* ShoppingCartDetailTableViewController.swift in Sources */,
+				4BA54F6720FA787B007CCD80 /* HelpingFunctions.swift in Sources */,
 				4BBDDE831EF52975000CF3BE /* ShoppingCellContainerView.swift in Sources */,
 				4BF0AAAC1F0AB67100140C55 /* WorksDetailTableViewController.swift in Sources */,
 				4BCC4E741EFD37A000085A9A /* StickersViewController.swift in Sources */,
 				4BFD11C61E841F520026E152 /* Message.swift in Sources */,
+				4BA54F7720FA787B007CCD80 /* ARSLineProgressCustomization.swift in Sources */,
 				4B4BE6D11F1B66550054C441 /* TextMessageCell.swift in Sources */,
+				4BA54F6A20FA787B007CCD80 /* DeckPresentationController.swift in Sources */,
 				4BF0AAB01F0AB76200140C55 /* WorksDetailImageTableViewCell.swift in Sources */,
 				4BDC374A1F012835009F6E47 /* ShoppingCartDetailLayoutTableViewCell.swift in Sources */,
 				4BFD11C71E841F520026E152 /* User.swift in Sources */,
 				4BBDDE811EF51CB4000CF3BE /* CheckoutButtonView.swift in Sources */,
-				4B67616C20DCEBFF001F0986 /* DeckPresentationController.swift in Sources */,
 				4BFD11D41E841F910026E152 /* NewMessageController.swift in Sources */,
 				4BFD11CA1E841F6F0026E152 /* Extensions.swift in Sources */,
 				4B48FB181F0644B200A0E353 /* LoginContainerView.swift in Sources */,
-				4B67617620DCEBFF001F0986 /* ARSLineProgressExtensions.swift in Sources */,
 				4B47F18E1F0936C000172176 /* OrdersHeaderVIew.swift in Sources */,
 				4B17D3271E33F97C0070DE27 /* ExpandingMaterialTableViewController.swift in Sources */,
 				4BE3DBAE1EFAD2FE00DADA39 /* PostersStickersCanvasTopBlockView.swift in Sources */,
-				4B67617D20DCEBFF001F0986 /* HidingViewController.swift in Sources */,
+				4BA54F7520FA787B007CCD80 /* HidingNavigationBarManager.swift in Sources */,
+				4BA54F7020FA787B007CCD80 /* ARSLineProgressTypeAliases.swift in Sources */,
 				4BCC4E7D1EFD9B9F00085A9A /* ContactsTableViewController.swift in Sources */,
 				4B0055291EF67804002EAE4E /* CheckoutVCContainer.swift in Sources */,
-				4B67617520DCEBFF001F0986 /* ARSLineProgress.swift in Sources */,
-				4B67616E20DCEBFF001F0986 /* DeckTransitioningDelegate.swift in Sources */,
-				4B67616620DCEBFF001F0986 /* AvalonUIButton.swift in Sources */,
+				4BA54F6820FA787B007CCD80 /* Utilities.swift in Sources */,
 				4BCC4E781EFD507700085A9A /* BannersViewController.swift in Sources */,
-				4B67617F20DCEBFF001F0986 /* AvalonUITextField.swift in Sources */,
+				4BA54F6E20FA787B007CCD80 /* InitialImageView.swift in Sources */,
 				4B7E59021F0E1A13003945D5 /* EditProfileContainerView.swift in Sources */,
+				4BA54F7420FA787B007CCD80 /* ARSLineProgressExtensions.swift in Sources */,
+				4BA54F6620FA787B007CCD80 /* ENMBadgedBarButtonItem.swift in Sources */,
 				4B47F18C1F0936AA00172176 /* OrdersViewController.swift in Sources */,
 				4BF3D4391EF6DE6D0061D337 /* CheckoutVCOrderSender.swift in Sources */,
-				4B67618020DCEBFF001F0986 /* MainNavigationController.swift in Sources */,
 				4B48FB201F0650BF00A0E353 /* PasswordResetContainerView.swift in Sources */,
 				4BE3DBB41EFAD37200DADA39 /* PostersViewController.swift in Sources */,
-				4B67616D20DCEBFF001F0986 /* DeckSegue.swift in Sources */,
 				4BFD11DA1E841FA50026E152 /* UserCell.swift in Sources */,
 				4B4BE6CD1F1B64BD0054C441 /* PhotoMessageCell.swift in Sources */,
-				4B67616720DCEBFF001F0986 /* PictureZoomHandling.swift in Sources */,
+				4BA54F7B20FA787B007CCD80 /* AvalonUIButtonLight.swift in Sources */,
+				4BA54F6520FA787B007CCD80 /* PictureZoomHandling.swift in Sources */,
 				4B47F17C1F08FEF600172176 /* UserProfileViewController.swift in Sources */,
+				4BA54F6920FA787B007CCD80 /* DeckDismissingAnimationController.swift in Sources */,
+				4BA54F7A20FA787B007CCD80 /* ARSLineProgressProtocols.swift in Sources */,
 				4B78B8661F1290D7000689B3 /* CenteredCollectionViewFlowLayout.swift in Sources */,
-				4B67616820DCEBFF001F0986 /* ENMBadgedBarButtonItem.swift in Sources */,
 				4BCC4E761EFD438000085A9A /* CanvasViewController.swift in Sources */,
 				4BDBFD211EFE6D6400010AEA /* InformationTableViewController.swift in Sources */,
 				4BBDBE6D1E9ACB5F0006407E /* FetchingMaterialsAndPostPrintFromFIrebase.swift in Sources */,
+				4BA54F7820FA787B007CCD80 /* ARSStatus.swift in Sources */,
 				4B48FB1A1F06504700A0E353 /* RegistrationViewController.swift in Sources */,
 				4BCC4E7A1EFD601B00085A9A /* BannersPostprintView.swift in Sources */,
 				4B7E59001F0E19C5003945D5 /* EditProfileViewController.swift in Sources */,
-				4B67616A20DCEBFF001F0986 /* Utilities.swift in Sources */,
+				4BA54F7D20FA787B007CCD80 /* AvalonUITextField.swift in Sources */,
 				4BF0AAB41F0AC2C000140C55 /* OrdersDetailTableViewCell.swift in Sources */,
 				4B48FB1C1F06506400A0E353 /* RegistrationContainerView.swift in Sources */,
 				4B47F1941F094D3600172176 /* OrdersDetailViewController.swift in Sources */,
 				4B9E30DB1F1E9B1500FF03C1 /* ResetPasswordContainerView.swift in Sources */,
 				4BCC4E7F1EFDA4DC00085A9A /* ContactsTableViewCell.swift in Sources */,
-				4B67617E20DCEBFF001F0986 /* AvalonPalette.swift in Sources */,
-				4B67617420DCEBFF001F0986 /* ARSLineProgressConstants.swift in Sources */,
+				4BA54F6B20FA787B007CCD80 /* DeckSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4B67616320DCEBFF001F0986 /* Localizable.strings */ = {
+		4BA54F6120FA787B007CCD80 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4B67616420DCEBFF001F0986 /* en */,
-				4B67616520DCEBFF001F0986 /* ru */,
+				4BA54F6220FA787B007CCD80 /* en */,
+				4BA54F6320FA787B007CCD80 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1017,7 +1018,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1069,7 +1070,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1087,7 +1088,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A3WPJ33XN8;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1110,7 +1111,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A3WPJ33XN8;
 				INFOPLIST_FILE = "Avalon-print/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mizin.Avalon-project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
